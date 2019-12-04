@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element abstract="true" name="IfcBoundaryCondition" substitutionGroup="gml:AbstractFeature" type="ifc:IfcBoundaryConditionType"/>
+  <complexType abstract="true" name="IfcBoundaryConditionType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="name" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoundaryConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoundaryCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBoundaryEdgeCondition" substitutionGroup="ifc:IfcBoundaryCondition" type="ifc:IfcBoundaryEdgeConditionType"/>
+  <complexType name="IfcBoundaryEdgeConditionType">
+    <complexContent>
+      <extension base="ifc:IfcBoundaryConditionType">
+        <sequence>
+          <element minOccurs="0" name="translationalStiffnessByLengthX" type="ifc:IfcModulusOfTranslationalSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="translationalStiffnessByLengthY" type="ifc:IfcModulusOfTranslationalSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="translationalStiffnessByLengthZ" type="ifc:IfcModulusOfTranslationalSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="rotationalStiffnessByLengthX" type="ifc:IfcModulusOfRotationalSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="rotationalStiffnessByLengthY" type="ifc:IfcModulusOfRotationalSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="rotationalStiffnessByLengthZ" type="ifc:IfcModulusOfRotationalSubgradeReactionSelectPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoundaryEdgeConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoundaryEdgeCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBoundaryFaceCondition" substitutionGroup="ifc:IfcBoundaryCondition" type="ifc:IfcBoundaryFaceConditionType"/>
+  <complexType name="IfcBoundaryFaceConditionType">
+    <complexContent>
+      <extension base="ifc:IfcBoundaryConditionType">
+        <sequence>
+          <element minOccurs="0" name="translationalStiffnessByAreaX" type="ifc:IfcModulusOfSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="translationalStiffnessByAreaY" type="ifc:IfcModulusOfSubgradeReactionSelectPropertyType"/>
+          <element minOccurs="0" name="translationalStiffnessByAreaZ" type="ifc:IfcModulusOfSubgradeReactionSelectPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoundaryFaceConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoundaryFaceCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBoundaryNodeCondition" substitutionGroup="ifc:IfcBoundaryCondition" type="ifc:IfcBoundaryNodeConditionType"/>
+  <complexType name="IfcBoundaryNodeConditionType">
+    <complexContent>
+      <extension base="ifc:IfcBoundaryConditionType">
+        <sequence>
+          <element minOccurs="0" name="translationalStiffnessX" type="ifc:IfcTranslationalStiffnessSelectPropertyType"/>
+          <element minOccurs="0" name="translationalStiffnessY" type="ifc:IfcTranslationalStiffnessSelectPropertyType"/>
+          <element minOccurs="0" name="translationalStiffnessZ" type="ifc:IfcTranslationalStiffnessSelectPropertyType"/>
+          <element minOccurs="0" name="rotationalStiffnessX" type="ifc:IfcRotationalStiffnessSelectPropertyType"/>
+          <element minOccurs="0" name="rotationalStiffnessY" type="ifc:IfcRotationalStiffnessSelectPropertyType"/>
+          <element minOccurs="0" name="rotationalStiffnessZ" type="ifc:IfcRotationalStiffnessSelectPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoundaryNodeConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoundaryNodeCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBoundaryNodeConditionWarping" substitutionGroup="ifc:IfcBoundaryNodeCondition" type="ifc:IfcBoundaryNodeConditionWarpingType"/>
+  <complexType name="IfcBoundaryNodeConditionWarpingType">
+    <complexContent>
+      <extension base="ifc:IfcBoundaryNodeConditionType">
+        <sequence>
+          <element minOccurs="0" name="warpingStiffness" type="ifc:IfcWarpingStiffnessSelectPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoundaryNodeConditionWarpingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoundaryNodeConditionWarping"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcFailureConnectionCondition" substitutionGroup="ifc:IfcStructuralConnectionCondition" type="ifc:IfcFailureConnectionConditionType"/>
+  <complexType name="IfcFailureConnectionConditionType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralConnectionConditionType">
+        <sequence>
+          <element minOccurs="0" name="tensionFailureX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="tensionFailureY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="tensionFailureZ" type="gml:MeasureType"/>
+          <element minOccurs="0" name="compressionFailureX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="compressionFailureY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="compressionFailureZ" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFailureConnectionConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFailureConnectionCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcModulusOfRotationalSubgradeReactionSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfRotationalSubgradeReactionSelectType"/>
+  <complexType name="IfcModulusOfRotationalSubgradeReactionSelectType">
+    <choice>
+      <element name="boolean" type="boolean"/>
+      <element name="modulusOfRotationalSubgradeReactionMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcModulusOfRotationalSubgradeReactionSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfRotationalSubgradeReactionSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcModulusOfSubgradeReactionSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfSubgradeReactionSelectType"/>
+  <complexType name="IfcModulusOfSubgradeReactionSelectType">
+    <choice>
+      <element name="boolean" type="boolean"/>
+      <element name="modulusOfSubgradeReactionMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcModulusOfSubgradeReactionSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfSubgradeReactionSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcModulusOfTranslationalSubgradeReactionSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfTranslationalSubgradeReactionSelectType"/>
+  <complexType name="IfcModulusOfTranslationalSubgradeReactionSelectType">
+    <choice>
+      <element name="boolean" type="boolean"/>
+      <element name="modulusOfLinearSubgradeReactionMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcModulusOfTranslationalSubgradeReactionSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfTranslationalSubgradeReactionSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRotationalStiffnessSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcRotationalStiffnessSelectType"/>
+  <complexType name="IfcRotationalStiffnessSelectType">
+    <choice>
+      <element name="boolean" type="boolean"/>
+      <element name="rotationalStiffnessMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcRotationalStiffnessSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcRotationalStiffnessSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSlippageConnectionCondition" substitutionGroup="ifc:IfcStructuralConnectionCondition" type="ifc:IfcSlippageConnectionConditionType"/>
+  <complexType name="IfcSlippageConnectionConditionType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralConnectionConditionType">
+        <sequence>
+          <element minOccurs="0" name="slippageX" type="gml:LengthType"/>
+          <element minOccurs="0" name="slippageY" type="gml:LengthType"/>
+          <element minOccurs="0" name="slippageZ" type="gml:LengthType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSlippageConnectionConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSlippageConnectionCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcStructuralConnectionCondition" substitutionGroup="gml:AbstractFeature" type="ifc:IfcStructuralConnectionConditionType"/>
+  <complexType abstract="true" name="IfcStructuralConnectionConditionType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="name" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralConnectionConditionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralConnectionCondition"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcStructuralLoad" substitutionGroup="gml:AbstractFeature" type="ifc:IfcStructuralLoadType"/>
+  <complexType abstract="true" name="IfcStructuralLoadType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="name" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoad"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadConfiguration" substitutionGroup="ifc:IfcStructuralLoad" type="ifc:IfcStructuralLoadConfigurationType"/>
+  <complexType name="IfcStructuralLoadConfigurationType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadType">
+        <sequence>
+          <element maxOccurs="2" minOccurs="0" name="locations" type="gml:LengthType"/>
+          <element maxOccurs="unbounded" name="values" type="ifc:IfcStructuralLoadOrResultPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadConfigurationPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadConfiguration"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadLinearForce" substitutionGroup="ifc:IfcStructuralLoadStatic" type="ifc:IfcStructuralLoadLinearForceType"/>
+  <complexType name="IfcStructuralLoadLinearForceType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadStaticType">
+        <sequence>
+          <element minOccurs="0" name="linearForceX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="linearForceY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="linearForceZ" type="gml:MeasureType"/>
+          <element minOccurs="0" name="linearMomentX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="linearMomentY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="linearMomentZ" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadLinearForcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadLinearForce"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcStructuralLoadOrResult" substitutionGroup="ifc:IfcStructuralLoad" type="ifc:IfcStructuralLoadOrResultType"/>
+  <complexType abstract="true" name="IfcStructuralLoadOrResultType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadOrResultPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadOrResult"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadPlanarForce" substitutionGroup="ifc:IfcStructuralLoadStatic" type="ifc:IfcStructuralLoadPlanarForceType"/>
+  <complexType name="IfcStructuralLoadPlanarForceType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadStaticType">
+        <sequence>
+          <element minOccurs="0" name="planarForceX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="planarForceY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="planarForceZ" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadPlanarForcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadPlanarForce"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadSingleDisplacement" substitutionGroup="ifc:IfcStructuralLoadStatic" type="ifc:IfcStructuralLoadSingleDisplacementType"/>
+  <complexType name="IfcStructuralLoadSingleDisplacementType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadStaticType">
+        <sequence>
+          <element minOccurs="0" name="displacementX" type="gml:LengthType"/>
+          <element minOccurs="0" name="displacementY" type="gml:LengthType"/>
+          <element minOccurs="0" name="displacementZ" type="gml:LengthType"/>
+          <element minOccurs="0" name="rotationalDisplacementRX" type="gml:AngleType"/>
+          <element minOccurs="0" name="rotationalDisplacementRY" type="gml:AngleType"/>
+          <element minOccurs="0" name="rotationalDisplacementRZ" type="gml:AngleType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadSingleDisplacementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadSingleDisplacement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadSingleDisplacementDistortion" substitutionGroup="ifc:IfcStructuralLoadSingleDisplacement" type="ifc:IfcStructuralLoadSingleDisplacementDistortionType"/>
+  <complexType name="IfcStructuralLoadSingleDisplacementDistortionType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadSingleDisplacementType">
+        <sequence>
+          <element minOccurs="0" name="distortion" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadSingleDisplacementDistortionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadSingleDisplacementDistortion"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadSingleForce" substitutionGroup="ifc:IfcStructuralLoadStatic" type="ifc:IfcStructuralLoadSingleForceType"/>
+  <complexType name="IfcStructuralLoadSingleForceType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadStaticType">
+        <sequence>
+          <element minOccurs="0" name="forceX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="forceY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="forceZ" type="gml:MeasureType"/>
+          <element minOccurs="0" name="momentX" type="gml:MeasureType"/>
+          <element minOccurs="0" name="momentY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="momentZ" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadSingleForcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadSingleForce"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadSingleForceWarping" substitutionGroup="ifc:IfcStructuralLoadSingleForce" type="ifc:IfcStructuralLoadSingleForceWarpingType"/>
+  <complexType name="IfcStructuralLoadSingleForceWarpingType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadSingleForceType">
+        <sequence>
+          <element minOccurs="0" name="warpingMoment" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadSingleForceWarpingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadSingleForceWarping"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcStructuralLoadStatic" substitutionGroup="ifc:IfcStructuralLoadOrResult" type="ifc:IfcStructuralLoadStaticType"/>
+  <complexType abstract="true" name="IfcStructuralLoadStaticType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadOrResultType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadStaticPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadStatic"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStructuralLoadTemperature" substitutionGroup="ifc:IfcStructuralLoadStatic" type="ifc:IfcStructuralLoadTemperatureType"/>
+  <complexType name="IfcStructuralLoadTemperatureType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadStaticType">
+        <sequence>
+          <element minOccurs="0" name="deltaTConstant" type="gml:MeasureType"/>
+          <element minOccurs="0" name="deltaTY" type="gml:MeasureType"/>
+          <element minOccurs="0" name="deltaTZ" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStructuralLoadTemperaturePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStructuralLoadTemperature"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcSurfaceReinforcementArea" substitutionGroup="ifc:IfcStructuralLoadOrResult" type="ifc:IfcSurfaceReinforcementAreaType"/>
+  <complexType name="IfcSurfaceReinforcementAreaType">
+    <complexContent>
+      <extension base="ifc:IfcStructuralLoadOrResultType">
+        <sequence>
+          <element maxOccurs="3" minOccurs="0" name="surfaceReinforcement1" type="gml:LengthType"/>
+          <element maxOccurs="3" minOccurs="0" name="surfaceReinforcement2" type="gml:LengthType"/>
+          <element minOccurs="0" name="shearReinforcement" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSurfaceReinforcementAreaPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSurfaceReinforcementArea"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcTranslationalStiffnessSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcTranslationalStiffnessSelectType"/>
+  <complexType name="IfcTranslationalStiffnessSelectType">
+    <choice>
+      <element name="boolean" type="boolean"/>
+      <element name="linearStiffnessMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcTranslationalStiffnessSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcTranslationalStiffnessSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcWarpingStiffnessSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcWarpingStiffnessSelectType"/>
+  <complexType name="IfcWarpingStiffnessSelectType">
+    <choice>
+      <element name="boolean" type="boolean"/>
+      <element name="warpingMomentMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcWarpingStiffnessSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcWarpingStiffnessSelect"/>
+    </sequence>
+  </complexType>
+</schema>

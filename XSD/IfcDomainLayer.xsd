@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcArchitectureDomain.xsd"/>
+  <include schemaLocation="IfcBuildingControlsDomain.xsd"/>
+  <include schemaLocation="IfcConstructionMgmtDomain.xsd"/>
+  <include schemaLocation="IfcCoreLayer.xsd"/>
+  <include schemaLocation="IfcElectricalDomain.xsd"/>
+  <include schemaLocation="IfcHvacDomain.xsd"/>
+  <include schemaLocation="IfcInteroperabilityLayer.xsd"/>
+  <include schemaLocation="IfcPlumbingFireProtectionDomain.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <include schemaLocation="IfcStructuralAnalysisDomain.xsd"/>
+  <include schemaLocation="IfcStructuralElementsDomain.xsd"/>
+  <include schemaLocation="ifc4x3.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+</schema>

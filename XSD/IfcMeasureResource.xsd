@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcDateTimeResource.xsd"/>
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcAbsorbedDoseMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcAbsorbedDoseMeasureType"/>
+  <complexType name="IfcAbsorbedDoseMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcAbsorbedDoseMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcAbsorbedDoseMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcAccelerationMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcAccelerationMeasureType"/>
+  <complexType name="IfcAccelerationMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcAccelerationMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcAccelerationMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcAmountOfSubstanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcAmountOfSubstanceMeasureType"/>
+  <complexType name="IfcAmountOfSubstanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcAmountOfSubstanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcAmountOfSubstanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcAngularVelocityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcAngularVelocityMeasureType"/>
+  <complexType name="IfcAngularVelocityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcAngularVelocityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcAngularVelocityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcAreaDensityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcAreaDensityMeasureType"/>
+  <complexType name="IfcAreaDensityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcAreaDensityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcAreaDensityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcAreaMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcAreaMeasureType"/>
+  <complexType name="IfcAreaMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcAreaMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcAreaMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcBinary" substitutionGroup="gml:AbstractObject" type="ifc:IfcBinaryType"/>
+  <complexType name="IfcBinaryType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcBinaryPropertyType">
+    <sequence>
+      <element ref="ifc:IfcBinary"/>
+    </sequence>
+  </complexType>
+  <element name="IfcBoolean" substitutionGroup="gml:AbstractObject" type="ifc:IfcBooleanType"/>
+  <complexType name="IfcBooleanType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcBooleanPropertyType">
+    <sequence>
+      <element ref="ifc:IfcBoolean"/>
+    </sequence>
+  </complexType>
+  <element name="IfcComplexNumber" substitutionGroup="gml:AbstractObject" type="ifc:IfcComplexNumberType"/>
+  <complexType name="IfcComplexNumberType">
+    <sequence>
+      <element maxOccurs="2" minOccurs="2" name="component" type="double"/>
+    </sequence>
+  </complexType>
+  <complexType name="IfcComplexNumberPropertyType">
+    <sequence>
+      <element ref="ifc:IfcComplexNumber"/>
+    </sequence>
+  </complexType>
+  <element name="IfcCompoundPlaneAngleMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcCompoundPlaneAngleMeasureType"/>
+  <complexType name="IfcCompoundPlaneAngleMeasureType">
+    <sequence>
+      <element maxOccurs="4" minOccurs="3" name="component" type="integer"/>
+    </sequence>
+  </complexType>
+  <complexType name="IfcCompoundPlaneAngleMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcCompoundPlaneAngleMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcContextDependentMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcContextDependentMeasureType"/>
+  <complexType name="IfcContextDependentMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcContextDependentMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcContextDependentMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcContextDependentUnit" substitutionGroup="ifc:IfcNamedUnit" type="ifc:IfcContextDependentUnitType"/>
+  <complexType name="IfcContextDependentUnitType">
+    <complexContent>
+      <extension base="ifc:IfcNamedUnitType">
+        <sequence>
+          <element name="name" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcContextDependentUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcContextDependentUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcConversionBasedUnit" substitutionGroup="ifc:IfcNamedUnit" type="ifc:IfcConversionBasedUnitType"/>
+  <complexType name="IfcConversionBasedUnitType">
+    <complexContent>
+      <extension base="ifc:IfcNamedUnitType">
+        <sequence>
+          <element name="name" type="string"/>
+          <element name="conversionFactor" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConversionBasedUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConversionBasedUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcConversionBasedUnitWithOffset" substitutionGroup="ifc:IfcConversionBasedUnit" type="ifc:IfcConversionBasedUnitWithOffsetType"/>
+  <complexType name="IfcConversionBasedUnitWithOffsetType">
+    <complexContent>
+      <extension base="ifc:IfcConversionBasedUnitType">
+        <sequence>
+          <element name="conversionOffset" type="double"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConversionBasedUnitWithOffsetPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConversionBasedUnitWithOffset"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCountMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcCountMeasureType"/>
+  <complexType name="IfcCountMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcCountMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcCountMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcCurvatureMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcCurvatureMeasureType"/>
+  <complexType name="IfcCurvatureMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcCurvatureMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcCurvatureMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDerivedMeasureValue" substitutionGroup="gml:AbstractObject" type="ifc:IfcDerivedMeasureValueType"/>
+  <complexType name="IfcDerivedMeasureValueType">
+    <choice>
+      <element name="absorbedDoseMeasure" type="gml:MeasureType"/>
+      <element name="accelerationMeasure" type="gml:MeasureType"/>
+      <element name="angularVelocityMeasure" type="gml:SpeedType"/>
+      <element name="areaDensityMeasure" type="gml:MeasureType"/>
+      <element name="compoundPlaneAngleMeasure" type="gml:AngleType"/>
+      <element name="curvatureMeasure" type="gml:MeasureType"/>
+      <element name="doseEquivalentMeasure" type="gml:MeasureType"/>
+      <element name="dynamicViscosityMeasure" type="gml:MeasureType"/>
+      <element name="electricCapacitanceMeasure" type="gml:MeasureType"/>
+      <element name="electricChargeMeasure" type="gml:MeasureType"/>
+      <element name="electricConductanceMeasure" type="gml:MeasureType"/>
+      <element name="electricResistanceMeasure" type="gml:MeasureType"/>
+      <element name="electricVoltageMeasure" type="gml:MeasureType"/>
+      <element name="energyMeasure" type="gml:MeasureType"/>
+      <element name="forceMeasure" type="gml:MeasureType"/>
+      <element name="frequencyMeasure" type="gml:MeasureType"/>
+      <element name="heatFluxDensityMeasure" type="gml:MeasureType"/>
+      <element name="heatingValueMeasure" type="gml:MeasureType"/>
+      <element name="illuminanceMeasure" type="gml:MeasureType"/>
+      <element name="inductanceMeasure" type="gml:MeasureType"/>
+      <element name="integerCountRateMeasure" type="gml:MeasureType"/>
+      <element name="ionConcentrationMeasure" type="gml:MeasureType"/>
+      <element name="isothermalMoistureCapacityMeasure" type="gml:MeasureType"/>
+      <element name="kinematicViscosityMeasure" type="gml:MeasureType"/>
+      <element name="linearForceMeasure" type="gml:MeasureType"/>
+      <element name="linearMomentMeasure" type="gml:MeasureType"/>
+      <element name="linearStiffnessMeasure" type="gml:MeasureType"/>
+      <element name="linearVelocityMeasure" type="gml:SpeedType"/>
+      <element name="luminousFluxMeasure" type="gml:MeasureType"/>
+      <element name="luminousIntensityDistributionMeasure" type="gml:MeasureType"/>
+      <element name="magneticFluxDensityMeasure" type="gml:MeasureType"/>
+      <element name="magneticFluxMeasure" type="gml:MeasureType"/>
+      <element name="massDensityMeasure" type="gml:MeasureType"/>
+      <element name="massFlowRateMeasure" type="gml:MeasureType"/>
+      <element name="massPerLengthMeasure" type="gml:MeasureType"/>
+      <element name="modulusOfElasticityMeasure" type="gml:MeasureType"/>
+      <element name="modulusOfLinearSubgradeReactionMeasure" type="gml:MeasureType"/>
+      <element name="modulusOfRotationalSubgradeReactionMeasure" type="gml:MeasureType"/>
+      <element name="modulusOfSubgradeReactionMeasure" type="gml:MeasureType"/>
+      <element name="moistureDiffusivityMeasure" type="gml:MeasureType"/>
+      <element name="molecularWeightMeasure" type="gml:MeasureType"/>
+      <element name="momentOfInertiaMeasure" type="gml:MeasureType"/>
+      <element name="monetaryMeasure" type="gml:MeasureType"/>
+      <element name="pHMeasure" type="gml:MeasureType"/>
+      <element name="planarForceMeasure" type="gml:MeasureType"/>
+      <element name="powerMeasure" type="gml:MeasureType"/>
+      <element name="pressureMeasure" type="gml:MeasureType"/>
+      <element name="radioActivityMeasure" type="gml:MeasureType"/>
+      <element name="rotationalFrequencyMeasure" type="gml:MeasureType"/>
+      <element name="rotationalMassMeasure" type="gml:MeasureType"/>
+      <element name="rotationalStiffnessMeasure" type="gml:MeasureType"/>
+      <element name="sectionalAreaIntegralMeasure" type="gml:MeasureType"/>
+      <element name="sectionModulusMeasure" type="gml:MeasureType"/>
+      <element name="shearModulusMeasure" type="gml:MeasureType"/>
+      <element name="soundPowerLevelMeasure" type="gml:MeasureType"/>
+      <element name="soundPowerMeasure" type="gml:MeasureType"/>
+      <element name="soundPressureLevelMeasure" type="gml:MeasureType"/>
+      <element name="soundPressureMeasure" type="gml:MeasureType"/>
+      <element name="specificHeatCapacityMeasure" type="gml:MeasureType"/>
+      <element name="temperatureGradientMeasure" type="gml:MeasureType"/>
+      <element name="temperatureRateOfChangeMeasure" type="gml:MeasureType"/>
+      <element name="thermalAdmittanceMeasure" type="gml:MeasureType"/>
+      <element name="thermalConductivityMeasure" type="gml:MeasureType"/>
+      <element name="thermalExpansionCoefficientMeasure" type="gml:MeasureType"/>
+      <element name="thermalResistanceMeasure" type="gml:MeasureType"/>
+      <element name="thermalTransmittanceMeasure" type="gml:MeasureType"/>
+      <element name="torqueMeasure" type="gml:MeasureType"/>
+      <element name="vaporPermeabilityMeasure" type="gml:MeasureType"/>
+      <element name="volumetricFlowRateMeasure" type="gml:MeasureType"/>
+      <element name="warpingConstantMeasure" type="gml:MeasureType"/>
+      <element name="warpingMomentMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcDerivedMeasureValuePropertyType">
+    <sequence>
+      <element ref="ifc:IfcDerivedMeasureValue"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDerivedUnit" substitutionGroup="gml:AbstractFeature" type="ifc:IfcDerivedUnitType"/>
+  <complexType name="IfcDerivedUnitType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="unitType" type="ifc:IfcDerivedUnitEnumType"/>
+          <element minOccurs="0" name="userDefinedType" type="string"/>
+          <element maxOccurs="unbounded" name="elements" type="ifc:IfcDerivedUnitElementPropertyType"/>
+          <element name="dimensions" type="ifc:IfcDimensionalExponentsPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDerivedUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDerivedUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDerivedUnitElement" substitutionGroup="gml:AbstractFeature" type="ifc:IfcDerivedUnitElementType"/>
+  <complexType name="IfcDerivedUnitElementType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="exponent" type="integer"/>
+          <element name="unit" type="ifc:IfcNamedUnitPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDerivedUnitElementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDerivedUnitElement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDerivedUnitEnumType">
+    <restriction base="string">
+      <enumeration value="ACCELERATIONUNIT"/>
+      <enumeration value="ANGULARVELOCITYUNIT"/>
+      <enumeration value="AREADENSITYUNIT"/>
+      <enumeration value="COMPOUNDPLANEANGLEUNIT"/>
+      <enumeration value="CURVATUREUNIT"/>
+      <enumeration value="DYNAMICVISCOSITYUNIT"/>
+      <enumeration value="HEATFLUXDENSITYUNIT"/>
+      <enumeration value="HEATINGVALUEUNIT"/>
+      <enumeration value="INTEGERCOUNTRATEUNIT"/>
+      <enumeration value="IONCONCENTRATIONUNIT"/>
+      <enumeration value="ISOTHERMALMOISTURECAPACITYUNIT"/>
+      <enumeration value="KINEMATICVISCOSITYUNIT"/>
+      <enumeration value="LINEARFORCEUNIT"/>
+      <enumeration value="LINEARMOMENTUNIT"/>
+      <enumeration value="LINEARSTIFFNESSUNIT"/>
+      <enumeration value="LINEARVELOCITYUNIT"/>
+      <enumeration value="LUMINOUSINTENSITYDISTRIBUTIONUNIT"/>
+      <enumeration value="MASSDENSITYUNIT"/>
+      <enumeration value="MASSFLOWRATEUNIT"/>
+      <enumeration value="MASSPERLENGTHUNIT"/>
+      <enumeration value="MODULUSOFELASTICITYUNIT"/>
+      <enumeration value="MODULUSOFLINEARSUBGRADEREACTIONUNIT"/>
+      <enumeration value="MODULUSOFROTATIONALSUBGRADEREACTIONUNIT"/>
+      <enumeration value="MODULUSOFSUBGRADEREACTIONUNIT"/>
+      <enumeration value="MOISTUREDIFFUSIVITYUNIT"/>
+      <enumeration value="MOLECULARWEIGHTUNIT"/>
+      <enumeration value="MOMENTOFINERTIAUNIT"/>
+      <enumeration value="PHUNIT"/>
+      <enumeration value="PLANARFORCEUNIT"/>
+      <enumeration value="ROTATIONALFREQUENCYUNIT"/>
+      <enumeration value="ROTATIONALMASSUNIT"/>
+      <enumeration value="ROTATIONALSTIFFNESSUNIT"/>
+      <enumeration value="SECTIONAREAINTEGRALUNIT"/>
+      <enumeration value="SECTIONMODULUSUNIT"/>
+      <enumeration value="SHEARMODULUSUNIT"/>
+      <enumeration value="SOUNDPOWERLEVELUNIT"/>
+      <enumeration value="SOUNDPOWERUNIT"/>
+      <enumeration value="SOUNDPRESSURELEVELUNIT"/>
+      <enumeration value="SOUNDPRESSUREUNIT"/>
+      <enumeration value="SPECIFICHEATCAPACITYUNIT"/>
+      <enumeration value="TEMPERATUREGRADIENTUNIT"/>
+      <enumeration value="TEMPERATURERATEOFCHANGEUNIT"/>
+      <enumeration value="THERMALADMITTANCEUNIT"/>
+      <enumeration value="THERMALCONDUCTANCEUNIT"/>
+      <enumeration value="THERMALEXPANSIONCOEFFICIENTUNIT"/>
+      <enumeration value="THERMALRESISTANCEUNIT"/>
+      <enumeration value="THERMALTRANSMITTANCEUNIT"/>
+      <enumeration value="TORQUEUNIT"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VAPORPERMEABILITYUNIT"/>
+      <enumeration value="VOLUMETRICFLOWRATEUNIT"/>
+      <enumeration value="WARPINGCONSTANTUNIT"/>
+      <enumeration value="WARPINGMOMENTUNIT"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDescriptiveMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcDescriptiveMeasureType"/>
+  <complexType name="IfcDescriptiveMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDescriptiveMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcDescriptiveMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDimensionalExponents" substitutionGroup="gml:AbstractFeature" type="ifc:IfcDimensionalExponentsType"/>
+  <complexType name="IfcDimensionalExponentsType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="lengthExponent" type="integer"/>
+          <element name="massExponent" type="integer"/>
+          <element name="timeExponent" type="integer"/>
+          <element name="electricCurrentExponent" type="integer"/>
+          <element name="thermodynamicTemperatureExponent" type="integer"/>
+          <element name="amountOfSubstanceExponent" type="integer"/>
+          <element name="luminousIntensityExponent" type="integer"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDimensionalExponentsPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDimensionalExponents"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDoseEquivalentMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcDoseEquivalentMeasureType"/>
+  <complexType name="IfcDoseEquivalentMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDoseEquivalentMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcDoseEquivalentMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDynamicViscosityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcDynamicViscosityMeasureType"/>
+  <complexType name="IfcDynamicViscosityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDynamicViscosityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcDynamicViscosityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcElectricCapacitanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcElectricCapacitanceMeasureType"/>
+  <complexType name="IfcElectricCapacitanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcElectricCapacitanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcElectricCapacitanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcElectricChargeMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcElectricChargeMeasureType"/>
+  <complexType name="IfcElectricChargeMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcElectricChargeMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcElectricChargeMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcElectricConductanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcElectricConductanceMeasureType"/>
+  <complexType name="IfcElectricConductanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcElectricConductanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcElectricConductanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcElectricCurrentMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcElectricCurrentMeasureType"/>
+  <complexType name="IfcElectricCurrentMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcElectricCurrentMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcElectricCurrentMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcElectricResistanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcElectricResistanceMeasureType"/>
+  <complexType name="IfcElectricResistanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcElectricResistanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcElectricResistanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcElectricVoltageMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcElectricVoltageMeasureType"/>
+  <complexType name="IfcElectricVoltageMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcElectricVoltageMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcElectricVoltageMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcEnergyMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcEnergyMeasureType"/>
+  <complexType name="IfcEnergyMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcEnergyMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcEnergyMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcForceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcForceMeasureType"/>
+  <complexType name="IfcForceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcForceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcForceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcFrequencyMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcFrequencyMeasureType"/>
+  <complexType name="IfcFrequencyMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcFrequencyMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcFrequencyMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcHeatFluxDensityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcHeatFluxDensityMeasureType"/>
+  <complexType name="IfcHeatFluxDensityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcHeatFluxDensityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcHeatFluxDensityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcHeatingValueMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcHeatingValueMeasureType"/>
+  <complexType name="IfcHeatingValueMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcHeatingValueMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcHeatingValueMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcIdentifier" substitutionGroup="gml:AbstractObject" type="ifc:IfcIdentifierType"/>
+  <complexType name="IfcIdentifierType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcIdentifierPropertyType">
+    <sequence>
+      <element ref="ifc:IfcIdentifier"/>
+    </sequence>
+  </complexType>
+  <element name="IfcIlluminanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcIlluminanceMeasureType"/>
+  <complexType name="IfcIlluminanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcIlluminanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcIlluminanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcInductanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcInductanceMeasureType"/>
+  <complexType name="IfcInductanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcInductanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcInductanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcInteger" substitutionGroup="gml:AbstractObject" type="ifc:IfcIntegerType"/>
+  <complexType name="IfcIntegerType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcIntegerPropertyType">
+    <sequence>
+      <element ref="ifc:IfcInteger"/>
+    </sequence>
+  </complexType>
+  <element name="IfcIntegerCountRateMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcIntegerCountRateMeasureType"/>
+  <complexType name="IfcIntegerCountRateMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcIntegerCountRateMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcIntegerCountRateMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcIonConcentrationMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcIonConcentrationMeasureType"/>
+  <complexType name="IfcIonConcentrationMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcIonConcentrationMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcIonConcentrationMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcIsothermalMoistureCapacityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcIsothermalMoistureCapacityMeasureType"/>
+  <complexType name="IfcIsothermalMoistureCapacityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcIsothermalMoistureCapacityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcIsothermalMoistureCapacityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcKinematicViscosityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcKinematicViscosityMeasureType"/>
+  <complexType name="IfcKinematicViscosityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcKinematicViscosityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcKinematicViscosityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLabel" substitutionGroup="gml:AbstractObject" type="ifc:IfcLabelType"/>
+  <complexType name="IfcLabelType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLabelPropertyType">
+    <sequence>
+      <element ref="ifc:IfcLabel"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLengthMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLengthMeasureType"/>
+  <complexType name="IfcLengthMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLengthMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLengthMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLinearForceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLinearForceMeasureType"/>
+  <complexType name="IfcLinearForceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLinearForceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLinearForceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLinearMomentMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLinearMomentMeasureType"/>
+  <complexType name="IfcLinearMomentMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLinearMomentMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLinearMomentMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLinearStiffnessMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLinearStiffnessMeasureType"/>
+  <complexType name="IfcLinearStiffnessMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLinearStiffnessMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLinearStiffnessMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLinearVelocityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLinearVelocityMeasureType"/>
+  <complexType name="IfcLinearVelocityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLinearVelocityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLinearVelocityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLogical" substitutionGroup="gml:AbstractObject" type="ifc:IfcLogicalType"/>
+  <complexType name="IfcLogicalType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLogicalPropertyType">
+    <sequence>
+      <element ref="ifc:IfcLogical"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLuminousFluxMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLuminousFluxMeasureType"/>
+  <complexType name="IfcLuminousFluxMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLuminousFluxMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLuminousFluxMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLuminousIntensityDistributionMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLuminousIntensityDistributionMeasureType"/>
+  <complexType name="IfcLuminousIntensityDistributionMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLuminousIntensityDistributionMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLuminousIntensityDistributionMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcLuminousIntensityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcLuminousIntensityMeasureType"/>
+  <complexType name="IfcLuminousIntensityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcLuminousIntensityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcLuminousIntensityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMagneticFluxDensityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMagneticFluxDensityMeasureType"/>
+  <complexType name="IfcMagneticFluxDensityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMagneticFluxDensityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMagneticFluxDensityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMagneticFluxMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMagneticFluxMeasureType"/>
+  <complexType name="IfcMagneticFluxMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMagneticFluxMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMagneticFluxMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMassDensityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMassDensityMeasureType"/>
+  <complexType name="IfcMassDensityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMassDensityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMassDensityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMassFlowRateMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMassFlowRateMeasureType"/>
+  <complexType name="IfcMassFlowRateMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMassFlowRateMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMassFlowRateMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMassMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMassMeasureType"/>
+  <complexType name="IfcMassMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMassMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMassMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMassPerLengthMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMassPerLengthMeasureType"/>
+  <complexType name="IfcMassPerLengthMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMassPerLengthMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMassPerLengthMeasure"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="IfcMeasureResourceFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcMeasureResourceFunctionType"/>
+  <complexType abstract="true" name="IfcMeasureResourceFunctionType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMeasureResourceFunctionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMeasureResourceFunction"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcMeasureResourceFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcMeasureResourceFunctionsType"/>
+  <complexType abstract="true" name="IfcMeasureResourceFunctionsType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMeasureResourceFunctionsPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMeasureResourceFunctions"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMeasureValue" substitutionGroup="gml:AbstractObject" type="ifc:IfcMeasureValueType"/>
+  <complexType name="IfcMeasureValueType">
+    <choice>
+      <element name="amountOfSubstanceMeasure" type="gml:MeasureType"/>
+      <element name="areaMeasure" type="gml:AreaType"/>
+      <element name="complexNumber" type="ifc:IfcComplexNumberPropertyType"/>
+      <element name="contextDependentMeasure" type="gml:MeasureType"/>
+      <element name="countMeasure" type="gml:MeasureType"/>
+      <element name="descriptiveMeasure" type="gml:MeasureType"/>
+      <element name="electricCurrentMeasure" type="gml:MeasureType"/>
+      <element name="lengthMeasure" type="gml:LengthType"/>
+      <element name="luminousIntensityMeasure" type="gml:MeasureType"/>
+      <element name="massMeasure" type="gml:MeasureType"/>
+      <element name="nonNegativeLengthMeasure"/>
+      <element name="normalisedRatioMeasure"/>
+      <element name="numericMeasure" type="gml:MeasureType"/>
+      <element name="parameterValue" type="double"/>
+      <element name="planeAngleMeasure" type="gml:AngleType"/>
+      <element name="positiveLengthMeasure"/>
+      <element name="positivePlaneAngleMeasure"/>
+      <element name="positiveRatioMeasure"/>
+      <element name="ratioMeasure" type="gml:MeasureType"/>
+      <element name="solidAngleMeasure" type="gml:AngleType"/>
+      <element name="thermodynamicTemperatureMeasure" type="gml:MeasureType"/>
+      <element name="timeMeasure" type="gml:MeasureType"/>
+      <element name="volumeMeasure" type="gml:VolumeType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcMeasureValuePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMeasureValue"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMeasureWithUnit" substitutionGroup="gml:AbstractFeature" type="ifc:IfcMeasureWithUnitType"/>
+  <complexType name="IfcMeasureWithUnitType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="valueComponent" type="ifc:IfcValuePropertyType"/>
+          <element name="unitComponent" type="ifc:IfcUnitPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMeasureWithUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMeasureWithUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcModulusOfElasticityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfElasticityMeasureType"/>
+  <complexType name="IfcModulusOfElasticityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcModulusOfElasticityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfElasticityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcModulusOfLinearSubgradeReactionMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfLinearSubgradeReactionMeasureType"/>
+  <complexType name="IfcModulusOfLinearSubgradeReactionMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcModulusOfLinearSubgradeReactionMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfLinearSubgradeReactionMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcModulusOfRotationalSubgradeReactionMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfRotationalSubgradeReactionMeasureType"/>
+  <complexType name="IfcModulusOfRotationalSubgradeReactionMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcModulusOfRotationalSubgradeReactionMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfRotationalSubgradeReactionMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcModulusOfSubgradeReactionMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcModulusOfSubgradeReactionMeasureType"/>
+  <complexType name="IfcModulusOfSubgradeReactionMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcModulusOfSubgradeReactionMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcModulusOfSubgradeReactionMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMoistureDiffusivityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMoistureDiffusivityMeasureType"/>
+  <complexType name="IfcMoistureDiffusivityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMoistureDiffusivityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMoistureDiffusivityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMolecularWeightMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMolecularWeightMeasureType"/>
+  <complexType name="IfcMolecularWeightMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMolecularWeightMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMolecularWeightMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMomentOfInertiaMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMomentOfInertiaMeasureType"/>
+  <complexType name="IfcMomentOfInertiaMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMomentOfInertiaMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMomentOfInertiaMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMonetaryMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcMonetaryMeasureType"/>
+  <complexType name="IfcMonetaryMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMonetaryMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcMonetaryMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcMonetaryUnit" substitutionGroup="gml:AbstractFeature" type="ifc:IfcMonetaryUnitType"/>
+  <complexType name="IfcMonetaryUnitType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="currency" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMonetaryUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMonetaryUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcNamedUnit" substitutionGroup="gml:AbstractFeature" type="ifc:IfcNamedUnitType"/>
+  <complexType abstract="true" name="IfcNamedUnitType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="unitType" type="ifc:IfcUnitEnumType"/>
+          <element name="dimensions" type="ifc:IfcDimensionalExponentsPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcNamedUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcNamedUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcNumericMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcNumericMeasureType"/>
+  <complexType name="IfcNumericMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcNumericMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcNumericMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcPHMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPHMeasureType"/>
+  <complexType name="IfcPHMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcPHMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcPHMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcParameterValue" substitutionGroup="gml:AbstractObject" type="ifc:IfcParameterValueType"/>
+  <complexType name="IfcParameterValueType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcParameterValuePropertyType">
+    <sequence>
+      <element ref="ifc:IfcParameterValue"/>
+    </sequence>
+  </complexType>
+  <element name="IfcPlanarForceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPlanarForceMeasureType"/>
+  <complexType name="IfcPlanarForceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcPlanarForceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcPlanarForceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcPlaneAngleMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPlaneAngleMeasureType"/>
+  <complexType name="IfcPlaneAngleMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcPlaneAngleMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcPlaneAngleMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcPowerMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPowerMeasureType"/>
+  <complexType name="IfcPowerMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcPowerMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcPowerMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcPressureMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPressureMeasureType"/>
+  <complexType name="IfcPressureMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcPressureMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcPressureMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRadioActivityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcRadioActivityMeasureType"/>
+  <complexType name="IfcRadioActivityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcRadioActivityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcRadioActivityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRatioMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcRatioMeasureType"/>
+  <complexType name="IfcRatioMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcRatioMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcRatioMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcReal" substitutionGroup="gml:AbstractObject" type="ifc:IfcRealType"/>
+  <complexType name="IfcRealType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcRealPropertyType">
+    <sequence>
+      <element ref="ifc:IfcReal"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRotationalFrequencyMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcRotationalFrequencyMeasureType"/>
+  <complexType name="IfcRotationalFrequencyMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcRotationalFrequencyMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcRotationalFrequencyMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRotationalMassMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcRotationalMassMeasureType"/>
+  <complexType name="IfcRotationalMassMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcRotationalMassMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcRotationalMassMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRotationalStiffnessMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcRotationalStiffnessMeasureType"/>
+  <complexType name="IfcRotationalStiffnessMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcRotationalStiffnessMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcRotationalStiffnessMeasure"/>
+    </sequence>
+  </complexType>
+  <simpleType name="IfcSIPrefixType">
+    <restriction base="string">
+      <enumeration value="ATTO"/>
+      <enumeration value="CENTI"/>
+      <enumeration value="DECA"/>
+      <enumeration value="DECI"/>
+      <enumeration value="EXA"/>
+      <enumeration value="FEMTO"/>
+      <enumeration value="GIGA"/>
+      <enumeration value="HECTO"/>
+      <enumeration value="KILO"/>
+      <enumeration value="MEGA"/>
+      <enumeration value="MICRO"/>
+      <enumeration value="MILLI"/>
+      <enumeration value="NANO"/>
+      <enumeration value="PETA"/>
+      <enumeration value="PICO"/>
+      <enumeration value="TERA"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcSIUnit" substitutionGroup="ifc:IfcNamedUnit" type="ifc:IfcSIUnitType"/>
+  <complexType name="IfcSIUnitType">
+    <complexContent>
+      <extension base="ifc:IfcNamedUnitType">
+        <sequence>
+          <element minOccurs="0" name="prefix" type="ifc:IfcSIPrefixType"/>
+          <element name="name" type="ifc:IfcSIUnitNameType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSIUnitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSIUnit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcSIUnitNameType">
+    <restriction base="string">
+      <enumeration value="AMPERE"/>
+      <enumeration value="BECQUEREL"/>
+      <enumeration value="CANDELA"/>
+      <enumeration value="COULOMB"/>
+      <enumeration value="CUBIC_METRE"/>
+      <enumeration value="DEGREE_CELSIUS"/>
+      <enumeration value="FARAD"/>
+      <enumeration value="GRAM"/>
+      <enumeration value="GRAY"/>
+      <enumeration value="HENRY"/>
+      <enumeration value="HERTZ"/>
+      <enumeration value="JOULE"/>
+      <enumeration value="KELVIN"/>
+      <enumeration value="LUMEN"/>
+      <enumeration value="LUX"/>
+      <enumeration value="METRE"/>
+      <enumeration value="MOLE"/>
+      <enumeration value="NEWTON"/>
+      <enumeration value="OHM"/>
+      <enumeration value="PASCAL"/>
+      <enumeration value="RADIAN"/>
+      <enumeration value="SECOND"/>
+      <enumeration value="SIEMENS"/>
+      <enumeration value="SIEVERT"/>
+      <enumeration value="SQUARE_METRE"/>
+      <enumeration value="STERADIAN"/>
+      <enumeration value="TESLA"/>
+      <enumeration value="VOLT"/>
+      <enumeration value="WATT"/>
+      <enumeration value="WEBER"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcSectionModulusMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSectionModulusMeasureType"/>
+  <complexType name="IfcSectionModulusMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSectionModulusMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSectionModulusMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSectionalAreaIntegralMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSectionalAreaIntegralMeasureType"/>
+  <complexType name="IfcSectionalAreaIntegralMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSectionalAreaIntegralMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSectionalAreaIntegralMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcShearModulusMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcShearModulusMeasureType"/>
+  <complexType name="IfcShearModulusMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcShearModulusMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcShearModulusMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSimpleValue" substitutionGroup="gml:AbstractObject" type="ifc:IfcSimpleValueType"/>
+  <complexType name="IfcSimpleValueType">
+    <choice>
+      <element name="binary" type="ifc:IfcBinaryPropertyType"/>
+      <element name="boolean" type="boolean"/>
+      <element name="date" type="date"/>
+      <element name="dateTime" type="dateTime"/>
+      <element name="duration" type="duration"/>
+      <element name="identifier" type="string"/>
+      <element name="integer" type="integer"/>
+      <element name="label" type="string"/>
+      <element name="logical" type="ifc:IfcLogicalPropertyType"/>
+      <element name="positiveInteger"/>
+      <element name="real" type="double"/>
+      <element name="text" type="string"/>
+      <element name="time" type="time"/>
+      <element name="timeStamp" type="integer"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcSimpleValuePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSimpleValue"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSolidAngleMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSolidAngleMeasureType"/>
+  <complexType name="IfcSolidAngleMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSolidAngleMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSolidAngleMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSoundPowerLevelMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSoundPowerLevelMeasureType"/>
+  <complexType name="IfcSoundPowerLevelMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSoundPowerLevelMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSoundPowerLevelMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSoundPowerMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSoundPowerMeasureType"/>
+  <complexType name="IfcSoundPowerMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSoundPowerMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSoundPowerMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSoundPressureLevelMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSoundPressureLevelMeasureType"/>
+  <complexType name="IfcSoundPressureLevelMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSoundPressureLevelMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSoundPressureLevelMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSoundPressureMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSoundPressureMeasureType"/>
+  <complexType name="IfcSoundPressureMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSoundPressureMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSoundPressureMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcSpecificHeatCapacityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcSpecificHeatCapacityMeasureType"/>
+  <complexType name="IfcSpecificHeatCapacityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcSpecificHeatCapacityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcSpecificHeatCapacityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcTemperatureGradientMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcTemperatureGradientMeasureType"/>
+  <complexType name="IfcTemperatureGradientMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTemperatureGradientMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcTemperatureGradientMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcTemperatureRateOfChangeMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcTemperatureRateOfChangeMeasureType"/>
+  <complexType name="IfcTemperatureRateOfChangeMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTemperatureRateOfChangeMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcTemperatureRateOfChangeMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcText" substitutionGroup="gml:AbstractObject" type="ifc:IfcTextType"/>
+  <complexType name="IfcTextType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTextPropertyType">
+    <sequence>
+      <element ref="ifc:IfcText"/>
+    </sequence>
+  </complexType>
+  <element name="IfcThermalAdmittanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcThermalAdmittanceMeasureType"/>
+  <complexType name="IfcThermalAdmittanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcThermalAdmittanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcThermalAdmittanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcThermalConductivityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcThermalConductivityMeasureType"/>
+  <complexType name="IfcThermalConductivityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcThermalConductivityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcThermalConductivityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcThermalExpansionCoefficientMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcThermalExpansionCoefficientMeasureType"/>
+  <complexType name="IfcThermalExpansionCoefficientMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcThermalExpansionCoefficientMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcThermalExpansionCoefficientMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcThermalResistanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcThermalResistanceMeasureType"/>
+  <complexType name="IfcThermalResistanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcThermalResistanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcThermalResistanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcThermalTransmittanceMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcThermalTransmittanceMeasureType"/>
+  <complexType name="IfcThermalTransmittanceMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcThermalTransmittanceMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcThermalTransmittanceMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcThermodynamicTemperatureMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcThermodynamicTemperatureMeasureType"/>
+  <complexType name="IfcThermodynamicTemperatureMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcThermodynamicTemperatureMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcThermodynamicTemperatureMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcTimeMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcTimeMeasureType"/>
+  <complexType name="IfcTimeMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTimeMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcTimeMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcTorqueMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcTorqueMeasureType"/>
+  <complexType name="IfcTorqueMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTorqueMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcTorqueMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcUnit" substitutionGroup="gml:AbstractObject" type="ifc:IfcUnitType"/>
+  <complexType name="IfcUnitType">
+    <choice>
+      <element name="derivedUnit">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcDerivedUnit"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="monetaryUnit">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcMonetaryUnit"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="namedUnit">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcNamedUnit"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+    </choice>
+  </complexType>
+  <complexType name="IfcUnitPropertyType">
+    <sequence>
+      <element ref="ifc:IfcUnit"/>
+    </sequence>
+  </complexType>
+  <element name="IfcUnitAssignment" substitutionGroup="gml:AbstractFeature" type="ifc:IfcUnitAssignmentType"/>
+  <complexType name="IfcUnitAssignmentType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element maxOccurs="unbounded" name="units" type="ifc:IfcUnitPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcUnitAssignmentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcUnitAssignment"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcUnitEnumType">
+    <restriction base="string">
+      <enumeration value="ABSORBEDDOSEUNIT"/>
+      <enumeration value="AMOUNTOFSUBSTANCEUNIT"/>
+      <enumeration value="AREAUNIT"/>
+      <enumeration value="DOSEEQUIVALENTUNIT"/>
+      <enumeration value="ELECTRICCAPACITANCEUNIT"/>
+      <enumeration value="ELECTRICCHARGEUNIT"/>
+      <enumeration value="ELECTRICCONDUCTANCEUNIT"/>
+      <enumeration value="ELECTRICCURRENTUNIT"/>
+      <enumeration value="ELECTRICRESISTANCEUNIT"/>
+      <enumeration value="ELECTRICVOLTAGEUNIT"/>
+      <enumeration value="ENERGYUNIT"/>
+      <enumeration value="FORCEUNIT"/>
+      <enumeration value="FREQUENCYUNIT"/>
+      <enumeration value="ILLUMINANCEUNIT"/>
+      <enumeration value="INDUCTANCEUNIT"/>
+      <enumeration value="LENGTHUNIT"/>
+      <enumeration value="LUMINOUSFLUXUNIT"/>
+      <enumeration value="LUMINOUSINTENSITYUNIT"/>
+      <enumeration value="MAGNETICFLUXDENSITYUNIT"/>
+      <enumeration value="MAGNETICFLUXUNIT"/>
+      <enumeration value="MASSUNIT"/>
+      <enumeration value="PLANEANGLEUNIT"/>
+      <enumeration value="POWERUNIT"/>
+      <enumeration value="PRESSUREUNIT"/>
+      <enumeration value="RADIOACTIVITYUNIT"/>
+      <enumeration value="SOLIDANGLEUNIT"/>
+      <enumeration value="THERMODYNAMICTEMPERATUREUNIT"/>
+      <enumeration value="TIMEUNIT"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VOLUMEUNIT"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcValue" substitutionGroup="gml:AbstractObject" type="ifc:IfcValueType"/>
+  <complexType name="IfcValueType">
+    <choice>
+      <element name="derivedMeasureValue" type="ifc:IfcDerivedMeasureValuePropertyType"/>
+      <element name="measureValue" type="ifc:IfcMeasureValuePropertyType"/>
+      <element name="simpleValue" type="ifc:IfcSimpleValuePropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcValuePropertyType">
+    <sequence>
+      <element ref="ifc:IfcValue"/>
+    </sequence>
+  </complexType>
+  <element name="IfcVaporPermeabilityMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcVaporPermeabilityMeasureType"/>
+  <complexType name="IfcVaporPermeabilityMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcVaporPermeabilityMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcVaporPermeabilityMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcVolumeMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcVolumeMeasureType"/>
+  <complexType name="IfcVolumeMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcVolumeMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcVolumeMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcVolumetricFlowRateMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcVolumetricFlowRateMeasureType"/>
+  <complexType name="IfcVolumetricFlowRateMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcVolumetricFlowRateMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcVolumetricFlowRateMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcWarpingConstantMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcWarpingConstantMeasureType"/>
+  <complexType name="IfcWarpingConstantMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcWarpingConstantMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcWarpingConstantMeasure"/>
+    </sequence>
+  </complexType>
+  <element name="IfcWarpingMomentMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcWarpingMomentMeasureType"/>
+  <complexType name="IfcWarpingMomentMeasureType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcWarpingMomentMeasurePropertyType">
+    <sequence>
+      <element ref="ifc:IfcWarpingMomentMeasure"/>
+    </sequence>
+  </complexType>
+</schema>

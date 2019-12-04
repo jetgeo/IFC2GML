@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcDomainLayer.xsd"/>
+  <include schemaLocation="IfcSharedBldgServiceElements.xsd"/>
+  <include schemaLocation="IfcSharedComponentElements.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcAirTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcAirTerminalType"/>
+  <complexType name="IfcAirTerminalType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTerminalType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcAirTerminalTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcAirTerminalPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAirTerminal"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcAirTerminalBox" substitutionGroup="ifc:IfcFlowController" type="ifc:IfcAirTerminalBoxType"/>
+  <complexType name="IfcAirTerminalBoxType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcAirTerminalBoxTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcAirTerminalBoxPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAirTerminalBox"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcAirTerminalBoxType" substitutionGroup="ifc:IfcFlowControllerType" type="ifc:IfcAirTerminalBoxTypeType"/>
+  <complexType name="IfcAirTerminalBoxTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcAirTerminalBoxTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcAirTerminalBoxTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAirTerminalBoxType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcAirTerminalBoxTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CONSTANTFLOW"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VARIABLEFLOWPRESSUREDEPENDANT"/>
+      <enumeration value="VARIABLEFLOWPRESSUREINDEPENDANT"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcAirTerminalType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcAirTerminalTypeType"/>
+  <complexType name="IfcAirTerminalTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTerminalTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcAirTerminalTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcAirTerminalTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAirTerminalType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcAirTerminalTypeEnumType">
+    <restriction base="string">
+      <enumeration value="DIFFUSER"/>
+      <enumeration value="GRILLE"/>
+      <enumeration value="LOUVRE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="REGISTER"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcAirToAirHeatRecovery" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcAirToAirHeatRecoveryType"/>
+  <complexType name="IfcAirToAirHeatRecoveryType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcAirToAirHeatRecoveryTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcAirToAirHeatRecoveryPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAirToAirHeatRecovery"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcAirToAirHeatRecoveryType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcAirToAirHeatRecoveryTypeType"/>
+  <complexType name="IfcAirToAirHeatRecoveryTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcAirToAirHeatRecoveryTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcAirToAirHeatRecoveryTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAirToAirHeatRecoveryType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcAirToAirHeatRecoveryTypeEnumType">
+    <restriction base="string">
+      <enumeration value="FIXEDPLATECOUNTERFLOWEXCHANGER"/>
+      <enumeration value="FIXEDPLATECROSSFLOWEXCHANGER"/>
+      <enumeration value="FIXEDPLATEPARALLELFLOWEXCHANGER"/>
+      <enumeration value="HEATPIPE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="ROTARYWHEEL"/>
+      <enumeration value="RUNAROUNDCOILLOOP"/>
+      <enumeration value="THERMOSIPHONCOILTYPEHEATEXCHANGERS"/>
+      <enumeration value="THERMOSIPHONSEALEDTUBEHEATEXCHANGERS"/>
+      <enumeration value="TWINTOWERENTHALPYRECOVERYLOOPS"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcBoiler" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcBoilerType"/>
+  <complexType name="IfcBoilerType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBoilerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoilerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoiler"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBoilerType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcBoilerTypeType"/>
+  <complexType name="IfcBoilerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcBoilerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoilerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoilerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBoilerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="STEAM"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WATER"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcBurner" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcBurnerType"/>
+  <complexType name="IfcBurnerType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBurnerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBurnerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBurner"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBurnerType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcBurnerTypeType"/>
+  <complexType name="IfcBurnerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcBurnerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBurnerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBurnerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBurnerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcChiller" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcChillerType"/>
+  <complexType name="IfcChillerType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcChillerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcChillerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcChiller"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcChillerType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcChillerTypeType"/>
+  <complexType name="IfcChillerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcChillerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcChillerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcChillerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcChillerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AIRCOOLED"/>
+      <enumeration value="HEATRECOVERY"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WATERCOOLED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCoil" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcCoilType"/>
+  <complexType name="IfcCoilType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCoilTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoilPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCoil"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCoilType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcCoilTypeType"/>
+  <complexType name="IfcCoilTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCoilTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoilTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCoilType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCoilTypeEnumType">
+    <restriction base="string">
+      <enumeration value="DXCOOLINGCOIL"/>
+      <enumeration value="ELECTRICHEATINGCOIL"/>
+      <enumeration value="GASHEATINGCOIL"/>
+      <enumeration value="HYDRONICCOIL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="STEAMHEATINGCOIL"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WATERCOOLINGCOIL"/>
+      <enumeration value="WATERHEATINGCOIL"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCompressor" substitutionGroup="ifc:IfcFlowMovingDevice" type="ifc:IfcCompressorType"/>
+  <complexType name="IfcCompressorType">
+    <complexContent>
+      <extension base="ifc:IfcFlowMovingDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCompressorTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCompressorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCompressor"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCompressorType" substitutionGroup="ifc:IfcFlowMovingDeviceType" type="ifc:IfcCompressorTypeType"/>
+  <complexType name="IfcCompressorTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowMovingDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCompressorTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCompressorTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCompressorType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCompressorTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BOOSTER"/>
+      <enumeration value="DYNAMIC"/>
+      <enumeration value="HERMETIC"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OPENTYPE"/>
+      <enumeration value="RECIPROCATING"/>
+      <enumeration value="ROLLINGPISTON"/>
+      <enumeration value="ROTARY"/>
+      <enumeration value="ROTARYVANE"/>
+      <enumeration value="SCROLL"/>
+      <enumeration value="SEMIHERMETIC"/>
+      <enumeration value="SINGLESCREW"/>
+      <enumeration value="SINGLESTAGE"/>
+      <enumeration value="TROCHOIDAL"/>
+      <enumeration value="TWINSCREW"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WELDEDSHELLHERMETIC"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCondenser" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcCondenserType"/>
+  <complexType name="IfcCondenserType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCondenserTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCondenserPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCondenser"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCondenserType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcCondenserTypeType"/>
+  <complexType name="IfcCondenserTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCondenserTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCondenserTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCondenserType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCondenserTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AIRCOOLED"/>
+      <enumeration value="EVAPORATIVECOOLED"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WATERCOOLED"/>
+      <enumeration value="WATERCOOLEDBRAZEDPLATE"/>
+      <enumeration value="WATERCOOLEDSHELLCOIL"/>
+      <enumeration value="WATERCOOLEDSHELLTUBE"/>
+      <enumeration value="WATERCOOLEDTUBEINTUBE"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCooledBeam" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcCooledBeamType"/>
+  <complexType name="IfcCooledBeamType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCooledBeamTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCooledBeamPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCooledBeam"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCooledBeamType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcCooledBeamTypeType"/>
+  <complexType name="IfcCooledBeamTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCooledBeamTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCooledBeamTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCooledBeamType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCooledBeamTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ACTIVE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PASSIVE"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCoolingTower" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcCoolingTowerType"/>
+  <complexType name="IfcCoolingTowerType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCoolingTowerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoolingTowerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCoolingTower"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCoolingTowerType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcCoolingTowerTypeType"/>
+  <complexType name="IfcCoolingTowerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCoolingTowerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoolingTowerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCoolingTowerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCoolingTowerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="MECHANICALFORCEDDRAFT"/>
+      <enumeration value="MECHANICALINDUCEDDRAFT"/>
+      <enumeration value="NATURALDRAFT"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDamper" substitutionGroup="ifc:IfcFlowController" type="ifc:IfcDamperType"/>
+  <complexType name="IfcDamperType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDamperTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDamperPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDamper"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDamperType" substitutionGroup="ifc:IfcFlowControllerType" type="ifc:IfcDamperTypeType"/>
+  <complexType name="IfcDamperTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcDamperTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDamperTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDamperType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDamperTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BACKDRAFTDAMPER"/>
+      <enumeration value="BALANCINGDAMPER"/>
+      <enumeration value="BLASTDAMPER"/>
+      <enumeration value="CONTROLDAMPER"/>
+      <enumeration value="FIREDAMPER"/>
+      <enumeration value="FIRESMOKEDAMPER"/>
+      <enumeration value="FUMEHOODEXHAUST"/>
+      <enumeration value="GRAVITYDAMPER"/>
+      <enumeration value="GRAVITYRELIEFDAMPER"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RELIEFDAMPER"/>
+      <enumeration value="SMOKEDAMPER"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDuctFitting" substitutionGroup="ifc:IfcFlowFitting" type="ifc:IfcDuctFittingType"/>
+  <complexType name="IfcDuctFittingType">
+    <complexContent>
+      <extension base="ifc:IfcFlowFittingType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDuctFittingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDuctFittingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDuctFitting"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDuctFittingType" substitutionGroup="ifc:IfcFlowFittingType" type="ifc:IfcDuctFittingTypeType"/>
+  <complexType name="IfcDuctFittingTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowFittingTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcDuctFittingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDuctFittingTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDuctFittingType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDuctFittingTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BEND"/>
+      <enumeration value="CONNECTOR"/>
+      <enumeration value="ENTRY"/>
+      <enumeration value="EXIT"/>
+      <enumeration value="JUNCTION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OBSTRUCTION"/>
+      <enumeration value="TRANSITION"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDuctSegment" substitutionGroup="ifc:IfcFlowSegment" type="ifc:IfcDuctSegmentType"/>
+  <complexType name="IfcDuctSegmentType">
+    <complexContent>
+      <extension base="ifc:IfcFlowSegmentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDuctSegmentTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDuctSegmentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDuctSegment"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDuctSegmentType" substitutionGroup="ifc:IfcFlowSegmentType" type="ifc:IfcDuctSegmentTypeType"/>
+  <complexType name="IfcDuctSegmentTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowSegmentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcDuctSegmentTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDuctSegmentTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDuctSegmentType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDuctSegmentTypeEnumType">
+    <restriction base="string">
+      <enumeration value="FLEXIBLESEGMENT"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RIGIDSEGMENT"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDuctSilencer" substitutionGroup="ifc:IfcFlowTreatmentDevice" type="ifc:IfcDuctSilencerType"/>
+  <complexType name="IfcDuctSilencerType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTreatmentDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDuctSilencerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDuctSilencerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDuctSilencer"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDuctSilencerType" substitutionGroup="ifc:IfcFlowTreatmentDeviceType" type="ifc:IfcDuctSilencerTypeType"/>
+  <complexType name="IfcDuctSilencerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTreatmentDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcDuctSilencerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDuctSilencerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDuctSilencerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDuctSilencerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="FLATOVAL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RECTANGULAR"/>
+      <enumeration value="ROUND"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcEngine" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcEngineType"/>
+  <complexType name="IfcEngineType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcEngineTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEnginePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEngine"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcEngineType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcEngineTypeType"/>
+  <complexType name="IfcEngineTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcEngineTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEngineTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEngineType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcEngineTypeEnumType">
+    <restriction base="string">
+      <enumeration value="EXTERNALCOMBUSTION"/>
+      <enumeration value="INTERNALCOMBUSTION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcEvaporativeCooler" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcEvaporativeCoolerType"/>
+  <complexType name="IfcEvaporativeCoolerType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcEvaporativeCoolerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEvaporativeCoolerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEvaporativeCooler"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcEvaporativeCoolerType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcEvaporativeCoolerTypeType"/>
+  <complexType name="IfcEvaporativeCoolerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcEvaporativeCoolerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEvaporativeCoolerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEvaporativeCoolerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcEvaporativeCoolerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="DIRECTEVAPORATIVEAIRWASHER"/>
+      <enumeration value="DIRECTEVAPORATIVEPACKAGEDROTARYAIRCOOLER"/>
+      <enumeration value="DIRECTEVAPORATIVERANDOMMEDIAAIRCOOLER"/>
+      <enumeration value="DIRECTEVAPORATIVERIGIDMEDIAAIRCOOLER"/>
+      <enumeration value="DIRECTEVAPORATIVESLINGERSPACKAGEDAIRCOOLER"/>
+      <enumeration value="INDIRECTDIRECTCOMBINATION"/>
+      <enumeration value="INDIRECTEVAPORATIVECOOLINGTOWERORCOILCOOLER"/>
+      <enumeration value="INDIRECTEVAPORATIVEPACKAGEAIRCOOLER"/>
+      <enumeration value="INDIRECTEVAPORATIVEWETCOIL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcEvaporator" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcEvaporatorType"/>
+  <complexType name="IfcEvaporatorType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcEvaporatorTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEvaporatorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEvaporator"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcEvaporatorType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcEvaporatorTypeType"/>
+  <complexType name="IfcEvaporatorTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcEvaporatorTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEvaporatorTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEvaporatorType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcEvaporatorTypeEnumType">
+    <restriction base="string">
+      <enumeration value="DIRECTEXPANSION"/>
+      <enumeration value="DIRECTEXPANSIONBRAZEDPLATE"/>
+      <enumeration value="DIRECTEXPANSIONSHELLANDTUBE"/>
+      <enumeration value="DIRECTEXPANSIONTUBEINTUBE"/>
+      <enumeration value="FLOODEDSHELLANDTUBE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SHELLANDCOIL"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcFan" substitutionGroup="ifc:IfcFlowMovingDevice" type="ifc:IfcFanType"/>
+  <complexType name="IfcFanType">
+    <complexContent>
+      <extension base="ifc:IfcFlowMovingDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFanTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFanPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFan"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcFanType" substitutionGroup="ifc:IfcFlowMovingDeviceType" type="ifc:IfcFanTypeType"/>
+  <complexType name="IfcFanTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowMovingDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcFanTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFanTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFanType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcFanTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CENTRIFUGALAIRFOIL"/>
+      <enumeration value="CENTRIFUGALBACKWARDINCLINEDCURVED"/>
+      <enumeration value="CENTRIFUGALFORWARDCURVED"/>
+      <enumeration value="CENTRIFUGALRADIAL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PROPELLORAXIAL"/>
+      <enumeration value="TUBEAXIAL"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VANEAXIAL"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcFilter" substitutionGroup="ifc:IfcFlowTreatmentDevice" type="ifc:IfcFilterType"/>
+  <complexType name="IfcFilterType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTreatmentDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFilterTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFilterPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFilter"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcFilterType" substitutionGroup="ifc:IfcFlowTreatmentDeviceType" type="ifc:IfcFilterTypeType"/>
+  <complexType name="IfcFilterTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTreatmentDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcFilterTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFilterTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFilterType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcFilterTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AIRPARTICLEFILTER"/>
+      <enumeration value="COMPRESSEDAIRFILTER"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="ODORFILTER"/>
+      <enumeration value="OILFILTER"/>
+      <enumeration value="STRAINER"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WATERFILTER"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcFlowMeter" substitutionGroup="ifc:IfcFlowController" type="ifc:IfcFlowMeterType"/>
+  <complexType name="IfcFlowMeterType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFlowMeterTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFlowMeterPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFlowMeter"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcFlowMeterType" substitutionGroup="ifc:IfcFlowControllerType" type="ifc:IfcFlowMeterTypeType"/>
+  <complexType name="IfcFlowMeterTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcFlowMeterTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFlowMeterTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFlowMeterType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcFlowMeterTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ENERGYMETER"/>
+      <enumeration value="GASMETER"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OILMETER"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WATERMETER"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcHeatExchanger" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcHeatExchangerType"/>
+  <complexType name="IfcHeatExchangerType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcHeatExchangerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcHeatExchangerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcHeatExchanger"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcHeatExchangerType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcHeatExchangerTypeType"/>
+  <complexType name="IfcHeatExchangerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcHeatExchangerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcHeatExchangerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcHeatExchangerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcHeatExchangerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PLATE"/>
+      <enumeration value="SHELLANDTUBE"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcHumidifier" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcHumidifierType"/>
+  <complexType name="IfcHumidifierType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcHumidifierTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcHumidifierPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcHumidifier"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcHumidifierType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcHumidifierTypeType"/>
+  <complexType name="IfcHumidifierTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcHumidifierTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcHumidifierTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcHumidifierType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcHumidifierTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ADIABATICAIRWASHER"/>
+      <enumeration value="ADIABATICATOMIZING"/>
+      <enumeration value="ADIABATICCOMPRESSEDAIRNOZZLE"/>
+      <enumeration value="ADIABATICPAN"/>
+      <enumeration value="ADIABATICRIGIDMEDIA"/>
+      <enumeration value="ADIABATICULTRASONIC"/>
+      <enumeration value="ADIABATICWETTEDELEMENT"/>
+      <enumeration value="ASSISTEDBUTANE"/>
+      <enumeration value="ASSISTEDELECTRIC"/>
+      <enumeration value="ASSISTEDNATURALGAS"/>
+      <enumeration value="ASSISTEDPROPANE"/>
+      <enumeration value="ASSISTEDSTEAM"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="STEAMINJECTION"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcMedicalDevice" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcMedicalDeviceType"/>
+  <complexType name="IfcMedicalDeviceType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTerminalType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcMedicalDeviceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMedicalDevicePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMedicalDevice"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMedicalDeviceType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcMedicalDeviceTypeType"/>
+  <complexType name="IfcMedicalDeviceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTerminalTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcMedicalDeviceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMedicalDeviceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMedicalDeviceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcMedicalDeviceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AIRSTATION"/>
+      <enumeration value="FEEDAIRUNIT"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OXYGENGENERATOR"/>
+      <enumeration value="OXYGENPLANT"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VACUUMSTATION"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcPipeFitting" substitutionGroup="ifc:IfcFlowFitting" type="ifc:IfcPipeFittingType"/>
+  <complexType name="IfcPipeFittingType">
+    <complexContent>
+      <extension base="ifc:IfcFlowFittingType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcPipeFittingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPipeFittingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPipeFitting"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPipeFittingType" substitutionGroup="ifc:IfcFlowFittingType" type="ifc:IfcPipeFittingTypeType"/>
+  <complexType name="IfcPipeFittingTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowFittingTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcPipeFittingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPipeFittingTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPipeFittingType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcPipeFittingTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BEND"/>
+      <enumeration value="CONNECTOR"/>
+      <enumeration value="ENTRY"/>
+      <enumeration value="EXIT"/>
+      <enumeration value="JUNCTION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OBSTRUCTION"/>
+      <enumeration value="TRANSITION"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcPipeSegment" substitutionGroup="ifc:IfcFlowSegment" type="ifc:IfcPipeSegmentType"/>
+  <complexType name="IfcPipeSegmentType">
+    <complexContent>
+      <extension base="ifc:IfcFlowSegmentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcPipeSegmentTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPipeSegmentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPipeSegment"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPipeSegmentType" substitutionGroup="ifc:IfcFlowSegmentType" type="ifc:IfcPipeSegmentTypeType"/>
+  <complexType name="IfcPipeSegmentTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowSegmentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcPipeSegmentTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPipeSegmentTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPipeSegmentType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcPipeSegmentTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CULVERT"/>
+      <enumeration value="FLEXIBLESEGMENT"/>
+      <enumeration value="GUTTER"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RIGIDSEGMENT"/>
+      <enumeration value="SPOOL"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcPump" substitutionGroup="ifc:IfcFlowMovingDevice" type="ifc:IfcPumpType"/>
+  <complexType name="IfcPumpType">
+    <complexContent>
+      <extension base="ifc:IfcFlowMovingDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcPumpTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPumpPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPump"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPumpType" substitutionGroup="ifc:IfcFlowMovingDeviceType" type="ifc:IfcPumpTypeType"/>
+  <complexType name="IfcPumpTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowMovingDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcPumpTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPumpTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPumpType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcPumpTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CIRCULATOR"/>
+      <enumeration value="ENDSUCTION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SPLITCASE"/>
+      <enumeration value="SUBMERSIBLEPUMP"/>
+      <enumeration value="SUMPPUMP"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VERTICALINLINE"/>
+      <enumeration value="VERTICALTURBINE"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcSpaceHeater" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcSpaceHeaterType"/>
+  <complexType name="IfcSpaceHeaterType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTerminalType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcSpaceHeaterTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSpaceHeaterPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSpaceHeater"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcSpaceHeaterType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcSpaceHeaterTypeType"/>
+  <complexType name="IfcSpaceHeaterTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowTerminalTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcSpaceHeaterTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSpaceHeaterTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSpaceHeaterType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcSpaceHeaterTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CONVECTOR"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RADIATOR"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcTank" substitutionGroup="ifc:IfcFlowStorageDevice" type="ifc:IfcTankType"/>
+  <complexType name="IfcTankType">
+    <complexContent>
+      <extension base="ifc:IfcFlowStorageDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcTankTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTankPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTank"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcTankType" substitutionGroup="ifc:IfcFlowStorageDeviceType" type="ifc:IfcTankTypeType"/>
+  <complexType name="IfcTankTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowStorageDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcTankTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTankTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTankType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcTankTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BASIN"/>
+      <enumeration value="BREAKPRESSURE"/>
+      <enumeration value="EXPANSION"/>
+      <enumeration value="FEEDANDEXPANSION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PRESSUREVESSEL"/>
+      <enumeration value="STORAGE"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VESSEL"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcTubeBundle" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcTubeBundleType"/>
+  <complexType name="IfcTubeBundleType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcTubeBundleTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTubeBundlePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTubeBundle"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcTubeBundleType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcTubeBundleTypeType"/>
+  <complexType name="IfcTubeBundleTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcTubeBundleTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTubeBundleTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTubeBundleType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcTubeBundleTypeEnumType">
+    <restriction base="string">
+      <enumeration value="FINNED"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcUnitaryEquipment" substitutionGroup="ifc:IfcEnergyConversionDevice" type="ifc:IfcUnitaryEquipmentType"/>
+  <complexType name="IfcUnitaryEquipmentType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcUnitaryEquipmentTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcUnitaryEquipmentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcUnitaryEquipment"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcUnitaryEquipmentType" substitutionGroup="ifc:IfcEnergyConversionDeviceType" type="ifc:IfcUnitaryEquipmentTypeType"/>
+  <complexType name="IfcUnitaryEquipmentTypeType">
+    <complexContent>
+      <extension base="ifc:IfcEnergyConversionDeviceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcUnitaryEquipmentTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcUnitaryEquipmentTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcUnitaryEquipmentType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcUnitaryEquipmentTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AIRCONDITIONINGUNIT"/>
+      <enumeration value="AIRHANDLER"/>
+      <enumeration value="DEHUMIDIFIER"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="ROOFTOPUNIT"/>
+      <enumeration value="SPLITSYSTEM"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcValve" substitutionGroup="ifc:IfcFlowController" type="ifc:IfcValveType"/>
+  <complexType name="IfcValveType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcValveTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcValvePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcValve"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcValveType" substitutionGroup="ifc:IfcFlowControllerType" type="ifc:IfcValveTypeType"/>
+  <complexType name="IfcValveTypeType">
+    <complexContent>
+      <extension base="ifc:IfcFlowControllerTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcValveTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcValveTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcValveType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcValveTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AIRRELEASE"/>
+      <enumeration value="ANTIVACUUM"/>
+      <enumeration value="CHANGEOVER"/>
+      <enumeration value="CHECK"/>
+      <enumeration value="COMMISSIONING"/>
+      <enumeration value="DIVERTING"/>
+      <enumeration value="DOUBLECHECK"/>
+      <enumeration value="DOUBLEREGULATING"/>
+      <enumeration value="DRAWOFFCOCK"/>
+      <enumeration value="FAUCET"/>
+      <enumeration value="FLUSHING"/>
+      <enumeration value="GASCOCK"/>
+      <enumeration value="GASTAP"/>
+      <enumeration value="ISOLATING"/>
+      <enumeration value="MIXING"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PRESSUREREDUCING"/>
+      <enumeration value="PRESSURERELIEF"/>
+      <enumeration value="REGULATING"/>
+      <enumeration value="SAFETYCUTOFF"/>
+      <enumeration value="STEAMTRAP"/>
+      <enumeration value="STOPCOCK"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcVibrationIsolator" substitutionGroup="ifc:IfcElementComponent" type="ifc:IfcVibrationIsolatorType"/>
+  <complexType name="IfcVibrationIsolatorType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcVibrationIsolatorTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcVibrationIsolatorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcVibrationIsolator"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcVibrationIsolatorType" substitutionGroup="ifc:IfcElementComponentType" type="ifc:IfcVibrationIsolatorTypeType"/>
+  <complexType name="IfcVibrationIsolatorTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcVibrationIsolatorTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcVibrationIsolatorTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcVibrationIsolatorType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcVibrationIsolatorTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BASE"/>
+      <enumeration value="COMPRESSION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SPRING"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+</schema>

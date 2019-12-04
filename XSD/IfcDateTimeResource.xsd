@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="Class1" substitutionGroup="gml:AbstractGML" type="ifc:Class1Type"/>
+  <complexType name="Class1Type">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Class1PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:Class1"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDataOriginEnumType">
+    <restriction base="string">
+      <enumeration value="MEASURED"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PREDICTED"/>
+      <enumeration value="SIMULATED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDate" substitutionGroup="gml:AbstractObject" type="ifc:IfcDateType"/>
+  <complexType name="IfcDateType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDatePropertyType">
+    <sequence>
+      <element ref="ifc:IfcDate"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDateTime" substitutionGroup="gml:AbstractObject" type="ifc:IfcDateTimeType"/>
+  <complexType name="IfcDateTimeType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDateTimePropertyType">
+    <sequence>
+      <element ref="ifc:IfcDateTime"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDayInMonthNumber" substitutionGroup="gml:AbstractObject" type="ifc:IfcDayInMonthNumberType"/>
+  <complexType name="IfcDayInMonthNumberType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDayInMonthNumberPropertyType">
+    <sequence>
+      <element ref="ifc:IfcDayInMonthNumber"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDayInWeekNumber" substitutionGroup="gml:AbstractObject" type="ifc:IfcDayInWeekNumberType"/>
+  <complexType name="IfcDayInWeekNumberType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDayInWeekNumberPropertyType">
+    <sequence>
+      <element ref="ifc:IfcDayInWeekNumber"/>
+    </sequence>
+  </complexType>
+  <element name="IfcDuration" substitutionGroup="gml:AbstractObject" type="ifc:IfcDurationType"/>
+  <complexType name="IfcDurationType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcDurationPropertyType">
+    <sequence>
+      <element ref="ifc:IfcDuration"/>
+    </sequence>
+  </complexType>
+  <element name="IfcEventTime" substitutionGroup="ifc:IfcSchedulingTime" type="ifc:IfcEventTimeType"/>
+  <complexType name="IfcEventTimeType">
+    <complexContent>
+      <extension base="ifc:IfcSchedulingTimeType">
+        <sequence>
+          <element minOccurs="0" name="actualDate" type="dateTime"/>
+          <element minOccurs="0" name="earlyDate" type="dateTime"/>
+          <element minOccurs="0" name="lateDate" type="dateTime"/>
+          <element minOccurs="0" name="scheduleDate" type="dateTime"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEventTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEventTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcIrregularTimeSeries" substitutionGroup="ifc:IfcTimeSeries" type="ifc:IfcIrregularTimeSeriesType"/>
+  <complexType name="IfcIrregularTimeSeriesType">
+    <complexContent>
+      <extension base="ifc:IfcTimeSeriesType">
+        <sequence>
+          <element maxOccurs="unbounded" name="values" type="ifc:IfcIrregularTimeSeriesValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcIrregularTimeSeriesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcIrregularTimeSeries"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcIrregularTimeSeriesValue" substitutionGroup="gml:AbstractFeature" type="ifc:IfcIrregularTimeSeriesValueType"/>
+  <complexType name="IfcIrregularTimeSeriesValueType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="timeStamp" type="dateTime"/>
+          <element maxOccurs="unbounded" name="listValues" type="ifc:IfcValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcIrregularTimeSeriesValuePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcIrregularTimeSeriesValue"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLagTime" substitutionGroup="ifc:IfcSchedulingTime" type="ifc:IfcLagTimeType"/>
+  <complexType name="IfcLagTimeType">
+    <complexContent>
+      <extension base="ifc:IfcSchedulingTimeType">
+        <sequence>
+          <element name="lagValue" type="ifc:IfcTimeOrRatioSelectPropertyType"/>
+          <element name="durationType" type="ifc:IfcTaskDurationEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLagTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLagTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMonthInYearNumber" substitutionGroup="gml:AbstractObject" type="ifc:IfcMonthInYearNumberType"/>
+  <complexType name="IfcMonthInYearNumberType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcMonthInYearNumberPropertyType">
+    <sequence>
+      <element ref="ifc:IfcMonthInYearNumber"/>
+    </sequence>
+  </complexType>
+  <element name="IfcRecurrencePattern" substitutionGroup="gml:AbstractFeature" type="ifc:IfcRecurrencePatternType"/>
+  <complexType name="IfcRecurrencePatternType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="recurrenceType" type="ifc:IfcRecurrenceTypeEnumType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="dayComponent" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="weekdayComponent" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="monthComponent" type="integer"/>
+          <element minOccurs="0" name="position" type="integer"/>
+          <element minOccurs="0" name="interval" type="integer"/>
+          <element minOccurs="0" name="occurrences" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="timePeriods" type="ifc:IfcTimePeriodPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRecurrencePatternPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRecurrencePattern"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcRecurrenceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BY_DAY_COUNT"/>
+      <enumeration value="BY_WEEKDAY_COUNT"/>
+      <enumeration value="DAILY"/>
+      <enumeration value="MONTHLY_BY_DAY_OF_MONTH"/>
+      <enumeration value="MONTHLY_BY_POSITION"/>
+      <enumeration value="WEEKLY"/>
+      <enumeration value="YEARLY_BY_DAY_OF_MONTH"/>
+      <enumeration value="YEARLY_BY_POSITION"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcRegularTimeSeries" substitutionGroup="ifc:IfcTimeSeries" type="ifc:IfcRegularTimeSeriesType"/>
+  <complexType name="IfcRegularTimeSeriesType">
+    <complexContent>
+      <extension base="ifc:IfcTimeSeriesType">
+        <sequence>
+          <element name="timeStep" type="gml:MeasureType"/>
+          <element maxOccurs="unbounded" name="values" type="ifc:IfcTimeSeriesValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRegularTimeSeriesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRegularTimeSeries"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcResourceTime" substitutionGroup="ifc:IfcSchedulingTime" type="ifc:IfcResourceTimeType"/>
+  <complexType name="IfcResourceTimeType">
+    <complexContent>
+      <extension base="ifc:IfcSchedulingTimeType">
+        <sequence>
+          <element minOccurs="0" name="scheduleWork" type="duration"/>
+          <element minOccurs="0" name="scheduleUsage"/>
+          <element minOccurs="0" name="scheduleStart" type="dateTime"/>
+          <element minOccurs="0" name="scheduleFinish" type="dateTime"/>
+          <element minOccurs="0" name="scheduleContour" type="string"/>
+          <element minOccurs="0" name="levelingDelay" type="duration"/>
+          <element minOccurs="0" name="isOverAllocated" type="boolean"/>
+          <element minOccurs="0" name="statusTime" type="dateTime"/>
+          <element minOccurs="0" name="actualWork" type="duration"/>
+          <element minOccurs="0" name="actualUsage"/>
+          <element minOccurs="0" name="actualStart" type="dateTime"/>
+          <element minOccurs="0" name="actualFinish" type="dateTime"/>
+          <element minOccurs="0" name="remainingWork" type="duration"/>
+          <element minOccurs="0" name="remainingUsage"/>
+          <element minOccurs="0" name="completion"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcResourceTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcResourceTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcSchedulingTime" substitutionGroup="gml:AbstractFeature" type="ifc:IfcSchedulingTimeType"/>
+  <complexType abstract="true" name="IfcSchedulingTimeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="name" type="string"/>
+          <element minOccurs="0" name="dataOrigin" type="ifc:IfcDataOriginEnumType"/>
+          <element minOccurs="0" name="userDefinedDataOrigin" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSchedulingTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSchedulingTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcTaskDurationEnumType">
+    <restriction base="string">
+      <enumeration value="ELAPSEDTIME"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="WORKTIME"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcTaskTime" substitutionGroup="ifc:IfcSchedulingTime" type="ifc:IfcTaskTimeType"/>
+  <complexType name="IfcTaskTimeType">
+    <complexContent>
+      <extension base="ifc:IfcSchedulingTimeType">
+        <sequence>
+          <element minOccurs="0" name="durationType" type="ifc:IfcTaskDurationEnumType"/>
+          <element minOccurs="0" name="scheduleDuration" type="duration"/>
+          <element minOccurs="0" name="scheduleStart" type="dateTime"/>
+          <element minOccurs="0" name="scheduleFinish" type="dateTime"/>
+          <element minOccurs="0" name="earlyStart" type="dateTime"/>
+          <element minOccurs="0" name="earlyFinish" type="dateTime"/>
+          <element minOccurs="0" name="lateStart" type="dateTime"/>
+          <element minOccurs="0" name="lateFinish" type="dateTime"/>
+          <element minOccurs="0" name="freeFloat" type="duration"/>
+          <element minOccurs="0" name="totalFloat" type="duration"/>
+          <element minOccurs="0" name="isCritical" type="boolean"/>
+          <element minOccurs="0" name="statusTime" type="dateTime"/>
+          <element minOccurs="0" name="actualDuration" type="duration"/>
+          <element minOccurs="0" name="actualStart" type="dateTime"/>
+          <element minOccurs="0" name="actualFinish" type="dateTime"/>
+          <element minOccurs="0" name="remainingTime" type="duration"/>
+          <element minOccurs="0" name="completion"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTaskTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTaskTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcTaskTimeRecurring" substitutionGroup="ifc:IfcTaskTime" type="ifc:IfcTaskTimeRecurringType"/>
+  <complexType name="IfcTaskTimeRecurringType">
+    <complexContent>
+      <extension base="ifc:IfcTaskTimeType">
+        <sequence>
+          <element name="recurrence" type="ifc:IfcRecurrencePatternPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTaskTimeRecurringPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTaskTimeRecurring"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcTime" substitutionGroup="gml:AbstractObject" type="ifc:IfcTimeType"/>
+  <complexType name="IfcTimeType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTimePropertyType">
+    <sequence>
+      <element ref="ifc:IfcTime"/>
+    </sequence>
+  </complexType>
+  <element name="IfcTimeOrRatioSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcTimeOrRatioSelectType"/>
+  <complexType name="IfcTimeOrRatioSelectType">
+    <choice>
+      <element name="duration" type="duration"/>
+      <element name="ratioMeasure" type="gml:MeasureType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcTimeOrRatioSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcTimeOrRatioSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcTimePeriod" substitutionGroup="gml:AbstractFeature" type="ifc:IfcTimePeriodType"/>
+  <complexType name="IfcTimePeriodType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="startTime" type="time"/>
+          <element name="endTime" type="time"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTimePeriodPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTimePeriod"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcTimeSeries" substitutionGroup="gml:AbstractFeature" type="ifc:IfcTimeSeriesType"/>
+  <complexType abstract="true" name="IfcTimeSeriesType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="name" type="string"/>
+          <element minOccurs="0" name="description" type="string"/>
+          <element name="startTime" type="dateTime"/>
+          <element name="endTime" type="dateTime"/>
+          <element name="timeSeriesDataType" type="ifc:IfcTimeSeriesDataTypeEnumType"/>
+          <element name="dataOrigin" type="ifc:IfcDataOriginEnumType"/>
+          <element minOccurs="0" name="userDefinedDataOrigin" type="string"/>
+          <element minOccurs="0" name="unit" type="ifc:IfcUnitPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTimeSeriesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTimeSeries"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcTimeSeriesDataTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CONTINUOUS"/>
+      <enumeration value="DISCRETE"/>
+      <enumeration value="DISCRETEBINARY"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PIECEWISEBINARY"/>
+      <enumeration value="PIECEWISECONSTANT"/>
+      <enumeration value="PIECEWISECONTINUOUS"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcTimeSeriesValue" substitutionGroup="gml:AbstractFeature" type="ifc:IfcTimeSeriesValueType"/>
+  <complexType name="IfcTimeSeriesValueType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element maxOccurs="unbounded" name="listValues" type="ifc:IfcValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcTimeSeriesValuePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTimeSeriesValue"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcTimeStamp" substitutionGroup="gml:AbstractObject" type="ifc:IfcTimeStampType"/>
+  <complexType name="IfcTimeStampType">
+    <sequence/>
+  </complexType>
+  <complexType name="IfcTimeStampPropertyType">
+    <sequence>
+      <element ref="ifc:IfcTimeStamp"/>
+    </sequence>
+  </complexType>
+  <element name="IfcWorkTime" substitutionGroup="ifc:IfcSchedulingTime" type="ifc:IfcWorkTimeType"/>
+  <complexType name="IfcWorkTimeType">
+    <complexContent>
+      <extension base="ifc:IfcSchedulingTimeType">
+        <sequence>
+          <element minOccurs="0" name="start" type="date"/>
+          <element minOccurs="0" name="finish" type="date"/>
+          <element minOccurs="0" name="recurrencePattern" type="ifc:IfcRecurrencePatternPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWorkTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWorkTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

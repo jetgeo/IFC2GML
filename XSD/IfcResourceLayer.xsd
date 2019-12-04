@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcActorResource.xsd"/>
+  <include schemaLocation="IfcApprovalResource.xsd"/>
+  <include schemaLocation="IfcConstraintResource.xsd"/>
+  <include schemaLocation="IfcCoreLayer.xsd"/>
+  <include schemaLocation="IfcCostResource.xsd"/>
+  <include schemaLocation="IfcDateTimeResource.xsd"/>
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcGeometricConstraintResource.xsd"/>
+  <include schemaLocation="IfcGeometricModelResource.xsd"/>
+  <include schemaLocation="IfcGeometryResource.xsd"/>
+  <include schemaLocation="IfcMaterialResource.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcPresentationAppearanceResource.xsd"/>
+  <include schemaLocation="IfcPresentationDefinitionResource.xsd"/>
+  <include schemaLocation="IfcPresentationOrganizationResource.xsd"/>
+  <include schemaLocation="IfcProfileResource.xsd"/>
+  <include schemaLocation="IfcPropertyResource.xsd"/>
+  <include schemaLocation="IfcQuantityResource.xsd"/>
+  <include schemaLocation="IfcRepresentationResource.xsd"/>
+  <include schemaLocation="IfcStructuralLoadResource.xsd"/>
+  <include schemaLocation="IfcTopologyResource.xsd"/>
+  <include schemaLocation="IfcUtilityResource.xsd"/>
+  <include schemaLocation="ifc4x3.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+</schema>

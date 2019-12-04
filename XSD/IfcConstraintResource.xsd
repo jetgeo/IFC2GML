@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcActorResource.xsd"/>
+  <include schemaLocation="IfcCostResource.xsd"/>
+  <include schemaLocation="IfcDateTimeResource.xsd"/>
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcPropertyResource.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <include schemaLocation="IfcUtilityResource.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="IfcBenchmarkEnumType">
+    <restriction base="string">
+      <enumeration value="EQUALTO"/>
+      <enumeration value="GREATERTHAN"/>
+      <enumeration value="GREATERTHANOREQUALTO"/>
+      <enumeration value="INCLUDEDIN"/>
+      <enumeration value="INCLUDES"/>
+      <enumeration value="LESSTHAN"/>
+      <enumeration value="LESSTHANOREQUALTO"/>
+      <enumeration value="NOTEQUALTO"/>
+      <enumeration value="NOTINCLUDEDIN"/>
+      <enumeration value="NOTINCLUDES"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="IfcConstraint" substitutionGroup="gml:AbstractFeature" type="ifc:IfcConstraintType"/>
+  <complexType abstract="true" name="IfcConstraintType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="name" type="string"/>
+          <element minOccurs="0" name="description" type="string"/>
+          <element name="constraintGrade" type="ifc:IfcConstraintEnumType"/>
+          <element minOccurs="0" name="constraintSource" type="string"/>
+          <element minOccurs="0" name="creatingActor" type="ifc:IfcActorSelectPropertyType"/>
+          <element minOccurs="0" name="creationTime" type="dateTime"/>
+          <element minOccurs="0" name="userDefinedGrade" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstraintPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstraint"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcConstraintEnumType">
+    <restriction base="string">
+      <enumeration value="ADVISORY"/>
+      <enumeration value="HARD"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SOFT"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IfcLogicalOperatorEnumType">
+    <restriction base="string">
+      <enumeration value="LOGICALAND"/>
+      <enumeration value="LOGICALNOTAND"/>
+      <enumeration value="LOGICALNOTOR"/>
+      <enumeration value="LOGICALOR"/>
+      <enumeration value="LOGICALXOR"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcMetric" substitutionGroup="ifc:IfcConstraint" type="ifc:IfcMetricType"/>
+  <complexType name="IfcMetricType">
+    <complexContent>
+      <extension base="ifc:IfcConstraintType">
+        <sequence>
+          <element name="benchmark" type="ifc:IfcBenchmarkEnumType"/>
+          <element minOccurs="0" name="valueSource" type="string"/>
+          <element minOccurs="0" name="dataValue" type="ifc:IfcMetricValueSelectPropertyType"/>
+          <element minOccurs="0" name="referencePath" type="ifc:IfcReferencePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMetricPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMetric"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMetricValueSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcMetricValueSelectType"/>
+  <complexType name="IfcMetricValueSelectType">
+    <choice>
+      <element name="appliedValue">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcAppliedValue"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="measureWithUnit" type="gml:MeasureType"/>
+      <element name="reference">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcReference"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="table">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcTable"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="timeSeries">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcTimeSeries"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="value" type="ifc:IfcValuePropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="IfcMetricValueSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcMetricValueSelect"/>
+    </sequence>
+  </complexType>
+  <element name="IfcObjective" substitutionGroup="ifc:IfcConstraint" type="ifc:IfcObjectiveType"/>
+  <complexType name="IfcObjectiveType">
+    <complexContent>
+      <extension base="ifc:IfcConstraintType">
+        <sequence>
+          <element minOccurs="0" name="logicalAggregator" type="ifc:IfcLogicalOperatorEnumType"/>
+          <element name="objectiveQualifier" type="ifc:IfcObjectiveEnumType"/>
+          <element minOccurs="0" name="userDefinedQualifier" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="benchmarkValues" type="ifc:IfcConstraintPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcObjectivePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcObjective"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcObjectiveEnumType">
+    <restriction base="string">
+      <enumeration value="CODECOMPLIANCE"/>
+      <enumeration value="CODEWAIVER"/>
+      <enumeration value="DESIGNINTENT"/>
+      <enumeration value="EXTERNAL"/>
+      <enumeration value="HEALTHANDSAFETY"/>
+      <enumeration value="MERGECONFLICT"/>
+      <enumeration value="MODELVIEW"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PARAMETER"/>
+      <enumeration value="REQUIREMENT"/>
+      <enumeration value="SPECIFICATION"/>
+      <enumeration value="TRIGGERCONDITION"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcReference" substitutionGroup="gml:AbstractFeature" type="ifc:IfcReferenceType"/>
+  <complexType name="IfcReferenceType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element minOccurs="0" name="typeIdentifier" type="string"/>
+          <element minOccurs="0" name="attributeIdentifier" type="string"/>
+          <element minOccurs="0" name="instanceName" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="listPositions" type="integer"/>
+          <element minOccurs="0" name="innerReference" type="ifc:IfcReferencePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcReferencePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcReference"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcResourceConstraintRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcResourceConstraintRelationshipType"/>
+  <complexType name="IfcResourceConstraintRelationshipType">
+    <complexContent>
+      <extension base="ifc:IfcResourceLevelRelationshipType">
+        <sequence>
+          <element maxOccurs="unbounded" name="relatedResourceObjects" type="ifc:IfcResourceObjectSelectPropertyType"/>
+          <element name="relatingConstraint" type="ifc:IfcConstraintPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcResourceConstraintRelationshipPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcResourceConstraintRelationship"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

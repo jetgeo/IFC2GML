@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcGeometryResource.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcPresentationAppearanceResource.xsd"/>
+  <include schemaLocation="IfcRepresentationResource.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcLayeredItem" substitutionGroup="gml:AbstractObject" type="ifc:IfcLayeredItemType"/>
+  <complexType name="IfcLayeredItemType">
+    <choice>
+      <element name="representation">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcRepresentation"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="representationItem">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcRepresentationItem"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+    </choice>
+  </complexType>
+  <complexType name="IfcLayeredItemPropertyType">
+    <sequence>
+      <element ref="ifc:IfcLayeredItem"/>
+    </sequence>
+  </complexType>
+  <simpleType name="IfcLightDistributionCurveEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="TYPE_A"/>
+      <enumeration value="TYPE_B"/>
+      <enumeration value="TYPE_C"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcLightDistributionData" substitutionGroup="gml:AbstractFeature" type="ifc:IfcLightDistributionDataType"/>
+  <complexType name="IfcLightDistributionDataType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="mainPlaneAngle" type="gml:AngleType"/>
+          <element maxOccurs="unbounded" name="secondaryPlaneAngle" type="gml:AngleType"/>
+          <element maxOccurs="unbounded" name="luminousIntensity" type="gml:MeasureType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightDistributionDataPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightDistributionData"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLightDistributionDataSourceSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcLightDistributionDataSourceSelectType"/>
+  <complexType name="IfcLightDistributionDataSourceSelectType">
+    <choice>
+      <element name="externalReference">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcExternalReference"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="lightIntensityDistribution">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcLightIntensityDistribution"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+    </choice>
+  </complexType>
+  <complexType name="IfcLightDistributionDataSourceSelectPropertyType">
+    <sequence>
+      <element ref="ifc:IfcLightDistributionDataSourceSelect"/>
+    </sequence>
+  </complexType>
+  <simpleType name="IfcLightEmissionSourceEnumType">
+    <restriction base="string">
+      <enumeration value="COMPACTFLUORESCENT"/>
+      <enumeration value="FLUORESCENT"/>
+      <enumeration value="HIGHPRESSUREMERCURY"/>
+      <enumeration value="HIGHPRESSURESODIUM"/>
+      <enumeration value="LIGHTEMITTINGDIODE"/>
+      <enumeration value="LOWPRESSURESODIUM"/>
+      <enumeration value="LOWVOLTAGEHALOGEN"/>
+      <enumeration value="MAINVOLTAGEHALOGEN"/>
+      <enumeration value="METALHALIDE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="TUNGSTENFILAMENT"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcLightIntensityDistribution" substitutionGroup="gml:AbstractFeature" type="ifc:IfcLightIntensityDistributionType"/>
+  <complexType name="IfcLightIntensityDistributionType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="lightDistributionCurve" type="ifc:IfcLightDistributionCurveEnumType"/>
+          <element maxOccurs="unbounded" name="distributionData" type="ifc:IfcLightDistributionDataPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightIntensityDistributionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightIntensityDistribution"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcLightSource" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcLightSourceType"/>
+  <complexType abstract="true" name="IfcLightSourceType">
+    <complexContent>
+      <extension base="ifc:IfcGeometricRepresentationItemType">
+        <sequence>
+          <element minOccurs="0" name="name" type="string"/>
+          <element minOccurs="0" name="ambientIntensity"/>
+          <element minOccurs="0" name="intensity"/>
+          <element name="lightColour" type="ifc:IfcColourRgbPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightSourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightSource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLightSourceAmbient" substitutionGroup="ifc:IfcLightSource" type="ifc:IfcLightSourceAmbientType"/>
+  <complexType name="IfcLightSourceAmbientType">
+    <complexContent>
+      <extension base="ifc:IfcLightSourceType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightSourceAmbientPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightSourceAmbient"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLightSourceDirectional" substitutionGroup="ifc:IfcLightSource" type="ifc:IfcLightSourceDirectionalType"/>
+  <complexType name="IfcLightSourceDirectionalType">
+    <complexContent>
+      <extension base="ifc:IfcLightSourceType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightSourceDirectionalPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightSourceDirectional"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLightSourceGoniometric" substitutionGroup="ifc:IfcLightSource" type="ifc:IfcLightSourceGoniometricType"/>
+  <complexType name="IfcLightSourceGoniometricType">
+    <complexContent>
+      <extension base="ifc:IfcLightSourceType">
+        <sequence>
+          <element name="colourTemperature" type="gml:MeasureType"/>
+          <element name="luminousFlux" type="gml:MeasureType"/>
+          <element name="lightEmissionSource" type="ifc:IfcLightEmissionSourceEnumType"/>
+          <element name="lightDistributionDataSource" type="ifc:IfcLightDistributionDataSourceSelectPropertyType"/>
+          <element minOccurs="0" name="colourAppearance" type="ifc:IfcColourRgbPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightSourceGoniometricPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightSourceGoniometric"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLightSourcePositional" substitutionGroup="ifc:IfcLightSource" type="ifc:IfcLightSourcePositionalType"/>
+  <complexType name="IfcLightSourcePositionalType">
+    <complexContent>
+      <extension base="ifc:IfcLightSourceType">
+        <sequence>
+          <element name="radius"/>
+          <element name="constantAttenuation" type="double"/>
+          <element name="distanceAttenuation" type="double"/>
+          <element name="quadricAttenuation" type="double"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightSourcePositionalPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightSourcePositional"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLightSourceSpot" substitutionGroup="ifc:IfcLightSourcePositional" type="ifc:IfcLightSourceSpotType"/>
+  <complexType name="IfcLightSourceSpotType">
+    <complexContent>
+      <extension base="ifc:IfcLightSourcePositionalType">
+        <sequence>
+          <element minOccurs="0" name="concentrationExponent" type="double"/>
+          <element name="spreadAngle"/>
+          <element name="beamWidthAngle"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLightSourceSpotPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLightSourceSpot"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPresentationLayerAssignment" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPresentationLayerAssignmentType"/>
+  <complexType name="IfcPresentationLayerAssignmentType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="name" type="string"/>
+          <element minOccurs="0" name="description" type="string"/>
+          <element maxOccurs="unbounded" name="assignedItems" type="ifc:IfcLayeredItemPropertyType"/>
+          <element minOccurs="0" name="identifier" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPresentationLayerAssignmentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPresentationLayerAssignment"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPresentationLayerWithStyle" substitutionGroup="ifc:IfcPresentationLayerAssignment" type="ifc:IfcPresentationLayerWithStyleType"/>
+  <complexType name="IfcPresentationLayerWithStyleType">
+    <complexContent>
+      <extension base="ifc:IfcPresentationLayerAssignmentType">
+        <sequence>
+          <element name="layerOn" type="ifc:IfcLogicalPropertyType"/>
+          <element name="layerFrozen" type="ifc:IfcLogicalPropertyType"/>
+          <element name="layerBlocked" type="ifc:IfcLogicalPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="layerStyles" type="ifc:IfcPresentationStylePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPresentationLayerWithStylePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPresentationLayerWithStyle"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

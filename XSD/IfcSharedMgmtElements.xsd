@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcActorResource.xsd"/>
+  <include schemaLocation="IfcCostResource.xsd"/>
+  <include schemaLocation="IfcDateTimeResource.xsd"/>
+  <include schemaLocation="IfcInteroperabilityLayer.xsd"/>
+  <include schemaLocation="IfcKernel.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcQuantityResource.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcActionRequest" substitutionGroup="ifc:IfcControl" type="ifc:IfcActionRequestType"/>
+  <complexType name="IfcActionRequestType">
+    <complexContent>
+      <extension base="ifc:IfcControlType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcActionRequestTypeEnumType"/>
+          <element minOccurs="0" name="status" type="string"/>
+          <element minOccurs="0" name="longDescription" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcActionRequestPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcActionRequest"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcActionRequestTypeEnumType">
+    <restriction base="string">
+      <enumeration value="EMAIL"/>
+      <enumeration value="FAX"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PHONE"/>
+      <enumeration value="POST"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VERBAL"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCostItem" substitutionGroup="ifc:IfcControl" type="ifc:IfcCostItemType"/>
+  <complexType name="IfcCostItemType">
+    <complexContent>
+      <extension base="ifc:IfcControlType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCostItemTypeEnumType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="costQuantities" type="ifc:IfcPhysicalQuantityPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="costValues" type="ifc:IfcCostValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCostItemPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCostItem"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCostItemTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCostSchedule" substitutionGroup="ifc:IfcControl" type="ifc:IfcCostScheduleType"/>
+  <complexType name="IfcCostScheduleType">
+    <complexContent>
+      <extension base="ifc:IfcControlType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCostScheduleTypeEnumType"/>
+          <element minOccurs="0" name="status" type="string"/>
+          <element minOccurs="0" name="submittedOn" type="dateTime"/>
+          <element minOccurs="0" name="updateDate" type="dateTime"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCostSchedulePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCostSchedule"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCostScheduleTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BUDGET"/>
+      <enumeration value="COSTPLAN"/>
+      <enumeration value="ESTIMATE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PRICEDBILLOFQUANTITIES"/>
+      <enumeration value="SCHEDULEOFRATES"/>
+      <enumeration value="TENDER"/>
+      <enumeration value="UNPRICEDBILLOFQUANTITIES"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcPermit" substitutionGroup="ifc:IfcControl" type="ifc:IfcPermitType"/>
+  <complexType name="IfcPermitType">
+    <complexContent>
+      <extension base="ifc:IfcControlType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcPermitTypeEnumType"/>
+          <element minOccurs="0" name="status" type="string"/>
+          <element minOccurs="0" name="longDescription" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPermitPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPermit"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcPermitTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ACCESS"/>
+      <enumeration value="BUILDING"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WORK"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcProjectOrder" substitutionGroup="ifc:IfcControl" type="ifc:IfcProjectOrderType"/>
+  <complexType name="IfcProjectOrderType">
+    <complexContent>
+      <extension base="ifc:IfcControlType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcProjectOrderTypeEnumType"/>
+          <element minOccurs="0" name="status" type="string"/>
+          <element minOccurs="0" name="longDescription" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcProjectOrderPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcProjectOrder"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcProjectOrderTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CHANGEORDER"/>
+      <enumeration value="MAINTENANCEWORKORDER"/>
+      <enumeration value="MOVEORDER"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PURCHASEORDER"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WORKORDER"/>
+    </restriction>
+  </simpleType>
+</schema>

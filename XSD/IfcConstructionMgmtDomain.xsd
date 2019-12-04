@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcCostResource.xsd"/>
+  <include schemaLocation="IfcDateTimeResource.xsd"/>
+  <include schemaLocation="IfcDomainLayer.xsd"/>
+  <include schemaLocation="IfcKernel.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcQuantityResource.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcConstructionEquipmentResource" substitutionGroup="ifc:IfcConstructionResource" type="ifc:IfcConstructionEquipmentResourceType"/>
+  <complexType name="IfcConstructionEquipmentResourceType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcConstructionEquipmentResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionEquipmentResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionEquipmentResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcConstructionEquipmentResourceType" substitutionGroup="ifc:IfcConstructionResourceType" type="ifc:IfcConstructionEquipmentResourceTypeType"/>
+  <complexType name="IfcConstructionEquipmentResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcConstructionEquipmentResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionEquipmentResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionEquipmentResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcConstructionEquipmentResourceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="DEMOLISHING"/>
+      <enumeration value="EARTHMOVING"/>
+      <enumeration value="ERECTING"/>
+      <enumeration value="HEATING"/>
+      <enumeration value="LIGHTING"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PAVING"/>
+      <enumeration value="PUMPING"/>
+      <enumeration value="TRANSPORTING"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcConstructionMaterialResource" substitutionGroup="ifc:IfcConstructionResource" type="ifc:IfcConstructionMaterialResourceType"/>
+  <complexType name="IfcConstructionMaterialResourceType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcConstructionMaterialResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionMaterialResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionMaterialResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcConstructionMaterialResourceType" substitutionGroup="ifc:IfcConstructionResourceType" type="ifc:IfcConstructionMaterialResourceTypeType"/>
+  <complexType name="IfcConstructionMaterialResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcConstructionMaterialResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionMaterialResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionMaterialResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcConstructionMaterialResourceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AGGREGATES"/>
+      <enumeration value="CONCRETE"/>
+      <enumeration value="DRYWALL"/>
+      <enumeration value="FUEL"/>
+      <enumeration value="GYPSUM"/>
+      <enumeration value="MASONRY"/>
+      <enumeration value="METAL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PLASTIC"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WOOD"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcConstructionProductResource" substitutionGroup="ifc:IfcConstructionResource" type="ifc:IfcConstructionProductResourceType"/>
+  <complexType name="IfcConstructionProductResourceType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcConstructionProductResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionProductResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionProductResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcConstructionProductResourceType" substitutionGroup="ifc:IfcConstructionResourceType" type="ifc:IfcConstructionProductResourceTypeType"/>
+  <complexType name="IfcConstructionProductResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcConstructionProductResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionProductResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionProductResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcConstructionProductResourceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ASSEMBLY"/>
+      <enumeration value="FORMWORK"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="IfcConstructionResource" substitutionGroup="ifc:IfcResource" type="ifc:IfcConstructionResourceType"/>
+  <complexType abstract="true" name="IfcConstructionResourceType">
+    <complexContent>
+      <extension base="ifc:IfcResourceType">
+        <sequence>
+          <element minOccurs="0" name="baseQuantity" type="ifc:IfcPhysicalQuantityPropertyType"/>
+          <element minOccurs="0" name="usage" type="ifc:IfcResourceTimePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="baseCosts" type="ifc:IfcAppliedValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcConstructionResourceType" substitutionGroup="ifc:IfcTypeResource" type="ifc:IfcConstructionResourceTypeType"/>
+  <complexType abstract="true" name="IfcConstructionResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcTypeResourceType">
+        <sequence>
+          <element minOccurs="0" name="baseQuantity" type="ifc:IfcPhysicalQuantityPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="baseCosts" type="ifc:IfcAppliedValuePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcConstructionResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcConstructionResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCrewResource" substitutionGroup="ifc:IfcConstructionResource" type="ifc:IfcCrewResourceType"/>
+  <complexType name="IfcCrewResourceType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCrewResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCrewResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCrewResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCrewResourceType" substitutionGroup="ifc:IfcConstructionResourceType" type="ifc:IfcCrewResourceTypeType"/>
+  <complexType name="IfcCrewResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCrewResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCrewResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCrewResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCrewResourceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OFFICE"/>
+      <enumeration value="SITE"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcLaborResource" substitutionGroup="ifc:IfcConstructionResource" type="ifc:IfcLaborResourceType"/>
+  <complexType name="IfcLaborResourceType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcLaborResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLaborResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLaborResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcLaborResourceType" substitutionGroup="ifc:IfcConstructionResourceType" type="ifc:IfcLaborResourceTypeType"/>
+  <complexType name="IfcLaborResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcLaborResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLaborResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcLaborResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcLaborResourceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ADMINISTRATION"/>
+      <enumeration value="CARPENTRY"/>
+      <enumeration value="CLEANING"/>
+      <enumeration value="CONCRETE"/>
+      <enumeration value="DRYWALL"/>
+      <enumeration value="ELECTRIC"/>
+      <enumeration value="FINISHING"/>
+      <enumeration value="FLOORING"/>
+      <enumeration value="GENERAL"/>
+      <enumeration value="HVAC"/>
+      <enumeration value="LANDSCAPING"/>
+      <enumeration value="MASONRY"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PAINTING"/>
+      <enumeration value="PAVING"/>
+      <enumeration value="PLUMBING"/>
+      <enumeration value="ROOFING"/>
+      <enumeration value="SITEGRADING"/>
+      <enumeration value="STEELWORK"/>
+      <enumeration value="SURVEYING"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcSubContractResource" substitutionGroup="ifc:IfcConstructionResource" type="ifc:IfcSubContractResourceType"/>
+  <complexType name="IfcSubContractResourceType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcSubContractResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSubContractResourcePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSubContractResource"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcSubContractResourceType" substitutionGroup="ifc:IfcConstructionResourceType" type="ifc:IfcSubContractResourceTypeType"/>
+  <complexType name="IfcSubContractResourceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcConstructionResourceTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcSubContractResourceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSubContractResourceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSubContractResourceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcSubContractResourceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PURCHASE"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WORK"/>
+    </restriction>
+  </simpleType>
+</schema>

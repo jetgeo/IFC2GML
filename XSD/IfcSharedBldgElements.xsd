@@ -1,0 +1,1591 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcActorResource.xsd"/>
+  <include schemaLocation="IfcDateTimeResource.xsd"/>
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcGeometricModelResource.xsd"/>
+  <include schemaLocation="IfcGeometryResource.xsd"/>
+  <include schemaLocation="IfcInteroperabilityLayer.xsd"/>
+  <include schemaLocation="IfcKernel.xsd"/>
+  <include schemaLocation="IfcMaterialResource.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcPresentationAppearanceResource.xsd"/>
+  <include schemaLocation="IfcProductExtension.xsd"/>
+  <include schemaLocation="IfcPropertyResource.xsd"/>
+  <include schemaLocation="IfcRepresentationResource.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcBeam" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcBeamType"/>
+  <complexType name="IfcBeamType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBeamTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBeamPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBeam"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBeamStandardCase" substitutionGroup="ifc:IfcBeam" type="ifc:IfcBeamStandardCaseType"/>
+  <complexType name="IfcBeamStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcBeamType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBeamStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBeamStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBeamType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcBeamTypeType"/>
+  <complexType name="IfcBeamTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcBeamTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBeamTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBeamType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBeamTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BEAM"/>
+      <enumeration value="CORNICE"/>
+      <enumeration value="DIAPHRAGM"/>
+      <enumeration value="EDGEBEAM"/>
+      <enumeration value="GIRDER_SEGMENT"/>
+      <enumeration value="HATSTONE"/>
+      <enumeration value="HOLLOWCORE"/>
+      <enumeration value="JOIST"/>
+      <enumeration value="LINTEL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PIERCAP"/>
+      <enumeration value="SPANDREL"/>
+      <enumeration value="T_BEAM"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcBearing" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcBearingType"/>
+  <complexType name="IfcBearingType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBearingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBearingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBearing"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBearingType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcBearingTypeType"/>
+  <complexType name="IfcBearingTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcBearingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBearingTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBearingType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBearingTypeDisplacementEnumType">
+    <restriction base="string">
+      <enumeration value="FIXED_MOVEMENT"/>
+      <enumeration value="FREE_MOVEMENT"/>
+      <enumeration value="GUIDED_LONGITUDINAL"/>
+      <enumeration value="GUIDED_TRANSVERSAL"/>
+      <enumeration value="NOTDEFINED"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IfcBearingTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CYLINDRICAL"/>
+      <enumeration value="DISK"/>
+      <enumeration value="ELASTOMERIC"/>
+      <enumeration value="GUIDE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="POT"/>
+      <enumeration value="ROCKER"/>
+      <enumeration value="ROLLER"/>
+      <enumeration value="SPHERICAL"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcBuildingElementProxy" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcBuildingElementProxyType"/>
+  <complexType name="IfcBuildingElementProxyType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBuildingElementProxyTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBuildingElementProxyPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBuildingElementProxy"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBuildingElementProxyType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcBuildingElementProxyTypeType"/>
+  <complexType name="IfcBuildingElementProxyTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcBuildingElementProxyTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBuildingElementProxyTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBuildingElementProxyType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBuildingElementProxyTypeEnumType">
+    <restriction base="string">
+      <enumeration value="COMPLEX"/>
+      <enumeration value="ELEMENT"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PARTIAL"/>
+      <enumeration value="PROVISIONFORSPACE"/>
+      <enumeration value="PROVISIONFORVOID"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcBuildingSystem" substitutionGroup="ifc:IfcSystem" type="ifc:IfcBuildingSystemType"/>
+  <complexType name="IfcBuildingSystemType">
+    <complexContent>
+      <extension base="ifc:IfcSystemType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBuildingSystemTypeEnumType"/>
+          <element minOccurs="0" name="longName" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBuildingSystemPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBuildingSystem"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBuildingSystemTypeEnumType">
+    <restriction base="string">
+      <enumeration value="EROSIONPREVENTION"/>
+      <enumeration value="FENESTRATION"/>
+      <enumeration value="FOUNDATION"/>
+      <enumeration value="LOADBEARING"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="OUTERSHELL"/>
+      <enumeration value="PRESTRESSING"/>
+      <enumeration value="REINFORCING"/>
+      <enumeration value="SHADING"/>
+      <enumeration value="TRANSPORT"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCaissonFoundation" substitutionGroup="ifc:IfcDeepFoundation" type="ifc:IfcCaissonFoundationType"/>
+  <complexType name="IfcCaissonFoundationType">
+    <complexContent>
+      <extension base="ifc:IfcDeepFoundationType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCaissonFoundationTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCaissonFoundationPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCaissonFoundation"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCaissonFoundationType" substitutionGroup="ifc:IfcDeepFoundationType" type="ifc:IfcCaissonFoundationTypeType"/>
+  <complexType name="IfcCaissonFoundationTypeType">
+    <complexContent>
+      <extension base="ifc:IfcDeepFoundationTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCaissonFoundationTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCaissonFoundationTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCaissonFoundationType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCaissonFoundationTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CAISSON"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WELL"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcChimney" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcChimneyType"/>
+  <complexType name="IfcChimneyType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcChimneyTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcChimneyPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcChimney"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcChimneyType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcChimneyTypeType"/>
+  <complexType name="IfcChimneyTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcChimneyTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcChimneyTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcChimneyType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcChimneyTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcColumn" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcColumnType"/>
+  <complexType name="IfcColumnType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcColumnTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcColumnPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcColumn"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcColumnStandardCase" substitutionGroup="ifc:IfcColumn" type="ifc:IfcColumnStandardCaseType"/>
+  <complexType name="IfcColumnStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcColumnType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcColumnStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcColumnStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcColumnType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcColumnTypeType"/>
+  <complexType name="IfcColumnTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcColumnTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcColumnTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcColumnType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcColumnTypeEnumType">
+    <restriction base="string">
+      <enumeration value="COLUMN"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PIERSTEM"/>
+      <enumeration value="PIERSTEM_SEGMENT"/>
+      <enumeration value="PILASTER"/>
+      <enumeration value="STANDCOLUMN"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IfcConnectionTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ATEND"/>
+      <enumeration value="ATPATH"/>
+      <enumeration value="ATSTART"/>
+      <enumeration value="NOTDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCourse" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcCourseType"/>
+  <complexType name="IfcCourseType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoursePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCourse"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCourseType" substitutionGroup="gml:AbstractFeature" type="ifc:IfcCourseTypeType"/>
+  <complexType name="IfcCourseTypeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCourseTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCourseType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCovering" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcCoveringType"/>
+  <complexType name="IfcCoveringType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCoveringTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoveringPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCovering"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCoveringType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcCoveringTypeType"/>
+  <complexType name="IfcCoveringTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCoveringTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCoveringTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCoveringType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCoveringTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CEILING"/>
+      <enumeration value="CLADDING"/>
+      <enumeration value="COPING"/>
+      <enumeration value="FLOORING"/>
+      <enumeration value="INSULATION"/>
+      <enumeration value="MEMBRANE"/>
+      <enumeration value="MOLDING"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="ROOFING"/>
+      <enumeration value="SKIRTINGBOARD"/>
+      <enumeration value="SLEEVING"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WRAPPING"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcCurtainWall" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcCurtainWallType"/>
+  <complexType name="IfcCurtainWallType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcCurtainWallTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCurtainWallPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCurtainWall"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcCurtainWallType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcCurtainWallTypeType"/>
+  <complexType name="IfcCurtainWallTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcCurtainWallTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcCurtainWallTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcCurtainWallType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcCurtainWallTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDeepFoundation" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcDeepFoundationType"/>
+  <complexType name="IfcDeepFoundationType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDeepFoundationPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDeepFoundation"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDeepFoundationType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcDeepFoundationTypeType"/>
+  <complexType name="IfcDeepFoundationTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDeepFoundationTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDeepFoundationType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDoor" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcDoorType"/>
+  <complexType name="IfcDoorType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="overallHeight"/>
+          <element minOccurs="0" name="overallWidth"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDoorTypeEnumType"/>
+          <element minOccurs="0" name="operationType" type="ifc:IfcDoorTypeOperationEnumType"/>
+          <element minOccurs="0" name="userDefinedOperationType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDoorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDoor"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDoorStandardCase" substitutionGroup="ifc:IfcDoor" type="ifc:IfcDoorStandardCaseType"/>
+  <complexType name="IfcDoorStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcDoorType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDoorStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDoorStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDoorType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcDoorTypeType"/>
+  <complexType name="IfcDoorTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcDoorTypeEnumType"/>
+          <element name="operationType" type="ifc:IfcDoorTypeOperationEnumType"/>
+          <element minOccurs="0" name="parameterTakesPrecedence" type="boolean"/>
+          <element minOccurs="0" name="userDefinedOperationType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDoorTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDoorType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDoorTypeEnumType">
+    <restriction base="string">
+      <enumeration value="DOOR"/>
+      <enumeration value="GATE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="TRAPDOOR"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IfcDoorTypeOperationEnumType">
+    <restriction base="string">
+      <enumeration value="DOUBLE_DOOR_DOUBLE_SWING"/>
+      <enumeration value="DOUBLE_DOOR_FOLDING"/>
+      <enumeration value="DOUBLE_DOOR_SINGLE_SWING"/>
+      <enumeration value="DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_LEFT"/>
+      <enumeration value="DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_RIGHT"/>
+      <enumeration value="DOUBLE_DOOR_SLIDING"/>
+      <enumeration value="DOUBLE_SWING_LEFT"/>
+      <enumeration value="DOUBLE_SWING_RIGHT"/>
+      <enumeration value="FOLDING_TO_LEFT"/>
+      <enumeration value="FOLDING_TO_RIGHT"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="REVOLVING"/>
+      <enumeration value="ROLLINGUP"/>
+      <enumeration value="SINGLE_SWING_LEFT"/>
+      <enumeration value="SINGLE_SWING_RIGHT"/>
+      <enumeration value="SLIDING_TO_LEFT"/>
+      <enumeration value="SLIDING_TO_RIGHT"/>
+      <enumeration value="SWING_FIXED_LEFT"/>
+      <enumeration value="SWING_FIXED_RIGHT"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcEarthworksCut" substitutionGroup="ifc:IfcFeatureElementSubtraction" type="ifc:IfcEarthworksCutType"/>
+  <complexType name="IfcEarthworksCutType">
+    <complexContent>
+      <extension base="ifc:IfcFeatureElementSubtractionType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcEarthworksCutTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEarthworksCutPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEarthworksCut"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcEarthworksCutTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BASEEXCAVATION"/>
+      <enumeration value="CUTANDFILL"/>
+      <enumeration value="DREDGING"/>
+      <enumeration value="EXCAVATION"/>
+      <enumeration value="OVEREXCAVATION"/>
+      <enumeration value="PAVEMENTMILING"/>
+      <enumeration value="TOPSOILREMOVAL"/>
+      <enumeration value="TRENCH"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcEarthworksElement" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcEarthworksElementType"/>
+  <complexType name="IfcEarthworksElementType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcEarthworksElementTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcEarthworksElementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcEarthworksElement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcEarthworksElementTypeEnumType">
+    <restriction base="string">
+      <enumeration value="COUNTERWEIGHTFILL"/>
+      <enumeration value="EMBANKMENT"/>
+      <enumeration value="REINFORCEDSOIL"/>
+      <enumeration value="SLOPEFILL"/>
+      <enumeration value="SUBGRADE"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcKerb" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcKerbType"/>
+  <complexType name="IfcKerbType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="mountable" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcKerbPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcKerb"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcKerbType" substitutionGroup="gml:AbstractFeature" type="ifc:IfcKerbTypeType"/>
+  <complexType name="IfcKerbTypeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="mountable" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcKerbTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcKerbType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMember" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcMemberType"/>
+  <complexType name="IfcMemberType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcMemberTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMemberPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMember"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMemberStandardCase" substitutionGroup="ifc:IfcMember" type="ifc:IfcMemberStandardCaseType"/>
+  <complexType name="IfcMemberStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcMemberType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMemberStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMemberStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMemberType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcMemberTypeType"/>
+  <complexType name="IfcMemberTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcMemberTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMemberTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMemberType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcMemberTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ARCH_SEGMENT"/>
+      <enumeration value="BRACE"/>
+      <enumeration value="CHORD"/>
+      <enumeration value="COLLAR"/>
+      <enumeration value="MEMBER"/>
+      <enumeration value="MULLION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PLATE"/>
+      <enumeration value="POST"/>
+      <enumeration value="PURLIN"/>
+      <enumeration value="RAFTER"/>
+      <enumeration value="STAY_CABLE"/>
+      <enumeration value="STIFFENING_RIB"/>
+      <enumeration value="STRINGER"/>
+      <enumeration value="STRUT"/>
+      <enumeration value="STUD"/>
+      <enumeration value="SUSPENDER"/>
+      <enumeration value="SUSPENSION_CABLE"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcPavement" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcPavementType"/>
+  <complexType name="IfcPavementType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="flexible" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPavementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPavement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPavementType" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPavementTypeType"/>
+  <complexType name="IfcPavementTypeType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="flexible" type="boolean"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPavementTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPavementType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPlate" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcPlateType"/>
+  <complexType name="IfcPlateType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcPlateTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPlatePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPlate"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPlateStandardCase" substitutionGroup="ifc:IfcPlate" type="ifc:IfcPlateStandardCaseType"/>
+  <complexType name="IfcPlateStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcPlateType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPlateStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPlateStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcPlateType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcPlateTypeType"/>
+  <complexType name="IfcPlateTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcPlateTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPlateTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPlateType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcPlateTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BASE_PLATE"/>
+      <enumeration value="COVER_PLATE"/>
+      <enumeration value="CURTAIN_PANEL"/>
+      <enumeration value="FLANGE_PLATE"/>
+      <enumeration value="GUSSET_PLATE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SHEET"/>
+      <enumeration value="SPLICE_PLATE"/>
+      <enumeration value="STIFFENER_PLATE"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WEB_PLATE"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcRailing" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcRailingType"/>
+  <complexType name="IfcRailingType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcRailingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRailingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRailing"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRailingType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcRailingTypeType"/>
+  <complexType name="IfcRailingTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcRailingTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRailingTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRailingType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcRailingTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BALUSTRADE"/>
+      <enumeration value="GUARDRAIL"/>
+      <enumeration value="HANDRAIL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcRamp" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcRampType"/>
+  <complexType name="IfcRampType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcRampTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRampPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRamp"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRampFlight" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcRampFlightType"/>
+  <complexType name="IfcRampFlightType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcRampFlightTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRampFlightPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRampFlight"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRampFlightType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcRampFlightTypeType"/>
+  <complexType name="IfcRampFlightTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcRampFlightTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRampFlightTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRampFlightType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcRampFlightTypeEnumType">
+    <restriction base="string">
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SPIRAL"/>
+      <enumeration value="STRAIGHT"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcRampType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcRampTypeType"/>
+  <complexType name="IfcRampTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcRampTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRampTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRampType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcRampTypeEnumType">
+    <restriction base="string">
+      <enumeration value="HALF_TURN_RAMP"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="QUARTER_TURN_RAMP"/>
+      <enumeration value="SPIRAL_RAMP"/>
+      <enumeration value="STRAIGHT_RUN_RAMP"/>
+      <enumeration value="TWO_QUARTER_TURN_RAMP"/>
+      <enumeration value="TWO_STRAIGHT_RUN_RAMP"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcRelConnectsPathElements" substitutionGroup="ifc:IfcRelConnectsElements" type="ifc:IfcRelConnectsPathElementsType"/>
+  <complexType name="IfcRelConnectsPathElementsType">
+    <complexContent>
+      <extension base="ifc:IfcRelConnectsElementsType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="relatingPriorities" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="relatedPriorities" type="integer"/>
+          <element name="relatedConnectionType" type="ifc:IfcConnectionTypeEnumType"/>
+          <element name="relatingConnectionType" type="ifc:IfcConnectionTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRelConnectsPathElementsPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRelConnectsPathElements"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRelCoversBldgElements" substitutionGroup="ifc:IfcRelConnects" type="ifc:IfcRelCoversBldgElementsType"/>
+  <complexType name="IfcRelCoversBldgElementsType">
+    <complexContent>
+      <extension base="ifc:IfcRelConnectsType">
+        <sequence>
+          <element name="relatingBuildingElement" type="ifc:IfcElementPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedCoverings" type="ifc:IfcCoveringPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRelCoversBldgElementsPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRelCoversBldgElements"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRelCoversSpaces" substitutionGroup="ifc:IfcRelConnects" type="ifc:IfcRelCoversSpacesType"/>
+  <complexType name="IfcRelCoversSpacesType">
+    <complexContent>
+      <extension base="ifc:IfcRelConnectsType">
+        <sequence>
+          <element name="relatingSpace" type="ifc:IfcSpacePropertyType"/>
+          <element maxOccurs="unbounded" name="relatedCoverings" type="ifc:IfcCoveringPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRelCoversSpacesPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRelCoversSpaces"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRoof" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcRoofType"/>
+  <complexType name="IfcRoofType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcRoofTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRoofPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRoof"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcRoofType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcRoofTypeType"/>
+  <complexType name="IfcRoofTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcRoofTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcRoofTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRoofType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcRoofTypeEnumType">
+    <restriction base="string">
+      <enumeration value="BARREL_ROOF"/>
+      <enumeration value="BUTTERFLY_ROOF"/>
+      <enumeration value="DOME_ROOF"/>
+      <enumeration value="FLAT_ROOF"/>
+      <enumeration value="FREEFORM"/>
+      <enumeration value="GABLE_ROOF"/>
+      <enumeration value="GAMBREL_ROOF"/>
+      <enumeration value="HIP_ROOF"/>
+      <enumeration value="HIPPED_GABLE_ROOF"/>
+      <enumeration value="MANSARD_ROOF"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PAVILION_ROOF"/>
+      <enumeration value="RAINBOW_ROOF"/>
+      <enumeration value="SHED_ROOF"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcShadingDevice" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcShadingDeviceType"/>
+  <complexType name="IfcShadingDeviceType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcShadingDeviceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcShadingDevicePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcShadingDevice"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcShadingDeviceType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcShadingDeviceTypeType"/>
+  <complexType name="IfcShadingDeviceTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcShadingDeviceTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcShadingDeviceTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcShadingDeviceType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcShadingDeviceTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AWNING"/>
+      <enumeration value="JALOUSIE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SHUTTER"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcSlab" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcSlabType"/>
+  <complexType name="IfcSlabType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcSlabTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSlabPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSlab"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcSlabElementedCase" substitutionGroup="ifc:IfcSlab" type="ifc:IfcSlabElementedCaseType"/>
+  <complexType name="IfcSlabElementedCaseType">
+    <complexContent>
+      <extension base="ifc:IfcSlabType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSlabElementedCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSlabElementedCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcSlabStandardCase" substitutionGroup="ifc:IfcSlab" type="ifc:IfcSlabStandardCaseType"/>
+  <complexType name="IfcSlabStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcSlabType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSlabStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSlabStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcSlabType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcSlabTypeType"/>
+  <complexType name="IfcSlabTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcSlabTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcSlabTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSlabType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcSlabTypeEnumType">
+    <restriction base="string">
+      <enumeration value="APPROACH_SLAB"/>
+      <enumeration value="BASESLAB"/>
+      <enumeration value="FLOOR"/>
+      <enumeration value="LANDING"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PAVING"/>
+      <enumeration value="ROOF"/>
+      <enumeration value="SIDEWALK"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WEARING"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcStair" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcStairType"/>
+  <complexType name="IfcStairType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcStairTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStairPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStair"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStairFlight" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcStairFlightType"/>
+  <complexType name="IfcStairFlightType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="numberOfRisers" type="integer"/>
+          <element minOccurs="0" name="numberOfTreads" type="integer"/>
+          <element minOccurs="0" name="riserHeight"/>
+          <element minOccurs="0" name="treadLength"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcStairFlightTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStairFlightPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStairFlight"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcStairFlightType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcStairFlightTypeType"/>
+  <complexType name="IfcStairFlightTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcStairFlightTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStairFlightTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStairFlightType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcStairFlightTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CURVED"/>
+      <enumeration value="FREEFORM"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SPIRAL"/>
+      <enumeration value="STRAIGHT"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WINDER"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcStairType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcStairTypeType"/>
+  <complexType name="IfcStairTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcStairTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcStairTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStairType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcStairTypeEnumType">
+    <restriction base="string">
+      <enumeration value="CURVED_RUN_STAIR"/>
+      <enumeration value="DOUBLE_RETURN_STAIR"/>
+      <enumeration value="HALF_TURN_STAIR"/>
+      <enumeration value="HALF_WINDING_STAIR"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="QUARTER_TURN_STAIR"/>
+      <enumeration value="QUARTER_WINDING_STAIR"/>
+      <enumeration value="SPIRAL_STAIR"/>
+      <enumeration value="STRAIGHT_RUN_STAIR"/>
+      <enumeration value="THREE_QUARTER_TURN_STAIR"/>
+      <enumeration value="THREE_QUARTER_WINDING_STAIR"/>
+      <enumeration value="TWO_CURVED_RUN_STAIR"/>
+      <enumeration value="TWO_QUARTER_TURN_STAIR"/>
+      <enumeration value="TWO_QUARTER_WINDING_STAIR"/>
+      <enumeration value="TWO_STRAIGHT_RUN_STAIR"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcWall" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcWallType"/>
+  <complexType name="IfcWallType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcWallTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWallPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWall"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcWallElementedCase" substitutionGroup="ifc:IfcWall" type="ifc:IfcWallElementedCaseType"/>
+  <complexType name="IfcWallElementedCaseType">
+    <complexContent>
+      <extension base="ifc:IfcWallType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWallElementedCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWallElementedCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcWallStandardCase" substitutionGroup="ifc:IfcWall" type="ifc:IfcWallStandardCaseType"/>
+  <complexType name="IfcWallStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcWallType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWallStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWallStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcWallType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcWallTypeType"/>
+  <complexType name="IfcWallTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcWallTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWallTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWallType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcWallTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ELEMENTEDWALL"/>
+      <enumeration value="MOVABLE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PARAPET"/>
+      <enumeration value="PARTITIONING"/>
+      <enumeration value="PLUMBINGWALL"/>
+      <enumeration value="POLYGONAL"/>
+      <enumeration value="RETAININGWALL"/>
+      <enumeration value="SHEAR"/>
+      <enumeration value="SOLIDWALL"/>
+      <enumeration value="STANDARD"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcWindow" substitutionGroup="ifc:IfcBuildingElement" type="ifc:IfcWindowType"/>
+  <complexType name="IfcWindowType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementType">
+        <sequence>
+          <element minOccurs="0" name="overallHeight"/>
+          <element minOccurs="0" name="overallWidth"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcWindowTypeEnumType"/>
+          <element minOccurs="0" name="partitioningType" type="ifc:IfcWindowTypePartitioningEnumType"/>
+          <element minOccurs="0" name="userDefinedPartitioningType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWindowPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWindow"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcWindowStandardCase" substitutionGroup="ifc:IfcWindow" type="ifc:IfcWindowStandardCaseType"/>
+  <complexType name="IfcWindowStandardCaseType">
+    <complexContent>
+      <extension base="ifc:IfcWindowType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWindowStandardCasePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWindowStandardCase"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcWindowType" substitutionGroup="ifc:IfcBuildingElementType" type="ifc:IfcWindowTypeType"/>
+  <complexType name="IfcWindowTypeType">
+    <complexContent>
+      <extension base="ifc:IfcBuildingElementTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcWindowTypeEnumType"/>
+          <element name="partitioningType" type="ifc:IfcWindowTypePartitioningEnumType"/>
+          <element minOccurs="0" name="parameterTakesPrecedence" type="boolean"/>
+          <element minOccurs="0" name="userDefinedPartitioningType" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcWindowTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWindowType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcWindowTypeEnumType">
+    <restriction base="string">
+      <enumeration value="LIGHTDOME"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SKYLIGHT"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WINDOW"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="IfcWindowTypePartitioningEnumType">
+    <restriction base="string">
+      <enumeration value="DOUBLE_PANEL_HORIZONTAL"/>
+      <enumeration value="DOUBLE_PANEL_VERTICAL"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SINGLE_PANEL"/>
+      <enumeration value="TRIPLE_PANEL_BOTTOM"/>
+      <enumeration value="TRIPLE_PANEL_HORIZONTAL"/>
+      <enumeration value="TRIPLE_PANEL_LEFT"/>
+      <enumeration value="TRIPLE_PANEL_RIGHT"/>
+      <enumeration value="TRIPLE_PANEL_TOP"/>
+      <enumeration value="TRIPLE_PANEL_VERTICAL"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="ifcCourseTypeType">
+    <union memberTypes="ifc:ifcCourseTypeEnumerationType ifc:ifcCourseTypeOtherType"/>
+  </simpleType>
+  <simpleType name="ifcCourseTypeEnumerationType">
+    <restriction base="string">
+      <enumeration value="Paving">
+        <annotation>
+          <documentation>Type of Course directly in contact with traffic loads e.g. in gravel road (also Surface layer or Wearing course).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AnticapillaryLayer">
+        <annotation>
+          <documentation>Type of Course, layer preventing capillary rise of water from underlying layers.
+NOTE  Definition from PIARC:
+Protective bottom layer with no fines, designed to prevent capillary rise of water from the subgrade soil or from underlying layers.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AntifreezingLayer">
+        <annotation>
+          <documentation>Type of Course, layer intended to prevent frost from penetrating into the subgrade. Also: Frost blanket course.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BaseCourse">
+        <annotation>
+          <documentation>A layer immediately beneath the surface of binder course providing additional load distribution and contributing to the sub-surface drainage.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="BinderCourse">
+        <annotation>
+          <documentation>A layer to distribute loads to the base course.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="CappingLayer">
+        <annotation>
+          <documentation>Top layer of subgrade to improve its load bearing capacity.
+NOTE  Definition from PIARC:
+Optional layer of granular or treated material on top of the subgrade and immediately b</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="DrainingCourse">
+        <annotation>
+          <documentation>Layer of pervious material to relieve pore pressure or facilitate drainage of overlying layers.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TackCoat">
+        <annotation>
+          <documentation>A thin coating of tar or asphalt applied before a road is laid to form an adhesive bond.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="LayingCourse">
+        <annotation>
+          <documentation>Type of Course, layer of material providing a bed for which block (stone) paving.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="RegulatingCourse">
+        <annotation>
+          <documentation>Type of Course, layer of variable thickness for adjusting a surface so meet specified even level. Also: Levelling course.
+NOTE  Definition from PIARC:
+Course of variable thickness applied to an existing course or surface to provide the necessary profile for a further course of constant thickness (CEN).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="Sealing">
+        <annotation>
+          <documentation>A layer of impermeable material.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SubBaseCourse">
+        <annotation>
+          <documentation>A layer between subgrade and base course.
+NOTE  Definition from PIARC:
+Layer or layers of specified or selected material of designed thickness placed on a subgrade to support a base layer (or a cement concrete slab in the case of rigid pavements).</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="SeparationLayer">
+        <annotation>
+          <documentation>A layer intended to prevent mixing of material from above layer with fine material or water in layer below.
+NOTE  Definition from PIARC:
+Layer of material designed to prevent the ascent of water or fines from a lower layer.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="AnticrackingLayer">
+        <annotation>
+          <documentation>A layer intended to isolate surface layers from cracking in lower layer.
+NOTE  Definition from PIARC
+Layer intended to prevent the reflection of cracks from a lower layer to the surface.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="PrimeCoat">
+        <annotation>
+          <documentation>An application of a low viscosity asphalt to a granular base in preparation for an initial layer of asphalt.</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="ifcCourseTypeOtherType">
+    <restriction base="string">
+      <pattern value="other: \w{2,}"/>
+    </restriction>
+  </simpleType>
+</schema>

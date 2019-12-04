@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcExternalReferenceResource.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcPhysicalComplexQuantity" substitutionGroup="ifc:IfcPhysicalQuantity" type="ifc:IfcPhysicalComplexQuantityType"/>
+  <complexType name="IfcPhysicalComplexQuantityType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalQuantityType">
+        <sequence>
+          <element name="discrimination" type="string"/>
+          <element minOccurs="0" name="quality" type="string"/>
+          <element minOccurs="0" name="usage" type="string"/>
+          <element maxOccurs="unbounded" name="hasQuantities" type="ifc:IfcPhysicalQuantityPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPhysicalComplexQuantityPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPhysicalComplexQuantity"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcPhysicalQuantity" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPhysicalQuantityType"/>
+  <complexType abstract="true" name="IfcPhysicalQuantityType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="name" type="string"/>
+          <element minOccurs="0" name="description" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPhysicalQuantityPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPhysicalQuantity"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcPhysicalSimpleQuantity" substitutionGroup="ifc:IfcPhysicalQuantity" type="ifc:IfcPhysicalSimpleQuantityType"/>
+  <complexType abstract="true" name="IfcPhysicalSimpleQuantityType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalQuantityType">
+        <sequence>
+          <element minOccurs="0" name="unit" type="ifc:IfcNamedUnitPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPhysicalSimpleQuantityPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPhysicalSimpleQuantity"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcQuantityArea" substitutionGroup="ifc:IfcPhysicalSimpleQuantity" type="ifc:IfcQuantityAreaType"/>
+  <complexType name="IfcQuantityAreaType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalSimpleQuantityType">
+        <sequence>
+          <element name="areaValue" type="gml:AreaType"/>
+          <element minOccurs="0" name="formula" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityAreaPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityArea"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcQuantityCount" substitutionGroup="ifc:IfcPhysicalSimpleQuantity" type="ifc:IfcQuantityCountType"/>
+  <complexType name="IfcQuantityCountType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalSimpleQuantityType">
+        <sequence>
+          <element name="countValue" type="gml:MeasureType"/>
+          <element minOccurs="0" name="formula" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityCountPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityCount"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcQuantityLength" substitutionGroup="ifc:IfcPhysicalSimpleQuantity" type="ifc:IfcQuantityLengthType"/>
+  <complexType name="IfcQuantityLengthType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalSimpleQuantityType">
+        <sequence>
+          <element name="lengthValue" type="gml:LengthType"/>
+          <element minOccurs="0" name="formula" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityLengthPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityLength"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcQuantityResourceFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcQuantityResourceFunctionType"/>
+  <complexType abstract="true" name="IfcQuantityResourceFunctionType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityResourceFunctionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityResourceFunction"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcQuantityResourceFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcQuantityResourceFunctionsType"/>
+  <complexType abstract="true" name="IfcQuantityResourceFunctionsType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityResourceFunctionsPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityResourceFunctions"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcQuantityTime" substitutionGroup="ifc:IfcPhysicalSimpleQuantity" type="ifc:IfcQuantityTimeType"/>
+  <complexType name="IfcQuantityTimeType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalSimpleQuantityType">
+        <sequence>
+          <element name="timeValue" type="gml:MeasureType"/>
+          <element minOccurs="0" name="formula" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityTimePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityTime"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcQuantityVolume" substitutionGroup="ifc:IfcPhysicalSimpleQuantity" type="ifc:IfcQuantityVolumeType"/>
+  <complexType name="IfcQuantityVolumeType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalSimpleQuantityType">
+        <sequence>
+          <element name="volumeValue" type="gml:VolumeType"/>
+          <element minOccurs="0" name="formula" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityVolumePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityVolume"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcQuantityWeight" substitutionGroup="ifc:IfcPhysicalSimpleQuantity" type="ifc:IfcQuantityWeightType"/>
+  <complexType name="IfcQuantityWeightType">
+    <complexContent>
+      <extension base="ifc:IfcPhysicalSimpleQuantityType">
+        <sequence>
+          <element name="weightValue" type="gml:MeasureType"/>
+          <element minOccurs="0" name="formula" type="string"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcQuantityWeightPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcQuantityWeight"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

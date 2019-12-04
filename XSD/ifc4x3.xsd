@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcCoreLayer.xsd"/>
+  <include schemaLocation="IfcDomainLayer.xsd"/>
+  <include schemaLocation="IfcInteroperabilityLayer.xsd"/>
+  <include schemaLocation="IfcResourceLayer.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+</schema>

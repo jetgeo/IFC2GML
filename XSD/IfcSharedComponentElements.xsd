@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+  <include schemaLocation="IfcInteroperabilityLayer.xsd"/>
+  <include schemaLocation="IfcMeasureResource.xsd"/>
+  <include schemaLocation="IfcProductExtension.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="IfcBuildingElementPart" substitutionGroup="ifc:IfcElementComponent" type="ifc:IfcBuildingElementPartType"/>
+  <complexType name="IfcBuildingElementPartType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcBuildingElementPartTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBuildingElementPartPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBuildingElementPart"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcBuildingElementPartType" substitutionGroup="ifc:IfcElementComponentType" type="ifc:IfcBuildingElementPartTypeType"/>
+  <complexType name="IfcBuildingElementPartTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcBuildingElementPartTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBuildingElementPartTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBuildingElementPartType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcBuildingElementPartTypeEnumType">
+    <restriction base="string">
+      <enumeration value="APRON"/>
+      <enumeration value="INSULATION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="PRECASTPANEL"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcDiscreteAccessory" substitutionGroup="ifc:IfcElementComponent" type="ifc:IfcDiscreteAccessoryType"/>
+  <complexType name="IfcDiscreteAccessoryType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDiscreteAccessoryTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDiscreteAccessoryPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDiscreteAccessory"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcDiscreteAccessoryType" substitutionGroup="ifc:IfcElementComponentType" type="ifc:IfcDiscreteAccessoryTypeType"/>
+  <complexType name="IfcDiscreteAccessoryTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcDiscreteAccessoryTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcDiscreteAccessoryTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDiscreteAccessoryType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcDiscreteAccessoryTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ANCHORPLATE"/>
+      <enumeration value="BRACKET"/>
+      <enumeration value="EXPANSION_JOINT_DEVICE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="SHOE"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element abstract="true" name="IfcElementComponent" substitutionGroup="ifc:IfcElement" type="ifc:IfcElementComponentType"/>
+  <complexType abstract="true" name="IfcElementComponentType">
+    <complexContent>
+      <extension base="ifc:IfcElementType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcElementComponentPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcElementComponent"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="IfcElementComponentType" substitutionGroup="ifc:IfcElementType" type="ifc:IfcElementComponentTypeType"/>
+  <complexType abstract="true" name="IfcElementComponentTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementTypeType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcElementComponentTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcElementComponentType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcFastener" substitutionGroup="ifc:IfcElementComponent" type="ifc:IfcFastenerType"/>
+  <complexType name="IfcFastenerType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFastenerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFastenerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFastener"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcFastenerType" substitutionGroup="ifc:IfcElementComponentType" type="ifc:IfcFastenerTypeType"/>
+  <complexType name="IfcFastenerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcFastenerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcFastenerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFastenerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcFastenerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="GLUE"/>
+      <enumeration value="MORTAR"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="WELD"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcMechanicalFastener" substitutionGroup="ifc:IfcElementComponent" type="ifc:IfcMechanicalFastenerType"/>
+  <complexType name="IfcMechanicalFastenerType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentType">
+        <sequence>
+          <element minOccurs="0" name="nominalDiameter"/>
+          <element minOccurs="0" name="nominalLength"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcMechanicalFastenerTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMechanicalFastenerPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMechanicalFastener"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcMechanicalFastenerType" substitutionGroup="ifc:IfcElementComponentType" type="ifc:IfcMechanicalFastenerTypeType"/>
+  <complexType name="IfcMechanicalFastenerTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentTypeType">
+        <sequence>
+          <element name="predefinedType" type="ifc:IfcMechanicalFastenerTypeEnumType"/>
+          <element minOccurs="0" name="nominalDiameter"/>
+          <element minOccurs="0" name="nominalLength"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcMechanicalFastenerTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcMechanicalFastenerType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcMechanicalFastenerTypeEnumType">
+    <restriction base="string">
+      <enumeration value="ANCHORBOLT"/>
+      <enumeration value="BOLT"/>
+      <enumeration value="COUPLER"/>
+      <enumeration value="DOWEL"/>
+      <enumeration value="NAIL"/>
+      <enumeration value="NAILPLATE"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RIVET"/>
+      <enumeration value="SCREW"/>
+      <enumeration value="SHEARCONNECTOR"/>
+      <enumeration value="STAPLE"/>
+      <enumeration value="STUDSHEARCONNECTOR"/>
+      <enumeration value="USERDEFINED"/>
+    </restriction>
+  </simpleType>
+  <element name="IfcVibrationDamper" substitutionGroup="ifc:IfcElementComponent" type="ifc:IfcVibrationDamperType"/>
+  <complexType name="IfcVibrationDamperType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcVibrationDamperTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcVibrationDamperPropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcVibrationDamper"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="IfcVibrationDamperType" substitutionGroup="ifc:IfcElementComponentType" type="ifc:IfcVibrationDamperTypeType"/>
+  <complexType name="IfcVibrationDamperTypeType">
+    <complexContent>
+      <extension base="ifc:IfcElementComponentTypeType">
+        <sequence>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcVibrationDamperTypeEnumType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcVibrationDamperTypePropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcVibrationDamperType"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="IfcVibrationDamperTypeEnumType">
+    <restriction base="string">
+      <enumeration value="AXIAL_YIELD"/>
+      <enumeration value="BENDING_YIELD"/>
+      <enumeration value="FRICTION"/>
+      <enumeration value="NOTDEFINED"/>
+      <enumeration value="RUBBER"/>
+      <enumeration value="SHEAR_YIELD"/>
+      <enumeration value="USERDEFINED"/>
+      <enumeration value="VISCOUS"/>
+    </restriction>
+  </simpleType>
+</schema>
