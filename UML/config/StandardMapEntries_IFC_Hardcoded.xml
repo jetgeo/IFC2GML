@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsdMapEntries xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1">
+    <XsdMapEntry type="IfcAccelerationMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
+    <XsdMapEntry type="IfcAngularVelocityMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:SpeedType" xmlType="gml:SpeedType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
+    <!--  <XsdMapEntry type="IfcLogical" xsdEncodingRules ="*" xmlType="" xmlPropertyType="" /> -->
+    <XsdMapEntry type="IfcMassMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
+    <XsdMapEntry type="IfcMolecularWeightMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
+    <XsdMapEntry type="IfcMonetaryMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
+    <XsdMapEntry type="IfcTimeMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
+    <XsdMapEntry type="IfcBSplineSurfaceWithKnots" xsdEncodingRules ="*" xmlType="gml:SurfaceType" xmlElement="gml:Surface" xmlPropertyType="gml:SurfacePropertyType"/>
+    <XsdMapEntry type="IfcConic" xsdEncodingRules ="*" xmlElement="gml:Cone" xmlType="gml:ConeType" xmlPropertyType="_P_"/>
+    <XsdMapEntry type="IfcEllipse" xsdEncodingRules ="*" xmlElement="gml:Cone" xmlType="gml:ConeType" xmlPropertyType="_P_"/>
+    <XsdMapEntry type="IfcLine" xsdEncodingRules ="*" xmlElement="gml:LineStringSegment" xmlType="gml:LineStringSegmentType" xmlPropertyType="_P_"/>
+</xsdMapEntries>
