@@ -242,7 +242,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcBoundedCurve" substitutionGroup="ifc:IfcCurve" type="ifc:IfcBoundedCurveType"/>
+  <element abstract="true" name="IfcBoundedCurve" substitutionGroup="gml:Curve" type="ifc:IfcBoundedCurveType"/>
   <complexType abstract="true" name="IfcBoundedCurveType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -257,7 +257,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcBoundedSurface" substitutionGroup="ifc:IfcSurface" type="ifc:IfcBoundedSurfaceType"/>
+  <element abstract="true" name="IfcBoundedSurface" substitutionGroup="gml:Surface" type="ifc:IfcBoundedSurfaceType"/>
   <complexType abstract="true" name="IfcBoundedSurfaceType">
     <complexContent>
       <extension base="gml:SurfaceType">
@@ -272,7 +272,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcCartesianPoint" substitutionGroup="ifc:IfcPoint" type="ifc:IfcCartesianPointType"/>
+  <element name="IfcCartesianPoint" substitutionGroup="gml:Point" type="ifc:IfcCartesianPointType"/>
   <complexType name="IfcCartesianPointType">
     <complexContent>
       <extension base="gml:PointType">
@@ -440,7 +440,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcCompositeCurveOnSurface" substitutionGroup="ifc:IfcCompositeCurve" type="ifc:IfcCompositeCurveOnSurfaceType"/>
+  <element name="IfcCompositeCurveOnSurface" substitutionGroup="gml:Curve" type="ifc:IfcCompositeCurveOnSurfaceType"/>
   <complexType name="IfcCompositeCurveOnSurfaceType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -477,7 +477,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcConic" substitutionGroup="ifc:IfcCurve" type="ifc:IfcConicType"/>
+  <element abstract="true" name="IfcConic" substitutionGroup="gml:Curve" type="ifc:IfcConicType"/>
   <complexType abstract="true" name="IfcConicType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -679,7 +679,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcElementarySurface" substitutionGroup="ifc:IfcSurface" type="ifc:IfcElementarySurfaceType"/>
+  <element abstract="true" name="IfcElementarySurface" substitutionGroup="gml:Surface" type="ifc:IfcElementarySurfaceType"/>
   <complexType abstract="true" name="IfcElementarySurfaceType">
     <complexContent>
       <extension base="gml:SurfaceType">
@@ -801,7 +801,7 @@
       <enumeration value="UNSPECIFIED"/>
     </restriction>
   </simpleType>
-  <element name="IfcLine" substitutionGroup="ifc:IfcCurve" type="ifc:IfcLineType"/>
+  <element name="IfcLine" substitutionGroup="gml:Curve" type="ifc:IfcLineType"/>
   <complexType name="IfcLineType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -863,7 +863,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcOffsetCurve" substitutionGroup="ifc:IfcCurve" type="ifc:IfcOffsetCurveType"/>
+  <element abstract="true" name="IfcOffsetCurve" substitutionGroup="gml:Curve" type="ifc:IfcOffsetCurveType"/>
   <complexType abstract="true" name="IfcOffsetCurveType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -968,7 +968,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcPcurve" substitutionGroup="ifc:IfcCurve" type="ifc:IfcPcurveType"/>
+  <element name="IfcPcurve" substitutionGroup="gml:Curve" type="ifc:IfcPcurveType"/>
   <complexType name="IfcPcurveType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -1034,7 +1034,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcPointOnCurve" substitutionGroup="ifc:IfcPoint" type="ifc:IfcPointOnCurveType"/>
+  <element name="IfcPointOnCurve" substitutionGroup="gml:Point" type="ifc:IfcPointOnCurveType"/>
   <complexType name="IfcPointOnCurveType">
     <complexContent>
       <extension base="gml:PointType">
@@ -1053,7 +1053,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcPointOnSurface" substitutionGroup="ifc:IfcPoint" type="ifc:IfcPointOnSurfaceType"/>
+  <element name="IfcPointOnSurface" substitutionGroup="gml:Point" type="ifc:IfcPointOnSurfaceType"/>
   <complexType name="IfcPointOnSurfaceType">
     <complexContent>
       <extension base="gml:PointType">
@@ -1097,7 +1097,7 @@
       <enumeration value="PCURVE_S2"/>
     </restriction>
   </simpleType>
-  <element name="IfcRationalBSplineCurveWithKnots" substitutionGroup="ifc:IfcBSplineCurveWithKnots" type="ifc:IfcRationalBSplineCurveWithKnotsType"/>
+  <element name="IfcRationalBSplineCurveWithKnots" substitutionGroup="gml:BSpline" type="ifc:IfcRationalBSplineCurveWithKnotsType"/>
   <complexType name="IfcRationalBSplineCurveWithKnotsType">
     <complexContent>
       <extension base="gml:BSplineType">
@@ -1115,7 +1115,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcRationalBSplineSurfaceWithKnots" substitutionGroup="ifc:IfcBSplineSurfaceWithKnots" type="ifc:IfcRationalBSplineSurfaceWithKnotsType"/>
+  <element name="IfcRationalBSplineSurfaceWithKnots" substitutionGroup="gml:Surface" type="ifc:IfcRationalBSplineSurfaceWithKnotsType"/>
   <complexType name="IfcRationalBSplineSurfaceWithKnotsType">
     <complexContent>
       <extension base="gml:SurfaceType">
@@ -1156,7 +1156,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcReparametrisedCompositeCurveSegment" substitutionGroup="ifc:IfcCompositeCurveSegment" type="ifc:IfcReparametrisedCompositeCurveSegmentType"/>
+  <element name="IfcReparametrisedCompositeCurveSegment" substitutionGroup="gml:Curve" type="ifc:IfcReparametrisedCompositeCurveSegmentType"/>
   <complexType name="IfcReparametrisedCompositeCurveSegmentType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -1267,7 +1267,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcSurfaceCurve" substitutionGroup="ifc:IfcCurve" type="ifc:IfcSurfaceCurveType"/>
+  <element name="IfcSurfaceCurve" substitutionGroup="gml:Curve" type="ifc:IfcSurfaceCurveType"/>
   <complexType name="IfcSurfaceCurveType">
     <complexContent>
       <extension base="gml:CurveType">
@@ -1332,7 +1332,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcSweptSurface" substitutionGroup="ifc:IfcSurface" type="ifc:IfcSweptSurfaceType"/>
+  <element abstract="true" name="IfcSweptSurface" substitutionGroup="gml:Surface" type="ifc:IfcSweptSurfaceType"/>
   <complexType abstract="true" name="IfcSweptSurfaceType">
     <complexContent>
       <extension base="gml:SurfaceType">

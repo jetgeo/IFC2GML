@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
+  xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC"
+  elementFormDefault="qualified"
+  targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcApprovalResource.xsd"/>
   <include schemaLocation="IfcConstraintResource.xsd"/>
@@ -12,9 +16,11 @@
   <include schemaLocation="IfcQuantityResource.xsd"/>
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2"
+    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcClassification" substitutionGroup="ifc:IfcExternalInformation" type="ifc:IfcClassificationType"/>
+  <element name="IfcClassification" substitutionGroup="ifc:IfcExternalInformation"
+    type="ifc:IfcClassificationType"/>
   <complexType name="IfcClassificationType">
     <complexContent>
       <extension base="ifc:IfcExternalInformationType">
@@ -37,12 +43,14 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcClassificationReference" substitutionGroup="ifc:IfcExternalReference" type="ifc:IfcClassificationReferenceType"/>
+  <element name="IfcClassificationReference" substitutionGroup="ifc:IfcExternalReference"
+    type="ifc:IfcClassificationReferenceType"/>
   <complexType name="IfcClassificationReferenceType">
     <complexContent>
       <extension base="ifc:IfcExternalReferenceType">
         <sequence>
-          <element minOccurs="0" name="referencedSource" type="ifc:IfcClassificationReferenceSelectPropertyType"/>
+          <element minOccurs="0" name="referencedSource"
+            type="ifc:IfcClassificationReferenceSelectPropertyType"/>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="sort" type="string"/>
         </sequence>
@@ -56,7 +64,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcClassificationReferenceSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcClassificationReferenceSelectType"/>
+  <element name="IfcClassificationReferenceSelect" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcClassificationReferenceSelectType"/>
   <complexType name="IfcClassificationReferenceSelectType">
     <choice>
       <element name="classification">
@@ -90,7 +99,8 @@
       <element ref="ifc:IfcClassificationReferenceSelect"/>
     </sequence>
   </complexType>
-  <element name="IfcClassificationSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcClassificationSelectType"/>
+  <element name="IfcClassificationSelect" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcClassificationSelectType"/>
   <complexType name="IfcClassificationSelectType">
     <choice>
       <element name="classification">
@@ -134,7 +144,8 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcDocumentInformation" substitutionGroup="ifc:IfcExternalInformation" type="ifc:IfcDocumentInformationType"/>
+  <element name="IfcDocumentInformation" substitutionGroup="ifc:IfcExternalInformation"
+    type="ifc:IfcDocumentInformationType"/>
   <complexType name="IfcDocumentInformationType">
     <complexContent>
       <extension base="ifc:IfcExternalInformationType">
@@ -148,13 +159,15 @@
           <element minOccurs="0" name="scope" type="string"/>
           <element minOccurs="0" name="revision" type="string"/>
           <element minOccurs="0" name="documentOwner" type="ifc:IfcActorSelectPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="editors" type="ifc:IfcActorSelectPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="editors"
+            type="ifc:IfcActorSelectPropertyType"/>
           <element minOccurs="0" name="creationTime" type="dateTime"/>
           <element minOccurs="0" name="lastRevisionTime" type="dateTime"/>
           <element minOccurs="0" name="electronicFormat" type="string"/>
           <element minOccurs="0" name="validFrom" type="date"/>
           <element minOccurs="0" name="validUntil" type="date"/>
-          <element minOccurs="0" name="confidentiality" type="ifc:IfcDocumentConfidentialityEnumType"/>
+          <element minOccurs="0" name="confidentiality"
+            type="ifc:IfcDocumentConfidentialityEnumType"/>
           <element minOccurs="0" name="status" type="ifc:IfcDocumentStatusEnumType"/>
         </sequence>
       </extension>
@@ -167,14 +180,17 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcDocumentInformationRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcDocumentInformationRelationshipType"/>
+  <element name="IfcDocumentInformationRelationship"
+    substitutionGroup="ifc:IfcResourceLevelRelationship"
+    type="ifc:IfcDocumentInformationRelationshipType"/>
   <complexType name="IfcDocumentInformationRelationshipType">
     <complexContent>
       <extension base="ifc:IfcResourceLevelRelationshipType">
         <sequence>
           <element minOccurs="0" name="relationshipType" type="string"/>
           <element name="relatingDocument" type="ifc:IfcDocumentInformationPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedDocuments" type="ifc:IfcDocumentInformationPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedDocuments"
+            type="ifc:IfcDocumentInformationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -186,13 +202,15 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcDocumentReference" substitutionGroup="ifc:IfcExternalReference" type="ifc:IfcDocumentReferenceType"/>
+  <element name="IfcDocumentReference" substitutionGroup="ifc:IfcExternalReference"
+    type="ifc:IfcDocumentReferenceType"/>
   <complexType name="IfcDocumentReferenceType">
     <complexContent>
       <extension base="ifc:IfcExternalReferenceType">
         <sequence>
           <element minOccurs="0" name="description" type="string"/>
-          <element minOccurs="0" name="referencedDocument" type="ifc:IfcDocumentInformationPropertyType"/>
+          <element minOccurs="0" name="referencedDocument"
+            type="ifc:IfcDocumentInformationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -204,7 +222,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcDocumentSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcDocumentSelectType"/>
+  <element name="IfcDocumentSelect" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcDocumentSelectType"/>
   <complexType name="IfcDocumentSelectType">
     <choice>
       <element name="documentInformation">
@@ -247,7 +266,8 @@
       <enumeration value="REVISION"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="IfcExternalInformation" substitutionGroup="gml:AbstractFeature" type="ifc:IfcExternalInformationType"/>
+  <element abstract="true" name="IfcExternalInformation" substitutionGroup="gml:AbstractFeature"
+    type="ifc:IfcExternalInformationType"/>
   <complexType abstract="true" name="IfcExternalInformationType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
@@ -262,7 +282,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcExternalReference" substitutionGroup="gml:AbstractFeature" type="ifc:IfcExternalReferenceType"/>
+  <element abstract="true" name="IfcExternalReference" substitutionGroup="gml:AbstractFeature"
+    type="ifc:IfcExternalReferenceType"/>
   <complexType abstract="true" name="IfcExternalReferenceType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
@@ -281,12 +302,15 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcExternalReferenceRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcExternalReferenceRelationshipType"/>
+  <element name="IfcExternalReferenceRelationship"
+    substitutionGroup="ifc:IfcResourceLevelRelationship"
+    type="ifc:IfcExternalReferenceRelationshipType"/>
   <complexType name="IfcExternalReferenceRelationshipType">
     <complexContent>
       <extension base="ifc:IfcResourceLevelRelationshipType">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedResourceObjects" type="ifc:IfcResourceObjectSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedResourceObjects"
+            type="ifc:IfcResourceObjectSelectPropertyType"/>
           <element name="relatingReference" type="ifc:IfcExternalReferencePropertyType"/>
         </sequence>
       </extension>
@@ -299,20 +323,18 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcLanguageId" substitutionGroup="ifc:IfcIdentifier" type="ifc:IfcLanguageIdType"/>
+  <element name="IfcLanguageId" substitutionGroup="gml:AbstractObject" type="ifc:IfcLanguageIdType"/>
   <complexType name="IfcLanguageIdType">
-    <complexContent>
-      <extension base="string">
-        <sequence/>
-      </extension>
-    </complexContent>
+
+    <sequence/>
   </complexType>
   <complexType name="IfcLanguageIdPropertyType">
     <sequence>
       <element ref="ifc:IfcLanguageId"/>
     </sequence>
   </complexType>
-  <element name="IfcLibraryInformation" substitutionGroup="ifc:IfcExternalInformation" type="ifc:IfcLibraryInformationType"/>
+  <element name="IfcLibraryInformation" substitutionGroup="ifc:IfcExternalInformation"
+    type="ifc:IfcLibraryInformationType"/>
   <complexType name="IfcLibraryInformationType">
     <complexContent>
       <extension base="ifc:IfcExternalInformationType">
@@ -334,14 +356,16 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcLibraryReference" substitutionGroup="ifc:IfcExternalReference" type="ifc:IfcLibraryReferenceType"/>
+  <element name="IfcLibraryReference" substitutionGroup="ifc:IfcExternalReference"
+    type="ifc:IfcLibraryReferenceType"/>
   <complexType name="IfcLibraryReferenceType">
     <complexContent>
       <extension base="ifc:IfcExternalReferenceType">
         <sequence>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="language" type="string"/>
-          <element minOccurs="0" name="referencedLibrary" type="ifc:IfcLibraryInformationPropertyType"/>
+          <element minOccurs="0" name="referencedLibrary"
+            type="ifc:IfcLibraryInformationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -353,7 +377,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcLibrarySelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcLibrarySelectType"/>
+  <element name="IfcLibrarySelect" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcLibrarySelectType"/>
   <complexType name="IfcLibrarySelectType">
     <choice>
       <element name="libraryInformation">
@@ -387,7 +412,8 @@
       <element ref="ifc:IfcLibrarySelect"/>
     </sequence>
   </complexType>
-  <element abstract="true" name="IfcResourceLevelRelationship" substitutionGroup="gml:AbstractFeature" type="ifc:IfcResourceLevelRelationshipType"/>
+  <element abstract="true" name="IfcResourceLevelRelationship"
+    substitutionGroup="gml:AbstractFeature" type="ifc:IfcResourceLevelRelationshipType"/>
   <complexType abstract="true" name="IfcResourceLevelRelationshipType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
@@ -405,7 +431,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcResourceObjectSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcResourceObjectSelectType"/>
+  <element name="IfcResourceObjectSelect" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcResourceObjectSelectType"/>
   <complexType name="IfcResourceObjectSelectType">
     <choice>
       <element name="actorRole">
@@ -619,7 +646,8 @@
       <element ref="ifc:IfcResourceObjectSelect"/>
     </sequence>
   </complexType>
-  <element name="IfcURIReference" substitutionGroup="gml:AbstractObject" type="ifc:IfcURIReferenceType"/>
+  <element name="IfcURIReference" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcURIReferenceType"/>
   <complexType name="IfcURIReferenceType">
     <sequence/>
   </complexType>

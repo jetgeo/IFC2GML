@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
+  xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC"
+  elementFormDefault="qualified"
+  targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
@@ -6,9 +10,11 @@
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
   <include schemaLocation="IfcTopologyResource.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2"
+    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcAnnotationFillArea" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAnnotationFillAreaType"/>
+  <element name="IfcAnnotationFillArea" substitutionGroup="ifc:IfcGeometricRepresentationItem"
+    type="ifc:IfcAnnotationFillAreaType"/>
   <complexType name="IfcAnnotationFillAreaType">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
@@ -23,13 +29,11 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcBoxAlignment" substitutionGroup="ifc:IfcLabel" type="ifc:IfcBoxAlignmentType"/>
+  <element name="IfcBoxAlignment" substitutionGroup="gml:AbstractObject"
+    type="ifc:IfcBoxAlignmentType"/>
   <complexType name="IfcBoxAlignmentType">
-    <complexContent>
-      <extension base="string">
-        <sequence/>
-      </extension>
-    </complexContent>
+
+    <sequence/>
   </complexType>
   <complexType name="IfcBoxAlignmentPropertyType">
     <sequence>
@@ -53,7 +57,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcPlanarExtent" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcPlanarExtentType"/>
+  <element name="IfcPlanarExtent" substitutionGroup="ifc:IfcGeometricRepresentationItem"
+    type="ifc:IfcPlanarExtentType"/>
   <complexType name="IfcPlanarExtentType">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
@@ -71,7 +76,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcPresentationItem" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPresentationItemType"/>
+  <element abstract="true" name="IfcPresentationItem" substitutionGroup="gml:AbstractFeature"
+    type="ifc:IfcPresentationItemType"/>
   <complexType abstract="true" name="IfcPresentationItemType">
     <complexContent>
       <extension base="gml:AbstractFeatureType">
@@ -86,7 +92,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTextLiteral" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcTextLiteralType"/>
+  <element name="IfcTextLiteral" substitutionGroup="ifc:IfcGeometricRepresentationItem"
+    type="ifc:IfcTextLiteralType"/>
   <complexType name="IfcTextLiteralType">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
@@ -105,7 +112,8 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTextLiteralWithExtent" substitutionGroup="ifc:IfcTextLiteral" type="ifc:IfcTextLiteralWithExtentType"/>
+  <element name="IfcTextLiteralWithExtent" substitutionGroup="ifc:IfcTextLiteral"
+    type="ifc:IfcTextLiteralWithExtentType"/>
   <complexType name="IfcTextLiteralWithExtentType">
     <complexContent>
       <extension base="ifc:IfcTextLiteralType">

@@ -906,26 +906,20 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcNonNegativeLengthMeasure" substitutionGroup="ifc:IfcLengthMeasure" type="ifc:IfcNonNegativeLengthMeasureType"/>
+  <element name="IfcNonNegativeLengthMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcNonNegativeLengthMeasureType"/>
   <complexType name="IfcNonNegativeLengthMeasureType">
-    <complexContent>
-      <extension base="gml:LengthType">
+  
         <sequence/>
-      </extension>
-    </complexContent>
   </complexType>
   <complexType name="IfcNonNegativeLengthMeasurePropertyType">
     <sequence>
       <element ref="ifc:IfcNonNegativeLengthMeasure"/>
     </sequence>
   </complexType>
-  <element name="IfcNormalisedRatioMeasure" substitutionGroup="ifc:IfcRatioMeasure" type="ifc:IfcNormalisedRatioMeasureType"/>
+  <element name="IfcNormalisedRatioMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcNormalisedRatioMeasureType"/>
   <complexType name="IfcNormalisedRatioMeasureType">
-    <complexContent>
-      <extension base="gml:MeasureType">
+    
         <sequence/>
-      </extension>
-    </complexContent>
   </complexType>
   <complexType name="IfcNormalisedRatioMeasurePropertyType">
     <sequence>
@@ -977,52 +971,42 @@
       <element ref="ifc:IfcPlaneAngleMeasure"/>
     </sequence>
   </complexType>
-  <element name="IfcPositiveInteger" substitutionGroup="ifc:IfcInteger" type="ifc:IfcPositiveIntegerType"/>
+  <element name="IfcPositiveInteger" substitutionGroup="gml:AbstractObject" type="ifc:IfcPositiveIntegerType"/>
   <complexType name="IfcPositiveIntegerType">
-    <complexContent>
-      <extension base="integer">
+    
+    
         <sequence/>
-      </extension>
-    </complexContent>
+      
+    
   </complexType>
   <complexType name="IfcPositiveIntegerPropertyType">
     <sequence>
       <element ref="ifc:IfcPositiveInteger"/>
     </sequence>
   </complexType>
-  <element name="IfcPositiveLengthMeasure" substitutionGroup="ifc:IfcLengthMeasure" type="ifc:IfcPositiveLengthMeasureType"/>
+  <element name="IfcPositiveLengthMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPositiveLengthMeasureType"/>
   <complexType name="IfcPositiveLengthMeasureType">
-    <complexContent>
-      <extension base="gml:LengthType">
+    
         <sequence/>
-      </extension>
-    </complexContent>
   </complexType>
   <complexType name="IfcPositiveLengthMeasurePropertyType">
     <sequence>
       <element ref="ifc:IfcPositiveLengthMeasure"/>
     </sequence>
   </complexType>
-  <element name="IfcPositivePlaneAngleMeasure" substitutionGroup="ifc:IfcPlaneAngleMeasure" type="ifc:IfcPositivePlaneAngleMeasureType"/>
+  <element name="IfcPositivePlaneAngleMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPositivePlaneAngleMeasureType"/>
   <complexType name="IfcPositivePlaneAngleMeasureType">
-    <complexContent>
-      <extension base="gml:AngleType">
-        <sequence/>
-      </extension>
-    </complexContent>
+  <sequence/>
   </complexType>
   <complexType name="IfcPositivePlaneAngleMeasurePropertyType">
     <sequence>
       <element ref="ifc:IfcPositivePlaneAngleMeasure"/>
     </sequence>
   </complexType>
-  <element name="IfcPositiveRatioMeasure" substitutionGroup="ifc:IfcRatioMeasure" type="ifc:IfcPositiveRatioMeasureType"/>
+  <element name="IfcPositiveRatioMeasure" substitutionGroup="gml:AbstractObject" type="ifc:IfcPositiveRatioMeasureType"/>
   <complexType name="IfcPositiveRatioMeasureType">
-    <complexContent>
-      <extension base="gml:MeasureType">
+  
         <sequence/>
-      </extension>
-    </complexContent>
   </complexType>
   <complexType name="IfcPositiveRatioMeasurePropertyType">
     <sequence>
