@@ -696,7 +696,7 @@
     <complexContent>
       <extension base="ifc:IfcPositioningElementType">
         <sequence>
-          <element name="axis" type="ifc:IfcCurvePropertyType"/>
+          <element name="axis" type="gml:CurveType"/>
         </sequence>
       </extension>
     </complexContent>

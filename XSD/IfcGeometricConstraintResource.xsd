@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco"
+  xmlns:gml="http://www.opengis.net/gml/3.2"
+  xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC"
+  elementFormDefault="qualified"
+  targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcGeometricModelResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcKernel.xsd"/>
@@ -8,16 +12,20 @@
   <include schemaLocation="IfcProfileResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
   <include schemaLocation="IfcTopologyResource.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco"
+    schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2"
+    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcAlignment2DHorizontal" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DHorizontal_Type"/>
+  <element name="IfcAlignment2DHorizontal" substitutionGroup="ifc:IfcGeometricRepresentationItem"
+    type="ifc:IfcAlignment2DHorizontal_Type"/>
   <complexType name="IfcAlignment2DHorizontal_Type">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
           <element minOccurs="0" name="startDistAlong" type="gml:LengthType"/>
-          <element maxOccurs="unbounded" name="segments" type="ifc:IfcAlignment2DHorizontalSegment_PropertyType"/>
+          <element maxOccurs="unbounded" name="segments"
+            type="ifc:IfcAlignment2DHorizontalSegment_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -29,7 +37,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DHorizontalSegment" substitutionGroup="ifc:AbstractIfcAlignment2DSegment" type="ifc:IfcAlignment2DHorizontalSegment_Type"/>
+  <element name="IfcAlignment2DHorizontalSegment"
+    substitutionGroup="ifc:AbstractIfcAlignment2DSegment"
+    type="ifc:IfcAlignment2DHorizontalSegment_Type"/>
   <complexType name="IfcAlignment2DHorizontalSegment_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcAlignment2DSegment_Type">
@@ -53,7 +63,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcAlignment2DSegment" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:AbstractIfcAlignment2DSegment_Type"/>
+  <element abstract="true" name="AbstractIfcAlignment2DSegment"
+    substitutionGroup="ifc:IfcGeometricRepresentationItem"
+    type="ifc:AbstractIfcAlignment2DSegment_Type"/>
   <complexType abstract="true" name="AbstractIfcAlignment2DSegment_Type">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
@@ -72,7 +84,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVerSegCircularArc" substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegCircularArc_Type"/>
+  <element name="IfcAlignment2DVerSegCircularArc"
+    substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment"
+    type="ifc:IfcAlignment2DVerSegCircularArc_Type"/>
   <complexType name="IfcAlignment2DVerSegCircularArc_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcAlignment2DVerticalSegment_Type">
@@ -90,7 +104,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVerSegLine" substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegLine_Type"/>
+  <element name="IfcAlignment2DVerSegLine"
+    substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment"
+    type="ifc:IfcAlignment2DVerSegLine_Type"/>
   <complexType name="IfcAlignment2DVerSegLine_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcAlignment2DVerticalSegment_Type">
@@ -105,7 +121,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVerSegParabolicArc" substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegParabolicArc_Type"/>
+  <element name="IfcAlignment2DVerSegParabolicArc"
+    substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment"
+    type="ifc:IfcAlignment2DVerSegParabolicArc_Type"/>
   <complexType name="IfcAlignment2DVerSegParabolicArc_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcAlignment2DVerticalSegment_Type">
@@ -123,12 +141,14 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVertical" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DVertical_Type"/>
+  <element name="IfcAlignment2DVertical" substitutionGroup="ifc:IfcGeometricRepresentationItem"
+    type="ifc:IfcAlignment2DVertical_Type"/>
   <complexType name="IfcAlignment2DVertical_Type">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
-          <element maxOccurs="unbounded" name="segments" type="ifc:AbstractIfcAlignment2DVerticalSegment_PropertyType"/>
+          <element maxOccurs="unbounded" name="segments"
+            type="ifc:AbstractIfcAlignment2DVerticalSegment_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -140,7 +160,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcAlignment2DVerticalSegment" substitutionGroup="ifc:AbstractIfcAlignment2DSegment" type="ifc:AbstractIfcAlignment2DVerticalSegment_Type"/>
+  <element abstract="true" name="AbstractIfcAlignment2DVerticalSegment"
+    substitutionGroup="ifc:AbstractIfcAlignment2DSegment"
+    type="ifc:AbstractIfcAlignment2DVerticalSegment_Type"/>
   <complexType abstract="true" name="AbstractIfcAlignment2DVerticalSegment_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcAlignment2DSegment_Type">
@@ -160,7 +182,8 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignmentCurve" substitutionGroup="ifc:IfcBoundedCurve" type="ifc:IfcAlignmentCurve_Type"/>
+  <element name="IfcAlignmentCurve" substitutionGroup="ifc:IfcBoundedCurve"
+    type="ifc:IfcAlignmentCurve_Type"/>
   <complexType name="IfcAlignmentCurve_Type">
     <complexContent>
       <extension base="ifc:IfcBoundedCurveType">
@@ -179,13 +202,15 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionCurveGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionCurveGeometry_Type"/>
+  <element name="IfcConnectionCurveGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry"
+    type="ifc:IfcConnectionCurveGeometry_Type"/>
   <complexType name="IfcConnectionCurveGeometry_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
           <element name="curveOnRelatingElement" type="ifc:IfcCurveOrEdgeCurve_PropertyType"/>
-          <element minOccurs="0" name="curveOnRelatedElement" type="ifc:IfcCurveOrEdgeCurve_PropertyType"/>
+          <element minOccurs="0" name="curveOnRelatedElement"
+            type="ifc:IfcCurveOrEdgeCurve_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -197,7 +222,8 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcConnectionGeometry" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcConnectionGeometry_Type"/>
+  <element abstract="true" name="AbstractIfcConnectionGeometry"
+    substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcConnectionGeometry_Type"/>
   <complexType abstract="true" name="AbstractIfcConnectionGeometry_Type">
     <complexContent>
       <extension base="gco:AbstractObject_Type">
@@ -212,7 +238,8 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionPointEccentricity" substitutionGroup="ifc:IfcConnectionPointGeometry" type="ifc:IfcConnectionPointEccentricity_Type"/>
+  <element name="IfcConnectionPointEccentricity" substitutionGroup="ifc:IfcConnectionPointGeometry"
+    type="ifc:IfcConnectionPointEccentricity_Type"/>
   <complexType name="IfcConnectionPointEccentricity_Type">
     <complexContent>
       <extension base="ifc:IfcConnectionPointGeometry_Type">
@@ -231,13 +258,15 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionPointGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionPointGeometry_Type"/>
+  <element name="IfcConnectionPointGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry"
+    type="ifc:IfcConnectionPointGeometry_Type"/>
   <complexType name="IfcConnectionPointGeometry_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
           <element name="pointOnRelatingElement" type="ifc:IfcPointOrVertexPoint_PropertyType"/>
-          <element minOccurs="0" name="pointOnRelatedElement" type="ifc:IfcPointOrVertexPoint_PropertyType"/>
+          <element minOccurs="0" name="pointOnRelatedElement"
+            type="ifc:IfcPointOrVertexPoint_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -249,13 +278,15 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionSurfaceGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionSurfaceGeometry_Type"/>
+  <element name="IfcConnectionSurfaceGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry"
+    type="ifc:IfcConnectionSurfaceGeometry_Type"/>
   <complexType name="IfcConnectionSurfaceGeometry_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
           <element name="surfaceOnRelatingElement" type="ifc:IfcSurfaceOrFaceSurface_PropertyType"/>
-          <element minOccurs="0" name="surfaceOnRelatedElement" type="ifc:IfcSurfaceOrFaceSurface_PropertyType"/>
+          <element minOccurs="0" name="surfaceOnRelatedElement"
+            type="ifc:IfcSurfaceOrFaceSurface_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -267,13 +298,15 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionVolumeGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionVolumeGeometry_Type"/>
+  <element name="IfcConnectionVolumeGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry"
+    type="ifc:IfcConnectionVolumeGeometry_Type"/>
   <complexType name="IfcConnectionVolumeGeometry_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
           <element name="volumeOnRelatingElement" type="ifc:IfcSolidOrShell_PropertyType"/>
-          <element minOccurs="0" name="volumeOnRelatedElement" type="ifc:IfcSolidOrShell_PropertyType"/>
+          <element minOccurs="0" name="volumeOnRelatedElement"
+            type="ifc:IfcSolidOrShell_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -305,7 +338,9 @@
     </sequence>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcGeometricConstraintResourceFunction" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcGeometricConstraintResourceFunction_Type"/>
+  <element abstract="true" name="AbstractIfcGeometricConstraintResourceFunction"
+    substitutionGroup="gco:AbstractObject"
+    type="ifc:AbstractIfcGeometricConstraintResourceFunction_Type"/>
   <complexType abstract="true" name="AbstractIfcGeometricConstraintResourceFunction_Type">
     <complexContent>
       <extension base="gco:AbstractObject_Type">
@@ -320,7 +355,9 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcGeometricConstraintResourceFunctions" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcGeometricConstraintResourceFunctions_Type"/>
+  <element abstract="true" name="AbstractIfcGeometricConstraintResourceFunctions"
+    substitutionGroup="gco:AbstractObject"
+    type="ifc:AbstractIfcGeometricConstraintResourceFunctions_Type"/>
   <complexType abstract="true" name="AbstractIfcGeometricConstraintResourceFunctions_Type">
     <complexContent>
       <extension base="gco:AbstractObject_Type">
@@ -353,12 +390,14 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcGridPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement" type="ifc:IfcGridPlacement_Type"/>
+  <element name="IfcGridPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement"
+    type="ifc:IfcGridPlacement_Type"/>
   <complexType name="IfcGridPlacement_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcObjectPlacement_Type">
         <sequence>
-          <element minOccurs="0" name="placementRefDirection" type="ifc:IfcGridPlacementDirectionSelect_PropertyType"/>
+          <element minOccurs="0" name="placementRefDirection"
+            type="ifc:IfcGridPlacementDirectionSelect_PropertyType"/>
           <element name="placementLocation" type="ifc:IfcVirtualGridIntersection_PropertyType"/>
         </sequence>
       </extension>
@@ -391,7 +430,8 @@
     </sequence>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcIntervalPlacement" substitutionGroup="ifc:IfcLinearSpanPlacement" type="ifc:IfcIntervalPlacement_Type"/>
+  <element name="IfcIntervalPlacement" substitutionGroup="ifc:IfcLinearSpanPlacement"
+    type="ifc:IfcIntervalPlacement_Type"/>
   <complexType name="IfcIntervalPlacement_Type">
     <complexContent>
       <extension base="ifc:IfcLinearSpanPlacement_Type">
@@ -410,7 +450,8 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLinearPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement" type="ifc:IfcLinearPlacement_Type"/>
+  <element name="IfcLinearPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement"
+    type="ifc:IfcLinearPlacement_Type"/>
   <complexType name="IfcLinearPlacement_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcObjectPlacement_Type">
@@ -425,7 +466,8 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLinearSpanPlacement" substitutionGroup="ifc:IfcLinearPlacement" type="ifc:IfcLinearSpanPlacement_Type"/>
+  <element name="IfcLinearSpanPlacement" substitutionGroup="ifc:IfcLinearPlacement"
+    type="ifc:IfcLinearSpanPlacement_Type"/>
   <complexType name="IfcLinearSpanPlacement_Type">
     <complexContent>
       <extension base="ifc:IfcLinearPlacement_Type">
@@ -442,7 +484,8 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLocalPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement" type="ifc:IfcLocalPlacement_Type"/>
+  <element name="IfcLocalPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement"
+    type="ifc:IfcLocalPlacement_Type"/>
   <complexType name="IfcLocalPlacement_Type">
     <complexContent>
       <extension base="ifc:AbstractIfcObjectPlacement_Type">
@@ -459,12 +502,14 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcObjectPlacement" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcObjectPlacement_Type"/>
+  <element abstract="true" name="AbstractIfcObjectPlacement" substitutionGroup="gco:AbstractObject"
+    type="ifc:AbstractIfcObjectPlacement_Type"/>
   <complexType abstract="true" name="AbstractIfcObjectPlacement_Type">
     <complexContent>
       <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element minOccurs="0" name="placementRelTo" type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
+          <element minOccurs="0" name="placementRelTo"
+            type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -530,13 +575,15 @@
     </sequence>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcVirtualGridIntersection" substitutionGroup="gco:AbstractObject" type="ifc:IfcVirtualGridIntersection_Type"/>
+  <element name="IfcVirtualGridIntersection" substitutionGroup="gco:AbstractObject"
+    type="ifc:IfcVirtualGridIntersection_Type"/>
   <complexType name="IfcVirtualGridIntersection_Type">
     <complexContent>
       <extension base="gco:AbstractObject_Type">
         <sequence>
           <element maxOccurs="3" minOccurs="2" name="offsetDistances" type="gml:LengthType"/>
-          <element maxOccurs="2" minOccurs="2" name="intersectingAxes" type="ifc:IfcGridAxis_PropertyType"/>
+          <element maxOccurs="2" minOccurs="2" name="intersectingAxes"
+            type="ifc:IfcGridAxis_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
