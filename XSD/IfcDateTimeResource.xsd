@@ -215,7 +215,7 @@
       <extension base="ifc:IfcSchedulingTimeType">
         <sequence>
           <element minOccurs="0" name="scheduleWork" type="duration"/>
-          <element minOccurs="0" name="scheduleUsage"/>
+          <element minOccurs="0" name="scheduleUsage" type="gml:MeasureType"/>
           <element minOccurs="0" name="scheduleStart" type="dateTime"/>
           <element minOccurs="0" name="scheduleFinish" type="dateTime"/>
           <element minOccurs="0" name="scheduleContour" type="string"/>
@@ -223,12 +223,12 @@
           <element minOccurs="0" name="isOverAllocated" type="boolean"/>
           <element minOccurs="0" name="statusTime" type="dateTime"/>
           <element minOccurs="0" name="actualWork" type="duration"/>
-          <element minOccurs="0" name="actualUsage"/>
+          <element minOccurs="0" name="actualUsage" type="gml:MeasureType"/>
           <element minOccurs="0" name="actualStart" type="dateTime"/>
           <element minOccurs="0" name="actualFinish" type="dateTime"/>
           <element minOccurs="0" name="remainingWork" type="duration"/>
-          <element minOccurs="0" name="remainingUsage"/>
-          <element minOccurs="0" name="completion"/>
+          <element minOccurs="0" name="remainingUsage" type="gml:MeasureType"/>
+          <element minOccurs="0" name="completion" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -287,7 +287,7 @@
           <element minOccurs="0" name="actualStart" type="dateTime"/>
           <element minOccurs="0" name="actualFinish" type="dateTime"/>
           <element minOccurs="0" name="remainingTime" type="duration"/>
-          <element minOccurs="0" name="completion"/>
+          <element minOccurs="0" name="completion" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>

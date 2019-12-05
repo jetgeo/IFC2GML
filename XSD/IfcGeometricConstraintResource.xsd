@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcGeometricModelResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcKernel.xsd"/>
@@ -8,43 +8,53 @@
   <include schemaLocation="IfcProfileResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
   <include schemaLocation="IfcTopologyResource.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcAlignment2DHorizontal" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DHorizontalType"/>
-  <complexType name="IfcAlignment2DHorizontalType">
+  <element name="IfcAlignment2DHorizontal" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DHorizontal_Type"/>
+  <complexType name="IfcAlignment2DHorizontal_Type">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
           <element minOccurs="0" name="startDistAlong" type="gml:LengthType"/>
-          <element maxOccurs="unbounded" name="segments" type="ifc:IfcAlignment2DHorizontalSegmentPropertyType"/>
+          <element maxOccurs="unbounded" name="segments" type="ifc:IfcAlignment2DHorizontalSegment_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DHorizontalPropertyType">
+  <complexType name="IfcAlignment2DHorizontal_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignment2DHorizontal"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DHorizontalSegment" substitutionGroup="ifc:IfcAlignment2DSegment" type="ifc:IfcAlignment2DHorizontalSegmentType"/>
-  <complexType name="IfcAlignment2DHorizontalSegmentType">
+  <element name="IfcAlignment2DHorizontalSegment" substitutionGroup="ifc:AbstractIfcAlignment2DSegment" type="ifc:IfcAlignment2DHorizontalSegment_Type"/>
+  <complexType name="IfcAlignment2DHorizontalSegment_Type">
     <complexContent>
-      <extension base="ifc:IfcAlignment2DSegmentType">
-        <sequence/>
+      <extension base="ifc:AbstractIfcAlignment2DSegment_Type">
+        <sequence>
+          <element name="curveGeometry">
+            <complexType>
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcCurveSegment2D"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </complexType>
+          </element>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DHorizontalSegmentPropertyType">
+  <complexType name="IfcAlignment2DHorizontalSegment_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignment2DHorizontalSegment"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcAlignment2DSegment" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DSegmentType"/>
-  <complexType abstract="true" name="IfcAlignment2DSegmentType">
+  <element abstract="true" name="AbstractIfcAlignment2DSegment" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:AbstractIfcAlignment2DSegment_Type"/>
+  <complexType abstract="true" name="AbstractIfcAlignment2DSegment_Type">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
@@ -55,157 +65,157 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DSegmentPropertyType">
+  <complexType name="AbstractIfcAlignment2DSegment_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcAlignment2DSegment"/>
+      <element ref="ifc:AbstractIfcAlignment2DSegment"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVerSegCircularArc" substitutionGroup="ifc:IfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegCircularArcType"/>
-  <complexType name="IfcAlignment2DVerSegCircularArcType">
+  <element name="IfcAlignment2DVerSegCircularArc" substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegCircularArc_Type"/>
+  <complexType name="IfcAlignment2DVerSegCircularArc_Type">
     <complexContent>
-      <extension base="ifc:IfcAlignment2DVerticalSegmentType">
+      <extension base="ifc:AbstractIfcAlignment2DVerticalSegment_Type">
         <sequence>
-          <element name="radius"/>
+          <element name="radius" type="gml:LengthType"/>
           <element name="isConvex" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DVerSegCircularArcPropertyType">
+  <complexType name="IfcAlignment2DVerSegCircularArc_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignment2DVerSegCircularArc"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVerSegLine" substitutionGroup="ifc:IfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegLineType"/>
-  <complexType name="IfcAlignment2DVerSegLineType">
+  <element name="IfcAlignment2DVerSegLine" substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegLine_Type"/>
+  <complexType name="IfcAlignment2DVerSegLine_Type">
     <complexContent>
-      <extension base="ifc:IfcAlignment2DVerticalSegmentType">
+      <extension base="ifc:AbstractIfcAlignment2DVerticalSegment_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DVerSegLinePropertyType">
+  <complexType name="IfcAlignment2DVerSegLine_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignment2DVerSegLine"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVerSegParabolicArc" substitutionGroup="ifc:IfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegParabolicArcType"/>
-  <complexType name="IfcAlignment2DVerSegParabolicArcType">
+  <element name="IfcAlignment2DVerSegParabolicArc" substitutionGroup="ifc:AbstractIfcAlignment2DVerticalSegment" type="ifc:IfcAlignment2DVerSegParabolicArc_Type"/>
+  <complexType name="IfcAlignment2DVerSegParabolicArc_Type">
     <complexContent>
-      <extension base="ifc:IfcAlignment2DVerticalSegmentType">
+      <extension base="ifc:AbstractIfcAlignment2DVerticalSegment_Type">
         <sequence>
-          <element name="parabolaConstant"/>
+          <element name="parabolaConstant" type="gml:LengthType"/>
           <element name="isConvex" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DVerSegParabolicArcPropertyType">
+  <complexType name="IfcAlignment2DVerSegParabolicArc_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignment2DVerSegParabolicArc"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignment2DVertical" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DVerticalType"/>
-  <complexType name="IfcAlignment2DVerticalType">
+  <element name="IfcAlignment2DVertical" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcAlignment2DVertical_Type"/>
+  <complexType name="IfcAlignment2DVertical_Type">
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
-          <element maxOccurs="unbounded" name="segments" type="ifc:IfcAlignment2DVerticalSegmentPropertyType"/>
+          <element maxOccurs="unbounded" name="segments" type="ifc:AbstractIfcAlignment2DVerticalSegment_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DVerticalPropertyType">
+  <complexType name="IfcAlignment2DVertical_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignment2DVertical"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcAlignment2DVerticalSegment" substitutionGroup="ifc:IfcAlignment2DSegment" type="ifc:IfcAlignment2DVerticalSegmentType"/>
-  <complexType abstract="true" name="IfcAlignment2DVerticalSegmentType">
+  <element abstract="true" name="AbstractIfcAlignment2DVerticalSegment" substitutionGroup="ifc:AbstractIfcAlignment2DSegment" type="ifc:AbstractIfcAlignment2DVerticalSegment_Type"/>
+  <complexType abstract="true" name="AbstractIfcAlignment2DVerticalSegment_Type">
     <complexContent>
-      <extension base="ifc:IfcAlignment2DSegmentType">
+      <extension base="ifc:AbstractIfcAlignment2DSegment_Type">
         <sequence>
           <element name="startDistAlong" type="gml:LengthType"/>
-          <element name="horizontalLength"/>
+          <element name="horizontalLength" type="gml:LengthType"/>
           <element name="startHeight" type="gml:LengthType"/>
           <element name="startGradient" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignment2DVerticalSegmentPropertyType">
+  <complexType name="AbstractIfcAlignment2DVerticalSegment_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcAlignment2DVerticalSegment"/>
+      <element ref="ifc:AbstractIfcAlignment2DVerticalSegment"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAlignmentCurve" substitutionGroup="ifc:IfcBoundedCurve" type="ifc:IfcAlignmentCurveType"/>
-  <complexType name="IfcAlignmentCurveType">
+  <element name="IfcAlignmentCurve" substitutionGroup="ifc:IfcBoundedCurve" type="ifc:IfcAlignmentCurve_Type"/>
+  <complexType name="IfcAlignmentCurve_Type">
     <complexContent>
       <extension base="ifc:IfcBoundedCurveType">
         <sequence>
           <element minOccurs="0" name="tag" type="string"/>
-          <element name="horizontal" type="ifc:IfcAlignment2DHorizontalPropertyType"/>
-          <element minOccurs="0" name="vertical" type="ifc:IfcAlignment2DVerticalPropertyType"/>
+          <element name="horizontal" type="ifc:IfcAlignment2DHorizontal_PropertyType"/>
+          <element minOccurs="0" name="vertical" type="ifc:IfcAlignment2DVertical_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAlignmentCurvePropertyType">
+  <complexType name="IfcAlignmentCurve_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAlignmentCurve"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionCurveGeometry" substitutionGroup="ifc:IfcConnectionGeometry" type="ifc:IfcConnectionCurveGeometryType"/>
-  <complexType name="IfcConnectionCurveGeometryType">
+  <element name="IfcConnectionCurveGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionCurveGeometry_Type"/>
+  <complexType name="IfcConnectionCurveGeometry_Type">
     <complexContent>
-      <extension base="ifc:IfcConnectionGeometryType">
+      <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
-          <element name="curveOnRelatingElement" type="ifc:IfcCurveOrEdgeCurvePropertyType"/>
-          <element minOccurs="0" name="curveOnRelatedElement" type="ifc:IfcCurveOrEdgeCurvePropertyType"/>
+          <element name="curveOnRelatingElement" type="ifc:IfcCurveOrEdgeCurve_PropertyType"/>
+          <element minOccurs="0" name="curveOnRelatedElement" type="ifc:IfcCurveOrEdgeCurve_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcConnectionCurveGeometryPropertyType">
+  <complexType name="IfcConnectionCurveGeometry_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcConnectionCurveGeometry"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcConnectionGeometry" substitutionGroup="gml:AbstractFeature" type="ifc:IfcConnectionGeometryType"/>
-  <complexType abstract="true" name="IfcConnectionGeometryType">
+  <element abstract="true" name="AbstractIfcConnectionGeometry" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcConnectionGeometry_Type"/>
+  <complexType abstract="true" name="AbstractIfcConnectionGeometry_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcConnectionGeometryPropertyType">
+  <complexType name="AbstractIfcConnectionGeometry_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcConnectionGeometry"/>
+      <element ref="ifc:AbstractIfcConnectionGeometry"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionPointEccentricity" substitutionGroup="ifc:IfcConnectionPointGeometry" type="ifc:IfcConnectionPointEccentricityType"/>
-  <complexType name="IfcConnectionPointEccentricityType">
+  <element name="IfcConnectionPointEccentricity" substitutionGroup="ifc:IfcConnectionPointGeometry" type="ifc:IfcConnectionPointEccentricity_Type"/>
+  <complexType name="IfcConnectionPointEccentricity_Type">
     <complexContent>
-      <extension base="ifc:IfcConnectionPointGeometryType">
+      <extension base="ifc:IfcConnectionPointGeometry_Type">
         <sequence>
           <element minOccurs="0" name="eccentricityInX" type="gml:LengthType"/>
           <element minOccurs="0" name="eccentricityInY" type="gml:LengthType"/>
@@ -214,135 +224,121 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcConnectionPointEccentricityPropertyType">
+  <complexType name="IfcConnectionPointEccentricity_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcConnectionPointEccentricity"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionPointGeometry" substitutionGroup="ifc:IfcConnectionGeometry" type="ifc:IfcConnectionPointGeometryType"/>
-  <complexType name="IfcConnectionPointGeometryType">
+  <element name="IfcConnectionPointGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionPointGeometry_Type"/>
+  <complexType name="IfcConnectionPointGeometry_Type">
     <complexContent>
-      <extension base="ifc:IfcConnectionGeometryType">
+      <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
-          <element name="pointOnRelatingElement" type="ifc:IfcPointOrVertexPointPropertyType"/>
-          <element minOccurs="0" name="pointOnRelatedElement" type="ifc:IfcPointOrVertexPointPropertyType"/>
+          <element name="pointOnRelatingElement" type="ifc:IfcPointOrVertexPoint_PropertyType"/>
+          <element minOccurs="0" name="pointOnRelatedElement" type="ifc:IfcPointOrVertexPoint_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcConnectionPointGeometryPropertyType">
+  <complexType name="IfcConnectionPointGeometry_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcConnectionPointGeometry"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionSurfaceGeometry" substitutionGroup="ifc:IfcConnectionGeometry" type="ifc:IfcConnectionSurfaceGeometryType"/>
-  <complexType name="IfcConnectionSurfaceGeometryType">
+  <element name="IfcConnectionSurfaceGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionSurfaceGeometry_Type"/>
+  <complexType name="IfcConnectionSurfaceGeometry_Type">
     <complexContent>
-      <extension base="ifc:IfcConnectionGeometryType">
+      <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
-          <element name="surfaceOnRelatingElement" type="ifc:IfcSurfaceOrFaceSurfacePropertyType"/>
-          <element minOccurs="0" name="surfaceOnRelatedElement" type="ifc:IfcSurfaceOrFaceSurfacePropertyType"/>
+          <element name="surfaceOnRelatingElement" type="ifc:IfcSurfaceOrFaceSurface_PropertyType"/>
+          <element minOccurs="0" name="surfaceOnRelatedElement" type="ifc:IfcSurfaceOrFaceSurface_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcConnectionSurfaceGeometryPropertyType">
+  <complexType name="IfcConnectionSurfaceGeometry_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcConnectionSurfaceGeometry"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcConnectionVolumeGeometry" substitutionGroup="ifc:IfcConnectionGeometry" type="ifc:IfcConnectionVolumeGeometryType"/>
-  <complexType name="IfcConnectionVolumeGeometryType">
+  <element name="IfcConnectionVolumeGeometry" substitutionGroup="ifc:AbstractIfcConnectionGeometry" type="ifc:IfcConnectionVolumeGeometry_Type"/>
+  <complexType name="IfcConnectionVolumeGeometry_Type">
     <complexContent>
-      <extension base="ifc:IfcConnectionGeometryType">
+      <extension base="ifc:AbstractIfcConnectionGeometry_Type">
         <sequence>
-          <element name="volumeOnRelatingElement" type="ifc:IfcSolidOrShellPropertyType"/>
-          <element minOccurs="0" name="volumeOnRelatedElement" type="ifc:IfcSolidOrShellPropertyType"/>
+          <element name="volumeOnRelatingElement" type="ifc:IfcSolidOrShell_PropertyType"/>
+          <element minOccurs="0" name="volumeOnRelatedElement" type="ifc:IfcSolidOrShell_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcConnectionVolumeGeometryPropertyType">
+  <complexType name="IfcConnectionVolumeGeometry_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcConnectionVolumeGeometry"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveOrEdgeCurve" substitutionGroup="gml:AbstractObject" type="ifc:IfcCurveOrEdgeCurveType"/>
-  <complexType name="IfcCurveOrEdgeCurveType">
+  <element name="IfcCurveOrEdgeCurve" type="ifc:IfcCurveOrEdgeCurve_Type"/>
+  <complexType name="IfcCurveOrEdgeCurve_Type">
     <choice>
       <element name="boundedCurve">
         <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcBoundedCurve"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
+          <sequence minOccurs="0">
+            <element ref="ifc:IfcBoundedCurve"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
         </complexType>
       </element>
-      <element name="edgeCurve">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcEdgeCurve"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="edgeCurve" type="ifc:IfcEdgeCurve_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcCurveOrEdgeCurvePropertyType">
-    <sequence>
+  <complexType name="IfcCurveOrEdgeCurve_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcCurveOrEdgeCurve"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcGeometricConstraintResourceFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcGeometricConstraintResourceFunctionType"/>
-  <complexType abstract="true" name="IfcGeometricConstraintResourceFunctionType">
+  <element abstract="true" name="AbstractIfcGeometricConstraintResourceFunction" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcGeometricConstraintResourceFunction_Type"/>
+  <complexType abstract="true" name="AbstractIfcGeometricConstraintResourceFunction_Type">
     <complexContent>
-      <extension base="gml:AbstractGMLType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGeometricConstraintResourceFunctionPropertyType">
+  <complexType name="AbstractIfcGeometricConstraintResourceFunction_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcGeometricConstraintResourceFunction"/>
+      <element ref="ifc:AbstractIfcGeometricConstraintResourceFunction"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcGeometricConstraintResourceFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcGeometricConstraintResourceFunctionsType"/>
-  <complexType abstract="true" name="IfcGeometricConstraintResourceFunctionsType">
+  <element abstract="true" name="AbstractIfcGeometricConstraintResourceFunctions" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcGeometricConstraintResourceFunctions_Type"/>
+  <complexType abstract="true" name="AbstractIfcGeometricConstraintResourceFunctions_Type">
     <complexContent>
-      <extension base="gml:AbstractGMLType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGeometricConstraintResourceFunctionsPropertyType">
+  <complexType name="AbstractIfcGeometricConstraintResourceFunctions_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcGeometricConstraintResourceFunctions"/>
+      <element ref="ifc:AbstractIfcGeometricConstraintResourceFunctions"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcGridAxis" substitutionGroup="gml:AbstractFeature" type="ifc:IfcGridAxisType"/>
-  <complexType name="IfcGridAxisType">
+  <element name="IfcGridAxis" substitutionGroup="gco:AbstractObject" type="ifc:IfcGridAxis_Type"/>
+  <complexType name="IfcGridAxis_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
           <element minOccurs="0" name="axisTag" type="string"/>
           <element name="sameSense" type="boolean"/>
@@ -350,258 +346,206 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGridAxisPropertyType">
+  <complexType name="IfcGridAxis_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcGridAxis"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcGridPlacement" substitutionGroup="ifc:IfcObjectPlacement" type="ifc:IfcGridPlacementType"/>
-  <complexType name="IfcGridPlacementType">
+  <element name="IfcGridPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement" type="ifc:IfcGridPlacement_Type"/>
+  <complexType name="IfcGridPlacement_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectPlacementType">
+      <extension base="ifc:AbstractIfcObjectPlacement_Type">
         <sequence>
-          <element minOccurs="0" name="placementRefDirection" type="ifc:IfcGridPlacementDirectionSelectPropertyType"/>
-          <element name="placementLocation" type="ifc:IfcVirtualGridIntersectionPropertyType"/>
+          <element minOccurs="0" name="placementRefDirection" type="ifc:IfcGridPlacementDirectionSelect_PropertyType"/>
+          <element name="placementLocation" type="ifc:IfcVirtualGridIntersection_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGridPlacementPropertyType">
+  <complexType name="IfcGridPlacement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcGridPlacement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcGridPlacementDirectionSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcGridPlacementDirectionSelectType"/>
-  <complexType name="IfcGridPlacementDirectionSelectType">
+  <element name="IfcGridPlacementDirectionSelect" type="ifc:IfcGridPlacementDirectionSelect_Type"/>
+  <complexType name="IfcGridPlacementDirectionSelect_Type">
     <choice>
       <element name="direction">
         <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcDirection"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
+          <sequence minOccurs="0">
+            <element ref="ifc:IfcDirection"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
         </complexType>
       </element>
-      <element name="virtualGridIntersection">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcVirtualGridIntersection"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="virtualGridIntersection" type="ifc:IfcVirtualGridIntersection_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcGridPlacementDirectionSelectPropertyType">
-    <sequence>
+  <complexType name="IfcGridPlacementDirectionSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcGridPlacementDirectionSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcIntervalPlacement" substitutionGroup="ifc:IfcLinearSpanPlacement" type="ifc:IfcIntervalPlacementType"/>
-  <complexType name="IfcIntervalPlacementType">
+  <element name="IfcIntervalPlacement" substitutionGroup="ifc:IfcLinearSpanPlacement" type="ifc:IfcIntervalPlacement_Type"/>
+  <complexType name="IfcIntervalPlacement_Type">
     <complexContent>
-      <extension base="ifc:IfcLinearSpanPlacementType">
+      <extension base="ifc:IfcLinearSpanPlacement_Type">
         <sequence>
           <element name="intervalCount" type="integer"/>
           <element name="elementCount" type="integer"/>
-          <element name="intervalLength"/>
+          <element name="intervalLength" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcIntervalPlacementPropertyType">
+  <complexType name="IfcIntervalPlacement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcIntervalPlacement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLinearPlacement" substitutionGroup="ifc:IfcObjectPlacement" type="ifc:IfcLinearPlacementType"/>
-  <complexType name="IfcLinearPlacementType">
+  <element name="IfcLinearPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement" type="ifc:IfcLinearPlacement_Type"/>
+  <complexType name="IfcLinearPlacement_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectPlacementType">
+      <extension base="ifc:AbstractIfcObjectPlacement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcLinearPlacementPropertyType">
+  <complexType name="IfcLinearPlacement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcLinearPlacement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLinearSpanPlacement" substitutionGroup="ifc:IfcLinearPlacement" type="ifc:IfcLinearSpanPlacementType"/>
-  <complexType name="IfcLinearSpanPlacementType">
+  <element name="IfcLinearSpanPlacement" substitutionGroup="ifc:IfcLinearPlacement" type="ifc:IfcLinearSpanPlacement_Type"/>
+  <complexType name="IfcLinearSpanPlacement_Type">
     <complexContent>
-      <extension base="ifc:IfcLinearPlacementType">
+      <extension base="ifc:IfcLinearPlacement_Type">
         <sequence>
-          <element name="span"/>
+          <element name="span" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcLinearSpanPlacementPropertyType">
+  <complexType name="IfcLinearSpanPlacement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcLinearSpanPlacement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLocalPlacement" substitutionGroup="ifc:IfcObjectPlacement" type="ifc:IfcLocalPlacementType"/>
-  <complexType name="IfcLocalPlacementType">
+  <element name="IfcLocalPlacement" substitutionGroup="ifc:AbstractIfcObjectPlacement" type="ifc:IfcLocalPlacement_Type"/>
+  <complexType name="IfcLocalPlacement_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectPlacementType">
+      <extension base="ifc:AbstractIfcObjectPlacement_Type">
         <sequence>
           <element name="relativePlacement" type="ifc:IfcAxis2PlacementPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcLocalPlacementPropertyType">
+  <complexType name="IfcLocalPlacement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcLocalPlacement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcObjectPlacement" substitutionGroup="gml:AbstractFeature" type="ifc:IfcObjectPlacementType"/>
-  <complexType abstract="true" name="IfcObjectPlacementType">
+  <element abstract="true" name="AbstractIfcObjectPlacement" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcObjectPlacement_Type"/>
+  <complexType abstract="true" name="AbstractIfcObjectPlacement_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element minOccurs="0" name="placementRelTo" type="ifc:IfcObjectPlacementPropertyType"/>
+          <element minOccurs="0" name="placementRelTo" type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcObjectPlacementPropertyType">
+  <complexType name="AbstractIfcObjectPlacement_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcObjectPlacement"/>
+      <element ref="ifc:AbstractIfcObjectPlacement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPointOrVertexPoint" substitutionGroup="gml:AbstractObject" type="ifc:IfcPointOrVertexPointType"/>
-  <complexType name="IfcPointOrVertexPointType">
+  <element name="IfcPointOrVertexPoint" type="ifc:IfcPointOrVertexPoint_Type"/>
+  <complexType name="IfcPointOrVertexPoint_Type">
     <choice>
       <element name="point" type="gml:PointPropertyType"/>
-      <element name="vertexPoint">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcVertexPoint"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="vertexPoint" type="ifc:IfcVertexPoint_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcPointOrVertexPointPropertyType">
-    <sequence>
+  <complexType name="IfcPointOrVertexPoint_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcPointOrVertexPoint"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSolidOrShell" substitutionGroup="gml:AbstractObject" type="ifc:IfcSolidOrShellType"/>
-  <complexType name="IfcSolidOrShellType">
+  <element name="IfcSolidOrShell" type="ifc:IfcSolidOrShell_Type"/>
+  <complexType name="IfcSolidOrShell_Type">
     <choice>
-      <element name="closedShell">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcClosedShell"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="closedShell" type="ifc:IfcClosedShell_PropertyType"/>
       <element name="solidModel">
         <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcSolidModel"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
+          <sequence minOccurs="0">
+            <element ref="ifc:IfcSolidModel"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
         </complexType>
       </element>
     </choice>
   </complexType>
-  <complexType name="IfcSolidOrShellPropertyType">
-    <sequence>
+  <complexType name="IfcSolidOrShell_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSolidOrShell"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceOrFaceSurface" substitutionGroup="gml:AbstractObject" type="ifc:IfcSurfaceOrFaceSurfaceType"/>
-  <complexType name="IfcSurfaceOrFaceSurfaceType">
+  <element name="IfcSurfaceOrFaceSurface" type="ifc:IfcSurfaceOrFaceSurface_Type"/>
+  <complexType name="IfcSurfaceOrFaceSurface_Type">
     <choice>
       <element name="faceBasedSurfaceModel">
         <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcFaceBasedSurfaceModel"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
+          <sequence minOccurs="0">
+            <element ref="ifc:IfcFaceBasedSurfaceModel"/>
+          </sequence>
+          <attributeGroup ref="gml:AssociationAttributeGroup"/>
         </complexType>
       </element>
-      <element name="faceSurface">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcFaceSurface"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="faceSurface" type="ifc:IfcFaceSurface_PropertyType"/>
       <element name="surface" type="gml:SurfacePropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcSurfaceOrFaceSurfacePropertyType">
-    <sequence>
+  <complexType name="IfcSurfaceOrFaceSurface_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceOrFaceSurface"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcVirtualGridIntersection" substitutionGroup="gml:AbstractFeature" type="ifc:IfcVirtualGridIntersectionType"/>
-  <complexType name="IfcVirtualGridIntersectionType">
+  <element name="IfcVirtualGridIntersection" substitutionGroup="gco:AbstractObject" type="ifc:IfcVirtualGridIntersection_Type"/>
+  <complexType name="IfcVirtualGridIntersection_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
           <element maxOccurs="3" minOccurs="2" name="offsetDistances" type="gml:LengthType"/>
-          <element maxOccurs="2" minOccurs="2" name="intersectingAxes" type="ifc:IfcGridAxisPropertyType"/>
+          <element maxOccurs="2" minOccurs="2" name="intersectingAxes" type="ifc:IfcGridAxis_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcVirtualGridIntersectionPropertyType">
+  <complexType name="IfcVirtualGridIntersection_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcVirtualGridIntersection"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

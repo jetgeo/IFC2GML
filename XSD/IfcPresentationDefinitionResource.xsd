@@ -23,6 +23,19 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element name="IfcBoxAlignment" substitutionGroup="ifc:IfcLabel" type="ifc:IfcBoxAlignmentType"/>
+  <complexType name="IfcBoxAlignmentType">
+    <complexContent>
+      <extension base="string">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoxAlignmentPropertyType">
+    <sequence>
+      <element ref="ifc:IfcBoxAlignment"/>
+    </sequence>
+  </complexType>
   <element name="IfcPlanarBox" substitutionGroup="ifc:IfcPlanarExtent" type="ifc:IfcPlanarBoxType"/>
   <complexType name="IfcPlanarBoxType">
     <complexContent>
@@ -97,7 +110,7 @@
     <complexContent>
       <extension base="ifc:IfcTextLiteralType">
         <sequence>
-          <element name="boxAlignment"/>
+          <element name="boxAlignment" type="string"/>
           <element name="extent" type="ifc:IfcPlanarExtentPropertyType"/>
         </sequence>
       </extension>

@@ -20,16 +20,16 @@
     <complexContent>
       <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
-          <element minOccurs="0" name="liningDepth"/>
-          <element minOccurs="0" name="liningThickness"/>
-          <element minOccurs="0" name="thresholdDepth"/>
-          <element minOccurs="0" name="thresholdThickness"/>
-          <element minOccurs="0" name="transomThickness"/>
+          <element minOccurs="0" name="liningDepth" type="gml:LengthType"/>
+          <element minOccurs="0" name="liningThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="thresholdDepth" type="gml:LengthType"/>
+          <element minOccurs="0" name="thresholdThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="transomThickness" type="gml:LengthType"/>
           <element minOccurs="0" name="transomOffset" type="gml:LengthType"/>
           <element minOccurs="0" name="liningOffset" type="gml:LengthType"/>
           <element minOccurs="0" name="thresholdOffset" type="gml:LengthType"/>
-          <element minOccurs="0" name="casingThickness"/>
-          <element minOccurs="0" name="casingDepth"/>
+          <element minOccurs="0" name="casingThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="casingDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetX" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetY" type="gml:LengthType"/>
           <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
@@ -70,9 +70,9 @@
     <complexContent>
       <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
-          <element minOccurs="0" name="panelDepth"/>
+          <element minOccurs="0" name="panelDepth" type="gml:LengthType"/>
           <element name="panelOperation" type="ifc:IfcDoorPanelOperationEnumType"/>
-          <element minOccurs="0" name="panelWidth"/>
+          <element minOccurs="0" name="panelWidth" type="gml:MeasureType"/>
           <element name="panelPosition" type="ifc:IfcDoorPanelPositionEnumType"/>
           <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
@@ -157,8 +157,8 @@
         <sequence>
           <element name="operationType" type="ifc:IfcPermeableCoveringOperationEnumType"/>
           <element name="panelPosition" type="ifc:IfcWindowPanelPositionEnumType"/>
-          <element minOccurs="0" name="frameDepth"/>
-          <element minOccurs="0" name="frameThickness"/>
+          <element minOccurs="0" name="frameDepth" type="gml:LengthType"/>
+          <element minOccurs="0" name="frameThickness" type="gml:LengthType"/>
           <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>
@@ -176,14 +176,14 @@
     <complexContent>
       <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
-          <element minOccurs="0" name="liningDepth"/>
-          <element minOccurs="0" name="liningThickness"/>
-          <element minOccurs="0" name="transomThickness"/>
-          <element minOccurs="0" name="mullionThickness"/>
-          <element minOccurs="0" name="firstTransomOffset"/>
-          <element minOccurs="0" name="secondTransomOffset"/>
-          <element minOccurs="0" name="firstMullionOffset"/>
-          <element minOccurs="0" name="secondMullionOffset"/>
+          <element minOccurs="0" name="liningDepth" type="gml:LengthType"/>
+          <element minOccurs="0" name="liningThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="transomThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="mullionThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="firstTransomOffset" type="gml:MeasureType"/>
+          <element minOccurs="0" name="secondTransomOffset" type="gml:MeasureType"/>
+          <element minOccurs="0" name="firstMullionOffset" type="gml:MeasureType"/>
+          <element minOccurs="0" name="secondMullionOffset" type="gml:MeasureType"/>
           <element minOccurs="0" name="liningOffset" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetX" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetY" type="gml:LengthType"/>
@@ -234,8 +234,8 @@
         <sequence>
           <element name="operationType" type="ifc:IfcWindowPanelOperationEnumType"/>
           <element name="panelPosition" type="ifc:IfcWindowPanelPositionEnumType"/>
-          <element minOccurs="0" name="frameDepth"/>
-          <element minOccurs="0" name="frameThickness"/>
+          <element minOccurs="0" name="frameDepth" type="gml:LengthType"/>
+          <element minOccurs="0" name="frameThickness" type="gml:LengthType"/>
           <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>

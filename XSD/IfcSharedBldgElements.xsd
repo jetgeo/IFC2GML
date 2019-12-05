@@ -522,8 +522,8 @@
     <complexContent>
       <extension base="ifc:IfcBuildingElementType">
         <sequence>
-          <element minOccurs="0" name="overallHeight"/>
-          <element minOccurs="0" name="overallWidth"/>
+          <element minOccurs="0" name="overallHeight" type="gml:LengthType"/>
+          <element minOccurs="0" name="overallWidth" type="gml:LengthType"/>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcDoorTypeEnumType"/>
           <element minOccurs="0" name="operationType" type="ifc:IfcDoorTypeOperationEnumType"/>
           <element minOccurs="0" name="userDefinedOperationType" type="string"/>
@@ -1250,8 +1250,8 @@
         <sequence>
           <element minOccurs="0" name="numberOfRisers" type="integer"/>
           <element minOccurs="0" name="numberOfTreads" type="integer"/>
-          <element minOccurs="0" name="riserHeight"/>
-          <element minOccurs="0" name="treadLength"/>
+          <element minOccurs="0" name="riserHeight" type="gml:LengthType"/>
+          <element minOccurs="0" name="treadLength" type="gml:LengthType"/>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcStairFlightTypeEnumType"/>
         </sequence>
       </extension>
@@ -1414,8 +1414,8 @@
     <complexContent>
       <extension base="ifc:IfcBuildingElementType">
         <sequence>
-          <element minOccurs="0" name="overallHeight"/>
-          <element minOccurs="0" name="overallWidth"/>
+          <element minOccurs="0" name="overallHeight" type="gml:LengthType"/>
+          <element minOccurs="0" name="overallWidth" type="gml:LengthType"/>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcWindowTypeEnumType"/>
           <element minOccurs="0" name="partitioningType" type="ifc:IfcWindowTypePartitioningEnumType"/>
           <element minOccurs="0" name="userDefinedPartitioningType" type="string"/>

@@ -141,8 +141,8 @@
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
-          <element minOccurs="0" name="ambientIntensity"/>
-          <element minOccurs="0" name="intensity"/>
+          <element minOccurs="0" name="ambientIntensity" type="gml:MeasureType"/>
+          <element minOccurs="0" name="intensity" type="gml:MeasureType"/>
           <element name="lightColour" type="ifc:IfcColourRgbPropertyType"/>
         </sequence>
       </extension>
@@ -211,7 +211,7 @@
     <complexContent>
       <extension base="ifc:IfcLightSourceType">
         <sequence>
-          <element name="radius"/>
+          <element name="radius" type="gml:LengthType"/>
           <element name="constantAttenuation" type="double"/>
           <element name="distanceAttenuation" type="double"/>
           <element name="quadricAttenuation" type="double"/>
@@ -232,8 +232,8 @@
       <extension base="ifc:IfcLightSourcePositionalType">
         <sequence>
           <element minOccurs="0" name="concentrationExponent" type="double"/>
-          <element name="spreadAngle"/>
-          <element name="beamWidthAngle"/>
+          <element name="spreadAngle" type="gml:AngleType"/>
+          <element name="beamWidthAngle" type="gml:AngleType"/>
         </sequence>
       </extension>
     </complexContent>

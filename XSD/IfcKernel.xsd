@@ -291,7 +291,7 @@
       <extension base="ifc:IfcObjectType">
         <sequence>
           <element minOccurs="0" name="representation" type="ifc:IfcProductRepresentationPropertyType"/>
-          <element minOccurs="0" name="objectPlacement" type="ifc:IfcObjectPlacementPropertyType"/>
+          <element minOccurs="0" name="objectPlacement" type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>

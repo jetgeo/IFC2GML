@@ -145,9 +145,9 @@
     <complexContent>
       <extension base="ifc:IfcReinforcingElementType">
         <sequence>
-          <element minOccurs="0" name="nominalDiameter"/>
+          <element minOccurs="0" name="nominalDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="crossSectionArea" type="gml:AreaType"/>
-          <element minOccurs="0" name="barLength"/>
+          <element minOccurs="0" name="barLength" type="gml:LengthType"/>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcReinforcingBarTypeEnumType"/>
           <element minOccurs="0" name="barSurface" type="ifc:IfcReinforcingBarSurfaceEnumType"/>
         </sequence>
@@ -167,9 +167,9 @@
       <extension base="ifc:IfcReinforcingElementTypeType">
         <sequence>
           <element name="predefinedType" type="ifc:IfcReinforcingBarTypeEnumType"/>
-          <element minOccurs="0" name="nominalDiameter"/>
+          <element minOccurs="0" name="nominalDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="crossSectionArea" type="gml:AreaType"/>
-          <element minOccurs="0" name="barLength"/>
+          <element minOccurs="0" name="barLength" type="gml:LengthType"/>
           <element minOccurs="0" name="barSurface" type="ifc:IfcReinforcingBarSurfaceEnumType"/>
           <element minOccurs="0" name="bendingShapeCode" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="bendingParameters" type="ifc:IfcBendingParameterSelectPropertyType"/>
@@ -236,14 +236,14 @@
     <complexContent>
       <extension base="ifc:IfcReinforcingElementType">
         <sequence>
-          <element minOccurs="0" name="meshLength"/>
-          <element minOccurs="0" name="meshWidth"/>
-          <element minOccurs="0" name="longitudinalBarNominalDiameter"/>
-          <element minOccurs="0" name="transverseBarNominalDiameter"/>
+          <element minOccurs="0" name="meshLength" type="gml:LengthType"/>
+          <element minOccurs="0" name="meshWidth" type="gml:LengthType"/>
+          <element minOccurs="0" name="longitudinalBarNominalDiameter" type="gml:LengthType"/>
+          <element minOccurs="0" name="transverseBarNominalDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="longitudinalBarCrossSectionArea" type="gml:AreaType"/>
           <element minOccurs="0" name="transverseBarCrossSectionArea" type="gml:AreaType"/>
-          <element minOccurs="0" name="longitudinalBarSpacing"/>
-          <element minOccurs="0" name="transverseBarSpacing"/>
+          <element minOccurs="0" name="longitudinalBarSpacing" type="gml:LengthType"/>
+          <element minOccurs="0" name="transverseBarSpacing" type="gml:LengthType"/>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcReinforcingMeshTypeEnumType"/>
         </sequence>
       </extension>
@@ -262,14 +262,14 @@
       <extension base="ifc:IfcReinforcingElementTypeType">
         <sequence>
           <element name="predefinedType" type="ifc:IfcReinforcingMeshTypeEnumType"/>
-          <element minOccurs="0" name="meshLength"/>
-          <element minOccurs="0" name="meshWidth"/>
-          <element minOccurs="0" name="longitudinalBarNominalDiameter"/>
-          <element minOccurs="0" name="transverseBarNominalDiameter"/>
+          <element minOccurs="0" name="meshLength" type="gml:LengthType"/>
+          <element minOccurs="0" name="meshWidth" type="gml:LengthType"/>
+          <element minOccurs="0" name="longitudinalBarNominalDiameter" type="gml:LengthType"/>
+          <element minOccurs="0" name="transverseBarNominalDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="longitudinalBarCrossSectionArea" type="gml:AreaType"/>
           <element minOccurs="0" name="transverseBarCrossSectionArea" type="gml:AreaType"/>
-          <element minOccurs="0" name="longitudinalBarSpacing"/>
-          <element minOccurs="0" name="transverseBarSpacing"/>
+          <element minOccurs="0" name="longitudinalBarSpacing" type="gml:LengthType"/>
+          <element minOccurs="0" name="transverseBarSpacing" type="gml:LengthType"/>
           <element minOccurs="0" name="bendingShapeCode" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="bendingParameters" type="ifc:IfcBendingParameterSelectPropertyType"/>
         </sequence>
@@ -325,13 +325,13 @@
       <extension base="ifc:IfcReinforcingElementType">
         <sequence>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcTendonTypeEnumType"/>
-          <element minOccurs="0" name="nominalDiameter"/>
+          <element minOccurs="0" name="nominalDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="crossSectionArea" type="gml:AreaType"/>
           <element minOccurs="0" name="tensionForce" type="gml:MeasureType"/>
           <element minOccurs="0" name="preStress" type="gml:MeasureType"/>
-          <element minOccurs="0" name="frictionCoefficient"/>
-          <element minOccurs="0" name="anchorageSlip"/>
-          <element minOccurs="0" name="minCurvatureRadius"/>
+          <element minOccurs="0" name="frictionCoefficient" type="gml:MeasureType"/>
+          <element minOccurs="0" name="anchorageSlip" type="gml:LengthType"/>
+          <element minOccurs="0" name="minCurvatureRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -437,9 +437,9 @@
       <extension base="ifc:IfcReinforcingElementTypeType">
         <sequence>
           <element name="predefinedType" type="ifc:IfcTendonTypeEnumType"/>
-          <element minOccurs="0" name="nominalDiameter"/>
+          <element minOccurs="0" name="nominalDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="crossSectionArea" type="gml:AreaType"/>
-          <element minOccurs="0" name="sheathDiameter"/>
+          <element minOccurs="0" name="sheathDiameter" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>

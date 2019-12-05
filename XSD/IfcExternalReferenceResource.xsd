@@ -299,6 +299,19 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
+  <element name="IfcLanguageId" substitutionGroup="ifc:IfcIdentifier" type="ifc:IfcLanguageIdType"/>
+  <complexType name="IfcLanguageIdType">
+    <complexContent>
+      <extension base="string">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcLanguageIdPropertyType">
+    <sequence>
+      <element ref="ifc:IfcLanguageId"/>
+    </sequence>
+  </complexType>
   <element name="IfcLibraryInformation" substitutionGroup="ifc:IfcExternalInformation" type="ifc:IfcLibraryInformationType"/>
   <complexType name="IfcLibraryInformationType">
     <complexContent>
@@ -327,7 +340,7 @@
       <extension base="ifc:IfcExternalReferenceType">
         <sequence>
           <element minOccurs="0" name="description" type="string"/>
-          <element minOccurs="0" name="language"/>
+          <element minOccurs="0" name="language" type="string"/>
           <element minOccurs="0" name="referencedLibrary" type="ifc:IfcLibraryInformationPropertyType"/>
         </sequence>
       </extension>

@@ -84,7 +84,7 @@
     <complexContent>
       <extension base="ifc:IfcResourceLevelRelationshipType">
         <sequence>
-          <element name="exchangeRate"/>
+          <element name="exchangeRate" type="gml:MeasureType"/>
           <element minOccurs="0" name="rateDateTime" type="dateTime"/>
           <element name="relatedMonetaryUnit" type="ifc:IfcMonetaryUnitPropertyType"/>
           <element name="relatingMonetaryUnit" type="ifc:IfcMonetaryUnitPropertyType"/>

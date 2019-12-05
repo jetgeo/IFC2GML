@@ -620,9 +620,9 @@
       <extension base="ifc:IfcPositioningElementType">
         <sequence>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcGridTypeEnumType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="wAxes" type="ifc:IfcGridAxisPropertyType"/>
-          <element maxOccurs="unbounded" name="vAxes" type="ifc:IfcGridAxisPropertyType"/>
-          <element maxOccurs="unbounded" name="uAxes" type="ifc:IfcGridAxisPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="wAxes" type="ifc:IfcGridAxis_PropertyType"/>
+          <element maxOccurs="unbounded" name="vAxes" type="ifc:IfcGridAxis_PropertyType"/>
+          <element maxOccurs="unbounded" name="uAxes" type="ifc:IfcGridAxis_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -889,7 +889,7 @@
     <complexContent>
       <extension base="ifc:IfcRelConnectsType">
         <sequence>
-          <element minOccurs="0" name="connectionGeometry" type="ifc:IfcConnectionGeometryPropertyType"/>
+          <element minOccurs="0" name="connectionGeometry" type="ifc:AbstractIfcConnectionGeometry_PropertyType"/>
           <element name="relatingElement" type="ifc:IfcElementPropertyType"/>
           <element name="relatedElement" type="ifc:IfcElementPropertyType"/>
         </sequence>
@@ -1020,9 +1020,9 @@
         <sequence>
           <element minOccurs="0" name="interferenceType" type="string"/>
           <element name="impliedOrder" type="ifc:IfcLogicalPropertyType"/>
+          <element minOccurs="0" name="interferenceGeometry" type="ifc:AbstractIfcConnectionGeometry_PropertyType"/>
           <element name="relatingElement" type="ifc:IfcElementPropertyType"/>
           <element name="relatedElement" type="ifc:IfcElementPropertyType"/>
-          <element minOccurs="0" name="interferenceGeometry" type="ifc:IfcConnectionGeometryPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -1114,7 +1114,7 @@
           <element name="relatingSpace" type="ifc:IfcSpaceBoundarySelectPropertyType"/>
           <element name="physicalOrVirtualBoundary" type="ifc:IfcPhysicalOrVirtualEnumType"/>
           <element name="internalOrExternalBoundary" type="ifc:IfcInternalOrExternalEnumType"/>
-          <element minOccurs="0" name="connectionGeometry" type="ifc:IfcConnectionGeometryPropertyType"/>
+          <element minOccurs="0" name="connectionGeometry" type="ifc:AbstractIfcConnectionGeometry_PropertyType"/>
           <element name="relatedBuildingElement" type="ifc:IfcElementPropertyType"/>
         </sequence>
       </extension>

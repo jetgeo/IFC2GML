@@ -169,8 +169,8 @@
     <complexContent>
       <extension base="ifc:IfcElementComponentType">
         <sequence>
-          <element minOccurs="0" name="nominalDiameter"/>
-          <element minOccurs="0" name="nominalLength"/>
+          <element minOccurs="0" name="nominalDiameter" type="gml:LengthType"/>
+          <element minOccurs="0" name="nominalLength" type="gml:LengthType"/>
           <element minOccurs="0" name="predefinedType" type="ifc:IfcMechanicalFastenerTypeEnumType"/>
         </sequence>
       </extension>
@@ -189,8 +189,8 @@
       <extension base="ifc:IfcElementComponentTypeType">
         <sequence>
           <element name="predefinedType" type="ifc:IfcMechanicalFastenerTypeEnumType"/>
-          <element minOccurs="0" name="nominalDiameter"/>
-          <element minOccurs="0" name="nominalLength"/>
+          <element minOccurs="0" name="nominalDiameter" type="gml:LengthType"/>
+          <element minOccurs="0" name="nominalLength" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>

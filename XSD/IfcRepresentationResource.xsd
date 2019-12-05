@@ -119,7 +119,7 @@
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationContextType">
         <sequence>
-          <element minOccurs="0" name="targetScale"/>
+          <element minOccurs="0" name="targetScale" type="gml:MeasureType"/>
           <element name="targetView" type="ifc:IfcGeometricProjectionEnumType"/>
           <element minOccurs="0" name="userDefinedTargetView" type="string"/>
           <element name="parentContext" type="ifc:IfcGeometricRepresentationContextPropertyType"/>

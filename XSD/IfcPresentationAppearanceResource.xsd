@@ -75,7 +75,7 @@
           </complexContent>
         </complexType>
       </element>
-      <element name="normalisedRatioMeasure"/>
+      <element name="normalisedRatioMeasure" type="gml:MeasureType"/>
     </choice>
   </complexType>
   <complexType name="IfcColourOrFactorPropertyType">
@@ -88,9 +88,9 @@
     <complexContent>
       <extension base="ifc:IfcColourSpecificationType">
         <sequence>
-          <element name="red"/>
-          <element name="green"/>
-          <element name="blue"/>
+          <element name="red" type="gml:MeasureType"/>
+          <element name="green" type="gml:MeasureType"/>
+          <element name="blue" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -107,7 +107,7 @@
     <complexContent>
       <extension base="ifc:IfcPresentationItemType">
         <sequence>
-          <element maxOccurs="3" minOccurs="3" name="colourList"/>
+          <element maxOccurs="3" minOccurs="3" name="colourList" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -204,7 +204,7 @@
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element name="curveFont" type="ifc:IfcCurveStyleFontSelectPropertyType"/>
-          <element name="curveFontScaling"/>
+          <element name="curveFontScaling" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -222,7 +222,7 @@
       <extension base="ifc:IfcPresentationItemType">
         <sequence>
           <element name="visibleSegmentLength" type="gml:LengthType"/>
-          <element name="invisibleSegmentLength"/>
+          <element name="invisibleSegmentLength" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -385,7 +385,7 @@
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
-          <element name="tilingScale"/>
+          <element name="tilingScale" type="gml:MeasureType"/>
           <element maxOccurs="unbounded" name="tiles" type="ifc:IfcStyledItemPropertyType"/>
         </sequence>
       </extension>
@@ -475,7 +475,7 @@
   <element name="IfcHatchLineDistanceSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcHatchLineDistanceSelectType"/>
   <complexType name="IfcHatchLineDistanceSelectType">
     <choice>
-      <element name="positiveLengthMeasure"/>
+      <element name="positiveLengthMeasure" type="gml:LengthType"/>
       <element name="vector">
         <complexType>
           <complexContent>
@@ -517,8 +517,8 @@
     <complexContent>
       <extension base="ifc:IfcPresentationItemType">
         <sequence>
-          <element minOccurs="0" name="opacity"/>
-          <element maxOccurs="unbounded" name="colourIndex"/>
+          <element minOccurs="0" name="opacity" type="gml:MeasureType"/>
+          <element maxOccurs="unbounded" name="colourIndex" type="integer"/>
           <element name="mappedTo" type="ifc:IfcTessellatedFaceSetPropertyType"/>
           <element name="colours" type="ifc:IfcColourRgbListPropertyType"/>
         </sequence>
@@ -555,7 +555,7 @@
     <complexContent>
       <extension base="ifc:IfcIndexedTextureMapType">
         <sequence>
-          <element maxOccurs="3" minOccurs="0" name="texCoordIndex"/>
+          <element maxOccurs="3" minOccurs="0" name="texCoordIndex" type="integer"/>
         </sequence>
       </extension>
     </complexContent>
@@ -805,9 +805,9 @@
     <choice>
       <element name="descriptiveMeasure" type="gml:MeasureType"/>
       <element name="lengthMeasure" type="gml:LengthType"/>
-      <element name="normalisedRatioMeasure"/>
-      <element name="positiveLengthMeasure"/>
-      <element name="positiveRatioMeasure"/>
+      <element name="normalisedRatioMeasure" type="gml:MeasureType"/>
+      <element name="positiveLengthMeasure" type="gml:LengthType"/>
+      <element name="positiveRatioMeasure" type="gml:MeasureType"/>
       <element name="ratioMeasure" type="gml:MeasureType"/>
     </choice>
   </complexType>
@@ -1059,7 +1059,7 @@
     <complexContent>
       <extension base="ifc:IfcPresentationItemType">
         <sequence>
-          <element minOccurs="0" name="transparency"/>
+          <element minOccurs="0" name="transparency" type="gml:MeasureType"/>
           <element name="surfaceColour" type="ifc:IfcColourRgbPropertyType"/>
         </sequence>
       </extension>
@@ -1301,7 +1301,7 @@
     <complexContent>
       <extension base="ifc:IfcTextureCoordinateType">
         <sequence>
-          <element name="mappedTo" type="ifc:IfcFacePropertyType"/>
+          <element name="mappedTo" type="ifc:IfcFace_PropertyType"/>
           <element maxOccurs="unbounded" minOccurs="3" name="vertices" type="ifc:IfcTextureVertexPropertyType"/>
         </sequence>
       </extension>

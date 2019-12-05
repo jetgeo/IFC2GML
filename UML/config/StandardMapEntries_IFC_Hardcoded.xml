@@ -1,5 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsdMapEntries xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1">
+    <!-- Derived from realizations and predefined MapEntriy files in ShapeChange -->
+    <XsdMapEntry type="IfcDate" xsdEncodingRules ="*" xmlType="date" xmlPropertyType="date" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDateTime" xsdEncodingRules ="*" xmlType="dateTime" xmlPropertyType="dateTime" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDayInMonthNumber" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDayInWeekNumber" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDuration" xsdEncodingRules ="*" xmlType="duration" xmlPropertyType="duration" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcMonthInYearNumber" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcTime" xsdEncodingRules ="*" xmlType="time" xmlPropertyType="time" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcTimeStamp" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcLanguageId" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcURIReference" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDimensionCount" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDimensionCount" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcDimensionCount" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcCardinalPointReference" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcAbsorbedDoseMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcAmountOfSubstanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcAreaDensityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcAreaMeasure" xsdEncodingRules ="*" xmlType="gml:AreaType" xmlPropertyType="gml:AreaType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcBoolean" xsdEncodingRules ="*" xmlType="boolean" xmlPropertyType="boolean" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcCompoundPlaneAngleMeasure" xsdEncodingRules ="*" xmlType="gml:AngleType" xmlPropertyType="gml:AngleType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcContextDependentMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcCountMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcCurvatureMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcDescriptiveMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcDoseEquivalentMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcDynamicViscosityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcElectricCapacitanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcElectricChargeMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcElectricConductanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcElectricCurrentMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcElectricResistanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcElectricVoltageMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcEnergyMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcForceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcFrequencyMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcHeatFluxDensityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcHeatingValueMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcIdentifier" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcIlluminanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcInductanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcInteger" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcIntegerCountRateMeasure" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcIntegerCountRateMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcIonConcentrationMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcIsothermalMoistureCapacityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcKinematicViscosityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLabel" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcLengthMeasure" xsdEncodingRules ="*" xmlType="gml:LengthType" xmlPropertyType="gml:LengthType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLinearForceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLinearMomentMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLinearStiffnessMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLinearVelocityMeasure" xsdEncodingRules ="*" xmlType="gml:SpeedType" xmlPropertyType="gml:SpeedType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLuminousFluxMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLuminousIntensityDistributionMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcLuminousIntensityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMagneticFluxDensityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMagneticFluxMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMassDensityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMassFlowRateMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMassPerLengthMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMeasureWithUnit" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcModulusOfElasticityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcModulusOfLinearSubgradeReactionMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcModulusOfRotationalSubgradeReactionMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcModulusOfSubgradeReactionMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMoistureDiffusivityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcMomentOfInertiaMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcNonNegativeLengthMeasure" xsdEncodingRules ="*" xmlType="gml:LengthType" xmlPropertyType="gml:LengthType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcNormalisedRatioMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcNumericMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcParameterValue" xsdEncodingRules ="*" xmlType="double" xmlPropertyType="double" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcPHMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPlanarForceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPlaneAngleMeasure" xsdEncodingRules ="*" xmlType="gml:AngleType" xmlPropertyType="gml:AngleType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPositiveInteger" xsdEncodingRules ="*" xmlType="integer" xmlPropertyType="integer" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcPositiveLengthMeasure" xsdEncodingRules ="*" xmlType="gml:LengthType" xmlPropertyType="gml:LengthType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPositivePlaneAngleMeasure" xsdEncodingRules ="*" xmlType="gml:AngleType" xmlPropertyType="gml:AngleType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPositiveRatioMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPowerMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcPressureMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcRadioActivityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcRatioMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcReal" xsdEncodingRules ="*" xmlType="double" xmlPropertyType="double" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcRotationalFrequencyMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcRotationalMassMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcRotationalStiffnessMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSectionalAreaIntegralMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSectionModulusMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcShearModulusMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSolidAngleMeasure" xsdEncodingRules ="*" xmlType="gml:AngleType" xmlPropertyType="gml:AngleType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSoundPowerLevelMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSoundPowerMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSoundPressureLevelMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSoundPressureMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcSpecificHeatCapacityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcTemperatureGradientMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcTemperatureRateOfChangeMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcText" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcThermalAdmittanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcThermalConductivityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcThermalExpansionCoefficientMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcThermalResistanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcThermalTransmittanceMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcThermodynamicTemperatureMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcTorqueMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcVaporPermeabilityMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcVolumeMeasure" xsdEncodingRules ="*" xmlType="gml:VolumeType" xmlPropertyType="gml:VolumeType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcVolumetricFlowRateMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcWarpingConstantMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcWarpingMomentMeasure" xsdEncodingRules ="*" xmlType="gml:MeasureType" xmlPropertyType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false" />
+    <XsdMapEntry type="IfcFontStyle" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcFontVariant" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcFontWeight" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcPresentableText" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcSpecularExponent" xsdEncodingRules ="*" xmlType="double" xmlPropertyType="double" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcSpecularRoughness" xsdEncodingRules ="*" xmlType="double" xmlPropertyType="double" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcTextAlignment" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcTextDecoration" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcTextFontName" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcTextTransformation" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcBoxAlignment" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    <XsdMapEntry type="IfcGloballyUniqueId" xsdEncodingRules ="*" xmlType="string" xmlPropertyType="string" xmlTypeType="simple" xmlTypeContent="simple" />
+    
+    <!-- Manipulated to avoid element mapping  -->
+    <XsdMapEntry type="IfcBSplineCurveWithKnots" xsdEncodingRules ="*" xmlType="gml:BSplineType" xmlPropertyType="gml:CurvePropertyType" />
+    <XsdMapEntry type="IfcCartesianPoint" xsdEncodingRules ="*" xmlType="gml:PointType" xmlPropertyType="gml:PointPropertyType" />
+    <XsdMapEntry type="IfcCircle" xsdEncodingRules ="*" xmlType="gml:CircleType" xmlPropertyType="gml:CurvePropertyType" />
+    <XsdMapEntry type="IfcCircularArcSegment2D" xsdEncodingRules ="*" xmlType="gml:ArcType" xmlPropertyType="gml:CurvePropertyType" />
+    <XsdMapEntry type="IfcCompositeCurve" xsdEncodingRules ="*" xmlType="gml:CurveType" xmlPropertyType="gml:CurvePropertyType" />
+    <XsdMapEntry type="IfcCompositeCurveSegment" xsdEncodingRules ="*" xmlType="gml:CurveType" xmlPropertyType="gml:CurvePropertyType" />
+    <XsdMapEntry type="IfcCurve" xsdEncodingRules ="*" xmlType="gml:CurveType" xmlPropertyType="gml:CurvePropertyType" />
+    <XsdMapEntry type="IfcCylindricalSurface" xsdEncodingRules ="*" xmlType="gml:CylinderType" xmlPropertyType="gml:SurfacePropertyType" />
+    <XsdMapEntry type="IfcPoint" xsdEncodingRules ="*" xmlType="gml:PointType" xmlPropertyType="gml:PointPropertyType" />
+    <XsdMapEntry type="IfcSphericalSurface" xsdEncodingRules ="*" xmlType="gml:SphereType" xmlPropertyType="gml:SurfacePropertyType" />
+    <XsdMapEntry type="IfcSurface" xsdEncodingRules ="*" xmlType="gml:SurfaceType" xmlPropertyType="gml:SurfacePropertyType" />
+    
+    <!-- Not macthed - hardcoded -->
     <XsdMapEntry type="IfcAccelerationMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
     <XsdMapEntry type="IfcAngularVelocityMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:SpeedType" xmlType="gml:SpeedType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
     <!--  <XsdMapEntry type="IfcLogical" xsdEncodingRules ="*" xmlType="" xmlPropertyType="" /> -->
@@ -7,7 +145,7 @@
     <XsdMapEntry type="IfcMolecularWeightMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
     <XsdMapEntry type="IfcMonetaryMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
     <XsdMapEntry type="IfcTimeMeasure" xsdEncodingRules ="*" xmlPropertyType="gml:MeasureType" xmlType="gml:MeasureType" xmlTypeContent="simple" xmlTypeNilReason="false"/>
-    <XsdMapEntry type="IfcBSplineSurfaceWithKnots" xsdEncodingRules ="*" xmlType="gml:SurfaceType" xmlElement="gml:Surface" xmlPropertyType="gml:SurfacePropertyType"/>
+    <XsdMapEntry type="IfcBSplineSurfaceWithKnots" xsdEncodingRules ="*" xmlType="gml:SurfaceType" xmlPropertyType="gml:SurfacePropertyType"/>
     <XsdMapEntry type="IfcConic" xsdEncodingRules ="*" xmlElement="gml:Cone" xmlType="gml:ConeType" xmlPropertyType="_P_"/>
     <XsdMapEntry type="IfcEllipse" xsdEncodingRules ="*" xmlElement="gml:Cone" xmlType="gml:ConeType" xmlPropertyType="_P_"/>
     <XsdMapEntry type="IfcLine" xsdEncodingRules ="*" xmlElement="gml:LineStringSegment" xmlType="gml:LineStringSegmentType" xmlPropertyType="_P_"/>

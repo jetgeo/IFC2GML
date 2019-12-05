@@ -56,17 +56,17 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="bottomFlangeWidth"/>
-          <element name="overallDepth"/>
-          <element name="webThickness"/>
-          <element name="bottomFlangeThickness"/>
-          <element minOccurs="0" name="bottomFlangeFilletRadius"/>
-          <element name="topFlangeWidth"/>
-          <element minOccurs="0" name="topFlangeThickness"/>
-          <element minOccurs="0" name="topFlangeFilletRadius"/>
-          <element minOccurs="0" name="bottomFlangeEdgeRadius"/>
+          <element name="bottomFlangeWidth" type="gml:LengthType"/>
+          <element name="overallDepth" type="gml:LengthType"/>
+          <element name="webThickness" type="gml:LengthType"/>
+          <element name="bottomFlangeThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="bottomFlangeFilletRadius" type="gml:LengthType"/>
+          <element name="topFlangeWidth" type="gml:LengthType"/>
+          <element minOccurs="0" name="topFlangeThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="topFlangeFilletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="bottomFlangeEdgeRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="bottomFlangeSlope" type="gml:AngleType"/>
-          <element minOccurs="0" name="topFlangeEdgeRadius"/>
+          <element minOccurs="0" name="topFlangeEdgeRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="topFlangeSlope" type="gml:AngleType"/>
         </sequence>
       </extension>
@@ -84,11 +84,11 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="depth"/>
-          <element name="width"/>
-          <element name="wallThickness"/>
-          <element name="girth"/>
-          <element minOccurs="0" name="internalFilletRadius"/>
+          <element name="depth" type="gml:LengthType"/>
+          <element name="width" type="gml:LengthType"/>
+          <element name="wallThickness" type="gml:LengthType"/>
+          <element name="girth" type="gml:LengthType"/>
+          <element minOccurs="0" name="internalFilletRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -105,7 +105,7 @@
     <complexContent>
       <extension base="ifc:IfcArbitraryOpenProfileDefType">
         <sequence>
-          <element name="thickness"/>
+          <element name="thickness" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -122,7 +122,7 @@
     <complexContent>
       <extension base="ifc:IfcCircleProfileDefType">
         <sequence>
-          <element name="wallThickness"/>
+          <element name="wallThickness" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -139,7 +139,7 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="radius"/>
+          <element name="radius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -192,8 +192,8 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="semiAxis1"/>
-          <element name="semiAxis2"/>
+          <element name="semiAxis1" type="gml:LengthType"/>
+          <element name="semiAxis2" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -210,12 +210,12 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="overallWidth"/>
-          <element name="overallDepth"/>
-          <element name="webThickness"/>
-          <element name="flangeThickness"/>
-          <element minOccurs="0" name="filletRadius"/>
-          <element minOccurs="0" name="flangeEdgeRadius"/>
+          <element name="overallWidth" type="gml:LengthType"/>
+          <element name="overallDepth" type="gml:LengthType"/>
+          <element name="webThickness" type="gml:LengthType"/>
+          <element name="flangeThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="filletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="flangeEdgeRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="flangeSlope" type="gml:AngleType"/>
         </sequence>
       </extension>
@@ -233,11 +233,11 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="depth"/>
-          <element minOccurs="0" name="width"/>
-          <element name="thickness"/>
-          <element minOccurs="0" name="filletRadius"/>
-          <element minOccurs="0" name="edgeRadius"/>
+          <element name="depth" type="gml:LengthType"/>
+          <element minOccurs="0" name="width" type="gml:LengthType"/>
+          <element name="thickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="filletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="edgeRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="legSlope" type="gml:AngleType"/>
         </sequence>
       </extension>
@@ -270,7 +270,7 @@
     <complexContent>
       <extension base="ifc:IfcProfileDefType">
         <sequence>
-          <element maxOccurs="unbounded" name="widths"/>
+          <element maxOccurs="unbounded" name="widths" type="gml:LengthType"/>
           <element name="isWidthHorizontal" type="boolean"/>
           <element maxOccurs="unbounded" name="slopes" type="gml:AngleType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="tags" type="string"/>
@@ -346,9 +346,9 @@
     <complexContent>
       <extension base="ifc:IfcRectangleProfileDefType">
         <sequence>
-          <element name="wallThickness"/>
-          <element minOccurs="0" name="innerFilletRadius"/>
-          <element minOccurs="0" name="outerFilletRadius"/>
+          <element name="wallThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="innerFilletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="outerFilletRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -365,8 +365,8 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="xDim"/>
-          <element name="yDim"/>
+          <element name="xDim" type="gml:LengthType"/>
+          <element name="yDim" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -387,7 +387,7 @@
           <element name="steelGrade" type="string"/>
           <element minOccurs="0" name="barSurface" type="ifc:IfcReinforcingBarSurfaceEnumType"/>
           <element minOccurs="0" name="effectiveDepth" type="gml:LengthType"/>
-          <element minOccurs="0" name="nominalBarDiameter"/>
+          <element minOccurs="0" name="nominalBarDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="barCount" type="gml:MeasureType"/>
         </sequence>
       </extension>
@@ -425,7 +425,7 @@
     <complexContent>
       <extension base="ifc:IfcRectangleProfileDefType">
         <sequence>
-          <element name="roundingRadius"/>
+          <element name="roundingRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -489,13 +489,13 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="depth"/>
-          <element name="flangeWidth"/>
-          <element name="webThickness"/>
-          <element name="flangeThickness"/>
-          <element minOccurs="0" name="filletRadius"/>
-          <element minOccurs="0" name="flangeEdgeRadius"/>
-          <element minOccurs="0" name="webEdgeRadius"/>
+          <element name="depth" type="gml:LengthType"/>
+          <element name="flangeWidth" type="gml:LengthType"/>
+          <element name="webThickness" type="gml:LengthType"/>
+          <element name="flangeThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="filletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="flangeEdgeRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="webEdgeRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="webSlope" type="gml:AngleType"/>
           <element minOccurs="0" name="flangeSlope" type="gml:AngleType"/>
         </sequence>
@@ -514,9 +514,9 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="bottomXDim"/>
-          <element name="topXDim"/>
-          <element name="yDim"/>
+          <element name="bottomXDim" type="gml:LengthType"/>
+          <element name="topXDim" type="gml:LengthType"/>
+          <element name="yDim" type="gml:LengthType"/>
           <element name="topXOffset" type="gml:LengthType"/>
         </sequence>
       </extension>
@@ -534,12 +534,12 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="depth"/>
-          <element name="flangeWidth"/>
-          <element name="webThickness"/>
-          <element name="flangeThickness"/>
-          <element minOccurs="0" name="filletRadius"/>
-          <element minOccurs="0" name="edgeRadius"/>
+          <element name="depth" type="gml:LengthType"/>
+          <element name="flangeWidth" type="gml:LengthType"/>
+          <element name="webThickness" type="gml:LengthType"/>
+          <element name="flangeThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="filletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="edgeRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="flangeSlope" type="gml:AngleType"/>
         </sequence>
       </extension>
@@ -557,12 +557,12 @@
     <complexContent>
       <extension base="ifc:IfcParameterizedProfileDefType">
         <sequence>
-          <element name="depth"/>
-          <element name="flangeWidth"/>
-          <element name="webThickness"/>
-          <element name="flangeThickness"/>
-          <element minOccurs="0" name="filletRadius"/>
-          <element minOccurs="0" name="edgeRadius"/>
+          <element name="depth" type="gml:LengthType"/>
+          <element name="flangeWidth" type="gml:LengthType"/>
+          <element name="webThickness" type="gml:LengthType"/>
+          <element name="flangeThickness" type="gml:LengthType"/>
+          <element minOccurs="0" name="filletRadius" type="gml:LengthType"/>
+          <element minOccurs="0" name="edgeRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>

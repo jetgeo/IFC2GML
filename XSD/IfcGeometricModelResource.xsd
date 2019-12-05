@@ -27,7 +27,7 @@
     <complexContent>
       <extension base="ifc:IfcAdvancedBrepType">
         <sequence>
-          <element maxOccurs="unbounded" name="voids" type="ifc:IfcClosedShellPropertyType"/>
+          <element maxOccurs="unbounded" name="voids" type="ifc:IfcClosedShell_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -44,9 +44,9 @@
     <complexContent>
       <extension base="ifc:IfcCsgPrimitive3DType">
         <sequence>
-          <element name="xLength"/>
-          <element name="yLength"/>
-          <element name="zLength"/>
+          <element name="xLength" type="gml:LengthType"/>
+          <element name="yLength" type="gml:LengthType"/>
+          <element name="zLength" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -175,9 +175,9 @@
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
-          <element name="xDim"/>
-          <element name="yDim"/>
-          <element name="zDim"/>
+          <element name="xDim" type="gml:LengthType"/>
+          <element name="yDim" type="gml:LengthType"/>
+          <element name="zDim" type="gml:LengthType"/>
           <element name="dim" type="integer"/>
         </sequence>
       </extension>
@@ -333,7 +333,7 @@
     <complexContent>
       <extension base="ifc:IfcSweptAreaSolidType">
         <sequence>
-          <element name="depth"/>
+          <element name="depth" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -368,7 +368,7 @@
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
           <element name="dim" type="integer"/>
-          <element maxOccurs="unbounded" name="fbsmFaces" type="ifc:IfcConnectedFaceSetPropertyType"/>
+          <element maxOccurs="unbounded" name="fbsmFaces" type="ifc:IfcConnectedFaceSet_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -400,7 +400,7 @@
     <complexContent>
       <extension base="ifc:IfcFacetedBrepType">
         <sequence>
-          <element maxOccurs="unbounded" name="voids" type="ifc:IfcClosedShellPropertyType"/>
+          <element maxOccurs="unbounded" name="voids" type="ifc:IfcClosedShell_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -529,7 +529,7 @@
     <complexContent>
       <extension base="ifc:IfcTessellatedItemType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="3" name="coordIndex"/>
+          <element maxOccurs="unbounded" minOccurs="3" name="coordIndex" type="integer"/>
         </sequence>
       </extension>
     </complexContent>
@@ -546,7 +546,7 @@
     <complexContent>
       <extension base="ifc:IfcIndexedPolygonalFaceType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="3" name="innerCoordIndices"/>
+          <element maxOccurs="unbounded" minOccurs="3" name="innerCoordIndices" type="integer"/>
         </sequence>
       </extension>
     </complexContent>
@@ -563,7 +563,7 @@
     <complexContent>
       <extension base="ifc:IfcSolidModelType">
         <sequence>
-          <element name="outer" type="ifc:IfcClosedShellPropertyType"/>
+          <element name="outer" type="ifc:IfcClosedShell_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -596,7 +596,7 @@
       <extension base="ifc:IfcTessellatedFaceSetType">
         <sequence>
           <element minOccurs="0" name="closed" type="boolean"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="pnIndex"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="pnIndex" type="integer"/>
           <element maxOccurs="unbounded" name="faces" type="ifc:IfcIndexedPolygonalFacePropertyType"/>
         </sequence>
       </extension>
@@ -614,9 +614,9 @@
     <complexContent>
       <extension base="ifc:IfcCsgPrimitive3DType">
         <sequence>
-          <element name="xLength"/>
-          <element name="yLength"/>
-          <element name="height"/>
+          <element name="xLength" type="gml:LengthType"/>
+          <element name="yLength" type="gml:LengthType"/>
+          <element name="height" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -667,8 +667,8 @@
     <complexContent>
       <extension base="ifc:IfcCsgPrimitive3DType">
         <sequence>
-          <element name="height"/>
-          <element name="bottomRadius"/>
+          <element name="height" type="gml:LengthType"/>
+          <element name="bottomRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -685,8 +685,8 @@
     <complexContent>
       <extension base="ifc:IfcCsgPrimitive3DType">
         <sequence>
-          <element name="height"/>
-          <element name="radius"/>
+          <element name="height" type="gml:LengthType"/>
+          <element name="radius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -750,7 +750,7 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcSectionedSurface" substitutionGroup="gml:Surface" type="ifc:IfcSectionedSurfaceType"/>
+  <element name="IfcSectionedSurface" substitutionGroup="ifc:IfcSurface" type="ifc:IfcSectionedSurfaceType"/>
   <complexType name="IfcSectionedSurfaceType">
     <complexContent>
       <extension base="gml:SurfaceType">
@@ -773,7 +773,7 @@
     <complexContent>
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
-          <element maxOccurs="unbounded" name="sbsmBoundary" type="ifc:IfcShellPropertyType"/>
+          <element maxOccurs="unbounded" name="sbsmBoundary" type="ifc:IfcShell_PropertyType"/>
           <element name="dim" type="integer"/>
         </sequence>
       </extension>
@@ -808,7 +808,7 @@
     <complexContent>
       <extension base="ifc:IfcCsgPrimitive3DType">
         <sequence>
-          <element name="radius"/>
+          <element name="radius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -860,8 +860,8 @@
     <complexContent>
       <extension base="ifc:IfcSolidModelType">
         <sequence>
-          <element name="radius"/>
-          <element minOccurs="0" name="innerRadius"/>
+          <element name="radius" type="gml:LengthType"/>
+          <element minOccurs="0" name="innerRadius" type="gml:LengthType"/>
           <element minOccurs="0" name="startParam" type="double"/>
           <element minOccurs="0" name="endParam" type="double"/>
         </sequence>
@@ -880,7 +880,7 @@
     <complexContent>
       <extension base="ifc:IfcSweptDiskSolidType">
         <sequence>
-          <element minOccurs="0" name="filletRadius"/>
+          <element minOccurs="0" name="filletRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -932,8 +932,8 @@
         <sequence>
           <element maxOccurs="3" minOccurs="0" name="normals" type="double"/>
           <element minOccurs="0" name="closed" type="boolean"/>
-          <element maxOccurs="3" minOccurs="3" name="coordIndex"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="pnIndex"/>
+          <element maxOccurs="3" minOccurs="3" name="coordIndex" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="pnIndex" type="integer"/>
           <element name="numberOfTriangles" type="integer"/>
         </sequence>
       </extension>

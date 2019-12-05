@@ -127,7 +127,7 @@
     <complexContent>
       <extension base="ifc:IfcRelConnectsStructuralMemberType">
         <sequence>
-          <element name="connectionConstraint" type="ifc:IfcConnectionGeometryPropertyType"/>
+          <element name="connectionConstraint" type="ifc:AbstractIfcConnectionGeometry_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -214,9 +214,9 @@
       <extension base="ifc:IfcSystemType">
         <sequence>
           <element name="predefinedType" type="ifc:IfcAnalysisModelTypeEnumType"/>
+          <element minOccurs="0" name="sharedPlacement" type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="hasResults" type="ifc:IfcStructuralResultGroupPropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="loadedBy" type="ifc:IfcStructuralLoadGroupPropertyType"/>
-          <element minOccurs="0" name="sharedPlacement" type="ifc:IfcObjectPlacementPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -577,7 +577,7 @@
       <extension base="ifc:IfcStructuralMemberType">
         <sequence>
           <element name="predefinedType" type="ifc:IfcStructuralSurfaceMemberTypeEnumType"/>
-          <element minOccurs="0" name="thickness"/>
+          <element minOccurs="0" name="thickness" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>

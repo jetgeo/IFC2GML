@@ -76,7 +76,7 @@
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element minOccurs="0" name="fraction"/>
+          <element minOccurs="0" name="fraction" type="gml:MeasureType"/>
           <element minOccurs="0" name="category" type="string"/>
           <element name="material" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
@@ -129,7 +129,7 @@
     <complexContent>
       <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
-          <element name="layerThickness"/>
+          <element name="layerThickness" type="gml:LengthType"/>
           <element minOccurs="0" name="isVentilated" type="ifc:IfcLogicalPropertyType"/>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
@@ -175,7 +175,7 @@
           <element name="layerSetDirection" type="ifc:IfcLayerSetDirectionEnumType"/>
           <element name="directionSense" type="ifc:IfcDirectionSenseEnumType"/>
           <element name="offsetFromReferenceLine" type="gml:LengthType"/>
-          <element minOccurs="0" name="referenceExtent"/>
+          <element minOccurs="0" name="referenceExtent" type="gml:LengthType"/>
           <element name="forLayerSet" type="ifc:IfcMaterialLayerSetPropertyType"/>
         </sequence>
       </extension>
@@ -271,7 +271,7 @@
       <extension base="ifc:IfcMaterialUsageDefinitionType">
         <sequence>
           <element minOccurs="0" name="cardinalPoint" type="integer"/>
-          <element minOccurs="0" name="referenceExtent"/>
+          <element minOccurs="0" name="referenceExtent" type="gml:LengthType"/>
           <element name="forProfileSet" type="ifc:IfcMaterialProfileSetPropertyType"/>
         </sequence>
       </extension>
