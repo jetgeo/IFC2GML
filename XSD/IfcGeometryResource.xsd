@@ -242,10 +242,10 @@
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="IfcBoundedCurve" substitutionGroup="gml:AbstractCurve" type="ifc:IfcBoundedCurveType"/>
+  <element abstract="true" name="IfcBoundedCurve" substitutionGroup="gml:LineString" type="ifc:IfcBoundedCurveType"/>
   <complexType abstract="true" name="IfcBoundedCurveType">
     <complexContent>
-      <extension base="gml:AbstractCurveType">
+      <extension base="gml:LineStringType">
         <sequence/>
       </extension>
     </complexContent>
