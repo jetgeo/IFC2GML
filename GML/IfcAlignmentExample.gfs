@@ -2,21 +2,21 @@
   <GMLFeatureClass>
     <Name>IfcAlignment</Name>
     <ElementPath>IfcAlignment</ElementPath>
-    <!--LINESTRINGZ-->
-    <GeometryType>-2147483646</GeometryType>
-    <SRSName>EPSG:6173</SRSName>
+    <GeometryType>100</GeometryType>
     <DatasetSpecificInfo>
       <FeatureCount>1</FeatureCount>
-      <ExtentXMin>288463.01367</ExtentXMin>
-      <ExtentXMax>290414.46394</ExtentXMax>
-      <ExtentYMin>6748442.91000</ExtentYMin>
-      <ExtentYMax>6749134.28629</ExtentYMax>
     </DatasetSpecificInfo>
     <PropertyDefn>
       <Name>globalId</Name>
       <ElementPath>globalId</ElementPath>
       <Type>String</Type>
       <Width>29</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>posList</Name>
+      <ElementPath>axis|posList</ElementPath>
+      <Type>String</Type>
+      <Width>4263</Width>
     </PropertyDefn>
   </GMLFeatureClass>
 </GMLFeatureClassList>
