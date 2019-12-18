@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcControlExtension.xsd"/>
   <include schemaLocation="IfcDateTimeResource.xsd"/>
@@ -8,12 +8,12 @@
   <include schemaLocation="IfcProfileResource.xsd"/>
   <include schemaLocation="IfcPropertyResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcApproval" substitutionGroup="gml:AbstractFeature" type="ifc:IfcApprovalType"/>
-  <complexType name="IfcApprovalType">
+  <element name="IfcApproval" substitutionGroup="gco:AbstractObject" type="ifc:IfcApproval_Type"/>
+  <complexType name="IfcApproval_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
           <element minOccurs="0" name="identifier" type="string"/>
           <element minOccurs="0" name="name" type="string"/>
@@ -22,53 +22,53 @@
           <element minOccurs="0" name="status" type="string"/>
           <element minOccurs="0" name="level" type="string"/>
           <element minOccurs="0" name="qualifier" type="string"/>
-          <element minOccurs="0" name="requestingApproval" type="ifc:IfcActorSelectPropertyType"/>
-          <element minOccurs="0" name="givingApproval" type="ifc:IfcActorSelectPropertyType"/>
+          <element minOccurs="0" name="requestingApproval" type="ifc:IfcActorSelect_PropertyType"/>
+          <element minOccurs="0" name="givingApproval" type="ifc:IfcActorSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcApprovalPropertyType">
+  <complexType name="IfcApproval_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcApproval"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcApprovalRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcApprovalRelationshipType"/>
-  <complexType name="IfcApprovalRelationshipType">
+  <element name="IfcApprovalRelationship" substitutionGroup="ifc:AbstractIfcResourceLevelRelationship" type="ifc:IfcApprovalRelationship_Type"/>
+  <complexType name="IfcApprovalRelationship_Type">
     <complexContent>
-      <extension base="ifc:IfcResourceLevelRelationshipType">
+      <extension base="ifc:AbstractIfcResourceLevelRelationship_Type">
         <sequence>
-          <element name="relatingApproval" type="ifc:IfcApprovalPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedApprovals" type="ifc:IfcApprovalPropertyType"/>
+          <element name="relatingApproval" type="ifc:IfcApproval_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedApprovals" type="ifc:IfcApproval_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcApprovalRelationshipPropertyType">
+  <complexType name="IfcApprovalRelationship_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcApprovalRelationship"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcResourceApprovalRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcResourceApprovalRelationshipType"/>
-  <complexType name="IfcResourceApprovalRelationshipType">
+  <element name="IfcResourceApprovalRelationship" substitutionGroup="ifc:AbstractIfcResourceLevelRelationship" type="ifc:IfcResourceApprovalRelationship_Type"/>
+  <complexType name="IfcResourceApprovalRelationship_Type">
     <complexContent>
-      <extension base="ifc:IfcResourceLevelRelationshipType">
+      <extension base="ifc:AbstractIfcResourceLevelRelationship_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedResourceObjects" type="ifc:IfcResourceObjectSelectPropertyType"/>
-          <element name="relatingApproval" type="ifc:IfcApprovalPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedResourceObjects" type="ifc:IfcResourceObjectSelect_PropertyType"/>
+          <element name="relatingApproval" type="ifc:IfcApproval_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcResourceApprovalRelationshipPropertyType">
+  <complexType name="IfcResourceApprovalRelationship_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcResourceApprovalRelationship"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

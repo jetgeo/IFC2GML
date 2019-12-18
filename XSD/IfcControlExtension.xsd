@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcApprovalResource.xsd"/>
   <include schemaLocation="IfcConstraintResource.xsd"/>
   <include schemaLocation="IfcCoreLayer.xsd"/>
@@ -7,65 +7,72 @@
   <include schemaLocation="IfcKernel.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcProductExtension.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcPerformanceHistory" substitutionGroup="ifc:IfcControl" type="ifc:IfcPerformanceHistoryType"/>
-  <complexType name="IfcPerformanceHistoryType">
+  <element name="IfcPerformanceHistory" substitutionGroup="ifc:AbstractIfcControl" type="ifc:IfcPerformanceHistory_Type"/>
+  <complexType name="IfcPerformanceHistory_Type">
     <complexContent>
-      <extension base="ifc:IfcControlType">
+      <extension base="ifc:AbstractIfcControl_Type">
         <sequence>
           <element name="lifeCyclePhase" type="string"/>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcPerformanceHistoryTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcPerformanceHistoryTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPerformanceHistoryPropertyType">
+  <complexType name="IfcPerformanceHistory_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPerformanceHistory"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcPerformanceHistoryTypeEnumType">
+  <element name="IfcPerformanceHistoryTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcPerformanceHistoryTypeEnum_Type"/>
+  <simpleType name="IfcPerformanceHistoryTypeEnum_Type">
     <restriction base="string">
       <enumeration value="NOTDEFINED"/>
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcRelAssociatesApproval" substitutionGroup="ifc:IfcRelAssociates" type="ifc:IfcRelAssociatesApprovalType"/>
-  <complexType name="IfcRelAssociatesApprovalType">
+  <complexType name="IfcPerformanceHistoryTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPerformanceHistoryTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcRelAssociatesApproval" substitutionGroup="ifc:AbstractIfcRelAssociates" type="ifc:IfcRelAssociatesApproval_Type"/>
+  <complexType name="IfcRelAssociatesApproval_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssociatesType">
+      <extension base="ifc:AbstractIfcRelAssociates_Type">
         <sequence>
-          <element name="relatingApproval" type="ifc:IfcApprovalPropertyType"/>
+          <element name="relatingApproval" type="ifc:IfcApproval_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesApprovalPropertyType">
+  <complexType name="IfcRelAssociatesApproval_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssociatesApproval"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssociatesConstraint" substitutionGroup="ifc:IfcRelAssociates" type="ifc:IfcRelAssociatesConstraintType"/>
-  <complexType name="IfcRelAssociatesConstraintType">
+  <element name="IfcRelAssociatesConstraint" substitutionGroup="ifc:AbstractIfcRelAssociates" type="ifc:IfcRelAssociatesConstraint_Type"/>
+  <complexType name="IfcRelAssociatesConstraint_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssociatesType">
+      <extension base="ifc:AbstractIfcRelAssociates_Type">
         <sequence>
           <element minOccurs="0" name="intent" type="string"/>
-          <element name="relatingConstraint" type="ifc:IfcConstraintPropertyType"/>
+          <element name="relatingConstraint" type="ifc:AbstractIfcConstraint_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesConstraintPropertyType">
+  <complexType name="IfcRelAssociatesConstraint_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssociatesConstraint"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

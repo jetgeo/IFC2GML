@@ -1,60 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcPropertyResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcArbitraryClosedProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcArbitraryClosedProfileDefType"/>
-  <complexType name="IfcArbitraryClosedProfileDefType">
+  <element name="IfcArbitraryClosedProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcArbitraryClosedProfileDef_Type"/>
+  <complexType name="IfcArbitraryClosedProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcProfileDefType">
-        <sequence/>
+      <extension base="ifc:IfcProfileDef_Type">
+        <sequence>
+          <element name="outerCurve" type="ifc:AbstractIfcCurve_PropertyType"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcArbitraryClosedProfileDefPropertyType">
+  <complexType name="IfcArbitraryClosedProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcArbitraryClosedProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcArbitraryOpenProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcArbitraryOpenProfileDefType"/>
-  <complexType name="IfcArbitraryOpenProfileDefType">
+  <element name="IfcArbitraryOpenProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcArbitraryOpenProfileDef_Type"/>
+  <complexType name="IfcArbitraryOpenProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcProfileDefType">
-        <sequence/>
+      <extension base="ifc:IfcProfileDef_Type">
+        <sequence>
+          <element name="curve" type="ifc:AbstractIfcBoundedCurve_PropertyType"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcArbitraryOpenProfileDefPropertyType">
+  <complexType name="IfcArbitraryOpenProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcArbitraryOpenProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcArbitraryProfileDefWithVoids" substitutionGroup="ifc:IfcArbitraryClosedProfileDef" type="ifc:IfcArbitraryProfileDefWithVoidsType"/>
-  <complexType name="IfcArbitraryProfileDefWithVoidsType">
+  <element name="IfcArbitraryProfileDefWithVoids" substitutionGroup="ifc:IfcArbitraryClosedProfileDef" type="ifc:IfcArbitraryProfileDefWithVoids_Type"/>
+  <complexType name="IfcArbitraryProfileDefWithVoids_Type">
     <complexContent>
-      <extension base="ifc:IfcArbitraryClosedProfileDefType">
-        <sequence/>
+      <extension base="ifc:IfcArbitraryClosedProfileDef_Type">
+        <sequence>
+          <element maxOccurs="unbounded" name="innerCurves" type="ifc:AbstractIfcCurve_PropertyType"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcArbitraryProfileDefWithVoidsPropertyType">
+  <complexType name="IfcArbitraryProfileDefWithVoids_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcArbitraryProfileDefWithVoids"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcAsymmetricIShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcAsymmetricIShapeProfileDefType"/>
-  <complexType name="IfcAsymmetricIShapeProfileDefType">
+  <element name="IfcAsymmetricIShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcAsymmetricIShapeProfileDef_Type"/>
+  <complexType name="IfcAsymmetricIShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="bottomFlangeWidth" type="gml:LengthType"/>
           <element name="overallDepth" type="gml:LengthType"/>
@@ -72,17 +79,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAsymmetricIShapeProfileDefPropertyType">
+  <complexType name="IfcAsymmetricIShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAsymmetricIShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcCShapeProfileDefType"/>
-  <complexType name="IfcCShapeProfileDefType">
+  <element name="IfcCShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcCShapeProfileDef_Type"/>
+  <complexType name="IfcCShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="depth" type="gml:LengthType"/>
           <element name="width" type="gml:LengthType"/>
@@ -93,104 +100,105 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCShapeProfileDefPropertyType">
+  <complexType name="IfcCShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCenterLineProfileDef" substitutionGroup="ifc:IfcArbitraryOpenProfileDef" type="ifc:IfcCenterLineProfileDefType"/>
-  <complexType name="IfcCenterLineProfileDefType">
+  <element name="IfcCenterLineProfileDef" substitutionGroup="ifc:IfcArbitraryOpenProfileDef" type="ifc:IfcCenterLineProfileDef_Type"/>
+  <complexType name="IfcCenterLineProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcArbitraryOpenProfileDefType">
+      <extension base="ifc:IfcArbitraryOpenProfileDef_Type">
         <sequence>
           <element name="thickness" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCenterLineProfileDefPropertyType">
+  <complexType name="IfcCenterLineProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCenterLineProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCircleHollowProfileDef" substitutionGroup="ifc:IfcCircleProfileDef" type="ifc:IfcCircleHollowProfileDefType"/>
-  <complexType name="IfcCircleHollowProfileDefType">
+  <element name="IfcCircleHollowProfileDef" substitutionGroup="ifc:IfcCircleProfileDef" type="ifc:IfcCircleHollowProfileDef_Type"/>
+  <complexType name="IfcCircleHollowProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcCircleProfileDefType">
+      <extension base="ifc:IfcCircleProfileDef_Type">
         <sequence>
           <element name="wallThickness" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCircleHollowProfileDefPropertyType">
+  <complexType name="IfcCircleHollowProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCircleHollowProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCircleProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcCircleProfileDefType"/>
-  <complexType name="IfcCircleProfileDefType">
+  <element name="IfcCircleProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcCircleProfileDef_Type"/>
+  <complexType name="IfcCircleProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="radius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCircleProfileDefPropertyType">
+  <complexType name="IfcCircleProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCircleProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCompositeProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcCompositeProfileDefType"/>
-  <complexType name="IfcCompositeProfileDefType">
+  <element name="IfcCompositeProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcCompositeProfileDef_Type"/>
+  <complexType name="IfcCompositeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcProfileDefType">
+      <extension base="ifc:IfcProfileDef_Type">
         <sequence>
           <element minOccurs="0" name="label" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="2" name="profiles" type="ifc:IfcProfileDefPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="2" name="profiles" type="ifc:IfcProfileDef_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCompositeProfileDefPropertyType">
+  <complexType name="IfcCompositeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCompositeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDerivedProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcDerivedProfileDefType"/>
-  <complexType name="IfcDerivedProfileDefType">
+  <element name="IfcDerivedProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcDerivedProfileDef_Type"/>
+  <complexType name="IfcDerivedProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcProfileDefType">
+      <extension base="ifc:IfcProfileDef_Type">
         <sequence>
           <element minOccurs="0" name="label" type="string"/>
-          <element name="parentProfile" type="ifc:IfcProfileDefPropertyType"/>
+          <element name="parentProfile" type="ifc:IfcProfileDef_PropertyType"/>
+          <element name="operator" type="ifc:IfcCartesianTransformationOperator2D_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDerivedProfileDefPropertyType">
+  <complexType name="IfcDerivedProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDerivedProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcEllipseProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcEllipseProfileDefType"/>
-  <complexType name="IfcEllipseProfileDefType">
+  <element name="IfcEllipseProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcEllipseProfileDef_Type"/>
+  <complexType name="IfcEllipseProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="semiAxis1" type="gml:LengthType"/>
           <element name="semiAxis2" type="gml:LengthType"/>
@@ -198,17 +206,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcEllipseProfileDefPropertyType">
+  <complexType name="IfcEllipseProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcEllipseProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcIShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcIShapeProfileDefType"/>
-  <complexType name="IfcIShapeProfileDefType">
+  <element name="IfcIShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcIShapeProfileDef_Type"/>
+  <complexType name="IfcIShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="overallWidth" type="gml:LengthType"/>
           <element name="overallDepth" type="gml:LengthType"/>
@@ -221,17 +229,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcIShapeProfileDefPropertyType">
+  <complexType name="IfcIShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcIShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcLShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcLShapeProfileDefType"/>
-  <complexType name="IfcLShapeProfileDefType">
+  <element name="IfcLShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcLShapeProfileDef_Type"/>
+  <complexType name="IfcLShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="depth" type="gml:LengthType"/>
           <element minOccurs="0" name="width" type="gml:LengthType"/>
@@ -243,32 +251,32 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcLShapeProfileDefPropertyType">
+  <complexType name="IfcLShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcLShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcMirroredProfileDef" substitutionGroup="ifc:IfcDerivedProfileDef" type="ifc:IfcMirroredProfileDefType"/>
-  <complexType name="IfcMirroredProfileDefType">
+  <element name="IfcMirroredProfileDef" substitutionGroup="ifc:IfcDerivedProfileDef" type="ifc:IfcMirroredProfileDef_Type"/>
+  <complexType name="IfcMirroredProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcDerivedProfileDefType">
+      <extension base="ifc:IfcDerivedProfileDef_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMirroredProfileDefPropertyType">
+  <complexType name="IfcMirroredProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMirroredProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcOpenCrossProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcOpenCrossProfileDefType"/>
-  <complexType name="IfcOpenCrossProfileDefType">
+  <element name="IfcOpenCrossProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcOpenCrossProfileDef_Type"/>
+  <complexType name="IfcOpenCrossProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcProfileDefType">
+      <extension base="ifc:IfcProfileDef_Type">
         <sequence>
           <element maxOccurs="unbounded" name="widths" type="gml:LengthType"/>
           <element name="isWidthHorizontal" type="boolean"/>
@@ -278,73 +286,82 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcOpenCrossProfileDefPropertyType">
+  <complexType name="IfcOpenCrossProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcOpenCrossProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcParameterizedProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:IfcParameterizedProfileDefType"/>
-  <complexType abstract="true" name="IfcParameterizedProfileDefType">
+  <element abstract="true" name="AbstractIfcParameterizedProfileDef" substitutionGroup="ifc:IfcProfileDef" type="ifc:AbstractIfcParameterizedProfileDef_Type"/>
+  <complexType abstract="true" name="AbstractIfcParameterizedProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcProfileDefType">
-        <sequence/>
+      <extension base="ifc:IfcProfileDef_Type">
+        <sequence>
+          <element minOccurs="0" name="position" type="ifc:IfcAxis2Placement2D_PropertyType"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcParameterizedProfileDefPropertyType">
+  <complexType name="AbstractIfcParameterizedProfileDef_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcParameterizedProfileDef"/>
+      <element ref="ifc:AbstractIfcParameterizedProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProfileDef" substitutionGroup="gml:AbstractFeature" type="ifc:IfcProfileDefType"/>
-  <complexType name="IfcProfileDefType">
+  <element name="IfcProfileDef" substitutionGroup="gco:AbstractObject" type="ifc:IfcProfileDef_Type"/>
+  <complexType name="IfcProfileDef_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element name="profileType" type="ifc:IfcProfileTypeEnumType"/>
+          <element name="profileType" type="ifc:IfcProfileTypeEnum_PropertyType"/>
           <element minOccurs="0" name="profileName" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProfileDefPropertyType">
+  <complexType name="IfcProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProfileProperties" substitutionGroup="ifc:IfcExtendedProperties" type="ifc:IfcProfilePropertiesType"/>
-  <complexType name="IfcProfilePropertiesType">
+  <element name="IfcProfileProperties" substitutionGroup="ifc:AbstractIfcExtendedProperties" type="ifc:IfcProfileProperties_Type"/>
+  <complexType name="IfcProfileProperties_Type">
     <complexContent>
-      <extension base="ifc:IfcExtendedPropertiesType">
+      <extension base="ifc:AbstractIfcExtendedProperties_Type">
         <sequence>
-          <element name="profileDefinition" type="ifc:IfcProfileDefPropertyType"/>
+          <element name="profileDefinition" type="ifc:IfcProfileDef_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProfilePropertiesPropertyType">
+  <complexType name="IfcProfileProperties_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProfileProperties"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcProfileTypeEnumType">
+  <element name="IfcProfileTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcProfileTypeEnum_Type"/>
+  <simpleType name="IfcProfileTypeEnum_Type">
     <restriction base="string">
       <enumeration value="AREA"/>
       <enumeration value="CURVE"/>
     </restriction>
   </simpleType>
-  <element name="IfcRectangleHollowProfileDef" substitutionGroup="ifc:IfcRectangleProfileDef" type="ifc:IfcRectangleHollowProfileDefType"/>
-  <complexType name="IfcRectangleHollowProfileDefType">
+  <complexType name="IfcProfileTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcProfileTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcRectangleHollowProfileDef" substitutionGroup="ifc:IfcRectangleProfileDef" type="ifc:IfcRectangleHollowProfileDef_Type"/>
+  <complexType name="IfcRectangleHollowProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcRectangleProfileDefType">
+      <extension base="ifc:IfcRectangleProfileDef_Type">
         <sequence>
           <element name="wallThickness" type="gml:LengthType"/>
           <element minOccurs="0" name="innerFilletRadius" type="gml:LengthType"/>
@@ -353,17 +370,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRectangleHollowProfileDefPropertyType">
+  <complexType name="IfcRectangleHollowProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRectangleHollowProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRectangleProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcRectangleProfileDefType"/>
-  <complexType name="IfcRectangleProfileDefType">
+  <element name="IfcRectangleProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcRectangleProfileDef_Type"/>
+  <complexType name="IfcRectangleProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="xDim" type="gml:LengthType"/>
           <element name="yDim" type="gml:LengthType"/>
@@ -371,21 +388,21 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRectangleProfileDefPropertyType">
+  <complexType name="IfcRectangleProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRectangleProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcReinforcementBarProperties" substitutionGroup="ifc:IfcPreDefinedProperties" type="ifc:IfcReinforcementBarPropertiesType"/>
-  <complexType name="IfcReinforcementBarPropertiesType">
+  <element name="IfcReinforcementBarProperties" substitutionGroup="ifc:AbstractIfcPreDefinedProperties" type="ifc:IfcReinforcementBarProperties_Type"/>
+  <complexType name="IfcReinforcementBarProperties_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedPropertiesType">
+      <extension base="ifc:AbstractIfcPreDefinedProperties_Type">
         <sequence>
           <element name="totalCrossSectionArea" type="gml:AreaType"/>
           <element name="steelGrade" type="string"/>
-          <element minOccurs="0" name="barSurface" type="ifc:IfcReinforcingBarSurfaceEnumType"/>
+          <element minOccurs="0" name="barSurface" type="ifc:IfcReinforcingBarSurfaceEnum_PropertyType"/>
           <element minOccurs="0" name="effectiveDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="nominalBarDiameter" type="gml:LengthType"/>
           <element minOccurs="0" name="barCount" type="gml:MeasureType"/>
@@ -393,14 +410,15 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcReinforcementBarPropertiesPropertyType">
+  <complexType name="IfcReinforcementBarProperties_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcReinforcementBarProperties"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcReinforcingBarRoleEnumType">
+  <element name="IfcReinforcingBarRoleEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcReinforcingBarRoleEnum_Type"/>
+  <simpleType name="IfcReinforcingBarRoleEnum_Type">
     <restriction base="string">
       <enumeration value="ANCHORING"/>
       <enumeration value="EDGE"/>
@@ -414,80 +432,100 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <simpleType name="IfcReinforcingBarSurfaceEnumType">
+  <complexType name="IfcReinforcingBarRoleEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcReinforcingBarRoleEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcReinforcingBarSurfaceEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcReinforcingBarSurfaceEnum_Type"/>
+  <simpleType name="IfcReinforcingBarSurfaceEnum_Type">
     <restriction base="string">
       <enumeration value="PLAIN"/>
       <enumeration value="TEXTURED"/>
     </restriction>
   </simpleType>
-  <element name="IfcRoundedRectangleProfileDef" substitutionGroup="ifc:IfcRectangleProfileDef" type="ifc:IfcRoundedRectangleProfileDefType"/>
-  <complexType name="IfcRoundedRectangleProfileDefType">
+  <complexType name="IfcReinforcingBarSurfaceEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcReinforcingBarSurfaceEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcRoundedRectangleProfileDef" substitutionGroup="ifc:IfcRectangleProfileDef" type="ifc:IfcRoundedRectangleProfileDef_Type"/>
+  <complexType name="IfcRoundedRectangleProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcRectangleProfileDefType">
+      <extension base="ifc:IfcRectangleProfileDef_Type">
         <sequence>
           <element name="roundingRadius" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRoundedRectangleProfileDefPropertyType">
+  <complexType name="IfcRoundedRectangleProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRoundedRectangleProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSectionProperties" substitutionGroup="ifc:IfcPreDefinedProperties" type="ifc:IfcSectionPropertiesType"/>
-  <complexType name="IfcSectionPropertiesType">
+  <element name="IfcSectionProperties" substitutionGroup="ifc:AbstractIfcPreDefinedProperties" type="ifc:IfcSectionProperties_Type"/>
+  <complexType name="IfcSectionProperties_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedPropertiesType">
+      <extension base="ifc:AbstractIfcPreDefinedProperties_Type">
         <sequence>
-          <element name="sectionType" type="ifc:IfcSectionTypeEnumType"/>
-          <element minOccurs="0" name="endProfile" type="ifc:IfcProfileDefPropertyType"/>
-          <element name="startProfile" type="ifc:IfcProfileDefPropertyType"/>
+          <element name="sectionType" type="ifc:IfcSectionTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="endProfile" type="ifc:IfcProfileDef_PropertyType"/>
+          <element name="startProfile" type="ifc:IfcProfileDef_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSectionPropertiesPropertyType">
+  <complexType name="IfcSectionProperties_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSectionProperties"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSectionReinforcementProperties" substitutionGroup="ifc:IfcPreDefinedProperties" type="ifc:IfcSectionReinforcementPropertiesType"/>
-  <complexType name="IfcSectionReinforcementPropertiesType">
+  <element name="IfcSectionReinforcementProperties" substitutionGroup="ifc:AbstractIfcPreDefinedProperties" type="ifc:IfcSectionReinforcementProperties_Type"/>
+  <complexType name="IfcSectionReinforcementProperties_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedPropertiesType">
+      <extension base="ifc:AbstractIfcPreDefinedProperties_Type">
         <sequence>
           <element name="longitudinalStartPosition" type="gml:LengthType"/>
           <element name="longitudinalEndPosition" type="gml:LengthType"/>
           <element minOccurs="0" name="transversePosition" type="gml:LengthType"/>
-          <element name="reinforcementRole" type="ifc:IfcReinforcingBarRoleEnumType"/>
-          <element maxOccurs="unbounded" name="crossSectionReinforcementDefinitions" type="ifc:IfcReinforcementBarPropertiesPropertyType"/>
-          <element name="sectionDefinition" type="ifc:IfcSectionPropertiesPropertyType"/>
+          <element name="reinforcementRole" type="ifc:IfcReinforcingBarRoleEnum_PropertyType"/>
+          <element maxOccurs="unbounded" name="crossSectionReinforcementDefinitions" type="ifc:IfcReinforcementBarProperties_PropertyType"/>
+          <element name="sectionDefinition" type="ifc:IfcSectionProperties_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSectionReinforcementPropertiesPropertyType">
+  <complexType name="IfcSectionReinforcementProperties_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSectionReinforcementProperties"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcSectionTypeEnumType">
+  <element name="IfcSectionTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcSectionTypeEnum_Type"/>
+  <simpleType name="IfcSectionTypeEnum_Type">
     <restriction base="string">
       <enumeration value="TAPERED"/>
       <enumeration value="UNIFORM"/>
     </restriction>
   </simpleType>
-  <element name="IfcTShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcTShapeProfileDefType"/>
-  <complexType name="IfcTShapeProfileDefType">
+  <complexType name="IfcSectionTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSectionTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcTShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcTShapeProfileDef_Type"/>
+  <complexType name="IfcTShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="depth" type="gml:LengthType"/>
           <element name="flangeWidth" type="gml:LengthType"/>
@@ -502,17 +540,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTShapeProfileDefPropertyType">
+  <complexType name="IfcTShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTrapeziumProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcTrapeziumProfileDefType"/>
-  <complexType name="IfcTrapeziumProfileDefType">
+  <element name="IfcTrapeziumProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcTrapeziumProfileDef_Type"/>
+  <complexType name="IfcTrapeziumProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="bottomXDim" type="gml:LengthType"/>
           <element name="topXDim" type="gml:LengthType"/>
@@ -522,17 +560,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTrapeziumProfileDefPropertyType">
+  <complexType name="IfcTrapeziumProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTrapeziumProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcUShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcUShapeProfileDefType"/>
-  <complexType name="IfcUShapeProfileDefType">
+  <element name="IfcUShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcUShapeProfileDef_Type"/>
+  <complexType name="IfcUShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="depth" type="gml:LengthType"/>
           <element name="flangeWidth" type="gml:LengthType"/>
@@ -545,17 +583,17 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcUShapeProfileDefPropertyType">
+  <complexType name="IfcUShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcUShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcZShapeProfileDef" substitutionGroup="ifc:IfcParameterizedProfileDef" type="ifc:IfcZShapeProfileDefType"/>
-  <complexType name="IfcZShapeProfileDefType">
+  <element name="IfcZShapeProfileDef" substitutionGroup="ifc:AbstractIfcParameterizedProfileDef" type="ifc:IfcZShapeProfileDef_Type"/>
+  <complexType name="IfcZShapeProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcParameterizedProfileDefType">
+      <extension base="ifc:AbstractIfcParameterizedProfileDef_Type">
         <sequence>
           <element name="depth" type="gml:LengthType"/>
           <element name="flangeWidth" type="gml:LengthType"/>
@@ -567,11 +605,11 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcZShapeProfileDefPropertyType">
+  <complexType name="IfcZShapeProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcZShapeProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

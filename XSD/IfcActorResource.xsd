@@ -1,94 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcActorRole" substitutionGroup="gml:AbstractFeature" type="ifc:IfcActorRoleType"/>
-  <complexType name="IfcActorRoleType">
+  <element name="IfcActorRole" substitutionGroup="gco:AbstractObject" type="ifc:IfcActorRole_Type"/>
+  <complexType name="IfcActorRole_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element name="role" type="ifc:IfcRoleEnumType"/>
+          <element name="role" type="ifc:IfcRoleEnum_PropertyType"/>
           <element minOccurs="0" name="userDefinedRole" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcActorRolePropertyType">
+  <complexType name="IfcActorRole_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcActorRole"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcActorSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcActorSelectType"/>
-  <complexType name="IfcActorSelectType">
+  <element name="IfcActorSelect" type="ifc:IfcActorSelect_Type"/>
+  <complexType name="IfcActorSelect_Type">
     <choice>
-      <element name="organization">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcOrganization"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="person">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPerson"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="personAndOrganization">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPersonAndOrganization"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="organization" type="ifc:IfcOrganization_PropertyType"/>
+      <element name="person" type="ifc:IfcPerson_PropertyType"/>
+      <element name="personAndOrganization" type="ifc:IfcPersonAndOrganization_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcActorSelectPropertyType">
-    <sequence>
+  <complexType name="IfcActorSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcActorSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcAddress" substitutionGroup="gml:AbstractFeature" type="ifc:IfcAddressType"/>
-  <complexType abstract="true" name="IfcAddressType">
+  <element abstract="true" name="AbstractIfcAddress" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcAddress_Type"/>
+  <complexType abstract="true" name="AbstractIfcAddress_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element minOccurs="0" name="purpose" type="ifc:IfcAddressTypeEnumType"/>
+          <element minOccurs="0" name="purpose" type="ifc:IfcAddressTypeEnum_PropertyType"/>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="userDefinedPurpose" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAddressPropertyType">
+  <complexType name="AbstractIfcAddress_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcAddress"/>
+      <element ref="ifc:AbstractIfcAddress"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcAddressTypeEnumType">
+  <element name="IfcAddressTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcAddressTypeEnum_Type"/>
+  <simpleType name="IfcAddressTypeEnum_Type">
     <restriction base="string">
       <enumeration value="DISTRIBUTIONPOINT"/>
       <enumeration value="HOME"/>
@@ -97,49 +66,55 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcOrganization" substitutionGroup="gml:AbstractFeature" type="ifc:IfcOrganizationType"/>
-  <complexType name="IfcOrganizationType">
+  <complexType name="IfcAddressTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAddressTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcOrganization" substitutionGroup="gco:AbstractObject" type="ifc:IfcOrganization_Type"/>
+  <complexType name="IfcOrganization_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
           <element name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="roles" type="ifc:IfcActorRolePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="addresses" type="ifc:IfcAddressPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="roles" type="ifc:IfcActorRole_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="addresses" type="ifc:AbstractIfcAddress_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcOrganizationPropertyType">
+  <complexType name="IfcOrganization_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcOrganization"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcOrganizationRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcOrganizationRelationshipType"/>
-  <complexType name="IfcOrganizationRelationshipType">
+  <element name="IfcOrganizationRelationship" substitutionGroup="ifc:AbstractIfcResourceLevelRelationship" type="ifc:IfcOrganizationRelationship_Type"/>
+  <complexType name="IfcOrganizationRelationship_Type">
     <complexContent>
-      <extension base="ifc:IfcResourceLevelRelationshipType">
+      <extension base="ifc:AbstractIfcResourceLevelRelationship_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedOrganizations" type="ifc:IfcOrganizationPropertyType"/>
-          <element name="relatingOrganization" type="ifc:IfcOrganizationPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedOrganizations" type="ifc:IfcOrganization_PropertyType"/>
+          <element name="relatingOrganization" type="ifc:IfcOrganization_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcOrganizationRelationshipPropertyType">
+  <complexType name="IfcOrganizationRelationship_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcOrganizationRelationship"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPerson" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPersonType"/>
-  <complexType name="IfcPersonType">
+  <element name="IfcPerson" substitutionGroup="gco:AbstractObject" type="ifc:IfcPerson_Type"/>
+  <complexType name="IfcPerson_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
           <element minOccurs="0" name="familyName" type="string"/>
@@ -147,42 +122,42 @@
           <element maxOccurs="unbounded" minOccurs="0" name="middleNames" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="prefixTitles" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="suffixTitles" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="roles" type="ifc:IfcActorRolePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="addresses" type="ifc:IfcAddressPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="roles" type="ifc:IfcActorRole_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="addresses" type="ifc:AbstractIfcAddress_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPersonPropertyType">
+  <complexType name="IfcPerson_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPerson"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPersonAndOrganization" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPersonAndOrganizationType"/>
-  <complexType name="IfcPersonAndOrganizationType">
+  <element name="IfcPersonAndOrganization" substitutionGroup="gco:AbstractObject" type="ifc:IfcPersonAndOrganization_Type"/>
+  <complexType name="IfcPersonAndOrganization_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="roles" type="ifc:IfcActorRolePropertyType"/>
-          <element name="thePerson" type="ifc:IfcPersonPropertyType"/>
-          <element name="theOrganization" type="ifc:IfcOrganizationPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="roles" type="ifc:IfcActorRole_PropertyType"/>
+          <element name="thePerson" type="ifc:IfcPerson_PropertyType"/>
+          <element name="theOrganization" type="ifc:IfcOrganization_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPersonAndOrganizationPropertyType">
+  <complexType name="IfcPersonAndOrganization_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPersonAndOrganization"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPostalAddress" substitutionGroup="ifc:IfcAddress" type="ifc:IfcPostalAddressType"/>
-  <complexType name="IfcPostalAddressType">
+  <element name="IfcPostalAddress" substitutionGroup="ifc:AbstractIfcAddress" type="ifc:IfcPostalAddress_Type"/>
+  <complexType name="IfcPostalAddress_Type">
     <complexContent>
-      <extension base="ifc:IfcAddressType">
+      <extension base="ifc:AbstractIfcAddress_Type">
         <sequence>
           <element minOccurs="0" name="internalLocation" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="addressLines" type="string"/>
@@ -195,14 +170,15 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPostalAddressPropertyType">
+  <complexType name="IfcPostalAddress_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPostalAddress"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcRoleEnumType">
+  <element name="IfcRoleEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcRoleEnum_Type"/>
+  <simpleType name="IfcRoleEnum_Type">
     <restriction base="string">
       <enumeration value="ARCHITECT"/>
       <enumeration value="BUILDINGOPERATOR"/>
@@ -229,26 +205,32 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcTelecomAddress" substitutionGroup="ifc:IfcAddress" type="ifc:IfcTelecomAddressType"/>
-  <complexType name="IfcTelecomAddressType">
+  <complexType name="IfcRoleEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcRoleEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcTelecomAddress" substitutionGroup="ifc:AbstractIfcAddress" type="ifc:IfcTelecomAddress_Type"/>
+  <complexType name="IfcTelecomAddress_Type">
     <complexContent>
-      <extension base="ifc:IfcAddressType">
+      <extension base="ifc:AbstractIfcAddress_Type">
         <sequence>
           <element maxOccurs="unbounded" minOccurs="0" name="telephoneNumbers" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="facsimileNumbers" type="string"/>
           <element minOccurs="0" name="pagerNumber" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="electronicMailAddresses" type="string"/>
-          <element minOccurs="0" name="wWWHomePageURL" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="messagingIDs" type="string"/>
+          <element minOccurs="0" name="wWWHomePageURL" type="ifc:IfcURIReference_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="messagingIDs" type="ifc:IfcURIReference_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTelecomAddressPropertyType">
+  <complexType name="IfcTelecomAddress_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTelecomAddress"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

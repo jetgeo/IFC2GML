@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcCoreLayer.xsd"/>
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
@@ -13,200 +13,188 @@
   <include schemaLocation="IfcPropertyResource.xsd"/>
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcUtilityResource.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcActor" substitutionGroup="ifc:IfcObject" type="ifc:IfcActorType"/>
-  <complexType name="IfcActorType">
+  <element name="IfcActor" substitutionGroup="ifc:AbstractIfcObject" type="ifc:IfcActor_Type"/>
+  <complexType name="IfcActor_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectType">
+      <extension base="ifc:AbstractIfcObject_Type">
         <sequence>
-          <element name="theActor" type="ifc:IfcActorSelectPropertyType"/>
+          <element name="theActor" type="ifc:IfcActorSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcActorPropertyType">
+  <complexType name="IfcActor_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcActor"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcComplexPropertyTemplate" substitutionGroup="ifc:IfcPropertyTemplate" type="ifc:IfcComplexPropertyTemplateType"/>
-  <complexType name="IfcComplexPropertyTemplateType">
+  <element name="IfcComplexPropertyTemplate" substitutionGroup="ifc:AbstractIfcPropertyTemplate" type="ifc:IfcComplexPropertyTemplate_Type"/>
+  <complexType name="IfcComplexPropertyTemplate_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertyTemplateType">
+      <extension base="ifc:AbstractIfcPropertyTemplate_Type">
         <sequence>
           <element minOccurs="0" name="usageName" type="string"/>
-          <element minOccurs="0" name="templateType" type="ifc:IfcComplexPropertyTemplateTypeEnumType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="hasPropertyTemplates" type="ifc:IfcPropertyTemplatePropertyType"/>
+          <element minOccurs="0" name="templateType" type="ifc:IfcComplexPropertyTemplateTypeEnum_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="hasPropertyTemplates" type="ifc:AbstractIfcPropertyTemplate_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcComplexPropertyTemplatePropertyType">
+  <complexType name="IfcComplexPropertyTemplate_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcComplexPropertyTemplate"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcComplexPropertyTemplateTypeEnumType">
+  <element name="IfcComplexPropertyTemplateTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcComplexPropertyTemplateTypeEnum_Type"/>
+  <simpleType name="IfcComplexPropertyTemplateTypeEnum_Type">
     <restriction base="string">
       <enumeration value="P_COMPLEX"/>
       <enumeration value="Q_COMPLEX"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="IfcContext" substitutionGroup="ifc:IfcObjectDefinition" type="ifc:IfcContextType"/>
-  <complexType abstract="true" name="IfcContextType">
+  <complexType name="IfcComplexPropertyTemplateTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcComplexPropertyTemplateTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element abstract="true" name="AbstractIfcContext" substitutionGroup="ifc:AbstractIfcObjectDefinition" type="ifc:AbstractIfcContext_Type"/>
+  <complexType abstract="true" name="AbstractIfcContext_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectDefinitionType">
+      <extension base="ifc:AbstractIfcObjectDefinition_Type">
         <sequence>
           <element minOccurs="0" name="objectType" type="string"/>
           <element minOccurs="0" name="longName" type="string"/>
           <element minOccurs="0" name="phase" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="representationContexts" type="ifc:IfcRepresentationContextPropertyType"/>
-          <element minOccurs="0" name="unitsInContext" type="ifc:IfcUnitAssignmentPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="representationContexts" type="ifc:AbstractIfcRepresentationContext_PropertyType"/>
+          <element minOccurs="0" name="unitsInContext" type="ifc:IfcUnitAssignment_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcContextPropertyType">
+  <complexType name="AbstractIfcContext_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcContext"/>
+      <element ref="ifc:AbstractIfcContext"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcControl" substitutionGroup="ifc:IfcObject" type="ifc:IfcControlType"/>
-  <complexType abstract="true" name="IfcControlType">
+  <element abstract="true" name="AbstractIfcControl" substitutionGroup="ifc:AbstractIfcObject" type="ifc:AbstractIfcControl_Type"/>
+  <complexType abstract="true" name="AbstractIfcControl_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectType">
+      <extension base="ifc:AbstractIfcObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcControlPropertyType">
+  <complexType name="AbstractIfcControl_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcControl"/>
+      <element ref="ifc:AbstractIfcControl"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDefinitionSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcDefinitionSelectType"/>
-  <complexType name="IfcDefinitionSelectType">
+  <element name="IfcDefinitionSelect" type="ifc:IfcDefinitionSelect_Type"/>
+  <complexType name="IfcDefinitionSelect_Type">
     <choice>
-      <element name="objectDefinition">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcObjectDefinition"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="propertyDefinition">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPropertyDefinition"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="objectDefinition" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
+      <element name="propertyDefinition" type="ifc:AbstractIfcPropertyDefinition_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcDefinitionSelectPropertyType">
-    <sequence>
+  <complexType name="IfcDefinitionSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcDefinitionSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcGroup" substitutionGroup="ifc:IfcObject" type="ifc:IfcGroupType"/>
-  <complexType name="IfcGroupType">
+  <element name="IfcGroup" substitutionGroup="ifc:AbstractIfcObject" type="ifc:IfcGroup_Type"/>
+  <complexType name="IfcGroup_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectType">
+      <extension base="ifc:AbstractIfcObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGroupPropertyType">
+  <complexType name="IfcGroup_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcGroup"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcKernelFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcKernelFunctionType"/>
-  <complexType abstract="true" name="IfcKernelFunctionType">
+  <element abstract="true" name="AbstractIfcKernelFunction" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcKernelFunction_Type"/>
+  <complexType abstract="true" name="AbstractIfcKernelFunction_Type">
     <complexContent>
-      <extension base="gml:AbstractGMLType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcKernelFunctionPropertyType">
+  <complexType name="AbstractIfcKernelFunction_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcKernelFunction"/>
+      <element ref="ifc:AbstractIfcKernelFunction"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcKernelFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcKernelFunctionsType"/>
-  <complexType abstract="true" name="IfcKernelFunctionsType">
+  <element abstract="true" name="AbstractIfcKernelFunctions" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcKernelFunctions_Type"/>
+  <complexType abstract="true" name="AbstractIfcKernelFunctions_Type">
     <complexContent>
-      <extension base="gml:AbstractGMLType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcKernelFunctionsPropertyType">
+  <complexType name="AbstractIfcKernelFunctions_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcKernelFunctions"/>
+      <element ref="ifc:AbstractIfcKernelFunctions"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcObject" substitutionGroup="ifc:IfcObjectDefinition" type="ifc:IfcObjectType"/>
-  <complexType abstract="true" name="IfcObjectType">
+  <element abstract="true" name="AbstractIfcObject" substitutionGroup="ifc:AbstractIfcObjectDefinition" type="ifc:AbstractIfcObject_Type"/>
+  <complexType abstract="true" name="AbstractIfcObject_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectDefinitionType">
+      <extension base="ifc:AbstractIfcObjectDefinition_Type">
         <sequence>
           <element minOccurs="0" name="objectType" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcObjectPropertyType">
+  <complexType name="AbstractIfcObject_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcObject"/>
+      <element ref="ifc:AbstractIfcObject"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcObjectDefinition" substitutionGroup="ifc:IfcRoot" type="ifc:IfcObjectDefinitionType"/>
-  <complexType abstract="true" name="IfcObjectDefinitionType">
+  <element abstract="true" name="AbstractIfcObjectDefinition" substitutionGroup="ifc:AbstractIfcRoot" type="ifc:AbstractIfcObjectDefinition_Type"/>
+  <complexType abstract="true" name="AbstractIfcObjectDefinition_Type">
     <complexContent>
-      <extension base="ifc:IfcRootType">
+      <extension base="ifc:AbstractIfcRoot_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcObjectDefinitionPropertyType">
+  <complexType name="AbstractIfcObjectDefinition_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcObjectDefinition"/>
+      <element ref="ifc:AbstractIfcObjectDefinition"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcObjectTypeEnumType">
+  <element name="IfcObjectTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcObjectTypeEnum_Type"/>
+  <simpleType name="IfcObjectTypeEnum_Type">
     <restriction base="string">
       <enumeration value="ACTOR"/>
       <enumeration value="CONTROL"/>
@@ -218,25 +206,31 @@
       <enumeration value="RESOURCE"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="IfcPreDefinedPropertySet" substitutionGroup="ifc:IfcPropertySetDefinition" type="ifc:IfcPreDefinedPropertySetType"/>
-  <complexType abstract="true" name="IfcPreDefinedPropertySetType">
+  <complexType name="IfcObjectTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcObjectTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element abstract="true" name="AbstractIfcPreDefinedPropertySet" substitutionGroup="ifc:AbstractIfcPropertySetDefinition" type="ifc:AbstractIfcPreDefinedPropertySet_Type"/>
+  <complexType abstract="true" name="AbstractIfcPreDefinedPropertySet_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertySetDefinitionType">
+      <extension base="ifc:AbstractIfcPropertySetDefinition_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPreDefinedPropertySetPropertyType">
+  <complexType name="AbstractIfcPreDefinedPropertySet_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPreDefinedPropertySet"/>
+      <element ref="ifc:AbstractIfcPreDefinedPropertySet"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcProcess" substitutionGroup="ifc:IfcObject" type="ifc:IfcProcessType"/>
-  <complexType abstract="true" name="IfcProcessType">
+  <element abstract="true" name="AbstractIfcProcess" substitutionGroup="ifc:AbstractIfcObject" type="ifc:AbstractIfcProcess_Type"/>
+  <complexType abstract="true" name="AbstractIfcProcess_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectType">
+      <extension base="ifc:AbstractIfcObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
           <element minOccurs="0" name="longDescription" type="string"/>
@@ -244,230 +238,185 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProcessPropertyType">
+  <complexType name="AbstractIfcProcess_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcProcess"/>
+      <element ref="ifc:AbstractIfcProcess"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProcessSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcProcessSelectType"/>
-  <complexType name="IfcProcessSelectType">
+  <element name="IfcProcessSelect" type="ifc:IfcProcessSelect_Type"/>
+  <complexType name="IfcProcessSelect_Type">
     <choice>
-      <element name="process">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcProcess"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="typeProcess">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcTypeProcess"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="process" type="ifc:AbstractIfcProcess_PropertyType"/>
+      <element name="typeProcess" type="ifc:AbstractIfcTypeProcess_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcProcessSelectPropertyType">
-    <sequence>
+  <complexType name="IfcProcessSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcProcessSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcProduct" substitutionGroup="ifc:IfcObject" type="ifc:IfcProductType"/>
-  <complexType abstract="true" name="IfcProductType">
+  <element abstract="true" name="AbstractIfcProduct" substitutionGroup="ifc:AbstractIfcObject" type="ifc:AbstractIfcProduct_Type"/>
+  <complexType abstract="true" name="AbstractIfcProduct_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectType">
+      <extension base="ifc:AbstractIfcObject_Type">
         <sequence>
-          <element minOccurs="0" name="representation" type="ifc:IfcProductRepresentationPropertyType"/>
+          <element minOccurs="0" name="representation" type="ifc:AbstractIfcProductRepresentation_PropertyType"/>
           <element minOccurs="0" name="objectPlacement" type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProductPropertyType">
+  <complexType name="AbstractIfcProduct_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcProduct"/>
+      <element ref="ifc:AbstractIfcProduct"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProductSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcProductSelectType"/>
-  <complexType name="IfcProductSelectType">
+  <element name="IfcProductSelect" type="ifc:IfcProductSelect_Type"/>
+  <complexType name="IfcProductSelect_Type">
     <choice>
-      <element name="product">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcProduct"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="typeProduct">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcTypeProduct"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="product" type="ifc:AbstractIfcProduct_PropertyType"/>
+      <element name="typeProduct" type="ifc:IfcTypeProduct_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcProductSelectPropertyType">
-    <sequence>
+  <complexType name="IfcProductSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcProductSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProject" substitutionGroup="ifc:IfcContext" type="ifc:IfcProjectType"/>
-  <complexType name="IfcProjectType">
+  <element name="IfcProject" substitutionGroup="ifc:AbstractIfcContext" type="ifc:IfcProject_Type"/>
+  <complexType name="IfcProject_Type">
     <complexContent>
-      <extension base="ifc:IfcContextType">
+      <extension base="ifc:AbstractIfcContext_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProjectPropertyType">
+  <complexType name="IfcProject_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProject"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProjectLibrary" substitutionGroup="ifc:IfcContext" type="ifc:IfcProjectLibraryType"/>
-  <complexType name="IfcProjectLibraryType">
+  <element name="IfcProjectLibrary" substitutionGroup="ifc:AbstractIfcContext" type="ifc:IfcProjectLibrary_Type"/>
+  <complexType name="IfcProjectLibrary_Type">
     <complexContent>
-      <extension base="ifc:IfcContextType">
+      <extension base="ifc:AbstractIfcContext_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProjectLibraryPropertyType">
+  <complexType name="IfcProjectLibrary_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProjectLibrary"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPropertyDefinition" substitutionGroup="ifc:IfcRoot" type="ifc:IfcPropertyDefinitionType"/>
-  <complexType abstract="true" name="IfcPropertyDefinitionType">
+  <element abstract="true" name="AbstractIfcPropertyDefinition" substitutionGroup="ifc:AbstractIfcRoot" type="ifc:AbstractIfcPropertyDefinition_Type"/>
+  <complexType abstract="true" name="AbstractIfcPropertyDefinition_Type">
     <complexContent>
-      <extension base="ifc:IfcRootType">
+      <extension base="ifc:AbstractIfcRoot_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPropertyDefinitionPropertyType">
+  <complexType name="AbstractIfcPropertyDefinition_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPropertyDefinition"/>
+      <element ref="ifc:AbstractIfcPropertyDefinition"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPropertySet" substitutionGroup="ifc:IfcPropertySetDefinition" type="ifc:IfcPropertySetType"/>
-  <complexType name="IfcPropertySetType">
+  <element name="IfcPropertySet" substitutionGroup="ifc:AbstractIfcPropertySetDefinition" type="ifc:IfcPropertySet_Type"/>
+  <complexType name="IfcPropertySet_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertySetDefinitionType">
+      <extension base="ifc:AbstractIfcPropertySetDefinition_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="hasProperties" type="ifc:IfcProperty_PropertyType"/>
+          <element maxOccurs="unbounded" name="hasProperties" type="ifc:AbstractIfcProperty_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPropertySetPropertyType">
+  <complexType name="IfcPropertySet_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPropertySet"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPropertySetDefinition" substitutionGroup="ifc:IfcPropertyDefinition" type="ifc:IfcPropertySetDefinitionType"/>
-  <complexType abstract="true" name="IfcPropertySetDefinitionType">
+  <element abstract="true" name="AbstractIfcPropertySetDefinition" substitutionGroup="ifc:AbstractIfcPropertyDefinition" type="ifc:AbstractIfcPropertySetDefinition_Type"/>
+  <complexType abstract="true" name="AbstractIfcPropertySetDefinition_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertyDefinitionType">
+      <extension base="ifc:AbstractIfcPropertyDefinition_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPropertySetDefinitionPropertyType">
+  <complexType name="AbstractIfcPropertySetDefinition_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPropertySetDefinition"/>
+      <element ref="ifc:AbstractIfcPropertySetDefinition"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPropertySetDefinitionSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcPropertySetDefinitionSelectType"/>
-  <complexType name="IfcPropertySetDefinitionSelectType">
+  <element name="IfcPropertySetDefinitionSelect" type="ifc:IfcPropertySetDefinitionSelect_Type"/>
+  <complexType name="IfcPropertySetDefinitionSelect_Type">
     <choice>
-      <element name="propertySetDefinition">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPropertySetDefinition"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="propertySetDefinitionSet" type="ifc:IfcPropertySetDefinitionSetPropertyType"/>
+      <element name="propertySetDefinition" type="ifc:AbstractIfcPropertySetDefinition_PropertyType"/>
+      <element name="propertySetDefinitionSet" type="ifc:IfcPropertySetDefinitionSet_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcPropertySetDefinitionSelectPropertyType">
-    <sequence>
+  <complexType name="IfcPropertySetDefinitionSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcPropertySetDefinitionSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPropertySetDefinitionSet" substitutionGroup="gml:AbstractObject" type="ifc:IfcPropertySetDefinitionSetType"/>
-  <complexType name="IfcPropertySetDefinitionSetType">
-    <sequence>
-      <element maxOccurs="unbounded" name="setElement" type="ifc:IfcPropertySetDefinitionPropertyType"/>
-    </sequence>
-  </complexType>
-  <complexType name="IfcPropertySetDefinitionSetPropertyType">
-    <sequence>
-      <element ref="ifc:IfcPropertySetDefinitionSet"/>
-    </sequence>
-  </complexType>
-  <element name="IfcPropertySetTemplate" substitutionGroup="ifc:IfcPropertyTemplateDefinition" type="ifc:IfcPropertySetTemplateType"/>
-  <complexType name="IfcPropertySetTemplateType">
+  <element name="IfcPropertySetDefinitionSet" substitutionGroup="gco:AbstractObject" type="ifc:IfcPropertySetDefinitionSet_Type"/>
+  <complexType name="IfcPropertySetDefinitionSet_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertyTemplateDefinitionType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element minOccurs="0" name="templateType" type="ifc:IfcPropertySetTemplateTypeEnumType"/>
-          <element minOccurs="0" name="applicableEntity" type="string"/>
-          <element maxOccurs="unbounded" name="hasPropertyTemplates" type="ifc:IfcPropertyTemplatePropertyType"/>
+          <element maxOccurs="unbounded" name="setElement" type="ifc:AbstractIfcPropertySetDefinition_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPropertySetTemplatePropertyType">
+  <complexType name="IfcPropertySetDefinitionSet_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPropertySetDefinitionSet"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcPropertySetTemplate" substitutionGroup="ifc:AbstractIfcPropertyTemplateDefinition" type="ifc:IfcPropertySetTemplate_Type"/>
+  <complexType name="IfcPropertySetTemplate_Type">
+    <complexContent>
+      <extension base="ifc:AbstractIfcPropertyTemplateDefinition_Type">
+        <sequence>
+          <element minOccurs="0" name="templateType" type="ifc:IfcPropertySetTemplateTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="applicableEntity" type="string"/>
+          <element maxOccurs="unbounded" name="hasPropertyTemplates" type="ifc:AbstractIfcPropertyTemplate_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPropertySetTemplate_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPropertySetTemplate"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcPropertySetTemplateTypeEnumType">
+  <element name="IfcPropertySetTemplateTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcPropertySetTemplateTypeEnum_Type"/>
+  <simpleType name="IfcPropertySetTemplateTypeEnum_Type">
     <restriction base="string">
       <enumeration value="NOTDEFINED"/>
       <enumeration value="PSET_OCCURRENCEDRIVEN"/>
@@ -479,483 +428,489 @@
       <enumeration value="QTO_TYPEDRIVENOVERRIDE"/>
     </restriction>
   </simpleType>
-  <element abstract="true" name="IfcPropertyTemplate" substitutionGroup="ifc:IfcPropertyTemplateDefinition" type="ifc:IfcPropertyTemplateType"/>
-  <complexType abstract="true" name="IfcPropertyTemplateType">
+  <complexType name="IfcPropertySetTemplateTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcPropertySetTemplateTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element abstract="true" name="AbstractIfcPropertyTemplate" substitutionGroup="ifc:AbstractIfcPropertyTemplateDefinition" type="ifc:AbstractIfcPropertyTemplate_Type"/>
+  <complexType abstract="true" name="AbstractIfcPropertyTemplate_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertyTemplateDefinitionType">
+      <extension base="ifc:AbstractIfcPropertyTemplateDefinition_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPropertyTemplatePropertyType">
+  <complexType name="AbstractIfcPropertyTemplate_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPropertyTemplate"/>
+      <element ref="ifc:AbstractIfcPropertyTemplate"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPropertyTemplateDefinition" substitutionGroup="ifc:IfcPropertyDefinition" type="ifc:IfcPropertyTemplateDefinitionType"/>
-  <complexType abstract="true" name="IfcPropertyTemplateDefinitionType">
+  <element abstract="true" name="AbstractIfcPropertyTemplateDefinition" substitutionGroup="ifc:AbstractIfcPropertyDefinition" type="ifc:AbstractIfcPropertyTemplateDefinition_Type"/>
+  <complexType abstract="true" name="AbstractIfcPropertyTemplateDefinition_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertyDefinitionType">
+      <extension base="ifc:AbstractIfcPropertyDefinition_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPropertyTemplateDefinitionPropertyType">
+  <complexType name="AbstractIfcPropertyTemplateDefinition_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPropertyTemplateDefinition"/>
+      <element ref="ifc:AbstractIfcPropertyTemplateDefinition"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProxy" substitutionGroup="ifc:IfcProduct" type="ifc:IfcProxyType"/>
-  <complexType name="IfcProxyType">
+  <element name="IfcProxy" substitutionGroup="ifc:AbstractIfcProduct" type="ifc:IfcProxy_Type"/>
+  <complexType name="IfcProxy_Type">
     <complexContent>
-      <extension base="ifc:IfcProductType">
+      <extension base="ifc:AbstractIfcProduct_Type">
         <sequence>
-          <element name="proxyType" type="ifc:IfcObjectTypeEnumType"/>
+          <element name="proxyType" type="ifc:IfcObjectTypeEnum_PropertyType"/>
           <element minOccurs="0" name="tag" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProxyPropertyType">
+  <complexType name="IfcProxy_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProxy"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcQuantitySet" substitutionGroup="ifc:IfcPropertySetDefinition" type="ifc:IfcQuantitySetType"/>
-  <complexType abstract="true" name="IfcQuantitySetType">
+  <element abstract="true" name="AbstractIfcQuantitySet" substitutionGroup="ifc:AbstractIfcPropertySetDefinition" type="ifc:AbstractIfcQuantitySet_Type"/>
+  <complexType abstract="true" name="AbstractIfcQuantitySet_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertySetDefinitionType">
+      <extension base="ifc:AbstractIfcPropertySetDefinition_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcQuantitySetPropertyType">
+  <complexType name="AbstractIfcQuantitySet_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcQuantitySet"/>
+      <element ref="ifc:AbstractIfcQuantitySet"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAggregates" substitutionGroup="ifc:IfcRelDecomposes" type="ifc:IfcRelAggregatesType"/>
-  <complexType name="IfcRelAggregatesType">
+  <element name="IfcRelAggregates" substitutionGroup="ifc:AbstractIfcRelDecomposes" type="ifc:IfcRelAggregates_Type"/>
+  <complexType name="IfcRelAggregates_Type">
     <complexContent>
-      <extension base="ifc:IfcRelDecomposesType">
+      <extension base="ifc:AbstractIfcRelDecomposes_Type">
         <sequence>
-          <element name="relatingObject" type="ifc:IfcObjectDefinitionPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcObjectDefinitionPropertyType"/>
+          <element name="relatingObject" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAggregatesPropertyType">
+  <complexType name="IfcRelAggregates_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAggregates"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRelAssigns" substitutionGroup="ifc:IfcRelationship" type="ifc:IfcRelAssignsType"/>
-  <complexType abstract="true" name="IfcRelAssignsType">
+  <element abstract="true" name="AbstractIfcRelAssigns" substitutionGroup="ifc:AbstractIfcRelationship" type="ifc:AbstractIfcRelAssigns_Type"/>
+  <complexType abstract="true" name="AbstractIfcRelAssigns_Type">
     <complexContent>
-      <extension base="ifc:IfcRelationshipType">
+      <extension base="ifc:AbstractIfcRelationship_Type">
         <sequence>
-          <element minOccurs="0" name="relatedObjectsType" type="ifc:IfcObjectTypeEnumType"/>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcObjectDefinitionPropertyType"/>
+          <element minOccurs="0" name="relatedObjectsType" type="ifc:IfcObjectTypeEnum_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsPropertyType">
+  <complexType name="AbstractIfcRelAssigns_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRelAssigns"/>
+      <element ref="ifc:AbstractIfcRelAssigns"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToActor" substitutionGroup="ifc:IfcRelAssigns" type="ifc:IfcRelAssignsToActorType"/>
-  <complexType name="IfcRelAssignsToActorType">
+  <element name="IfcRelAssignsToActor" substitutionGroup="ifc:AbstractIfcRelAssigns" type="ifc:IfcRelAssignsToActor_Type"/>
+  <complexType name="IfcRelAssignsToActor_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsType">
+      <extension base="ifc:AbstractIfcRelAssigns_Type">
         <sequence>
-          <element minOccurs="0" name="actingRole" type="ifc:IfcActorRolePropertyType"/>
-          <element name="relatingActor" type="ifc:IfcActorPropertyType"/>
+          <element minOccurs="0" name="actingRole" type="ifc:IfcActorRole_PropertyType"/>
+          <element name="relatingActor" type="ifc:IfcActor_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToActorPropertyType">
+  <complexType name="IfcRelAssignsToActor_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToActor"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToControl" substitutionGroup="ifc:IfcRelAssigns" type="ifc:IfcRelAssignsToControlType"/>
-  <complexType name="IfcRelAssignsToControlType">
+  <element name="IfcRelAssignsToControl" substitutionGroup="ifc:AbstractIfcRelAssigns" type="ifc:IfcRelAssignsToControl_Type"/>
+  <complexType name="IfcRelAssignsToControl_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsType">
+      <extension base="ifc:AbstractIfcRelAssigns_Type">
         <sequence>
-          <element name="relatingControl" type="ifc:IfcControlPropertyType"/>
+          <element name="relatingControl" type="ifc:AbstractIfcControl_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToControlPropertyType">
+  <complexType name="IfcRelAssignsToControl_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToControl"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToGroup" substitutionGroup="ifc:IfcRelAssigns" type="ifc:IfcRelAssignsToGroupType"/>
-  <complexType name="IfcRelAssignsToGroupType">
+  <element name="IfcRelAssignsToGroup" substitutionGroup="ifc:AbstractIfcRelAssigns" type="ifc:IfcRelAssignsToGroup_Type"/>
+  <complexType name="IfcRelAssignsToGroup_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsType">
+      <extension base="ifc:AbstractIfcRelAssigns_Type">
         <sequence>
-          <element name="relatingGroup" type="ifc:IfcGroupPropertyType"/>
+          <element name="relatingGroup" type="ifc:IfcGroup_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToGroupPropertyType">
+  <complexType name="IfcRelAssignsToGroup_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToGroup"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToGroupByFactor" substitutionGroup="ifc:IfcRelAssignsToGroup" type="ifc:IfcRelAssignsToGroupByFactorType"/>
-  <complexType name="IfcRelAssignsToGroupByFactorType">
+  <element name="IfcRelAssignsToGroupByFactor" substitutionGroup="ifc:IfcRelAssignsToGroup" type="ifc:IfcRelAssignsToGroupByFactor_Type"/>
+  <complexType name="IfcRelAssignsToGroupByFactor_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsToGroupType">
+      <extension base="ifc:IfcRelAssignsToGroup_Type">
         <sequence>
           <element name="factor" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToGroupByFactorPropertyType">
+  <complexType name="IfcRelAssignsToGroupByFactor_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToGroupByFactor"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToProcess" substitutionGroup="ifc:IfcRelAssigns" type="ifc:IfcRelAssignsToProcessType"/>
-  <complexType name="IfcRelAssignsToProcessType">
+  <element name="IfcRelAssignsToProcess" substitutionGroup="ifc:AbstractIfcRelAssigns" type="ifc:IfcRelAssignsToProcess_Type"/>
+  <complexType name="IfcRelAssignsToProcess_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsType">
+      <extension base="ifc:AbstractIfcRelAssigns_Type">
         <sequence>
-          <element name="relatingProcess" type="ifc:IfcProcessSelectPropertyType"/>
+          <element name="relatingProcess" type="ifc:IfcProcessSelect_PropertyType"/>
           <element minOccurs="0" name="quantityInProcess" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToProcessPropertyType">
+  <complexType name="IfcRelAssignsToProcess_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToProcess"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToProduct" substitutionGroup="ifc:IfcRelAssigns" type="ifc:IfcRelAssignsToProductType"/>
-  <complexType name="IfcRelAssignsToProductType">
+  <element name="IfcRelAssignsToProduct" substitutionGroup="ifc:AbstractIfcRelAssigns" type="ifc:IfcRelAssignsToProduct_Type"/>
+  <complexType name="IfcRelAssignsToProduct_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsType">
+      <extension base="ifc:AbstractIfcRelAssigns_Type">
         <sequence>
-          <element name="relatingProduct" type="ifc:IfcProductSelectPropertyType"/>
+          <element name="relatingProduct" type="ifc:IfcProductSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToProductPropertyType">
+  <complexType name="IfcRelAssignsToProduct_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToProduct"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssignsToResource" substitutionGroup="ifc:IfcRelAssigns" type="ifc:IfcRelAssignsToResourceType"/>
-  <complexType name="IfcRelAssignsToResourceType">
+  <element name="IfcRelAssignsToResource" substitutionGroup="ifc:AbstractIfcRelAssigns" type="ifc:IfcRelAssignsToResource_Type"/>
+  <complexType name="IfcRelAssignsToResource_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssignsType">
+      <extension base="ifc:AbstractIfcRelAssigns_Type">
         <sequence>
-          <element name="relatingResource" type="ifc:IfcResourceSelectPropertyType"/>
+          <element name="relatingResource" type="ifc:IfcResourceSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssignsToResourcePropertyType">
+  <complexType name="IfcRelAssignsToResource_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssignsToResource"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRelAssociates" substitutionGroup="ifc:IfcRelationship" type="ifc:IfcRelAssociatesType"/>
-  <complexType abstract="true" name="IfcRelAssociatesType">
+  <element abstract="true" name="AbstractIfcRelAssociates" substitutionGroup="ifc:AbstractIfcRelationship" type="ifc:AbstractIfcRelAssociates_Type"/>
+  <complexType abstract="true" name="AbstractIfcRelAssociates_Type">
     <complexContent>
-      <extension base="ifc:IfcRelationshipType">
+      <extension base="ifc:AbstractIfcRelationship_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcDefinitionSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcDefinitionSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesPropertyType">
+  <complexType name="AbstractIfcRelAssociates_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRelAssociates"/>
+      <element ref="ifc:AbstractIfcRelAssociates"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssociatesClassification" substitutionGroup="ifc:IfcRelAssociates" type="ifc:IfcRelAssociatesClassificationType"/>
-  <complexType name="IfcRelAssociatesClassificationType">
+  <element name="IfcRelAssociatesClassification" substitutionGroup="ifc:AbstractIfcRelAssociates" type="ifc:IfcRelAssociatesClassification_Type"/>
+  <complexType name="IfcRelAssociatesClassification_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssociatesType">
+      <extension base="ifc:AbstractIfcRelAssociates_Type">
         <sequence>
-          <element name="relatingClassification" type="ifc:IfcClassificationSelectPropertyType"/>
+          <element name="relatingClassification" type="ifc:IfcClassificationSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesClassificationPropertyType">
+  <complexType name="IfcRelAssociatesClassification_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssociatesClassification"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssociatesDocument" substitutionGroup="ifc:IfcRelAssociates" type="ifc:IfcRelAssociatesDocumentType"/>
-  <complexType name="IfcRelAssociatesDocumentType">
+  <element name="IfcRelAssociatesDocument" substitutionGroup="ifc:AbstractIfcRelAssociates" type="ifc:IfcRelAssociatesDocument_Type"/>
+  <complexType name="IfcRelAssociatesDocument_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssociatesType">
+      <extension base="ifc:AbstractIfcRelAssociates_Type">
         <sequence>
-          <element name="relatingDocument" type="ifc:IfcDocumentSelectPropertyType"/>
+          <element name="relatingDocument" type="ifc:IfcDocumentSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesDocumentPropertyType">
+  <complexType name="IfcRelAssociatesDocument_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssociatesDocument"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssociatesLibrary" substitutionGroup="ifc:IfcRelAssociates" type="ifc:IfcRelAssociatesLibraryType"/>
-  <complexType name="IfcRelAssociatesLibraryType">
+  <element name="IfcRelAssociatesLibrary" substitutionGroup="ifc:AbstractIfcRelAssociates" type="ifc:IfcRelAssociatesLibrary_Type"/>
+  <complexType name="IfcRelAssociatesLibrary_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssociatesType">
+      <extension base="ifc:AbstractIfcRelAssociates_Type">
         <sequence>
-          <element name="relatingLibrary" type="ifc:IfcLibrarySelectPropertyType"/>
+          <element name="relatingLibrary" type="ifc:IfcLibrarySelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesLibraryPropertyType">
+  <complexType name="IfcRelAssociatesLibrary_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssociatesLibrary"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelAssociatesProfileDef" substitutionGroup="ifc:IfcRelAssociates" type="ifc:IfcRelAssociatesProfileDefType"/>
-  <complexType name="IfcRelAssociatesProfileDefType">
+  <element name="IfcRelAssociatesProfileDef" substitutionGroup="ifc:AbstractIfcRelAssociates" type="ifc:IfcRelAssociatesProfileDef_Type"/>
+  <complexType name="IfcRelAssociatesProfileDef_Type">
     <complexContent>
-      <extension base="ifc:IfcRelAssociatesType">
+      <extension base="ifc:AbstractIfcRelAssociates_Type">
         <sequence>
-          <element name="relatingProfile" type="ifc:IfcProfileDefPropertyType"/>
+          <element name="relatingProfile" type="ifc:IfcProfileDef_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelAssociatesProfileDefPropertyType">
+  <complexType name="IfcRelAssociatesProfileDef_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelAssociatesProfileDef"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRelConnects" substitutionGroup="ifc:IfcRelationship" type="ifc:IfcRelConnectsType"/>
-  <complexType abstract="true" name="IfcRelConnectsType">
+  <element abstract="true" name="AbstractIfcRelConnects" substitutionGroup="ifc:AbstractIfcRelationship" type="ifc:AbstractIfcRelConnects_Type"/>
+  <complexType abstract="true" name="AbstractIfcRelConnects_Type">
     <complexContent>
-      <extension base="ifc:IfcRelationshipType">
+      <extension base="ifc:AbstractIfcRelationship_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelConnectsPropertyType">
+  <complexType name="AbstractIfcRelConnects_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRelConnects"/>
+      <element ref="ifc:AbstractIfcRelConnects"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelDeclares" substitutionGroup="ifc:IfcRelationship" type="ifc:IfcRelDeclaresType"/>
-  <complexType name="IfcRelDeclaresType">
+  <element name="IfcRelDeclares" substitutionGroup="ifc:AbstractIfcRelationship" type="ifc:IfcRelDeclares_Type"/>
+  <complexType name="IfcRelDeclares_Type">
     <complexContent>
-      <extension base="ifc:IfcRelationshipType">
+      <extension base="ifc:AbstractIfcRelationship_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedDefinitions" type="ifc:IfcDefinitionSelectPropertyType"/>
-          <element name="relatingContext" type="ifc:IfcContextPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedDefinitions" type="ifc:IfcDefinitionSelect_PropertyType"/>
+          <element name="relatingContext" type="ifc:AbstractIfcContext_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDeclaresPropertyType">
+  <complexType name="IfcRelDeclares_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelDeclares"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRelDecomposes" substitutionGroup="ifc:IfcRelationship" type="ifc:IfcRelDecomposesType"/>
-  <complexType abstract="true" name="IfcRelDecomposesType">
+  <element abstract="true" name="AbstractIfcRelDecomposes" substitutionGroup="ifc:AbstractIfcRelationship" type="ifc:AbstractIfcRelDecomposes_Type"/>
+  <complexType abstract="true" name="AbstractIfcRelDecomposes_Type">
     <complexContent>
-      <extension base="ifc:IfcRelationshipType">
+      <extension base="ifc:AbstractIfcRelationship_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDecomposesPropertyType">
+  <complexType name="AbstractIfcRelDecomposes_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRelDecomposes"/>
+      <element ref="ifc:AbstractIfcRelDecomposes"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRelDefines" substitutionGroup="ifc:IfcRelationship" type="ifc:IfcRelDefinesType"/>
-  <complexType abstract="true" name="IfcRelDefinesType">
+  <element abstract="true" name="AbstractIfcRelDefines" substitutionGroup="ifc:AbstractIfcRelationship" type="ifc:AbstractIfcRelDefines_Type"/>
+  <complexType abstract="true" name="AbstractIfcRelDefines_Type">
     <complexContent>
-      <extension base="ifc:IfcRelationshipType">
+      <extension base="ifc:AbstractIfcRelationship_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDefinesPropertyType">
+  <complexType name="AbstractIfcRelDefines_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRelDefines"/>
+      <element ref="ifc:AbstractIfcRelDefines"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelDefinesByObject" substitutionGroup="ifc:IfcRelDefines" type="ifc:IfcRelDefinesByObjectType"/>
-  <complexType name="IfcRelDefinesByObjectType">
+  <element name="IfcRelDefinesByObject" substitutionGroup="ifc:AbstractIfcRelDefines" type="ifc:IfcRelDefinesByObject_Type"/>
+  <complexType name="IfcRelDefinesByObject_Type">
     <complexContent>
-      <extension base="ifc:IfcRelDefinesType">
+      <extension base="ifc:AbstractIfcRelDefines_Type">
         <sequence>
-          <element name="relatingObject" type="ifc:IfcObjectPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcObjectPropertyType"/>
+          <element name="relatingObject" type="ifc:AbstractIfcObject_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:AbstractIfcObject_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDefinesByObjectPropertyType">
+  <complexType name="IfcRelDefinesByObject_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelDefinesByObject"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelDefinesByProperties" substitutionGroup="ifc:IfcRelDefines" type="ifc:IfcRelDefinesByPropertiesType"/>
-  <complexType name="IfcRelDefinesByPropertiesType">
+  <element name="IfcRelDefinesByProperties" substitutionGroup="ifc:AbstractIfcRelDefines" type="ifc:IfcRelDefinesByProperties_Type"/>
+  <complexType name="IfcRelDefinesByProperties_Type">
     <complexContent>
-      <extension base="ifc:IfcRelDefinesType">
+      <extension base="ifc:AbstractIfcRelDefines_Type">
         <sequence>
-          <element name="relatingPropertyDefinition" type="ifc:IfcPropertySetDefinitionSelectPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcObjectDefinitionPropertyType"/>
+          <element name="relatingPropertyDefinition" type="ifc:IfcPropertySetDefinitionSelect_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDefinesByPropertiesPropertyType">
+  <complexType name="IfcRelDefinesByProperties_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelDefinesByProperties"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelDefinesByTemplate" substitutionGroup="ifc:IfcRelDefines" type="ifc:IfcRelDefinesByTemplateType"/>
-  <complexType name="IfcRelDefinesByTemplateType">
+  <element name="IfcRelDefinesByTemplate" substitutionGroup="ifc:AbstractIfcRelDefines" type="ifc:IfcRelDefinesByTemplate_Type"/>
+  <complexType name="IfcRelDefinesByTemplate_Type">
     <complexContent>
-      <extension base="ifc:IfcRelDefinesType">
+      <extension base="ifc:AbstractIfcRelDefines_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedPropertySets" type="ifc:IfcPropertySetDefinitionPropertyType"/>
-          <element name="relatingTemplate" type="ifc:IfcPropertySetTemplatePropertyType"/>
+          <element maxOccurs="unbounded" name="relatedPropertySets" type="ifc:AbstractIfcPropertySetDefinition_PropertyType"/>
+          <element name="relatingTemplate" type="ifc:IfcPropertySetTemplate_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDefinesByTemplatePropertyType">
+  <complexType name="IfcRelDefinesByTemplate_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelDefinesByTemplate"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelDefinesByType" substitutionGroup="ifc:IfcRelDefines" type="ifc:IfcRelDefinesByTypeType"/>
-  <complexType name="IfcRelDefinesByTypeType">
+  <element name="IfcRelDefinesByType" substitutionGroup="ifc:AbstractIfcRelDefines" type="ifc:IfcRelDefinesByType_Type"/>
+  <complexType name="IfcRelDefinesByType_Type">
     <complexContent>
-      <extension base="ifc:IfcRelDefinesType">
+      <extension base="ifc:AbstractIfcRelDefines_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcObjectPropertyType"/>
-          <element name="relatingType" type="ifc:IfcTypeObjectPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:AbstractIfcObject_PropertyType"/>
+          <element name="relatingType" type="ifc:IfcTypeObject_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelDefinesByTypePropertyType">
+  <complexType name="IfcRelDefinesByType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelDefinesByType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelNests" substitutionGroup="ifc:IfcRelDecomposes" type="ifc:IfcRelNestsType"/>
-  <complexType name="IfcRelNestsType">
+  <element name="IfcRelNests" substitutionGroup="ifc:AbstractIfcRelDecomposes" type="ifc:IfcRelNests_Type"/>
+  <complexType name="IfcRelNests_Type">
     <complexContent>
-      <extension base="ifc:IfcRelDecomposesType">
+      <extension base="ifc:AbstractIfcRelDecomposes_Type">
         <sequence>
-          <element name="relatingObject" type="ifc:IfcObjectDefinitionPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:IfcObjectDefinitionPropertyType"/>
+          <element name="relatingObject" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedObjects" type="ifc:AbstractIfcObjectDefinition_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelNestsPropertyType">
+  <complexType name="IfcRelNests_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelNests"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRelationship" substitutionGroup="ifc:IfcRoot" type="ifc:IfcRelationshipType"/>
-  <complexType abstract="true" name="IfcRelationshipType">
+  <element abstract="true" name="AbstractIfcRelationship" substitutionGroup="ifc:AbstractIfcRoot" type="ifc:AbstractIfcRelationship_Type"/>
+  <complexType abstract="true" name="AbstractIfcRelationship_Type">
     <complexContent>
-      <extension base="ifc:IfcRootType">
+      <extension base="ifc:AbstractIfcRoot_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelationshipPropertyType">
+  <complexType name="AbstractIfcRelationship_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRelationship"/>
+      <element ref="ifc:AbstractIfcRelationship"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcResource" substitutionGroup="ifc:IfcObject" type="ifc:IfcResourceType"/>
-  <complexType abstract="true" name="IfcResourceType">
+  <element abstract="true" name="AbstractIfcResource" substitutionGroup="ifc:AbstractIfcObject" type="ifc:AbstractIfcResource_Type"/>
+  <complexType abstract="true" name="AbstractIfcResource_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectType">
+      <extension base="ifc:AbstractIfcObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
           <element minOccurs="0" name="longDescription" type="string"/>
@@ -963,92 +918,72 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcResourcePropertyType">
+  <complexType name="AbstractIfcResource_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcResource"/>
+      <element ref="ifc:AbstractIfcResource"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcResourceSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcResourceSelectType"/>
-  <complexType name="IfcResourceSelectType">
+  <element name="IfcResourceSelect" type="ifc:IfcResourceSelect_Type"/>
+  <complexType name="IfcResourceSelect_Type">
     <choice>
-      <element name="resource">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcResource"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="typeResource">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcTypeResource"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="resource" type="ifc:AbstractIfcResource_PropertyType"/>
+      <element name="typeResource" type="ifc:AbstractIfcTypeResource_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcResourceSelectPropertyType">
-    <sequence>
+  <complexType name="IfcResourceSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcResourceSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcRoot" substitutionGroup="gml:AbstractFeature" type="ifc:IfcRootType"/>
-  <complexType abstract="true" name="IfcRootType">
+  <element abstract="true" name="AbstractIfcRoot" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcRoot_Type"/>
+  <complexType abstract="true" name="AbstractIfcRoot_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element name="globalId" type="string"/>
+          <element name="globalId" type="ifc:IfcGloballyUniqueId_PropertyType"/>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element minOccurs="0" name="ownerHistory" type="ifc:IfcOwnerHistoryPropertyType"/>
+          <element minOccurs="0" name="ownerHistory" type="ifc:IfcOwnerHistory_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRootPropertyType">
+  <complexType name="AbstractIfcRoot_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcRoot"/>
+      <element ref="ifc:AbstractIfcRoot"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSimplePropertyTemplate" substitutionGroup="ifc:IfcPropertyTemplate" type="ifc:IfcSimplePropertyTemplateType"/>
-  <complexType name="IfcSimplePropertyTemplateType">
+  <element name="IfcSimplePropertyTemplate" substitutionGroup="ifc:AbstractIfcPropertyTemplate" type="ifc:IfcSimplePropertyTemplate_Type"/>
+  <complexType name="IfcSimplePropertyTemplate_Type">
     <complexContent>
-      <extension base="ifc:IfcPropertyTemplateType">
+      <extension base="ifc:AbstractIfcPropertyTemplate_Type">
         <sequence>
-          <element minOccurs="0" name="templateType" type="ifc:IfcSimplePropertyTemplateTypeEnumType"/>
+          <element minOccurs="0" name="templateType" type="ifc:IfcSimplePropertyTemplateTypeEnum_PropertyType"/>
           <element minOccurs="0" name="primaryMeasureType" type="string"/>
           <element minOccurs="0" name="secondaryMeasureType" type="string"/>
-          <element minOccurs="0" name="primaryUnit" type="ifc:IfcUnitPropertyType"/>
-          <element minOccurs="0" name="secondaryUnit" type="ifc:IfcUnitPropertyType"/>
+          <element minOccurs="0" name="primaryUnit" type="ifc:IfcUnit_PropertyType"/>
+          <element minOccurs="0" name="secondaryUnit" type="ifc:IfcUnit_PropertyType"/>
           <element minOccurs="0" name="expression" type="string"/>
-          <element minOccurs="0" name="accessState" type="ifc:IfcStateEnumType"/>
-          <element minOccurs="0" name="enumerators" type="ifc:IfcPropertyEnumerationPropertyType"/>
+          <element minOccurs="0" name="accessState" type="ifc:IfcStateEnum_PropertyType"/>
+          <element minOccurs="0" name="enumerators" type="ifc:IfcPropertyEnumeration_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSimplePropertyTemplatePropertyType">
+  <complexType name="IfcSimplePropertyTemplate_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSimplePropertyTemplate"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcSimplePropertyTemplateTypeEnumType">
+  <element name="IfcSimplePropertyTemplateTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcSimplePropertyTemplateTypeEnum_Type"/>
+  <simpleType name="IfcSimplePropertyTemplateTypeEnum_Type">
     <restriction base="string">
       <enumeration value="P_BOUNDEDVALUE"/>
       <enumeration value="P_ENUMERATEDVALUE"/>
@@ -1064,28 +999,34 @@
       <enumeration value="Q_WEIGHT"/>
     </restriction>
   </simpleType>
-  <element name="IfcTypeObject" substitutionGroup="ifc:IfcObjectDefinition" type="ifc:IfcTypeObjectType"/>
-  <complexType name="IfcTypeObjectType">
+  <complexType name="IfcSimplePropertyTemplateTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSimplePropertyTemplateTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcTypeObject" substitutionGroup="ifc:AbstractIfcObjectDefinition" type="ifc:IfcTypeObject_Type"/>
+  <complexType name="IfcTypeObject_Type">
     <complexContent>
-      <extension base="ifc:IfcObjectDefinitionType">
+      <extension base="ifc:AbstractIfcObjectDefinition_Type">
         <sequence>
           <element minOccurs="0" name="applicableOccurrence" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="hasPropertySets" type="ifc:IfcPropertySetDefinitionPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="hasPropertySets" type="ifc:AbstractIfcPropertySetDefinition_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTypeObjectPropertyType">
+  <complexType name="IfcTypeObject_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTypeObject"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcTypeProcess" substitutionGroup="ifc:IfcTypeObject" type="ifc:IfcTypeProcessType"/>
-  <complexType abstract="true" name="IfcTypeProcessType">
+  <element abstract="true" name="AbstractIfcTypeProcess" substitutionGroup="ifc:IfcTypeObject" type="ifc:AbstractIfcTypeProcess_Type"/>
+  <complexType abstract="true" name="AbstractIfcTypeProcess_Type">
     <complexContent>
-      <extension base="ifc:IfcTypeObjectType">
+      <extension base="ifc:IfcTypeObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
           <element minOccurs="0" name="longDescription" type="string"/>
@@ -1094,34 +1035,35 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTypeProcessPropertyType">
+  <complexType name="AbstractIfcTypeProcess_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcTypeProcess"/>
+      <element ref="ifc:AbstractIfcTypeProcess"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTypeProduct" substitutionGroup="ifc:IfcTypeObject" type="ifc:IfcTypeProductType"/>
-  <complexType name="IfcTypeProductType">
+  <element name="IfcTypeProduct" substitutionGroup="ifc:IfcTypeObject" type="ifc:IfcTypeProduct_Type"/>
+  <complexType name="IfcTypeProduct_Type">
     <complexContent>
-      <extension base="ifc:IfcTypeObjectType">
+      <extension base="ifc:IfcTypeObject_Type">
         <sequence>
           <element minOccurs="0" name="tag" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="representationMaps" type="ifc:IfcRepresentationMap_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTypeProductPropertyType">
+  <complexType name="IfcTypeProduct_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTypeProduct"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcTypeResource" substitutionGroup="ifc:IfcTypeObject" type="ifc:IfcTypeResourceType"/>
-  <complexType abstract="true" name="IfcTypeResourceType">
+  <element abstract="true" name="AbstractIfcTypeResource" substitutionGroup="ifc:IfcTypeObject" type="ifc:AbstractIfcTypeResource_Type"/>
+  <complexType abstract="true" name="AbstractIfcTypeResource_Type">
     <complexContent>
-      <extension base="ifc:IfcTypeObjectType">
+      <extension base="ifc:IfcTypeObject_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
           <element minOccurs="0" name="longDescription" type="string"/>
@@ -1130,11 +1072,11 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTypeResourcePropertyType">
+  <complexType name="AbstractIfcTypeResource_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcTypeResource"/>
+      <element ref="ifc:AbstractIfcTypeResource"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

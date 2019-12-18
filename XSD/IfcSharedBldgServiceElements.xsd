@@ -1,45 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcInteroperabilityLayer.xsd"/>
   <include schemaLocation="IfcKernel.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcProductExtension.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcDistributionChamberElement" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcDistributionChamberElementType"/>
-  <complexType name="IfcDistributionChamberElementType">
+  <element name="IfcDistributionChamberElement" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcDistributionChamberElement_Type"/>
+  <complexType name="IfcDistributionChamberElement_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcDistributionChamberElementTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDistributionChamberElementTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionChamberElementPropertyType">
+  <complexType name="IfcDistributionChamberElement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionChamberElement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDistributionChamberElementType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcDistributionChamberElementTypeType"/>
-  <complexType name="IfcDistributionChamberElementTypeType">
+  <element name="IfcDistributionChamberElementType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:IfcDistributionChamberElementType_Type"/>
+  <complexType name="IfcDistributionChamberElementType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcDistributionChamberElementTypeEnumType"/>
+          <element name="predefinedType" type="ifc:IfcDistributionChamberElementTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionChamberElementTypePropertyType">
+  <complexType name="IfcDistributionChamberElementType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionChamberElementType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcDistributionChamberElementTypeEnumType">
+  <element name="IfcDistributionChamberElementTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDistributionChamberElementTypeEnum_Type"/>
+  <simpleType name="IfcDistributionChamberElementTypeEnum_Type">
     <restriction base="string">
       <enumeration value="FORMEDDUCT"/>
       <enumeration value="INSPECTIONCHAMBER"/>
@@ -53,101 +54,108 @@
       <enumeration value="VALVECHAMBER"/>
     </restriction>
   </simpleType>
-  <element name="IfcDistributionCircuit" substitutionGroup="ifc:IfcDistributionSystem" type="ifc:IfcDistributionCircuitType"/>
-  <complexType name="IfcDistributionCircuitType">
+  <complexType name="IfcDistributionChamberElementTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDistributionChamberElementTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcDistributionCircuit" substitutionGroup="ifc:IfcDistributionSystem" type="ifc:IfcDistributionCircuit_Type"/>
+  <complexType name="IfcDistributionCircuit_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionSystemType">
+      <extension base="ifc:IfcDistributionSystem_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionCircuitPropertyType">
+  <complexType name="IfcDistributionCircuit_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionCircuit"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDistributionControlElement" substitutionGroup="ifc:IfcDistributionElement" type="ifc:IfcDistributionControlElementType"/>
-  <complexType name="IfcDistributionControlElementType">
+  <element name="IfcDistributionControlElement" substitutionGroup="ifc:IfcDistributionElement" type="ifc:IfcDistributionControlElement_Type"/>
+  <complexType name="IfcDistributionControlElement_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionElementType">
+      <extension base="ifc:IfcDistributionElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionControlElementPropertyType">
+  <complexType name="IfcDistributionControlElement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionControlElement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcDistributionControlElementType" substitutionGroup="ifc:IfcDistributionElementType" type="ifc:IfcDistributionControlElementTypeType"/>
-  <complexType abstract="true" name="IfcDistributionControlElementTypeType">
+  <element abstract="true" name="AbstractIfcDistributionControlElementType" substitutionGroup="ifc:IfcDistributionElementType" type="ifc:AbstractIfcDistributionControlElementType_Type"/>
+  <complexType abstract="true" name="AbstractIfcDistributionControlElementType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionElementTypeType">
+      <extension base="ifc:IfcDistributionElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionControlElementTypePropertyType">
+  <complexType name="AbstractIfcDistributionControlElementType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcDistributionControlElementType"/>
+      <element ref="ifc:AbstractIfcDistributionControlElementType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDistributionFlowElement" substitutionGroup="ifc:IfcDistributionElement" type="ifc:IfcDistributionFlowElementType"/>
-  <complexType name="IfcDistributionFlowElementType">
+  <element name="IfcDistributionFlowElement" substitutionGroup="ifc:IfcDistributionElement" type="ifc:IfcDistributionFlowElement_Type"/>
+  <complexType name="IfcDistributionFlowElement_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionElementType">
+      <extension base="ifc:IfcDistributionElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionFlowElementPropertyType">
+  <complexType name="IfcDistributionFlowElement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionFlowElement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcDistributionFlowElementType" substitutionGroup="ifc:IfcDistributionElementType" type="ifc:IfcDistributionFlowElementTypeType"/>
-  <complexType abstract="true" name="IfcDistributionFlowElementTypeType">
+  <element abstract="true" name="AbstractIfcDistributionFlowElementType" substitutionGroup="ifc:IfcDistributionElementType" type="ifc:AbstractIfcDistributionFlowElementType_Type"/>
+  <complexType abstract="true" name="AbstractIfcDistributionFlowElementType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionElementTypeType">
+      <extension base="ifc:IfcDistributionElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionFlowElementTypePropertyType">
+  <complexType name="AbstractIfcDistributionFlowElementType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcDistributionFlowElementType"/>
+      <element ref="ifc:AbstractIfcDistributionFlowElementType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDistributionPort" substitutionGroup="ifc:IfcPort" type="ifc:IfcDistributionPortType"/>
-  <complexType name="IfcDistributionPortType">
+  <element name="IfcDistributionPort" substitutionGroup="ifc:AbstractIfcPort" type="ifc:IfcDistributionPort_Type"/>
+  <complexType name="IfcDistributionPort_Type">
     <complexContent>
-      <extension base="ifc:IfcPortType">
+      <extension base="ifc:AbstractIfcPort_Type">
         <sequence>
-          <element minOccurs="0" name="flowDirection" type="ifc:IfcFlowDirectionEnumType"/>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcDistributionPortTypeEnumType"/>
-          <element minOccurs="0" name="systemType" type="ifc:IfcDistributionSystemEnumType"/>
+          <element minOccurs="0" name="flowDirection" type="ifc:IfcFlowDirectionEnum_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDistributionPortTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="systemType" type="ifc:IfcDistributionSystemEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionPortPropertyType">
+  <complexType name="IfcDistributionPort_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionPort"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcDistributionPortTypeEnumType">
+  <element name="IfcDistributionPortTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDistributionPortTypeEnum_Type"/>
+  <simpleType name="IfcDistributionPortTypeEnum_Type">
     <restriction base="string">
       <enumeration value="CABLE"/>
       <enumeration value="CABLECARRIER"/>
@@ -157,25 +165,32 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcDistributionSystem" substitutionGroup="ifc:IfcSystem" type="ifc:IfcDistributionSystemType"/>
-  <complexType name="IfcDistributionSystemType">
+  <complexType name="IfcDistributionPortTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDistributionPortTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcDistributionSystem" substitutionGroup="ifc:IfcSystem" type="ifc:IfcDistributionSystem_Type"/>
+  <complexType name="IfcDistributionSystem_Type">
     <complexContent>
-      <extension base="ifc:IfcSystemType">
+      <extension base="ifc:IfcSystem_Type">
         <sequence>
           <element minOccurs="0" name="longName" type="string"/>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcDistributionSystemEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcDistributionSystemEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDistributionSystemPropertyType">
+  <complexType name="IfcDistributionSystem_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDistributionSystem"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcDistributionSystemEnumType">
+  <element name="IfcDistributionSystemEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDistributionSystemEnum_Type"/>
+  <simpleType name="IfcDistributionSystemEnum_Type">
     <restriction base="string">
       <enumeration value="AIRCONDITIONING"/>
       <enumeration value="AUDIOVISUAL"/>
@@ -223,67 +238,74 @@
       <enumeration value="WATERSUPPLY"/>
     </restriction>
   </simpleType>
-  <element name="IfcEnergyConversionDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcEnergyConversionDeviceType"/>
-  <complexType name="IfcEnergyConversionDeviceType">
+  <complexType name="IfcDistributionSystemEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcDistributionSystemEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcEnergyConversionDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcEnergyConversionDevice_Type"/>
+  <complexType name="IfcEnergyConversionDevice_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcEnergyConversionDevicePropertyType">
+  <complexType name="IfcEnergyConversionDevice_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcEnergyConversionDevice"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcEnergyConversionDeviceType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcEnergyConversionDeviceTypeType"/>
-  <complexType abstract="true" name="IfcEnergyConversionDeviceTypeType">
+  <element abstract="true" name="AbstractIfcEnergyConversionDeviceType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcEnergyConversionDeviceType_Type"/>
+  <complexType abstract="true" name="AbstractIfcEnergyConversionDeviceType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcEnergyConversionDeviceTypePropertyType">
+  <complexType name="AbstractIfcEnergyConversionDeviceType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcEnergyConversionDeviceType"/>
+      <element ref="ifc:AbstractIfcEnergyConversionDeviceType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFlowController" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowControllerType"/>
-  <complexType name="IfcFlowControllerType">
+  <element name="IfcFlowController" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowController_Type"/>
+  <complexType name="IfcFlowController_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowControllerPropertyType">
+  <complexType name="IfcFlowController_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowController"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowControllerType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowControllerTypeType"/>
-  <complexType abstract="true" name="IfcFlowControllerTypeType">
+  <element abstract="true" name="AbstractIfcFlowControllerType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowControllerType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowControllerType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowControllerTypePropertyType">
+  <complexType name="AbstractIfcFlowControllerType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowControllerType"/>
+      <element ref="ifc:AbstractIfcFlowControllerType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcFlowDirectionEnumType">
+  <element name="IfcFlowDirectionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcFlowDirectionEnum_Type"/>
+  <simpleType name="IfcFlowDirectionEnum_Type">
     <restriction base="string">
       <enumeration value="NOTDEFINED"/>
       <enumeration value="SINK"/>
@@ -291,202 +313,208 @@
       <enumeration value="SOURCEANDSINK"/>
     </restriction>
   </simpleType>
-  <element name="IfcFlowFitting" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowFittingType"/>
-  <complexType name="IfcFlowFittingType">
+  <complexType name="IfcFlowDirectionEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFlowDirectionEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcFlowFitting" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowFitting_Type"/>
+  <complexType name="IfcFlowFitting_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowFittingPropertyType">
+  <complexType name="IfcFlowFitting_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowFitting"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowFittingType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowFittingTypeType"/>
-  <complexType abstract="true" name="IfcFlowFittingTypeType">
+  <element abstract="true" name="AbstractIfcFlowFittingType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowFittingType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowFittingType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowFittingTypePropertyType">
+  <complexType name="AbstractIfcFlowFittingType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowFittingType"/>
+      <element ref="ifc:AbstractIfcFlowFittingType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFlowMovingDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowMovingDeviceType"/>
-  <complexType name="IfcFlowMovingDeviceType">
+  <element name="IfcFlowMovingDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowMovingDevice_Type"/>
+  <complexType name="IfcFlowMovingDevice_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowMovingDevicePropertyType">
+  <complexType name="IfcFlowMovingDevice_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowMovingDevice"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowMovingDeviceType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowMovingDeviceTypeType"/>
-  <complexType abstract="true" name="IfcFlowMovingDeviceTypeType">
+  <element abstract="true" name="AbstractIfcFlowMovingDeviceType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowMovingDeviceType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowMovingDeviceType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowMovingDeviceTypePropertyType">
+  <complexType name="AbstractIfcFlowMovingDeviceType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowMovingDeviceType"/>
+      <element ref="ifc:AbstractIfcFlowMovingDeviceType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFlowSegment" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowSegmentType"/>
-  <complexType name="IfcFlowSegmentType">
+  <element name="IfcFlowSegment" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowSegment_Type"/>
+  <complexType name="IfcFlowSegment_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowSegmentPropertyType">
+  <complexType name="IfcFlowSegment_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowSegment"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowSegmentType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowSegmentTypeType"/>
-  <complexType abstract="true" name="IfcFlowSegmentTypeType">
+  <element abstract="true" name="AbstractIfcFlowSegmentType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowSegmentType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowSegmentType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowSegmentTypePropertyType">
+  <complexType name="AbstractIfcFlowSegmentType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowSegmentType"/>
+      <element ref="ifc:AbstractIfcFlowSegmentType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFlowStorageDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowStorageDeviceType"/>
-  <complexType name="IfcFlowStorageDeviceType">
+  <element name="IfcFlowStorageDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowStorageDevice_Type"/>
+  <complexType name="IfcFlowStorageDevice_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowStorageDevicePropertyType">
+  <complexType name="IfcFlowStorageDevice_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowStorageDevice"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowStorageDeviceType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowStorageDeviceTypeType"/>
-  <complexType abstract="true" name="IfcFlowStorageDeviceTypeType">
+  <element abstract="true" name="AbstractIfcFlowStorageDeviceType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowStorageDeviceType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowStorageDeviceType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowStorageDeviceTypePropertyType">
+  <complexType name="AbstractIfcFlowStorageDeviceType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowStorageDeviceType"/>
+      <element ref="ifc:AbstractIfcFlowStorageDeviceType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFlowTerminal" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowTerminalType"/>
-  <complexType name="IfcFlowTerminalType">
+  <element name="IfcFlowTerminal" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowTerminal_Type"/>
+  <complexType name="IfcFlowTerminal_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowTerminalPropertyType">
+  <complexType name="IfcFlowTerminal_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowTerminal"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowTerminalType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowTerminalTypeType"/>
-  <complexType abstract="true" name="IfcFlowTerminalTypeType">
+  <element abstract="true" name="AbstractIfcFlowTerminalType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowTerminalType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowTerminalType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowTerminalTypePropertyType">
+  <complexType name="AbstractIfcFlowTerminalType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowTerminalType"/>
+      <element ref="ifc:AbstractIfcFlowTerminalType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFlowTreatmentDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowTreatmentDeviceType"/>
-  <complexType name="IfcFlowTreatmentDeviceType">
+  <element name="IfcFlowTreatmentDevice" substitutionGroup="ifc:IfcDistributionFlowElement" type="ifc:IfcFlowTreatmentDevice_Type"/>
+  <complexType name="IfcFlowTreatmentDevice_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementType">
+      <extension base="ifc:IfcDistributionFlowElement_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowTreatmentDevicePropertyType">
+  <complexType name="IfcFlowTreatmentDevice_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFlowTreatmentDevice"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcFlowTreatmentDeviceType" substitutionGroup="ifc:IfcDistributionFlowElementType" type="ifc:IfcFlowTreatmentDeviceTypeType"/>
-  <complexType abstract="true" name="IfcFlowTreatmentDeviceTypeType">
+  <element abstract="true" name="AbstractIfcFlowTreatmentDeviceType" substitutionGroup="ifc:AbstractIfcDistributionFlowElementType" type="ifc:AbstractIfcFlowTreatmentDeviceType_Type"/>
+  <complexType abstract="true" name="AbstractIfcFlowTreatmentDeviceType_Type">
     <complexContent>
-      <extension base="ifc:IfcDistributionFlowElementTypeType">
+      <extension base="ifc:AbstractIfcDistributionFlowElementType_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFlowTreatmentDeviceTypePropertyType">
+  <complexType name="AbstractIfcFlowTreatmentDeviceType_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcFlowTreatmentDeviceType"/>
+      <element ref="ifc:AbstractIfcFlowTreatmentDeviceType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcRelFlowControlElements" substitutionGroup="ifc:IfcRelConnects" type="ifc:IfcRelFlowControlElementsType"/>
-  <complexType name="IfcRelFlowControlElementsType">
+  <element name="IfcRelFlowControlElements" substitutionGroup="ifc:AbstractIfcRelConnects" type="ifc:IfcRelFlowControlElements_Type"/>
+  <complexType name="IfcRelFlowControlElements_Type">
     <complexContent>
-      <extension base="ifc:IfcRelConnectsType">
+      <extension base="ifc:AbstractIfcRelConnects_Type">
         <sequence>
-          <element name="relatingFlowElement" type="ifc:IfcDistributionFlowElementPropertyType"/>
-          <element maxOccurs="unbounded" name="relatedControlElements" type="ifc:IfcDistributionControlElementPropertyType"/>
+          <element name="relatingFlowElement" type="ifc:IfcDistributionFlowElement_PropertyType"/>
+          <element maxOccurs="unbounded" name="relatedControlElements" type="ifc:IfcDistributionControlElement_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelFlowControlElementsPropertyType">
+  <complexType name="IfcRelFlowControlElements_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelFlowControlElements"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

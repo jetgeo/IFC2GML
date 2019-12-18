@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcGeometricModelResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
@@ -6,87 +6,58 @@
   <include schemaLocation="IfcPresentationDefinitionResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
   <include schemaLocation="IfcTopologyResource.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gss" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcBlobTexture" substitutionGroup="ifc:IfcSurfaceTexture" type="ifc:IfcBlobTextureType"/>
-  <complexType name="IfcBlobTextureType">
+  <element name="IfcBlobTexture" substitutionGroup="ifc:AbstractIfcSurfaceTexture" type="ifc:IfcBlobTexture_Type"/>
+  <complexType name="IfcBlobTexture_Type">
     <complexContent>
-      <extension base="ifc:IfcSurfaceTextureType">
+      <extension base="ifc:AbstractIfcSurfaceTexture_Type">
         <sequence>
           <element name="rasterFormat" type="string"/>
-          <element name="rasterCode" type="ifc:IfcBinaryPropertyType"/>
+          <element name="rasterCode" type="ifc:IfcBinary_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcBlobTexturePropertyType">
+  <complexType name="IfcBlobTexture_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcBlobTexture"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcColour" substitutionGroup="gml:AbstractObject" type="ifc:IfcColourType"/>
-  <complexType name="IfcColourType">
+  <element name="IfcColour" type="ifc:IfcColour_Type"/>
+  <complexType name="IfcColour_Type">
     <choice>
-      <element name="colourSpecification">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcColourSpecification"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="preDefinedColour">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPreDefinedColour"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="colourSpecification" type="ifc:AbstractIfcColourSpecification_PropertyType"/>
+      <element name="preDefinedColour" type="ifc:AbstractIfcPreDefinedColour_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcColourPropertyType">
-    <sequence>
+  <complexType name="IfcColour_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcColour"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcColourOrFactor" substitutionGroup="gml:AbstractObject" type="ifc:IfcColourOrFactorType"/>
-  <complexType name="IfcColourOrFactorType">
+  <element name="IfcColourOrFactor" type="ifc:IfcColourOrFactor_Type"/>
+  <complexType name="IfcColourOrFactor_Type">
     <choice>
-      <element name="colourRgb">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcColourRgb"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="normalisedRatioMeasure" type="gml:MeasureType"/>
+      <element name="colourRgb" type="ifc:IfcColourRgb_PropertyType"/>
+      <element name="normalisedRatioMeasure" type="ifc:IfcNormalisedRatioMeasure_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcColourOrFactorPropertyType">
-    <sequence>
+  <complexType name="IfcColourOrFactor_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcColourOrFactor"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcColourRgb" substitutionGroup="ifc:IfcColourSpecification" type="ifc:IfcColourRgbType"/>
-  <complexType name="IfcColourRgbType">
+  <element name="IfcColourRgb" substitutionGroup="ifc:AbstractIfcColourSpecification" type="ifc:IfcColourRgb_Type"/>
+  <complexType name="IfcColourRgb_Type">
     <complexContent>
-      <extension base="ifc:IfcColourSpecificationType">
+      <extension base="ifc:AbstractIfcColourSpecification_Type">
         <sequence>
           <element name="red" type="gml:MeasureType"/>
           <element name="green" type="gml:MeasureType"/>
@@ -95,131 +66,121 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcColourRgbPropertyType">
+  <complexType name="IfcColourRgb_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcColourRgb"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcColourRgbList" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcColourRgbListType"/>
-  <complexType name="IfcColourRgbListType">
+  <element name="IfcColourRgbList" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcColourRgbList_Type"/>
+  <complexType name="IfcColourRgbList_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element maxOccurs="3" minOccurs="3" name="colourList" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcColourRgbListPropertyType">
+  <complexType name="IfcColourRgbList_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcColourRgbList"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcColourSpecification" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcColourSpecificationType"/>
-  <complexType abstract="true" name="IfcColourSpecificationType">
+  <element abstract="true" name="AbstractIfcColourSpecification" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:AbstractIfcColourSpecification_Type"/>
+  <complexType abstract="true" name="AbstractIfcColourSpecification_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcColourSpecificationPropertyType">
+  <complexType name="AbstractIfcColourSpecification_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcColourSpecification"/>
+      <element ref="ifc:AbstractIfcColourSpecification"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveFontOrScaledCurveFontSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcCurveFontOrScaledCurveFontSelectType"/>
-  <complexType name="IfcCurveFontOrScaledCurveFontSelectType">
+  <element name="IfcCurveFontOrScaledCurveFontSelect" type="ifc:IfcCurveFontOrScaledCurveFontSelect_Type"/>
+  <complexType name="IfcCurveFontOrScaledCurveFontSelect_Type">
     <choice>
-      <element name="curveStyleFontAndScaling">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcCurveStyleFontAndScaling"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="curveStyleFontSelect" type="ifc:IfcCurveStyleFontSelectPropertyType"/>
+      <element name="curveStyleFontAndScaling" type="ifc:IfcCurveStyleFontAndScaling_PropertyType"/>
+      <element name="curveStyleFontSelect" type="ifc:IfcCurveStyleFontSelect_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcCurveFontOrScaledCurveFontSelectPropertyType">
-    <sequence>
+  <complexType name="IfcCurveFontOrScaledCurveFontSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcCurveFontOrScaledCurveFontSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveStyle" substitutionGroup="ifc:IfcPresentationStyle" type="ifc:IfcCurveStyleType"/>
-  <complexType name="IfcCurveStyleType">
+  <element name="IfcCurveStyle" substitutionGroup="ifc:AbstractIfcPresentationStyle" type="ifc:IfcCurveStyle_Type"/>
+  <complexType name="IfcCurveStyle_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationStyleType">
+      <extension base="ifc:AbstractIfcPresentationStyle_Type">
         <sequence>
-          <element minOccurs="0" name="curveFont" type="ifc:IfcCurveFontOrScaledCurveFontSelectPropertyType"/>
-          <element minOccurs="0" name="curveWidth" type="ifc:IfcSizeSelectPropertyType"/>
-          <element minOccurs="0" name="curveColour" type="ifc:IfcColourPropertyType"/>
+          <element minOccurs="0" name="curveFont" type="ifc:IfcCurveFontOrScaledCurveFontSelect_PropertyType"/>
+          <element minOccurs="0" name="curveWidth" type="ifc:IfcSizeSelect_PropertyType"/>
+          <element minOccurs="0" name="curveColour" type="ifc:IfcColour_PropertyType"/>
           <element minOccurs="0" name="modelOrDraughting" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCurveStylePropertyType">
+  <complexType name="IfcCurveStyle_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCurveStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveStyleFont" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcCurveStyleFontType"/>
-  <complexType name="IfcCurveStyleFontType">
+  <element name="IfcCurveStyleFont" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcCurveStyleFont_Type"/>
+  <complexType name="IfcCurveStyleFont_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
-          <element maxOccurs="unbounded" name="patternList" type="ifc:IfcCurveStyleFontPatternPropertyType"/>
+          <element maxOccurs="unbounded" name="patternList" type="ifc:IfcCurveStyleFontPattern_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCurveStyleFontPropertyType">
+  <complexType name="IfcCurveStyleFont_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCurveStyleFont"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveStyleFontAndScaling" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcCurveStyleFontAndScalingType"/>
-  <complexType name="IfcCurveStyleFontAndScalingType">
+  <element name="IfcCurveStyleFontAndScaling" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcCurveStyleFontAndScaling_Type"/>
+  <complexType name="IfcCurveStyleFontAndScaling_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
-          <element name="curveFont" type="ifc:IfcCurveStyleFontSelectPropertyType"/>
+          <element name="curveFont" type="ifc:IfcCurveStyleFontSelect_PropertyType"/>
           <element name="curveFontScaling" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCurveStyleFontAndScalingPropertyType">
+  <complexType name="IfcCurveStyleFontAndScaling_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCurveStyleFontAndScaling"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveStyleFontPattern" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcCurveStyleFontPatternType"/>
-  <complexType name="IfcCurveStyleFontPatternType">
+  <element name="IfcCurveStyleFontPattern" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcCurveStyleFontPattern_Type"/>
+  <complexType name="IfcCurveStyleFontPattern_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element name="visibleSegmentLength" type="gml:LengthType"/>
           <element name="invisibleSegmentLength" type="gml:LengthType"/>
@@ -227,566 +188,495 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCurveStyleFontPatternPropertyType">
+  <complexType name="IfcCurveStyleFontPattern_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCurveStyleFontPattern"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcCurveStyleFontSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcCurveStyleFontSelectType"/>
-  <complexType name="IfcCurveStyleFontSelectType">
+  <element name="IfcCurveStyleFontSelect" type="ifc:IfcCurveStyleFontSelect_Type"/>
+  <complexType name="IfcCurveStyleFontSelect_Type">
     <choice>
-      <element name="curveStyleFont">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcCurveStyleFont"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="preDefinedCurveFont">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPreDefinedCurveFont"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="curveStyleFont" type="ifc:IfcCurveStyleFont_PropertyType"/>
+      <element name="preDefinedCurveFont" type="ifc:AbstractIfcPreDefinedCurveFont_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcCurveStyleFontSelectPropertyType">
-    <sequence>
+  <complexType name="IfcCurveStyleFontSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcCurveStyleFontSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDraughtingPreDefinedColour" substitutionGroup="ifc:IfcPreDefinedColour" type="ifc:IfcDraughtingPreDefinedColourType"/>
-  <complexType name="IfcDraughtingPreDefinedColourType">
+  <element name="IfcDraughtingPreDefinedColour" substitutionGroup="ifc:AbstractIfcPreDefinedColour" type="ifc:IfcDraughtingPreDefinedColour_Type"/>
+  <complexType name="IfcDraughtingPreDefinedColour_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedColourType">
+      <extension base="ifc:AbstractIfcPreDefinedColour_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDraughtingPreDefinedColourPropertyType">
+  <complexType name="IfcDraughtingPreDefinedColour_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDraughtingPreDefinedColour"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDraughtingPreDefinedCurveFont" substitutionGroup="ifc:IfcPreDefinedCurveFont" type="ifc:IfcDraughtingPreDefinedCurveFontType"/>
-  <complexType name="IfcDraughtingPreDefinedCurveFontType">
+  <element name="IfcDraughtingPreDefinedCurveFont" substitutionGroup="ifc:AbstractIfcPreDefinedCurveFont" type="ifc:IfcDraughtingPreDefinedCurveFont_Type"/>
+  <complexType name="IfcDraughtingPreDefinedCurveFont_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedCurveFontType">
+      <extension base="ifc:AbstractIfcPreDefinedCurveFont_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDraughtingPreDefinedCurveFontPropertyType">
+  <complexType name="IfcDraughtingPreDefinedCurveFont_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDraughtingPreDefinedCurveFont"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcExternallyDefinedHatchStyle" substitutionGroup="ifc:IfcExternalReference" type="ifc:IfcExternallyDefinedHatchStyleType"/>
-  <complexType name="IfcExternallyDefinedHatchStyleType">
+  <element name="IfcExternallyDefinedHatchStyle" substitutionGroup="ifc:AbstractIfcExternalReference" type="ifc:IfcExternallyDefinedHatchStyle_Type"/>
+  <complexType name="IfcExternallyDefinedHatchStyle_Type">
     <complexContent>
-      <extension base="ifc:IfcExternalReferenceType">
+      <extension base="ifc:AbstractIfcExternalReference_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcExternallyDefinedHatchStylePropertyType">
+  <complexType name="IfcExternallyDefinedHatchStyle_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcExternallyDefinedHatchStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcExternallyDefinedSurfaceStyle" substitutionGroup="ifc:IfcExternalReference" type="ifc:IfcExternallyDefinedSurfaceStyleType"/>
-  <complexType name="IfcExternallyDefinedSurfaceStyleType">
+  <element name="IfcExternallyDefinedSurfaceStyle" substitutionGroup="ifc:AbstractIfcExternalReference" type="ifc:IfcExternallyDefinedSurfaceStyle_Type"/>
+  <complexType name="IfcExternallyDefinedSurfaceStyle_Type">
     <complexContent>
-      <extension base="ifc:IfcExternalReferenceType">
+      <extension base="ifc:AbstractIfcExternalReference_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcExternallyDefinedSurfaceStylePropertyType">
+  <complexType name="IfcExternallyDefinedSurfaceStyle_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcExternallyDefinedSurfaceStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcExternallyDefinedTextFont" substitutionGroup="ifc:IfcExternalReference" type="ifc:IfcExternallyDefinedTextFontType"/>
-  <complexType name="IfcExternallyDefinedTextFontType">
+  <element name="IfcExternallyDefinedTextFont" substitutionGroup="ifc:AbstractIfcExternalReference" type="ifc:IfcExternallyDefinedTextFont_Type"/>
+  <complexType name="IfcExternallyDefinedTextFont_Type">
     <complexContent>
-      <extension base="ifc:IfcExternalReferenceType">
+      <extension base="ifc:AbstractIfcExternalReference_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcExternallyDefinedTextFontPropertyType">
+  <complexType name="IfcExternallyDefinedTextFont_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcExternallyDefinedTextFont"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFillAreaStyle" substitutionGroup="ifc:IfcPresentationStyle" type="ifc:IfcFillAreaStyleType"/>
-  <complexType name="IfcFillAreaStyleType">
+  <element name="IfcFillAreaStyle" substitutionGroup="ifc:AbstractIfcPresentationStyle" type="ifc:IfcFillAreaStyle_Type"/>
+  <complexType name="IfcFillAreaStyle_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationStyleType">
+      <extension base="ifc:AbstractIfcPresentationStyle_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="fillStyles" type="ifc:IfcFillStyleSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="fillStyles" type="ifc:IfcFillStyleSelect_PropertyType"/>
           <element minOccurs="0" name="modelorDraughting" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFillAreaStylePropertyType">
+  <complexType name="IfcFillAreaStyle_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFillAreaStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFillAreaStyleHatching" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcFillAreaStyleHatchingType"/>
-  <complexType name="IfcFillAreaStyleHatchingType">
+  <element name="IfcFillAreaStyleHatching" substitutionGroup="ifc:AbstractIfcGeometricRepresentationItem" type="ifc:IfcFillAreaStyleHatching_Type"/>
+  <complexType name="IfcFillAreaStyleHatching_Type">
     <complexContent>
-      <extension base="ifc:IfcGeometricRepresentationItemType">
+      <extension base="ifc:AbstractIfcGeometricRepresentationItem_Type">
         <sequence>
-          <element name="startOfNextHatchLine" type="ifc:IfcHatchLineDistanceSelectPropertyType"/>
+          <element name="startOfNextHatchLine" type="ifc:IfcHatchLineDistanceSelect_PropertyType"/>
           <element name="hatchLineAngle" type="gml:AngleType"/>
-          <element name="hatchLineAppearance" type="ifc:IfcCurveStylePropertyType"/>
+          <element name="hatchLineAppearance" type="ifc:IfcCurveStyle_PropertyType"/>
+          <element minOccurs="0" name="patternStart" type="gss:GM_Point_PropertyType"/>
+          <element minOccurs="0" name="pointOfReferenceHatchLine" type="gss:GM_Point_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFillAreaStyleHatchingPropertyType">
+  <complexType name="IfcFillAreaStyleHatching_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFillAreaStyleHatching"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFillAreaStyleTiles" substitutionGroup="ifc:IfcGeometricRepresentationItem" type="ifc:IfcFillAreaStyleTilesType"/>
-  <complexType name="IfcFillAreaStyleTilesType">
+  <element name="IfcFillAreaStyleTiles" substitutionGroup="ifc:AbstractIfcGeometricRepresentationItem" type="ifc:IfcFillAreaStyleTiles_Type"/>
+  <complexType name="IfcFillAreaStyleTiles_Type">
     <complexContent>
-      <extension base="ifc:IfcGeometricRepresentationItemType">
+      <extension base="ifc:AbstractIfcGeometricRepresentationItem_Type">
         <sequence>
           <element name="tilingScale" type="gml:MeasureType"/>
-          <element maxOccurs="unbounded" name="tiles" type="ifc:IfcStyledItemPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="tilingPattern" type="ifc:IfcVector_PropertyType"/>
+          <element maxOccurs="unbounded" name="tiles" type="ifc:IfcStyledItem_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFillAreaStyleTilesPropertyType">
+  <complexType name="IfcFillAreaStyleTiles_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFillAreaStyleTiles"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFillStyleSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcFillStyleSelectType"/>
-  <complexType name="IfcFillStyleSelectType">
+  <element name="IfcFillStyleSelect" type="ifc:IfcFillStyleSelect_Type"/>
+  <complexType name="IfcFillStyleSelect_Type">
     <choice>
-      <element name="colour" type="ifc:IfcColourPropertyType"/>
-      <element name="externallyDefinedHatchStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcExternallyDefinedHatchStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="fillAreaStyleHatching">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcFillAreaStyleHatching"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="fillAreaStyleTiles">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcFillAreaStyleTiles"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="colour" type="ifc:IfcColour_PropertyType"/>
+      <element name="externallyDefinedHatchStyle" type="ifc:IfcExternallyDefinedHatchStyle_PropertyType"/>
+      <element name="fillAreaStyleHatching" type="ifc:IfcFillAreaStyleHatching_PropertyType"/>
+      <element name="fillAreaStyleTiles" type="ifc:IfcFillAreaStyleTiles_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcFillStyleSelectPropertyType">
-    <sequence>
+  <complexType name="IfcFillStyleSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcFillStyleSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFontStyle" substitutionGroup="gml:AbstractObject" type="ifc:IfcFontStyleType"/>
-  <complexType name="IfcFontStyleType">
-    <sequence/>
+  <element name="IfcFontStyle" substitutionGroup="gco:AbstractObject" type="ifc:IfcFontStyle_Type"/>
+  <complexType name="IfcFontStyle_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcFontStylePropertyType">
-    <sequence>
+  <complexType name="IfcFontStyle_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcFontStyle"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFontVariant" substitutionGroup="gml:AbstractObject" type="ifc:IfcFontVariantType"/>
-  <complexType name="IfcFontVariantType">
-    <sequence/>
+  <element name="IfcFontVariant" substitutionGroup="gco:AbstractObject" type="ifc:IfcFontVariant_Type"/>
+  <complexType name="IfcFontVariant_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcFontVariantPropertyType">
-    <sequence>
+  <complexType name="IfcFontVariant_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcFontVariant"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFontWeight" substitutionGroup="gml:AbstractObject" type="ifc:IfcFontWeightType"/>
-  <complexType name="IfcFontWeightType">
-    <sequence/>
+  <element name="IfcFontWeight" substitutionGroup="gco:AbstractObject" type="ifc:IfcFontWeight_Type"/>
+  <complexType name="IfcFontWeight_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcFontWeightPropertyType">
-    <sequence>
+  <complexType name="IfcFontWeight_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcFontWeight"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcHatchLineDistanceSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcHatchLineDistanceSelectType"/>
-  <complexType name="IfcHatchLineDistanceSelectType">
+  <element name="IfcHatchLineDistanceSelect" type="ifc:IfcHatchLineDistanceSelect_Type"/>
+  <complexType name="IfcHatchLineDistanceSelect_Type">
     <choice>
-      <element name="positiveLengthMeasure" type="gml:LengthType"/>
-      <element name="vector">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcVector"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="positiveLengthMeasure" type="ifc:IfcPositiveLengthMeasure_PropertyType"/>
+      <element name="vector" type="ifc:IfcVector_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcHatchLineDistanceSelectPropertyType">
-    <sequence>
+  <complexType name="IfcHatchLineDistanceSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcHatchLineDistanceSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcImageTexture" substitutionGroup="ifc:IfcSurfaceTexture" type="ifc:IfcImageTextureType"/>
-  <complexType name="IfcImageTextureType">
+  <element name="IfcImageTexture" substitutionGroup="ifc:AbstractIfcSurfaceTexture" type="ifc:IfcImageTexture_Type"/>
+  <complexType name="IfcImageTexture_Type">
     <complexContent>
-      <extension base="ifc:IfcSurfaceTextureType">
+      <extension base="ifc:AbstractIfcSurfaceTexture_Type">
         <sequence>
-          <element name="uRLReference" type="string"/>
+          <element name="uRLReference" type="ifc:IfcURIReference_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcImageTexturePropertyType">
+  <complexType name="IfcImageTexture_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcImageTexture"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcIndexedColourMap" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcIndexedColourMapType"/>
-  <complexType name="IfcIndexedColourMapType">
+  <element name="IfcIndexedColourMap" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcIndexedColourMap_Type"/>
+  <complexType name="IfcIndexedColourMap_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element minOccurs="0" name="opacity" type="gml:MeasureType"/>
           <element maxOccurs="unbounded" name="colourIndex" type="integer"/>
-          <element name="mappedTo" type="ifc:IfcTessellatedFaceSetPropertyType"/>
-          <element name="colours" type="ifc:IfcColourRgbListPropertyType"/>
+          <element name="colours" type="ifc:IfcColourRgbList_PropertyType"/>
+          <element name="mappedTo" type="ifc:AbstractIfcTessellatedFaceSet_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcIndexedColourMapPropertyType">
+  <complexType name="IfcIndexedColourMap_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcIndexedColourMap"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcIndexedTextureMap" substitutionGroup="ifc:IfcTextureCoordinate" type="ifc:IfcIndexedTextureMapType"/>
-  <complexType abstract="true" name="IfcIndexedTextureMapType">
+  <element abstract="true" name="AbstractIfcIndexedTextureMap" substitutionGroup="ifc:AbstractIfcTextureCoordinate" type="ifc:AbstractIfcIndexedTextureMap_Type"/>
+  <complexType abstract="true" name="AbstractIfcIndexedTextureMap_Type">
     <complexContent>
-      <extension base="ifc:IfcTextureCoordinateType">
+      <extension base="ifc:AbstractIfcTextureCoordinate_Type">
         <sequence>
-          <element name="mappedTo" type="ifc:IfcTessellatedFaceSetPropertyType"/>
-          <element name="texCoords" type="ifc:IfcTextureVertexListPropertyType"/>
+          <element name="texCoords" type="ifc:IfcTextureVertexList_PropertyType"/>
+          <element name="mappedTo" type="ifc:AbstractIfcTessellatedFaceSet_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcIndexedTextureMapPropertyType">
+  <complexType name="AbstractIfcIndexedTextureMap_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcIndexedTextureMap"/>
+      <element ref="ifc:AbstractIfcIndexedTextureMap"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcIndexedTriangleTextureMap" substitutionGroup="ifc:IfcIndexedTextureMap" type="ifc:IfcIndexedTriangleTextureMapType"/>
-  <complexType name="IfcIndexedTriangleTextureMapType">
+  <element name="IfcIndexedTriangleTextureMap" substitutionGroup="ifc:AbstractIfcIndexedTextureMap" type="ifc:IfcIndexedTriangleTextureMap_Type"/>
+  <complexType name="IfcIndexedTriangleTextureMap_Type">
     <complexContent>
-      <extension base="ifc:IfcIndexedTextureMapType">
+      <extension base="ifc:AbstractIfcIndexedTextureMap_Type">
         <sequence>
           <element maxOccurs="3" minOccurs="0" name="texCoordIndex" type="integer"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcIndexedTriangleTextureMapPropertyType">
+  <complexType name="IfcIndexedTriangleTextureMap_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcIndexedTriangleTextureMap"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcNullStyleType">
+  <element name="IfcNullStyle" substitutionGroup="gco:CharacterString" type="ifc:IfcNullStyle_Type"/>
+  <simpleType name="IfcNullStyle_Type">
     <restriction base="string">
       <enumeration value="NULL"/>
     </restriction>
   </simpleType>
-  <element name="IfcPixelTexture" substitutionGroup="ifc:IfcSurfaceTexture" type="ifc:IfcPixelTextureType"/>
-  <complexType name="IfcPixelTextureType">
+  <complexType name="IfcNullStyle_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcNullStyle"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcPixelTexture" substitutionGroup="ifc:AbstractIfcSurfaceTexture" type="ifc:IfcPixelTexture_Type"/>
+  <complexType name="IfcPixelTexture_Type">
     <complexContent>
-      <extension base="ifc:IfcSurfaceTextureType">
+      <extension base="ifc:AbstractIfcSurfaceTexture_Type">
         <sequence>
           <element name="width" type="integer"/>
           <element name="height" type="integer"/>
           <element name="colourComponents" type="integer"/>
-          <element maxOccurs="unbounded" name="pixel" type="ifc:IfcBinaryPropertyType"/>
+          <element maxOccurs="unbounded" name="pixel" type="ifc:IfcBinary_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPixelTexturePropertyType">
+  <complexType name="IfcPixelTexture_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPixelTexture"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPreDefinedColour" substitutionGroup="ifc:IfcPreDefinedItem" type="ifc:IfcPreDefinedColourType"/>
-  <complexType abstract="true" name="IfcPreDefinedColourType">
+  <element abstract="true" name="AbstractIfcPreDefinedColour" substitutionGroup="ifc:AbstractIfcPreDefinedItem" type="ifc:AbstractIfcPreDefinedColour_Type"/>
+  <complexType abstract="true" name="AbstractIfcPreDefinedColour_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedItemType">
+      <extension base="ifc:AbstractIfcPreDefinedItem_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPreDefinedColourPropertyType">
+  <complexType name="AbstractIfcPreDefinedColour_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPreDefinedColour"/>
+      <element ref="ifc:AbstractIfcPreDefinedColour"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPreDefinedCurveFont" substitutionGroup="ifc:IfcPreDefinedItem" type="ifc:IfcPreDefinedCurveFontType"/>
-  <complexType abstract="true" name="IfcPreDefinedCurveFontType">
+  <element abstract="true" name="AbstractIfcPreDefinedCurveFont" substitutionGroup="ifc:AbstractIfcPreDefinedItem" type="ifc:AbstractIfcPreDefinedCurveFont_Type"/>
+  <complexType abstract="true" name="AbstractIfcPreDefinedCurveFont_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedItemType">
+      <extension base="ifc:AbstractIfcPreDefinedItem_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPreDefinedCurveFontPropertyType">
+  <complexType name="AbstractIfcPreDefinedCurveFont_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPreDefinedCurveFont"/>
+      <element ref="ifc:AbstractIfcPreDefinedCurveFont"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPreDefinedItem" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcPreDefinedItemType"/>
-  <complexType abstract="true" name="IfcPreDefinedItemType">
+  <element abstract="true" name="AbstractIfcPreDefinedItem" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:AbstractIfcPreDefinedItem_Type"/>
+  <complexType abstract="true" name="AbstractIfcPreDefinedItem_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element name="name" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPreDefinedItemPropertyType">
+  <complexType name="AbstractIfcPreDefinedItem_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPreDefinedItem"/>
+      <element ref="ifc:AbstractIfcPreDefinedItem"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPreDefinedTextFont" substitutionGroup="ifc:IfcPreDefinedItem" type="ifc:IfcPreDefinedTextFontType"/>
-  <complexType abstract="true" name="IfcPreDefinedTextFontType">
+  <element abstract="true" name="AbstractIfcPreDefinedTextFont" substitutionGroup="ifc:AbstractIfcPreDefinedItem" type="ifc:AbstractIfcPreDefinedTextFont_Type"/>
+  <complexType abstract="true" name="AbstractIfcPreDefinedTextFont_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedItemType">
+      <extension base="ifc:AbstractIfcPreDefinedItem_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPreDefinedTextFontPropertyType">
+  <complexType name="AbstractIfcPreDefinedTextFont_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPreDefinedTextFont"/>
+      <element ref="ifc:AbstractIfcPreDefinedTextFont"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPresentableText" substitutionGroup="gml:AbstractObject" type="ifc:IfcPresentableTextType"/>
-  <complexType name="IfcPresentableTextType">
-    <sequence/>
+  <element name="IfcPresentableText" substitutionGroup="gco:AbstractObject" type="ifc:IfcPresentableText_Type"/>
+  <complexType name="IfcPresentableText_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcPresentableTextPropertyType">
-    <sequence>
+  <complexType name="IfcPresentableText_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcPresentableText"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPresentationAppearanceResourceFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcPresentationAppearanceResourceFunctionType"/>
-  <complexType abstract="true" name="IfcPresentationAppearanceResourceFunctionType">
+  <element abstract="true" name="AbstractIfcPresentationAppearanceResourceFunction" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcPresentationAppearanceResourceFunction_Type"/>
+  <complexType abstract="true" name="AbstractIfcPresentationAppearanceResourceFunction_Type">
     <complexContent>
-      <extension base="gml:AbstractGMLType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPresentationAppearanceResourceFunctionPropertyType">
+  <complexType name="AbstractIfcPresentationAppearanceResourceFunction_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPresentationAppearanceResourceFunction"/>
+      <element ref="ifc:AbstractIfcPresentationAppearanceResourceFunction"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPresentationAppearanceResourceFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcPresentationAppearanceResourceFunctionsType"/>
-  <complexType abstract="true" name="IfcPresentationAppearanceResourceFunctionsType">
+  <element abstract="true" name="AbstractIfcPresentationAppearanceResourceFunctions" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcPresentationAppearanceResourceFunctions_Type"/>
+  <complexType abstract="true" name="AbstractIfcPresentationAppearanceResourceFunctions_Type">
     <complexContent>
-      <extension base="gml:AbstractGMLType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPresentationAppearanceResourceFunctionsPropertyType">
+  <complexType name="AbstractIfcPresentationAppearanceResourceFunctions_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPresentationAppearanceResourceFunctions"/>
+      <element ref="ifc:AbstractIfcPresentationAppearanceResourceFunctions"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPresentationStyle" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPresentationStyleType"/>
-  <complexType abstract="true" name="IfcPresentationStyleType">
+  <element abstract="true" name="AbstractIfcPresentationStyle" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcPresentationStyle_Type"/>
+  <complexType abstract="true" name="AbstractIfcPresentationStyle_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPresentationStylePropertyType">
+  <complexType name="AbstractIfcPresentationStyle_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPresentationStyle"/>
+      <element ref="ifc:AbstractIfcPresentationStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPresentationStyleAssignment" substitutionGroup="gml:AbstractFeature" type="ifc:IfcPresentationStyleAssignmentType"/>
-  <complexType name="IfcPresentationStyleAssignmentType">
+  <element name="IfcPresentationStyleAssignment" substitutionGroup="gco:AbstractObject" type="ifc:IfcPresentationStyleAssignment_Type"/>
+  <complexType name="IfcPresentationStyleAssignment_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="styles" type="ifc:IfcPresentationStyleSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="styles" type="ifc:IfcPresentationStyleSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPresentationStyleAssignmentPropertyType">
+  <complexType name="IfcPresentationStyleAssignment_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPresentationStyleAssignment"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPresentationStyleSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcPresentationStyleSelectType"/>
-  <complexType name="IfcPresentationStyleSelectType">
+  <element name="IfcPresentationStyleSelect" type="ifc:IfcPresentationStyleSelect_Type"/>
+  <complexType name="IfcPresentationStyleSelect_Type">
     <choice>
-      <element name="curveStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcCurveStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="fillAreaStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcFillAreaStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="nullStyle" type="ifc:IfcNullStyleType"/>
-      <element name="surfaceStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcSurfaceStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="textStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcTextStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="curveStyle" type="ifc:IfcCurveStyle_PropertyType"/>
+      <element name="fillAreaStyle" type="ifc:IfcFillAreaStyle_PropertyType"/>
+      <element name="nullStyle" type="ifc:IfcNullStyle_PropertyType"/>
+      <element name="surfaceStyle" type="ifc:IfcSurfaceStyle_PropertyType"/>
+      <element name="textStyle" type="ifc:IfcTextStyle_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcPresentationStyleSelectPropertyType">
-    <sequence>
+  <complexType name="IfcPresentationStyleSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcPresentationStyleSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcReflectanceMethodEnumType">
+  <element name="IfcReflectanceMethodEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcReflectanceMethodEnum_Type"/>
+  <simpleType name="IfcReflectanceMethodEnum_Type">
     <restriction base="string">
       <enumeration value="BLINN"/>
       <enumeration value="FLAT"/>
@@ -800,223 +690,176 @@
       <enumeration value="STRAUSS"/>
     </restriction>
   </simpleType>
-  <element name="IfcSizeSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcSizeSelectType"/>
-  <complexType name="IfcSizeSelectType">
+  <complexType name="IfcReflectanceMethodEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcReflectanceMethodEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcSizeSelect" type="ifc:IfcSizeSelect_Type"/>
+  <complexType name="IfcSizeSelect_Type">
     <choice>
-      <element name="descriptiveMeasure" type="gml:MeasureType"/>
-      <element name="lengthMeasure" type="gml:LengthType"/>
-      <element name="normalisedRatioMeasure" type="gml:MeasureType"/>
-      <element name="positiveLengthMeasure" type="gml:LengthType"/>
-      <element name="positiveRatioMeasure" type="gml:MeasureType"/>
-      <element name="ratioMeasure" type="gml:MeasureType"/>
+      <element name="descriptiveMeasure" type="ifc:IfcDescriptiveMeasure_PropertyType"/>
+      <element name="lengthMeasure" type="ifc:IfcLengthMeasure_PropertyType"/>
+      <element name="normalisedRatioMeasure" type="ifc:IfcNormalisedRatioMeasure_PropertyType"/>
+      <element name="positiveLengthMeasure" type="ifc:IfcPositiveLengthMeasure_PropertyType"/>
+      <element name="positiveRatioMeasure" type="ifc:IfcPositiveRatioMeasure_PropertyType"/>
+      <element name="ratioMeasure" type="ifc:IfcRatioMeasure_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcSizeSelectPropertyType">
-    <sequence>
+  <complexType name="IfcSizeSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSizeSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSpecularExponent" substitutionGroup="gml:AbstractObject" type="ifc:IfcSpecularExponentType"/>
-  <complexType name="IfcSpecularExponentType">
-    <sequence/>
+  <element name="IfcSpecularExponent" substitutionGroup="gco:AbstractObject" type="ifc:IfcSpecularExponent_Type"/>
+  <complexType name="IfcSpecularExponent_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcSpecularExponentPropertyType">
-    <sequence>
+  <complexType name="IfcSpecularExponent_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSpecularExponent"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSpecularHighlightSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcSpecularHighlightSelectType"/>
-  <complexType name="IfcSpecularHighlightSelectType">
+  <element name="IfcSpecularHighlightSelect" type="ifc:IfcSpecularHighlightSelect_Type"/>
+  <complexType name="IfcSpecularHighlightSelect_Type">
     <choice>
-      <element name="specularExponent" type="double"/>
-      <element name="specularRoughness" type="double"/>
+      <element name="specularExponent" type="ifc:IfcSpecularExponent_PropertyType"/>
+      <element name="specularRoughness" type="ifc:IfcSpecularRoughness_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcSpecularHighlightSelectPropertyType">
-    <sequence>
+  <complexType name="IfcSpecularHighlightSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSpecularHighlightSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSpecularRoughness" substitutionGroup="gml:AbstractObject" type="ifc:IfcSpecularRoughnessType"/>
-  <complexType name="IfcSpecularRoughnessType">
-    <sequence/>
+  <element name="IfcSpecularRoughness" substitutionGroup="gco:AbstractObject" type="ifc:IfcSpecularRoughness_Type"/>
+  <complexType name="IfcSpecularRoughness_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcSpecularRoughnessPropertyType">
-    <sequence>
+  <complexType name="IfcSpecularRoughness_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSpecularRoughness"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcStyleAssignmentSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcStyleAssignmentSelectType"/>
-  <complexType name="IfcStyleAssignmentSelectType">
+  <element name="IfcStyleAssignmentSelect" type="ifc:IfcStyleAssignmentSelect_Type"/>
+  <complexType name="IfcStyleAssignmentSelect_Type">
     <choice>
-      <element name="presentationStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPresentationStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="presentationStyleAssignment">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPresentationStyleAssignment"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="presentationStyle" type="ifc:AbstractIfcPresentationStyle_PropertyType"/>
+      <element name="presentationStyleAssignment" type="ifc:IfcPresentationStyleAssignment_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcStyleAssignmentSelectPropertyType">
-    <sequence>
+  <complexType name="IfcStyleAssignmentSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcStyleAssignmentSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcStyledItem" substitutionGroup="ifc:IfcRepresentationItem" type="ifc:IfcStyledItemType"/>
-  <complexType name="IfcStyledItemType">
+  <element name="IfcStyledItem" substitutionGroup="ifc:AbstractIfcRepresentationItem" type="ifc:IfcStyledItem_Type"/>
+  <complexType name="IfcStyledItem_Type">
     <complexContent>
-      <extension base="ifc:IfcRepresentationItemType">
+      <extension base="ifc:AbstractIfcRepresentationItem_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="styles" type="ifc:IfcStyleAssignmentSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="styles" type="ifc:IfcStyleAssignmentSelect_PropertyType"/>
           <element minOccurs="0" name="name" type="string"/>
+          <element minOccurs="0" name="item" type="ifc:AbstractIfcRepresentationItem_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStyledItemPropertyType">
+  <complexType name="IfcStyledItem_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStyledItem"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcSurfaceSideType">
+  <element name="IfcSurfaceSide" substitutionGroup="gco:CharacterString" type="ifc:IfcSurfaceSide_Type"/>
+  <simpleType name="IfcSurfaceSide_Type">
     <restriction base="string">
       <enumeration value="BOTH"/>
       <enumeration value="NEGATIVE"/>
       <enumeration value="POSITIVE"/>
     </restriction>
   </simpleType>
-  <element name="IfcSurfaceStyle" substitutionGroup="ifc:IfcPresentationStyle" type="ifc:IfcSurfaceStyleType"/>
-  <complexType name="IfcSurfaceStyleType">
+  <complexType name="IfcSurfaceSide_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSurfaceSide"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcSurfaceStyle" substitutionGroup="ifc:AbstractIfcPresentationStyle" type="ifc:IfcSurfaceStyle_Type"/>
+  <complexType name="IfcSurfaceStyle_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationStyleType">
+      <extension base="ifc:AbstractIfcPresentationStyle_Type">
         <sequence>
-          <element name="side" type="ifc:IfcSurfaceSideType"/>
-          <element maxOccurs="5" name="styles" type="ifc:IfcSurfaceStyleElementSelectPropertyType"/>
+          <element name="side" type="ifc:IfcSurfaceSide_PropertyType"/>
+          <element maxOccurs="5" name="styles" type="ifc:IfcSurfaceStyleElementSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceStylePropertyType">
+  <complexType name="IfcSurfaceStyle_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceStyleElementSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcSurfaceStyleElementSelectType"/>
-  <complexType name="IfcSurfaceStyleElementSelectType">
+  <element name="IfcSurfaceStyleElementSelect" type="ifc:IfcSurfaceStyleElementSelect_Type"/>
+  <complexType name="IfcSurfaceStyleElementSelect_Type">
     <choice>
-      <element name="externallyDefinedSurfaceStyle">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcExternallyDefinedSurfaceStyle"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="surfaceStyleLighting">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcSurfaceStyleLighting"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="surfaceStyleRefraction">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcSurfaceStyleRefraction"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="surfaceStyleShading">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcSurfaceStyleShading"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="surfaceStyleWithTextures">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcSurfaceStyleWithTextures"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="externallyDefinedSurfaceStyle" type="ifc:IfcExternallyDefinedSurfaceStyle_PropertyType"/>
+      <element name="surfaceStyleLighting" type="ifc:IfcSurfaceStyleLighting_PropertyType"/>
+      <element name="surfaceStyleRefraction" type="ifc:IfcSurfaceStyleRefraction_PropertyType"/>
+      <element name="surfaceStyleShading" type="ifc:IfcSurfaceStyleShading_PropertyType"/>
+      <element name="surfaceStyleWithTextures" type="ifc:IfcSurfaceStyleWithTextures_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcSurfaceStyleElementSelectPropertyType">
-    <sequence>
+  <complexType name="IfcSurfaceStyleElementSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyleElementSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceStyleLighting" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcSurfaceStyleLightingType"/>
-  <complexType name="IfcSurfaceStyleLightingType">
+  <element name="IfcSurfaceStyleLighting" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcSurfaceStyleLighting_Type"/>
+  <complexType name="IfcSurfaceStyleLighting_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
-          <element name="reflectanceColour" type="ifc:IfcColourRgbPropertyType"/>
-          <element name="diffuseTransmissionColour" type="ifc:IfcColourRgbPropertyType"/>
-          <element name="diffuseReflectionColour" type="ifc:IfcColourRgbPropertyType"/>
-          <element name="transmissionColour" type="ifc:IfcColourRgbPropertyType"/>
+          <element name="reflectanceColour" type="ifc:IfcColourRgb_PropertyType"/>
+          <element name="diffuseTransmissionColour" type="ifc:IfcColourRgb_PropertyType"/>
+          <element name="diffuseReflectionColour" type="ifc:IfcColourRgb_PropertyType"/>
+          <element name="transmissionColour" type="ifc:IfcColourRgb_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceStyleLightingPropertyType">
+  <complexType name="IfcSurfaceStyleLighting_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyleLighting"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceStyleRefraction" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcSurfaceStyleRefractionType"/>
-  <complexType name="IfcSurfaceStyleRefractionType">
+  <element name="IfcSurfaceStyleRefraction" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcSurfaceStyleRefraction_Type"/>
+  <complexType name="IfcSurfaceStyleRefraction_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element minOccurs="0" name="refractionIndex" type="double"/>
           <element minOccurs="0" name="dispersionFactor" type="double"/>
@@ -1024,264 +867,268 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceStyleRefractionPropertyType">
+  <complexType name="IfcSurfaceStyleRefraction_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyleRefraction"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceStyleRendering" substitutionGroup="ifc:IfcSurfaceStyleShading" type="ifc:IfcSurfaceStyleRenderingType"/>
-  <complexType name="IfcSurfaceStyleRenderingType">
+  <element name="IfcSurfaceStyleRendering" substitutionGroup="ifc:IfcSurfaceStyleShading" type="ifc:IfcSurfaceStyleRendering_Type"/>
+  <complexType name="IfcSurfaceStyleRendering_Type">
     <complexContent>
-      <extension base="ifc:IfcSurfaceStyleShadingType">
+      <extension base="ifc:IfcSurfaceStyleShading_Type">
         <sequence>
-          <element minOccurs="0" name="diffuseColour" type="ifc:IfcColourOrFactorPropertyType"/>
-          <element minOccurs="0" name="transmissionColour" type="ifc:IfcColourOrFactorPropertyType"/>
-          <element minOccurs="0" name="diffuseTransmissionColour" type="ifc:IfcColourOrFactorPropertyType"/>
-          <element minOccurs="0" name="reflectionColour" type="ifc:IfcColourOrFactorPropertyType"/>
-          <element minOccurs="0" name="specularColour" type="ifc:IfcColourOrFactorPropertyType"/>
-          <element minOccurs="0" name="specularHighlight" type="ifc:IfcSpecularHighlightSelectPropertyType"/>
-          <element name="reflectanceMethod" type="ifc:IfcReflectanceMethodEnumType"/>
+          <element minOccurs="0" name="diffuseColour" type="ifc:IfcColourOrFactor_PropertyType"/>
+          <element minOccurs="0" name="transmissionColour" type="ifc:IfcColourOrFactor_PropertyType"/>
+          <element minOccurs="0" name="diffuseTransmissionColour" type="ifc:IfcColourOrFactor_PropertyType"/>
+          <element minOccurs="0" name="reflectionColour" type="ifc:IfcColourOrFactor_PropertyType"/>
+          <element minOccurs="0" name="specularColour" type="ifc:IfcColourOrFactor_PropertyType"/>
+          <element minOccurs="0" name="specularHighlight" type="ifc:IfcSpecularHighlightSelect_PropertyType"/>
+          <element name="reflectanceMethod" type="ifc:IfcReflectanceMethodEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceStyleRenderingPropertyType">
+  <complexType name="IfcSurfaceStyleRendering_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyleRendering"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceStyleShading" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcSurfaceStyleShadingType"/>
-  <complexType name="IfcSurfaceStyleShadingType">
+  <element name="IfcSurfaceStyleShading" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcSurfaceStyleShading_Type"/>
+  <complexType name="IfcSurfaceStyleShading_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element minOccurs="0" name="transparency" type="gml:MeasureType"/>
-          <element name="surfaceColour" type="ifc:IfcColourRgbPropertyType"/>
+          <element name="surfaceColour" type="ifc:IfcColourRgb_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceStyleShadingPropertyType">
+  <complexType name="IfcSurfaceStyleShading_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyleShading"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSurfaceStyleWithTextures" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcSurfaceStyleWithTexturesType"/>
-  <complexType name="IfcSurfaceStyleWithTexturesType">
+  <element name="IfcSurfaceStyleWithTextures" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcSurfaceStyleWithTextures_Type"/>
+  <complexType name="IfcSurfaceStyleWithTextures_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="textures" type="ifc:IfcSurfaceTexturePropertyType"/>
+          <element maxOccurs="unbounded" name="textures" type="ifc:AbstractIfcSurfaceTexture_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceStyleWithTexturesPropertyType">
+  <complexType name="IfcSurfaceStyleWithTextures_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSurfaceStyleWithTextures"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcSurfaceTexture" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcSurfaceTextureType"/>
-  <complexType abstract="true" name="IfcSurfaceTextureType">
+  <element abstract="true" name="AbstractIfcSurfaceTexture" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:AbstractIfcSurfaceTexture_Type"/>
+  <complexType abstract="true" name="AbstractIfcSurfaceTexture_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element name="repeatS" type="boolean"/>
           <element name="repeatT" type="boolean"/>
           <element minOccurs="0" name="mode" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="parameter" type="string"/>
+          <element minOccurs="0" name="textureTransform" type="ifc:IfcCartesianTransformationOperator2D_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSurfaceTexturePropertyType">
+  <complexType name="AbstractIfcSurfaceTexture_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcSurfaceTexture"/>
+      <element ref="ifc:AbstractIfcSurfaceTexture"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextAlignment" substitutionGroup="gml:AbstractObject" type="ifc:IfcTextAlignmentType"/>
-  <complexType name="IfcTextAlignmentType">
-    <sequence/>
+  <element name="IfcTextAlignment" substitutionGroup="gco:AbstractObject" type="ifc:IfcTextAlignment_Type"/>
+  <complexType name="IfcTextAlignment_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcTextAlignmentPropertyType">
-    <sequence>
+  <complexType name="IfcTextAlignment_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcTextAlignment"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextDecoration" substitutionGroup="gml:AbstractObject" type="ifc:IfcTextDecorationType"/>
-  <complexType name="IfcTextDecorationType">
-    <sequence/>
+  <element name="IfcTextDecoration" substitutionGroup="gco:AbstractObject" type="ifc:IfcTextDecoration_Type"/>
+  <complexType name="IfcTextDecoration_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcTextDecorationPropertyType">
-    <sequence>
+  <complexType name="IfcTextDecoration_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcTextDecoration"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextFontName" substitutionGroup="gml:AbstractObject" type="ifc:IfcTextFontNameType"/>
-  <complexType name="IfcTextFontNameType">
-    <sequence/>
+  <element name="IfcTextFontName" substitutionGroup="gco:AbstractObject" type="ifc:IfcTextFontName_Type"/>
+  <complexType name="IfcTextFontName_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcTextFontNamePropertyType">
-    <sequence>
+  <complexType name="IfcTextFontName_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcTextFontName"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextFontSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcTextFontSelectType"/>
-  <complexType name="IfcTextFontSelectType">
+  <element name="IfcTextFontSelect" type="ifc:IfcTextFontSelect_Type"/>
+  <complexType name="IfcTextFontSelect_Type">
     <choice>
-      <element name="externallyDefinedTextFont">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcExternallyDefinedTextFont"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
-      <element name="preDefinedTextFont">
-        <complexType>
-          <complexContent>
-            <extension base="gml:AbstractFeatureMemberType">
-              <sequence minOccurs="0">
-                <element ref="ifc:IfcPreDefinedTextFont"/>
-              </sequence>
-              <attributeGroup ref="gml:AssociationAttributeGroup"/>
-            </extension>
-          </complexContent>
-        </complexType>
-      </element>
+      <element name="externallyDefinedTextFont" type="ifc:IfcExternallyDefinedTextFont_PropertyType"/>
+      <element name="preDefinedTextFont" type="ifc:AbstractIfcPreDefinedTextFont_PropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcTextFontSelectPropertyType">
-    <sequence>
+  <complexType name="IfcTextFontSelect_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcTextFontSelect"/>
     </sequence>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextStyle" substitutionGroup="ifc:IfcPresentationStyle" type="ifc:IfcTextStyleType"/>
-  <complexType name="IfcTextStyleType">
+  <element name="IfcTextStyle" substitutionGroup="ifc:AbstractIfcPresentationStyle" type="ifc:IfcTextStyle_Type"/>
+  <complexType name="IfcTextStyle_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationStyleType">
+      <extension base="ifc:AbstractIfcPresentationStyle_Type">
         <sequence>
-          <element name="textFontStyle" type="ifc:IfcTextFontSelectPropertyType"/>
+          <element name="textFontStyle" type="ifc:IfcTextFontSelect_PropertyType"/>
           <element minOccurs="0" name="modelOrDraughting" type="boolean"/>
-          <element minOccurs="0" name="textCharacterAppearance" type="ifc:IfcTextStyleForDefinedFontPropertyType"/>
-          <element minOccurs="0" name="textStyle" type="ifc:IfcTextStyleTextModelPropertyType"/>
+          <element minOccurs="0" name="textCharacterAppearance" type="ifc:IfcTextStyleForDefinedFont_PropertyType"/>
+          <element minOccurs="0" name="textStyle" type="ifc:IfcTextStyleTextModel_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextStylePropertyType">
+  <complexType name="IfcTextStyle_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextStyle"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextStyleFontModel" substitutionGroup="ifc:IfcPreDefinedTextFont" type="ifc:IfcTextStyleFontModelType"/>
-  <complexType name="IfcTextStyleFontModelType">
+  <element name="IfcTextStyleFontModel" substitutionGroup="ifc:AbstractIfcPreDefinedTextFont" type="ifc:IfcTextStyleFontModel_Type"/>
+  <complexType name="IfcTextStyleFontModel_Type">
     <complexContent>
-      <extension base="ifc:IfcPreDefinedTextFontType">
+      <extension base="ifc:AbstractIfcPreDefinedTextFont_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="fontFamily" type="string"/>
-          <element minOccurs="0" name="fontStyle" type="string"/>
-          <element minOccurs="0" name="fontVariant" type="string"/>
-          <element minOccurs="0" name="fontWeight" type="string"/>
-          <element name="fontSize" type="ifc:IfcSizeSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="fontFamily" type="ifc:IfcTextFontName_PropertyType"/>
+          <element minOccurs="0" name="fontStyle" type="ifc:IfcFontStyle_PropertyType"/>
+          <element minOccurs="0" name="fontVariant" type="ifc:IfcFontVariant_PropertyType"/>
+          <element minOccurs="0" name="fontWeight" type="ifc:IfcFontWeight_PropertyType"/>
+          <element name="fontSize" type="ifc:IfcSizeSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextStyleFontModelPropertyType">
+  <complexType name="IfcTextStyleFontModel_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextStyleFontModel"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextStyleForDefinedFont" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcTextStyleForDefinedFontType"/>
-  <complexType name="IfcTextStyleForDefinedFontType">
+  <element name="IfcTextStyleForDefinedFont" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcTextStyleForDefinedFont_Type"/>
+  <complexType name="IfcTextStyleForDefinedFont_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
-          <element name="colour" type="ifc:IfcColourPropertyType"/>
-          <element minOccurs="0" name="backgroundColour" type="ifc:IfcColourPropertyType"/>
+          <element name="colour" type="ifc:IfcColour_PropertyType"/>
+          <element minOccurs="0" name="backgroundColour" type="ifc:IfcColour_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextStyleForDefinedFontPropertyType">
+  <complexType name="IfcTextStyleForDefinedFont_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextStyleForDefinedFont"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextStyleTextModel" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcTextStyleTextModelType"/>
-  <complexType name="IfcTextStyleTextModelType">
+  <element name="IfcTextStyleTextModel" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcTextStyleTextModel_Type"/>
+  <complexType name="IfcTextStyleTextModel_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
-          <element minOccurs="0" name="textIndent" type="ifc:IfcSizeSelectPropertyType"/>
-          <element minOccurs="0" name="textAlign" type="string"/>
-          <element minOccurs="0" name="textDecoration" type="string"/>
-          <element minOccurs="0" name="letterSpacing" type="ifc:IfcSizeSelectPropertyType"/>
-          <element minOccurs="0" name="wordSpacing" type="ifc:IfcSizeSelectPropertyType"/>
-          <element minOccurs="0" name="textTransform" type="string"/>
-          <element minOccurs="0" name="lineHeight" type="ifc:IfcSizeSelectPropertyType"/>
+          <element minOccurs="0" name="textIndent" type="ifc:IfcSizeSelect_PropertyType"/>
+          <element minOccurs="0" name="textAlign" type="ifc:IfcTextAlignment_PropertyType"/>
+          <element minOccurs="0" name="textDecoration" type="ifc:IfcTextDecoration_PropertyType"/>
+          <element minOccurs="0" name="letterSpacing" type="ifc:IfcSizeSelect_PropertyType"/>
+          <element minOccurs="0" name="wordSpacing" type="ifc:IfcSizeSelect_PropertyType"/>
+          <element minOccurs="0" name="textTransform" type="ifc:IfcTextTransformation_PropertyType"/>
+          <element minOccurs="0" name="lineHeight" type="ifc:IfcSizeSelect_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextStyleTextModelPropertyType">
+  <complexType name="IfcTextStyleTextModel_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextStyleTextModel"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextTransformation" substitutionGroup="gml:AbstractObject" type="ifc:IfcTextTransformationType"/>
-  <complexType name="IfcTextTransformationType">
-    <sequence/>
+  <element name="IfcTextTransformation" substitutionGroup="gco:AbstractObject" type="ifc:IfcTextTransformation_Type"/>
+  <complexType name="IfcTextTransformation_Type">
+    <complexContent>
+      <extension base="gco:AbstractObject_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
   </complexType>
-  <complexType name="IfcTextTransformationPropertyType">
-    <sequence>
+  <complexType name="IfcTextTransformation_PropertyType">
+    <sequence minOccurs="0">
       <element ref="ifc:IfcTextTransformation"/>
     </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcTextureCoordinate" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcTextureCoordinateType"/>
-  <complexType abstract="true" name="IfcTextureCoordinateType">
+  <element abstract="true" name="AbstractIfcTextureCoordinate" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:AbstractIfcTextureCoordinate_Type"/>
+  <complexType abstract="true" name="AbstractIfcTextureCoordinate_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
-          <element maxOccurs="unbounded" name="maps" type="ifc:IfcSurfaceTexturePropertyType"/>
+          <element maxOccurs="unbounded" name="maps" type="ifc:AbstractIfcSurfaceTexture_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextureCoordinatePropertyType">
+  <complexType name="AbstractIfcTextureCoordinate_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcTextureCoordinate"/>
+      <element ref="ifc:AbstractIfcTextureCoordinate"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextureCoordinateGenerator" substitutionGroup="ifc:IfcTextureCoordinate" type="ifc:IfcTextureCoordinateGeneratorType"/>
-  <complexType name="IfcTextureCoordinateGeneratorType">
+  <element name="IfcTextureCoordinateGenerator" substitutionGroup="ifc:AbstractIfcTextureCoordinate" type="ifc:IfcTextureCoordinateGenerator_Type"/>
+  <complexType name="IfcTextureCoordinateGenerator_Type">
     <complexContent>
-      <extension base="ifc:IfcTextureCoordinateType">
+      <extension base="ifc:AbstractIfcTextureCoordinate_Type">
         <sequence>
           <element name="mode" type="string"/>
           <element maxOccurs="unbounded" minOccurs="0" name="parameter" type="double"/>
@@ -1289,63 +1136,63 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextureCoordinateGeneratorPropertyType">
+  <complexType name="IfcTextureCoordinateGenerator_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextureCoordinateGenerator"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextureMap" substitutionGroup="ifc:IfcTextureCoordinate" type="ifc:IfcTextureMapType"/>
-  <complexType name="IfcTextureMapType">
+  <element name="IfcTextureMap" substitutionGroup="ifc:AbstractIfcTextureCoordinate" type="ifc:IfcTextureMap_Type"/>
+  <complexType name="IfcTextureMap_Type">
     <complexContent>
-      <extension base="ifc:IfcTextureCoordinateType">
+      <extension base="ifc:AbstractIfcTextureCoordinate_Type">
         <sequence>
+          <element maxOccurs="unbounded" minOccurs="3" name="vertices" type="ifc:IfcTextureVertex_PropertyType"/>
           <element name="mappedTo" type="ifc:IfcFace_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="3" name="vertices" type="ifc:IfcTextureVertexPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextureMapPropertyType">
+  <complexType name="IfcTextureMap_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextureMap"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextureVertex" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcTextureVertexType"/>
-  <complexType name="IfcTextureVertexType">
+  <element name="IfcTextureVertex" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcTextureVertex_Type"/>
+  <complexType name="IfcTextureVertex_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element maxOccurs="2" minOccurs="2" name="coordinates" type="double"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextureVertexPropertyType">
+  <complexType name="IfcTextureVertex_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextureVertex"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextureVertexList" substitutionGroup="ifc:IfcPresentationItem" type="ifc:IfcTextureVertexListType"/>
-  <complexType name="IfcTextureVertexListType">
+  <element name="IfcTextureVertexList" substitutionGroup="ifc:AbstractIfcPresentationItem" type="ifc:IfcTextureVertexList_Type"/>
+  <complexType name="IfcTextureVertexList_Type">
     <complexContent>
-      <extension base="ifc:IfcPresentationItemType">
+      <extension base="ifc:AbstractIfcPresentationItem_Type">
         <sequence>
           <element maxOccurs="2" minOccurs="2" name="texCoordsList" type="double"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextureVertexListPropertyType">
+  <complexType name="IfcTextureVertexList_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextureVertexList"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
 </schema>

@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcPresentationAppearanceResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
   <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gss" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gss/gss.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
   <element name="IfcAdvancedFace" substitutionGroup="ifc:IfcFaceSurface" type="ifc:IfcAdvancedFace_Type"/>
   <complexType name="IfcAdvancedFace_Type">
@@ -77,6 +77,7 @@
       <extension base="ifc:IfcEdge_Type">
         <sequence>
           <element name="sameSense" type="boolean"/>
+          <element name="edgeGeometry" type="ifc:AbstractIfcCurve_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -162,6 +163,7 @@
       <extension base="ifc:IfcFace_Type">
         <sequence>
           <element name="sameSense" type="boolean"/>
+          <element name="faceSurface" type="ifc:AbstractIfcSurface_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
@@ -242,7 +244,9 @@
   <complexType name="IfcPolyLoop_Type">
     <complexContent>
       <extension base="ifc:IfcLoop_Type">
-        <sequence/>
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="3" name="polygon" type="gss:GM_Point_PropertyType"/>
+        </sequence>
       </extension>
     </complexContent>
   </complexType>
@@ -283,10 +287,10 @@
     <attributeGroup ref="gco:ObjectReference"/>
     <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcTopologicalRepresentationItem" substitutionGroup="ifc:IfcRepresentationItem" type="ifc:AbstractIfcTopologicalRepresentationItem_Type"/>
+  <element abstract="true" name="AbstractIfcTopologicalRepresentationItem" substitutionGroup="ifc:AbstractIfcRepresentationItem" type="ifc:AbstractIfcTopologicalRepresentationItem_Type"/>
   <complexType abstract="true" name="AbstractIfcTopologicalRepresentationItem_Type">
     <complexContent>
-      <extension base="ifc:IfcRepresentationItemType">
+      <extension base="ifc:AbstractIfcRepresentationItem_Type">
         <sequence/>
       </extension>
     </complexContent>
@@ -365,7 +369,7 @@
     <complexContent>
       <extension base="ifc:IfcVertex_Type">
         <sequence>
-          <element name="vertexGeometry" type="gml:PointPropertyType"/>
+          <element name="vertexGeometry" type="gss:GM_Point_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>

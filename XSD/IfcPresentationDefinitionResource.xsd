@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2"
-  xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC"
-  elementFormDefault="qualified"
-  targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
@@ -10,58 +6,63 @@
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
   <include schemaLocation="IfcTopologyResource.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2"
-    schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcAnnotationFillArea" substitutionGroup="ifc:IfcGeometricRepresentationItem"
-    type="ifc:IfcAnnotationFillAreaType"/>
-  <complexType name="IfcAnnotationFillAreaType">
+  <element name="IfcAnnotationFillArea" substitutionGroup="ifc:AbstractIfcGeometricRepresentationItem" type="ifc:IfcAnnotationFillArea_Type"/>
+  <complexType name="IfcAnnotationFillArea_Type">
     <complexContent>
-      <extension base="ifc:IfcGeometricRepresentationItemType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="IfcAnnotationFillAreaPropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcAnnotationFillArea"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="IfcBoxAlignment" substitutionGroup="gml:AbstractObject"
-    type="ifc:IfcBoxAlignmentType"/>
-  <complexType name="IfcBoxAlignmentType">
-
-    <sequence/>
-  </complexType>
-  <complexType name="IfcBoxAlignmentPropertyType">
-    <sequence>
-      <element ref="ifc:IfcBoxAlignment"/>
-    </sequence>
-  </complexType>
-  <element name="IfcPlanarBox" substitutionGroup="ifc:IfcPlanarExtent" type="ifc:IfcPlanarBoxType"/>
-  <complexType name="IfcPlanarBoxType">
-    <complexContent>
-      <extension base="ifc:IfcPlanarExtentType">
+      <extension base="ifc:AbstractIfcGeometricRepresentationItem_Type">
         <sequence>
-          <element name="placement" type="ifc:IfcAxis2PlacementPropertyType"/>
+          <element name="outerBoundary" type="ifc:AbstractIfcCurve_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="InnerBoundaries" type="ifc:AbstractIfcCurve_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPlanarBoxPropertyType">
+  <complexType name="IfcAnnotationFillArea_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcAnnotationFillArea"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcBoxAlignment" substitutionGroup="ifc:IfcLabel" type="ifc:IfcBoxAlignment_Type"/>
+  <complexType name="IfcBoxAlignment_Type">
+    <complexContent>
+      <extension base="ifc:IfcLabel_Type">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcBoxAlignment_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcBoxAlignment"/>
+    </sequence>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcPlanarBox" substitutionGroup="ifc:IfcPlanarExtent" type="ifc:IfcPlanarBox_Type"/>
+  <complexType name="IfcPlanarBox_Type">
+    <complexContent>
+      <extension base="ifc:IfcPlanarExtent_Type">
+        <sequence>
+          <element name="placement" type="ifc:IfcAxis2Placement_PropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="IfcPlanarBox_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPlanarBox"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcPlanarExtent" substitutionGroup="ifc:IfcGeometricRepresentationItem"
-    type="ifc:IfcPlanarExtentType"/>
-  <complexType name="IfcPlanarExtentType">
+  <element name="IfcPlanarExtent" substitutionGroup="ifc:AbstractIfcGeometricRepresentationItem" type="ifc:IfcPlanarExtent_Type"/>
+  <complexType name="IfcPlanarExtent_Type">
     <complexContent>
-      <extension base="ifc:IfcGeometricRepresentationItemType">
+      <extension base="ifc:AbstractIfcGeometricRepresentationItem_Type">
         <sequence>
           <element name="sizeInX" type="gml:LengthType"/>
           <element name="sizeInY" type="gml:LengthType"/>
@@ -69,69 +70,67 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPlanarExtentPropertyType">
+  <complexType name="IfcPlanarExtent_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPlanarExtent"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="IfcPresentationItem" substitutionGroup="gml:AbstractFeature"
-    type="ifc:IfcPresentationItemType"/>
-  <complexType abstract="true" name="IfcPresentationItemType">
+  <element abstract="true" name="AbstractIfcPresentationItem" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcPresentationItem_Type"/>
+  <complexType abstract="true" name="AbstractIfcPresentationItem_Type">
     <complexContent>
-      <extension base="gml:AbstractFeatureType">
+      <extension base="gco:AbstractObject_Type">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPresentationItemPropertyType">
+  <complexType name="AbstractIfcPresentationItem_PropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:IfcPresentationItem"/>
+      <element ref="ifc:AbstractIfcPresentationItem"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextLiteral" substitutionGroup="ifc:IfcGeometricRepresentationItem"
-    type="ifc:IfcTextLiteralType"/>
-  <complexType name="IfcTextLiteralType">
+  <element name="IfcTextLiteral" substitutionGroup="ifc:AbstractIfcGeometricRepresentationItem" type="ifc:IfcTextLiteral_Type"/>
+  <complexType name="IfcTextLiteral_Type">
     <complexContent>
-      <extension base="ifc:IfcGeometricRepresentationItemType">
+      <extension base="ifc:AbstractIfcGeometricRepresentationItem_Type">
         <sequence>
-          <element name="literal" type="string"/>
-          <element name="placement" type="ifc:IfcAxis2PlacementPropertyType"/>
-          <element name="path" type="ifc:IfcTextPathType"/>
+          <element name="literal" type="ifc:IfcPresentableText_PropertyType"/>
+          <element name="placement" type="ifc:IfcAxis2Placement_PropertyType"/>
+          <element name="path" type="ifc:IfcTextPath_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextLiteralPropertyType">
+  <complexType name="IfcTextLiteral_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextLiteral"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcTextLiteralWithExtent" substitutionGroup="ifc:IfcTextLiteral"
-    type="ifc:IfcTextLiteralWithExtentType"/>
-  <complexType name="IfcTextLiteralWithExtentType">
+  <element name="IfcTextLiteralWithExtent" substitutionGroup="ifc:IfcTextLiteral" type="ifc:IfcTextLiteralWithExtent_Type"/>
+  <complexType name="IfcTextLiteralWithExtent_Type">
     <complexContent>
-      <extension base="ifc:IfcTextLiteralType">
+      <extension base="ifc:IfcTextLiteral_Type">
         <sequence>
-          <element name="boxAlignment" type="string"/>
-          <element name="extent" type="ifc:IfcPlanarExtentPropertyType"/>
+          <element name="boxAlignment" type="ifc:IfcBoxAlignment_PropertyType"/>
+          <element name="extent" type="ifc:IfcPlanarExtent_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTextLiteralWithExtentPropertyType">
+  <complexType name="IfcTextLiteralWithExtent_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTextLiteralWithExtent"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcTextPathType">
+  <element name="IfcTextPath" substitutionGroup="gco:CharacterString" type="ifc:IfcTextPath_Type"/>
+  <simpleType name="IfcTextPath_Type">
     <restriction base="string">
       <enumeration value="DOWN"/>
       <enumeration value="LEFT"/>
@@ -139,4 +138,10 @@
       <enumeration value="UP"/>
     </restriction>
   </simpleType>
+  <complexType name="IfcTextPath_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcTextPath"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
 </schema>

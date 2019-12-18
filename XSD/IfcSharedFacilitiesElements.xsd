@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcCostResource.xsd"/>
   <include schemaLocation="IfcDateTimeResource.xsd"/>
@@ -6,69 +6,70 @@
   <include schemaLocation="IfcKernel.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcProductExtension.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcAsset" substitutionGroup="ifc:IfcGroup" type="ifc:IfcAssetType"/>
-  <complexType name="IfcAssetType">
+  <element name="IfcAsset" substitutionGroup="ifc:IfcGroup" type="ifc:IfcAsset_Type"/>
+  <complexType name="IfcAsset_Type">
     <complexContent>
-      <extension base="ifc:IfcGroupType">
+      <extension base="ifc:IfcGroup_Type">
         <sequence>
           <element minOccurs="0" name="identification" type="string"/>
-          <element minOccurs="0" name="owner" type="ifc:IfcActorSelectPropertyType"/>
-          <element minOccurs="0" name="user" type="ifc:IfcActorSelectPropertyType"/>
+          <element minOccurs="0" name="owner" type="ifc:IfcActorSelect_PropertyType"/>
+          <element minOccurs="0" name="user" type="ifc:IfcActorSelect_PropertyType"/>
           <element minOccurs="0" name="incorporationDate" type="date"/>
-          <element minOccurs="0" name="originalValue" type="ifc:IfcCostValuePropertyType"/>
-          <element minOccurs="0" name="depreciatedValue" type="ifc:IfcCostValuePropertyType"/>
-          <element minOccurs="0" name="totalReplacementCost" type="ifc:IfcCostValuePropertyType"/>
-          <element minOccurs="0" name="responsiblePerson" type="ifc:IfcPersonPropertyType"/>
-          <element minOccurs="0" name="currentValue" type="ifc:IfcCostValuePropertyType"/>
+          <element minOccurs="0" name="responsiblePerson" type="ifc:IfcPerson_PropertyType"/>
+          <element minOccurs="0" name="originalValue" type="ifc:IfcCostValue_PropertyType"/>
+          <element minOccurs="0" name="depreciatedValue" type="ifc:IfcCostValue_PropertyType"/>
+          <element minOccurs="0" name="totalReplacementCost" type="ifc:IfcCostValue_PropertyType"/>
+          <element minOccurs="0" name="currentValue" type="ifc:IfcCostValue_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAssetPropertyType">
+  <complexType name="IfcAsset_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAsset"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFurniture" substitutionGroup="ifc:IfcFurnishingElement" type="ifc:IfcFurnitureType"/>
-  <complexType name="IfcFurnitureType">
+  <element name="IfcFurniture" substitutionGroup="ifc:IfcFurnishingElement" type="ifc:IfcFurniture_Type"/>
+  <complexType name="IfcFurniture_Type">
     <complexContent>
-      <extension base="ifc:IfcFurnishingElementType">
+      <extension base="ifc:IfcFurnishingElement_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcFurnitureTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFurnitureTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFurniturePropertyType">
+  <complexType name="IfcFurniture_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFurniture"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFurnitureType" substitutionGroup="ifc:IfcFurnishingElementType" type="ifc:IfcFurnitureTypeType"/>
-  <complexType name="IfcFurnitureTypeType">
+  <element name="IfcFurnitureType" substitutionGroup="ifc:IfcFurnishingElementType" type="ifc:IfcFurnitureType_Type"/>
+  <complexType name="IfcFurnitureType_Type">
     <complexContent>
-      <extension base="ifc:IfcFurnishingElementTypeType">
+      <extension base="ifc:IfcFurnishingElementType_Type">
         <sequence>
-          <element name="assemblyPlace" type="ifc:IfcAssemblyPlaceEnumType"/>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcFurnitureTypeEnumType"/>
+          <element name="assemblyPlace" type="ifc:IfcAssemblyPlaceEnum_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFurnitureTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFurnitureTypePropertyType">
+  <complexType name="IfcFurnitureType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFurnitureType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcFurnitureTypeEnumType">
+  <element name="IfcFurnitureTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcFurnitureTypeEnum_Type"/>
+  <simpleType name="IfcFurnitureTypeEnum_Type">
     <restriction base="string">
       <enumeration value="BED"/>
       <enumeration value="CHAIR"/>
@@ -81,29 +82,36 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcInventory" substitutionGroup="ifc:IfcGroup" type="ifc:IfcInventoryType"/>
-  <complexType name="IfcInventoryType">
+  <complexType name="IfcFurnitureTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFurnitureTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcInventory" substitutionGroup="ifc:IfcGroup" type="ifc:IfcInventory_Type"/>
+  <complexType name="IfcInventory_Type">
     <complexContent>
-      <extension base="ifc:IfcGroupType">
+      <extension base="ifc:IfcGroup_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcInventoryTypeEnumType"/>
-          <element minOccurs="0" name="jurisdiction" type="ifc:IfcActorSelectPropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcInventoryTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="jurisdiction" type="ifc:IfcActorSelect_PropertyType"/>
           <element minOccurs="0" name="lastUpdateDate" type="date"/>
-          <element minOccurs="0" name="originalValue" type="ifc:IfcCostValuePropertyType"/>
-          <element minOccurs="0" name="currentValue" type="ifc:IfcCostValuePropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="responsiblePersons" type="ifc:IfcPersonPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="responsiblePersons" type="ifc:IfcPerson_PropertyType"/>
+          <element minOccurs="0" name="originalValue" type="ifc:IfcCostValue_PropertyType"/>
+          <element minOccurs="0" name="currentValue" type="ifc:IfcCostValue_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcInventoryPropertyType">
+  <complexType name="IfcInventory_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcInventory"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcInventoryTypeEnumType">
+  <element name="IfcInventoryTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcInventoryTypeEnum_Type"/>
+  <simpleType name="IfcInventoryTypeEnum_Type">
     <restriction base="string">
       <enumeration value="ASSETINVENTORY"/>
       <enumeration value="FURNITUREINVENTORY"/>
@@ -112,24 +120,31 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcOccupant" substitutionGroup="ifc:IfcActor" type="ifc:IfcOccupantType"/>
-  <complexType name="IfcOccupantType">
+  <complexType name="IfcInventoryTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcInventoryTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcOccupant" substitutionGroup="ifc:IfcActor" type="ifc:IfcOccupant_Type"/>
+  <complexType name="IfcOccupant_Type">
     <complexContent>
-      <extension base="ifc:IfcActorType">
+      <extension base="ifc:IfcActor_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcOccupantTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcOccupantTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcOccupantPropertyType">
+  <complexType name="IfcOccupant_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcOccupant"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcOccupantTypeEnumType">
+  <element name="IfcOccupantTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcOccupantTypeEnum_Type"/>
+  <simpleType name="IfcOccupantTypeEnum_Type">
     <restriction base="string">
       <enumeration value="ASSIGNEE"/>
       <enumeration value="ASSIGNOR"/>
@@ -142,41 +157,48 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcSystemFurnitureElement" substitutionGroup="ifc:IfcFurnishingElement" type="ifc:IfcSystemFurnitureElementType"/>
-  <complexType name="IfcSystemFurnitureElementType">
+  <complexType name="IfcOccupantTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcOccupantTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcSystemFurnitureElement" substitutionGroup="ifc:IfcFurnishingElement" type="ifc:IfcSystemFurnitureElement_Type"/>
+  <complexType name="IfcSystemFurnitureElement_Type">
     <complexContent>
-      <extension base="ifc:IfcFurnishingElementType">
+      <extension base="ifc:IfcFurnishingElement_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcSystemFurnitureElementTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcSystemFurnitureElementTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSystemFurnitureElementPropertyType">
+  <complexType name="IfcSystemFurnitureElement_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSystemFurnitureElement"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSystemFurnitureElementType" substitutionGroup="ifc:IfcFurnishingElementType" type="ifc:IfcSystemFurnitureElementTypeType"/>
-  <complexType name="IfcSystemFurnitureElementTypeType">
+  <element name="IfcSystemFurnitureElementType" substitutionGroup="ifc:IfcFurnishingElementType" type="ifc:IfcSystemFurnitureElementType_Type"/>
+  <complexType name="IfcSystemFurnitureElementType_Type">
     <complexContent>
-      <extension base="ifc:IfcFurnishingElementTypeType">
+      <extension base="ifc:IfcFurnishingElementType_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcSystemFurnitureElementTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcSystemFurnitureElementTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSystemFurnitureElementTypePropertyType">
+  <complexType name="IfcSystemFurnitureElementType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSystemFurnitureElementType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcSystemFurnitureElementTypeEnumType">
+  <element name="IfcSystemFurnitureElementTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcSystemFurnitureElementTypeEnum_Type"/>
+  <simpleType name="IfcSystemFurnitureElementTypeEnum_Type">
     <restriction base="string">
       <enumeration value="NOTDEFINED"/>
       <enumeration value="PANEL"/>
@@ -184,4 +206,10 @@
       <enumeration value="WORKSURFACE"/>
     </restriction>
   </simpleType>
+  <complexType name="IfcSystemFurnitureElementTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSystemFurnitureElementTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
 </schema>

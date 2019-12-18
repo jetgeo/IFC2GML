@@ -1,43 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcDomainLayer.xsd"/>
   <include schemaLocation="IfcSharedBldgServiceElements.xsd"/>
-  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcFireSuppressionTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcFireSuppressionTerminalType"/>
-  <complexType name="IfcFireSuppressionTerminalType">
+  <element name="IfcFireSuppressionTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcFireSuppressionTerminal_Type"/>
+  <complexType name="IfcFireSuppressionTerminal_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalType">
+      <extension base="ifc:IfcFlowTerminal_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcFireSuppressionTerminalTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcFireSuppressionTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFireSuppressionTerminalPropertyType">
+  <complexType name="IfcFireSuppressionTerminal_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFireSuppressionTerminal"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcFireSuppressionTerminalType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcFireSuppressionTerminalTypeType"/>
-  <complexType name="IfcFireSuppressionTerminalTypeType">
+  <element name="IfcFireSuppressionTerminalType" substitutionGroup="ifc:AbstractIfcFlowTerminalType" type="ifc:IfcFireSuppressionTerminalType_Type"/>
+  <complexType name="IfcFireSuppressionTerminalType_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalTypeType">
+      <extension base="ifc:AbstractIfcFlowTerminalType_Type">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcFireSuppressionTerminalTypeEnumType"/>
+          <element name="predefinedType" type="ifc:IfcFireSuppressionTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcFireSuppressionTerminalTypePropertyType">
+  <complexType name="IfcFireSuppressionTerminalType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcFireSuppressionTerminalType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcFireSuppressionTerminalTypeEnumType">
+  <element name="IfcFireSuppressionTerminalTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcFireSuppressionTerminalTypeEnum_Type"/>
+  <simpleType name="IfcFireSuppressionTerminalTypeEnum_Type">
     <restriction base="string">
       <enumeration value="BREECHINGINLET"/>
       <enumeration value="FIREHYDRANT"/>
@@ -48,41 +49,48 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcInterceptor" substitutionGroup="ifc:IfcFlowTreatmentDevice" type="ifc:IfcInterceptorType"/>
-  <complexType name="IfcInterceptorType">
+  <complexType name="IfcFireSuppressionTerminalTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcFireSuppressionTerminalTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcInterceptor" substitutionGroup="ifc:IfcFlowTreatmentDevice" type="ifc:IfcInterceptor_Type"/>
+  <complexType name="IfcInterceptor_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTreatmentDeviceType">
+      <extension base="ifc:IfcFlowTreatmentDevice_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcInterceptorTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcInterceptorTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcInterceptorPropertyType">
+  <complexType name="IfcInterceptor_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcInterceptor"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcInterceptorType" substitutionGroup="ifc:IfcFlowTreatmentDeviceType" type="ifc:IfcInterceptorTypeType"/>
-  <complexType name="IfcInterceptorTypeType">
+  <element name="IfcInterceptorType" substitutionGroup="ifc:AbstractIfcFlowTreatmentDeviceType" type="ifc:IfcInterceptorType_Type"/>
+  <complexType name="IfcInterceptorType_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTreatmentDeviceTypeType">
+      <extension base="ifc:AbstractIfcFlowTreatmentDeviceType_Type">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcInterceptorTypeEnumType"/>
+          <element name="predefinedType" type="ifc:IfcInterceptorTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcInterceptorTypePropertyType">
+  <complexType name="IfcInterceptorType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcInterceptorType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcInterceptorTypeEnumType">
+  <element name="IfcInterceptorTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcInterceptorTypeEnum_Type"/>
+  <simpleType name="IfcInterceptorTypeEnum_Type">
     <restriction base="string">
       <enumeration value="CYCLONIC"/>
       <enumeration value="GREASE"/>
@@ -92,41 +100,48 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcSanitaryTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcSanitaryTerminalType"/>
-  <complexType name="IfcSanitaryTerminalType">
+  <complexType name="IfcInterceptorTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcInterceptorTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcSanitaryTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcSanitaryTerminal_Type"/>
+  <complexType name="IfcSanitaryTerminal_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalType">
+      <extension base="ifc:IfcFlowTerminal_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcSanitaryTerminalTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcSanitaryTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSanitaryTerminalPropertyType">
+  <complexType name="IfcSanitaryTerminal_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSanitaryTerminal"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcSanitaryTerminalType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcSanitaryTerminalTypeType"/>
-  <complexType name="IfcSanitaryTerminalTypeType">
+  <element name="IfcSanitaryTerminalType" substitutionGroup="ifc:AbstractIfcFlowTerminalType" type="ifc:IfcSanitaryTerminalType_Type"/>
+  <complexType name="IfcSanitaryTerminalType_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalTypeType">
+      <extension base="ifc:AbstractIfcFlowTerminalType_Type">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcSanitaryTerminalTypeEnumType"/>
+          <element name="predefinedType" type="ifc:IfcSanitaryTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcSanitaryTerminalTypePropertyType">
+  <complexType name="IfcSanitaryTerminalType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcSanitaryTerminalType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcSanitaryTerminalTypeEnumType">
+  <element name="IfcSanitaryTerminalTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcSanitaryTerminalTypeEnum_Type"/>
+  <simpleType name="IfcSanitaryTerminalTypeEnum_Type">
     <restriction base="string">
       <enumeration value="BATH"/>
       <enumeration value="BIDET"/>
@@ -142,41 +157,48 @@
       <enumeration value="WCSEAT"/>
     </restriction>
   </simpleType>
-  <element name="IfcStackTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcStackTerminalType"/>
-  <complexType name="IfcStackTerminalType">
+  <complexType name="IfcSanitaryTerminalTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcSanitaryTerminalTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcStackTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcStackTerminal_Type"/>
+  <complexType name="IfcStackTerminal_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalType">
+      <extension base="ifc:IfcFlowTerminal_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcStackTerminalTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcStackTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStackTerminalPropertyType">
+  <complexType name="IfcStackTerminal_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStackTerminal"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcStackTerminalType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcStackTerminalTypeType"/>
-  <complexType name="IfcStackTerminalTypeType">
+  <element name="IfcStackTerminalType" substitutionGroup="ifc:AbstractIfcFlowTerminalType" type="ifc:IfcStackTerminalType_Type"/>
+  <complexType name="IfcStackTerminalType_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalTypeType">
+      <extension base="ifc:AbstractIfcFlowTerminalType_Type">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcStackTerminalTypeEnumType"/>
+          <element name="predefinedType" type="ifc:IfcStackTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStackTerminalTypePropertyType">
+  <complexType name="IfcStackTerminalType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStackTerminalType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcStackTerminalTypeEnumType">
+  <element name="IfcStackTerminalTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcStackTerminalTypeEnum_Type"/>
+  <simpleType name="IfcStackTerminalTypeEnum_Type">
     <restriction base="string">
       <enumeration value="BIRDCAGE"/>
       <enumeration value="COWL"/>
@@ -185,41 +207,48 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <element name="IfcWasteTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcWasteTerminalType"/>
-  <complexType name="IfcWasteTerminalType">
+  <complexType name="IfcStackTerminalTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcStackTerminalTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
+  <element name="IfcWasteTerminal" substitutionGroup="ifc:IfcFlowTerminal" type="ifc:IfcWasteTerminal_Type"/>
+  <complexType name="IfcWasteTerminal_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalType">
+      <extension base="ifc:IfcFlowTerminal_Type">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcWasteTerminalTypeEnumType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcWasteTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWasteTerminalPropertyType">
+  <complexType name="IfcWasteTerminal_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWasteTerminal"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcWasteTerminalType" substitutionGroup="ifc:IfcFlowTerminalType" type="ifc:IfcWasteTerminalTypeType"/>
-  <complexType name="IfcWasteTerminalTypeType">
+  <element name="IfcWasteTerminalType" substitutionGroup="ifc:AbstractIfcFlowTerminalType" type="ifc:IfcWasteTerminalType_Type"/>
+  <complexType name="IfcWasteTerminalType_Type">
     <complexContent>
-      <extension base="ifc:IfcFlowTerminalTypeType">
+      <extension base="ifc:AbstractIfcFlowTerminalType_Type">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcWasteTerminalTypeEnumType"/>
+          <element name="predefinedType" type="ifc:IfcWasteTerminalTypeEnum_PropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWasteTerminalTypePropertyType">
+  <complexType name="IfcWasteTerminalType_PropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWasteTerminalType"/>
     </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <attributeGroup ref="gco:ObjectReference"/>
+    <attribute ref="gco:nilReason"/>
   </complexType>
-  <simpleType name="IfcWasteTerminalTypeEnumType">
+  <element name="IfcWasteTerminalTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWasteTerminalTypeEnum_Type"/>
+  <simpleType name="IfcWasteTerminalTypeEnum_Type">
     <restriction base="string">
       <enumeration value="FLOORTRAP"/>
       <enumeration value="FLOORWASTE"/>
@@ -232,4 +261,10 @@
       <enumeration value="WASTETRAP"/>
     </restriction>
   </simpleType>
+  <complexType name="IfcWasteTerminalTypeEnum_PropertyType">
+    <sequence minOccurs="0">
+      <element ref="ifc:IfcWasteTerminalTypeEnum"/>
+    </sequence>
+    <attribute ref="gco:nilReason"/>
+  </complexType>
 </schema>
