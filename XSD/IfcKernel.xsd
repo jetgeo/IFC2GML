@@ -1009,7 +1009,7 @@
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="globalId" type="ifc:IfcGloballyUniqueIdPropertyType"/>
+          <element name="globalId" type="string"/>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="ownerHistory" type="ifc:IfcOwnerHistoryPropertyType"/>

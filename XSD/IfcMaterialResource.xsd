@@ -130,7 +130,7 @@
       <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element name="layerThickness" type="gml:LengthType"/>
-          <element minOccurs="0" name="isVentilated"/>
+          <element minOccurs="0" name="isVentilated" type="boolean"/>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="category" type="string"/>

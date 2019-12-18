@@ -1019,7 +1019,7 @@
       <extension base="ifc:IfcRelConnectsType">
         <sequence>
           <element minOccurs="0" name="interferenceType" type="string"/>
-          <element name="impliedOrder"/>
+          <element name="impliedOrder" type="boolean"/>
           <element name="relatingElement" type="ifc:IfcElementPropertyType"/>
           <element name="relatedElement" type="ifc:IfcElementPropertyType"/>
           <element minOccurs="0" name="interferenceGeometry" type="ifc:IfcConnectionGeometryPropertyType"/>

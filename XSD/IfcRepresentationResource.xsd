@@ -340,7 +340,7 @@
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element name="productDefinitional"/>
+          <element name="productDefinitional" type="boolean"/>
           <element minOccurs="0" name="partOfProductDefinitionShape" type="ifc:IfcProductRepresentationSelectPropertyType"/>
           <element maxOccurs="unbounded" name="shapeRepresentations" type="ifc:IfcShapeModelPropertyType"/>
         </sequence>

@@ -118,8 +118,8 @@
         <sequence>
           <element name="degree" type="integer"/>
           <element name="curveForm" type="ifc:IfcBSplineCurveFormType"/>
-          <element name="closedCurve"/>
-          <element name="selfIntersect"/>
+          <element name="closedCurve" type="boolean"/>
+          <element name="selfIntersect" type="boolean"/>
           <element name="upperIndexOnControlPoints" type="integer"/>
           <element maxOccurs="unbounded" minOccurs="2" name="controlPointsList" type="gss:GM_Point_PropertyType"/>
           <element maxOccurs="unbounded" minOccurs="0" name="controlPoints" type="gss:GM_Point_PropertyType"/>
@@ -172,9 +172,9 @@
           <element name="uDegree" type="integer"/>
           <element name="vDegree" type="integer"/>
           <element name="surfaceForm" type="ifc:IfcBSplineSurfaceFormType"/>
-          <element name="uClosed"/>
-          <element name="vClosed"/>
-          <element name="selfIntersect"/>
+          <element name="uClosed" type="boolean"/>
+          <element name="vClosed" type="boolean"/>
+          <element name="selfIntersect" type="boolean"/>
           <element name="uUpper" type="integer"/>
           <element name="vUpper" type="integer"/>
           <element maxOccurs="unbounded" minOccurs="2" name="controlPointsList" type="gss:GM_Point_PropertyType"/>
@@ -426,9 +426,9 @@
     <complexContent>
       <extension base="ifc:IfcBoundedCurveType">
         <sequence>
-          <element name="selfIntersect"/>
+          <element name="selfIntersect" type="boolean"/>
           <element name="nSegments" type="integer"/>
-          <element name="closedCurve"/>
+          <element name="closedCurve" type="boolean"/>
           <element maxOccurs="unbounded" name="segments" type="gml:CurvePropertyType"/>
         </sequence>
       </extension>
@@ -888,7 +888,7 @@
       <extension base="ifc:IfcOffsetCurveType">
         <sequence>
           <element name="distance" type="gml:LengthType"/>
-          <element name="selfIntersect"/>
+          <element name="selfIntersect" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
@@ -906,7 +906,7 @@
       <extension base="ifc:IfcOffsetCurveType">
         <sequence>
           <element name="distance" type="gml:LengthType"/>
-          <element name="selfIntersect"/>
+          <element name="selfIntersect" type="boolean"/>
           <element name="refDirection" type="ifc:IfcDirectionPropertyType"/>
         </sequence>
       </extension>
@@ -1258,7 +1258,7 @@
       <extension base="ifc:IfcGeometricRepresentationItemType">
         <sequence>
           <element name="dim" type="integer"/>
-          <element minOccurs="0" name="surface"/>
+          <element minOccurs="0" name="surface" type="gml:SurfacePropertyType"/>
         </sequence>
       </extension>
     </complexContent>

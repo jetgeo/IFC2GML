@@ -276,9 +276,9 @@
     <complexContent>
       <extension base="ifc:IfcPresentationLayerAssignmentType">
         <sequence>
-          <element name="layerOn"/>
-          <element name="layerFrozen"/>
-          <element name="layerBlocked"/>
+          <element name="layerOn" type="boolean"/>
+          <element name="layerFrozen" type="boolean"/>
+          <element name="layerBlocked" type="boolean"/>
           <element maxOccurs="unbounded" minOccurs="0" name="layerStyles" type="ifc:IfcPresentationStylePropertyType"/>
         </sequence>
       </extension>
