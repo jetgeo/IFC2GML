@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcDomainLayer.xsd"/>
   <include schemaLocation="IfcGeometricConstraintResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
@@ -7,11 +7,9 @@
   <include schemaLocation="IfcProductExtension.xsd"/>
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcStructuralLoadResource.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcActionSourceTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcActionSourceTypeEnum_Type"/>
-  <simpleType name="IfcActionSourceTypeEnum_Type">
+  <simpleType name="IfcActionSourceTypeEnumType">
     <restriction base="string">
       <enumeration value="BRAKES"/>
       <enumeration value="BUOYANCY"/>
@@ -42,14 +40,7 @@
       <enumeration value="WIND_W"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcActionSourceTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcActionSourceTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcActionTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcActionTypeEnum_Type"/>
-  <simpleType name="IfcActionTypeEnum_Type">
+  <simpleType name="IfcActionTypeEnumType">
     <restriction base="string">
       <enumeration value="EXTRAORDINARY_A"/>
       <enumeration value="NOTDEFINED"/>
@@ -58,14 +49,7 @@
       <enumeration value="VARIABLE_Q"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcActionTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcActionTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcAnalysisModelTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcAnalysisModelTypeEnum_Type"/>
-  <simpleType name="IfcAnalysisModelTypeEnum_Type">
+  <simpleType name="IfcAnalysisModelTypeEnumType">
     <restriction base="string">
       <enumeration value="IN_PLANE_LOADING_2D"/>
       <enumeration value="LOADING_3D"/>
@@ -74,14 +58,7 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcAnalysisModelTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcAnalysisModelTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcAnalysisTheoryTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcAnalysisTheoryTypeEnum_Type"/>
-  <simpleType name="IfcAnalysisTheoryTypeEnum_Type">
+  <simpleType name="IfcAnalysisTheoryTypeEnumType">
     <restriction base="string">
       <enumeration value="FIRST_ORDER_THEORY"/>
       <enumeration value="FULL_NONLINEAR_THEORY"/>
@@ -91,14 +68,7 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcAnalysisTheoryTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcAnalysisTheoryTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcLoadGroupTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcLoadGroupTypeEnum_Type"/>
-  <simpleType name="IfcLoadGroupTypeEnum_Type">
+  <simpleType name="IfcLoadGroupTypeEnumType">
     <restriction base="string">
       <enumeration value="LOAD_CASE"/>
       <enumeration value="LOAD_COMBINATION"/>
@@ -107,188 +77,195 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcLoadGroupTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcLoadGroupTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcProjectedOrTrueLengthEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcProjectedOrTrueLengthEnum_Type"/>
-  <simpleType name="IfcProjectedOrTrueLengthEnum_Type">
+  <simpleType name="IfcProjectedOrTrueLengthEnumType">
     <restriction base="string">
       <enumeration value="PROJECTED_LENGTH"/>
       <enumeration value="TRUE_LENGTH"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcProjectedOrTrueLengthEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcProjectedOrTrueLengthEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcRelConnectsStructuralActivity" substitutionGroup="ifc:AbstractIfcRelConnects" type="ifc:IfcRelConnectsStructuralActivity_Type"/>
-  <complexType name="IfcRelConnectsStructuralActivity_Type">
+  <element name="IfcRelConnectsStructuralActivity" substitutionGroup="ifc:IfcRelConnects" type="ifc:IfcRelConnectsStructuralActivityType"/>
+  <complexType name="IfcRelConnectsStructuralActivityType">
     <complexContent>
-      <extension base="ifc:AbstractIfcRelConnects_Type">
+      <extension base="ifc:IfcRelConnectsType">
         <sequence>
-          <element name="relatingElement" type="ifc:IfcStructuralActivityAssignmentSelect_PropertyType"/>
-          <element name="relatedStructuralActivity" type="ifc:AbstractIfcStructuralActivity_PropertyType"/>
+          <element name="relatingElement" type="ifc:IfcStructuralActivityAssignmentSelectPropertyType"/>
+          <element name="relatedStructuralActivity" type="ifc:IfcStructuralActivityPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelConnectsStructuralActivity_PropertyType">
+  <complexType name="IfcRelConnectsStructuralActivityPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelConnectsStructuralActivity"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcRelConnectsStructuralMember" substitutionGroup="ifc:AbstractIfcRelConnects" type="ifc:IfcRelConnectsStructuralMember_Type"/>
-  <complexType name="IfcRelConnectsStructuralMember_Type">
+  <element name="IfcRelConnectsStructuralMember" substitutionGroup="ifc:IfcRelConnects" type="ifc:IfcRelConnectsStructuralMemberType"/>
+  <complexType name="IfcRelConnectsStructuralMemberType">
     <complexContent>
-      <extension base="ifc:AbstractIfcRelConnects_Type">
+      <extension base="ifc:IfcRelConnectsType">
         <sequence>
           <element minOccurs="0" name="supportedLength" type="gml:LengthType"/>
-          <element name="relatedStructuralConnection" type="ifc:AbstractIfcStructuralConnection_PropertyType"/>
-          <element minOccurs="0" name="appliedCondition" type="ifc:AbstractIfcBoundaryCondition_PropertyType"/>
-          <element minOccurs="0" name="additionalConditions" type="ifc:AbstractIfcStructuralConnectionCondition_PropertyType"/>
-          <element minOccurs="0" name="conditionCoordinateSystem" type="ifc:IfcAxis2Placement3D_PropertyType"/>
-          <element name="relatingStructuralMember" type="ifc:AbstractIfcStructuralMember_PropertyType"/>
+          <element name="relatedStructuralConnection" type="ifc:IfcStructuralConnectionPropertyType"/>
+          <element minOccurs="0" name="appliedCondition" type="ifc:IfcBoundaryConditionPropertyType"/>
+          <element minOccurs="0" name="additionalConditions" type="ifc:IfcStructuralConnectionConditionPropertyType"/>
+          <element minOccurs="0" name="conditionCoordinateSystem" type="ifc:IfcAxis2Placement3DPropertyType"/>
+          <element name="relatingStructuralMember" type="ifc:IfcStructuralMemberPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelConnectsStructuralMember_PropertyType">
+  <complexType name="IfcRelConnectsStructuralMemberPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelConnectsStructuralMember"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcRelConnectsWithEccentricity" substitutionGroup="ifc:IfcRelConnectsStructuralMember" type="ifc:IfcRelConnectsWithEccentricity_Type"/>
-  <complexType name="IfcRelConnectsWithEccentricity_Type">
+  <element name="IfcRelConnectsWithEccentricity" substitutionGroup="ifc:IfcRelConnectsStructuralMember" type="ifc:IfcRelConnectsWithEccentricityType"/>
+  <complexType name="IfcRelConnectsWithEccentricityType">
     <complexContent>
-      <extension base="ifc:IfcRelConnectsStructuralMember_Type">
+      <extension base="ifc:IfcRelConnectsStructuralMemberType">
         <sequence>
-          <element name="connectionConstraint" type="ifc:AbstractIfcConnectionGeometry_PropertyType"/>
+          <element name="connectionConstraint" type="ifc:IfcConnectionGeometryPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelConnectsWithEccentricity_PropertyType">
+  <complexType name="IfcRelConnectsWithEccentricityPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelConnectsWithEccentricity"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStructuralAction" substitutionGroup="ifc:AbstractIfcStructuralActivity" type="ifc:AbstractIfcStructuralAction_Type"/>
-  <complexType abstract="true" name="AbstractIfcStructuralAction_Type">
+  <element abstract="true" name="IfcStructuralAction" substitutionGroup="ifc:IfcStructuralActivity" type="ifc:IfcStructuralActionType"/>
+  <complexType abstract="true" name="IfcStructuralActionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralActivity_Type">
+      <extension base="ifc:IfcStructuralActivityType">
         <sequence>
           <element minOccurs="0" name="destabilizingLoad" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStructuralAction_PropertyType">
+  <complexType name="IfcStructuralActionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStructuralAction"/>
+      <element ref="ifc:IfcStructuralAction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStructuralActivity" substitutionGroup="ifc:AbstractIfcProduct" type="ifc:AbstractIfcStructuralActivity_Type"/>
-  <complexType abstract="true" name="AbstractIfcStructuralActivity_Type">
+  <element abstract="true" name="IfcStructuralActivity" substitutionGroup="ifc:IfcProduct" type="ifc:IfcStructuralActivityType"/>
+  <complexType abstract="true" name="IfcStructuralActivityType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProduct_Type">
+      <extension base="ifc:IfcProductType">
         <sequence>
-          <element name="globalOrLocal" type="ifc:IfcGlobalOrLocalEnum_PropertyType"/>
-          <element name="appliedLoad" type="ifc:AbstractIfcStructuralLoad_PropertyType"/>
+          <element name="globalOrLocal" type="ifc:IfcGlobalOrLocalEnumType"/>
+          <element name="appliedLoad" type="ifc:IfcStructuralLoadPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStructuralActivity_PropertyType">
+  <complexType name="IfcStructuralActivityPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStructuralActivity"/>
+      <element ref="ifc:IfcStructuralActivity"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralActivityAssignmentSelect" type="ifc:IfcStructuralActivityAssignmentSelect_Type"/>
-  <complexType name="IfcStructuralActivityAssignmentSelect_Type">
+  <element name="IfcStructuralActivityAssignmentSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcStructuralActivityAssignmentSelectType"/>
+  <complexType name="IfcStructuralActivityAssignmentSelectType">
     <choice>
-      <element name="element" type="ifc:AbstractIfcElement_PropertyType"/>
-      <element name="structuralItem" type="ifc:AbstractIfcStructuralItem_PropertyType"/>
+      <element name="element">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcElement"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="structuralItem">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcStructuralItem"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
     </choice>
   </complexType>
-  <complexType name="IfcStructuralActivityAssignmentSelect_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcStructuralActivityAssignmentSelectPropertyType">
+    <sequence>
       <element ref="ifc:IfcStructuralActivityAssignmentSelect"/>
     </sequence>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcStructuralAnalysisModel" substitutionGroup="ifc:IfcSystem" type="ifc:IfcStructuralAnalysisModel_Type"/>
-  <complexType name="IfcStructuralAnalysisModel_Type">
+  <element name="IfcStructuralAnalysisModel" substitutionGroup="ifc:IfcSystem" type="ifc:IfcStructuralAnalysisModelType"/>
+  <complexType name="IfcStructuralAnalysisModelType">
     <complexContent>
-      <extension base="ifc:IfcSystem_Type">
+      <extension base="ifc:IfcSystemType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcAnalysisModelTypeEnum_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="hasResults" type="ifc:IfcStructuralResultGroup_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="loadedBy" type="ifc:IfcStructuralLoadGroup_PropertyType"/>
-          <element minOccurs="0" name="orientationOf2DPlane" type="ifc:IfcAxis2Placement3D_PropertyType"/>
-          <element minOccurs="0" name="sharedPlacement" type="ifc:AbstractIfcObjectPlacement_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcAnalysisModelTypeEnumType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="hasResults" type="ifc:IfcStructuralResultGroupPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="loadedBy" type="ifc:IfcStructuralLoadGroupPropertyType"/>
+          <element minOccurs="0" name="orientationOf2DPlane" type="ifc:IfcAxis2Placement3DPropertyType"/>
+          <element minOccurs="0" name="sharedPlacement" type="ifc:IfcObjectPlacementPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralAnalysisModel_PropertyType">
+  <complexType name="IfcStructuralAnalysisModelPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralAnalysisModel"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStructuralConnection" substitutionGroup="ifc:AbstractIfcStructuralItem" type="ifc:AbstractIfcStructuralConnection_Type"/>
-  <complexType abstract="true" name="AbstractIfcStructuralConnection_Type">
+  <element abstract="true" name="IfcStructuralConnection" substitutionGroup="ifc:IfcStructuralItem" type="ifc:IfcStructuralConnectionType"/>
+  <complexType abstract="true" name="IfcStructuralConnectionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralItem_Type">
+      <extension base="ifc:IfcStructuralItemType">
         <sequence>
-          <element minOccurs="0" name="appliedCondition" type="ifc:AbstractIfcBoundaryCondition_PropertyType"/>
+          <element minOccurs="0" name="appliedCondition" type="ifc:IfcBoundaryConditionPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStructuralConnection_PropertyType">
+  <complexType name="IfcStructuralConnectionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStructuralConnection"/>
+      <element ref="ifc:IfcStructuralConnection"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralCurveAction" substitutionGroup="ifc:AbstractIfcStructuralAction" type="ifc:IfcStructuralCurveAction_Type"/>
-  <complexType name="IfcStructuralCurveAction_Type">
+  <element name="IfcStructuralCurveAction" substitutionGroup="ifc:IfcStructuralAction" type="ifc:IfcStructuralCurveActionType"/>
+  <complexType name="IfcStructuralCurveActionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralAction_Type">
+      <extension base="ifc:IfcStructuralActionType">
         <sequence>
-          <element minOccurs="0" name="projectedOrTrue" type="ifc:IfcProjectedOrTrueLengthEnum_PropertyType"/>
-          <element name="predefinedType" type="ifc:IfcStructuralCurveActivityTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="projectedOrTrue" type="ifc:IfcProjectedOrTrueLengthEnumType"/>
+          <element name="predefinedType" type="ifc:IfcStructuralCurveActivityTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralCurveAction_PropertyType">
+  <complexType name="IfcStructuralCurveActionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralCurveAction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralCurveActivityTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcStructuralCurveActivityTypeEnum_Type"/>
-  <simpleType name="IfcStructuralCurveActivityTypeEnum_Type">
+  <simpleType name="IfcStructuralCurveActivityTypeEnumType">
     <restriction base="string">
       <enumeration value="CONST"/>
       <enumeration value="DISCRETE"/>
@@ -301,49 +278,42 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcStructuralCurveActivityTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcStructuralCurveActivityTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcStructuralCurveConnection" substitutionGroup="ifc:AbstractIfcStructuralConnection" type="ifc:IfcStructuralCurveConnection_Type"/>
-  <complexType name="IfcStructuralCurveConnection_Type">
+  <element name="IfcStructuralCurveConnection" substitutionGroup="ifc:IfcStructuralConnection" type="ifc:IfcStructuralCurveConnectionType"/>
+  <complexType name="IfcStructuralCurveConnectionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralConnection_Type">
+      <extension base="ifc:IfcStructuralConnectionType">
         <sequence>
-          <element name="axis" type="ifc:IfcDirection_PropertyType"/>
+          <element name="axis" type="ifc:IfcDirectionPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralCurveConnection_PropertyType">
+  <complexType name="IfcStructuralCurveConnectionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralCurveConnection"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralCurveMember" substitutionGroup="ifc:AbstractIfcStructuralMember" type="ifc:IfcStructuralCurveMember_Type"/>
-  <complexType name="IfcStructuralCurveMember_Type">
+  <element name="IfcStructuralCurveMember" substitutionGroup="ifc:IfcStructuralMember" type="ifc:IfcStructuralCurveMemberType"/>
+  <complexType name="IfcStructuralCurveMemberType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralMember_Type">
+      <extension base="ifc:IfcStructuralMemberType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcStructuralCurveMemberTypeEnum_PropertyType"/>
-          <element name="axis" type="ifc:IfcDirection_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcStructuralCurveMemberTypeEnumType"/>
+          <element name="axis" type="ifc:IfcDirectionPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralCurveMember_PropertyType">
+  <complexType name="IfcStructuralCurveMemberPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralCurveMember"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralCurveMemberTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcStructuralCurveMemberTypeEnum_Type"/>
-  <simpleType name="IfcStructuralCurveMemberTypeEnum_Type">
+  <simpleType name="IfcStructuralCurveMemberTypeEnumType">
     <restriction base="string">
       <enumeration value="CABLE"/>
       <enumeration value="COMPRESSION_MEMBER"/>
@@ -354,243 +324,236 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcStructuralCurveMemberTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcStructuralCurveMemberTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcStructuralCurveMemberVarying" substitutionGroup="ifc:IfcStructuralCurveMember" type="ifc:IfcStructuralCurveMemberVarying_Type"/>
-  <complexType name="IfcStructuralCurveMemberVarying_Type">
+  <element name="IfcStructuralCurveMemberVarying" substitutionGroup="ifc:IfcStructuralCurveMember" type="ifc:IfcStructuralCurveMemberVaryingType"/>
+  <complexType name="IfcStructuralCurveMemberVaryingType">
     <complexContent>
-      <extension base="ifc:IfcStructuralCurveMember_Type">
+      <extension base="ifc:IfcStructuralCurveMemberType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralCurveMemberVarying_PropertyType">
+  <complexType name="IfcStructuralCurveMemberVaryingPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralCurveMemberVarying"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralCurveReaction" substitutionGroup="ifc:AbstractIfcStructuralReaction" type="ifc:IfcStructuralCurveReaction_Type"/>
-  <complexType name="IfcStructuralCurveReaction_Type">
+  <element name="IfcStructuralCurveReaction" substitutionGroup="ifc:IfcStructuralReaction" type="ifc:IfcStructuralCurveReactionType"/>
+  <complexType name="IfcStructuralCurveReactionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralReaction_Type">
+      <extension base="ifc:IfcStructuralReactionType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcStructuralCurveActivityTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcStructuralCurveActivityTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralCurveReaction_PropertyType">
+  <complexType name="IfcStructuralCurveReactionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralCurveReaction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStructuralItem" substitutionGroup="ifc:AbstractIfcProduct" type="ifc:AbstractIfcStructuralItem_Type"/>
-  <complexType abstract="true" name="AbstractIfcStructuralItem_Type">
+  <element abstract="true" name="IfcStructuralItem" substitutionGroup="ifc:IfcProduct" type="ifc:IfcStructuralItemType"/>
+  <complexType abstract="true" name="IfcStructuralItemType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProduct_Type">
+      <extension base="ifc:IfcProductType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStructuralItem_PropertyType">
+  <complexType name="IfcStructuralItemPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStructuralItem"/>
+      <element ref="ifc:IfcStructuralItem"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralLinearAction" substitutionGroup="ifc:IfcStructuralCurveAction" type="ifc:IfcStructuralLinearAction_Type"/>
-  <complexType name="IfcStructuralLinearAction_Type">
+  <element name="IfcStructuralLinearAction" substitutionGroup="ifc:IfcStructuralCurveAction" type="ifc:IfcStructuralLinearActionType"/>
+  <complexType name="IfcStructuralLinearActionType">
     <complexContent>
-      <extension base="ifc:IfcStructuralCurveAction_Type">
+      <extension base="ifc:IfcStructuralCurveActionType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralLinearAction_PropertyType">
+  <complexType name="IfcStructuralLinearActionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralLinearAction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralLoadCase" substitutionGroup="ifc:IfcStructuralLoadGroup" type="ifc:IfcStructuralLoadCase_Type"/>
-  <complexType name="IfcStructuralLoadCase_Type">
+  <element name="IfcStructuralLoadCase" substitutionGroup="ifc:IfcStructuralLoadGroup" type="ifc:IfcStructuralLoadCaseType"/>
+  <complexType name="IfcStructuralLoadCaseType">
     <complexContent>
-      <extension base="ifc:IfcStructuralLoadGroup_Type">
+      <extension base="ifc:IfcStructuralLoadGroupType">
         <sequence>
           <element maxOccurs="3" minOccurs="0" name="selfWeightCoefficients" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralLoadCase_PropertyType">
+  <complexType name="IfcStructuralLoadCasePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralLoadCase"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralLoadGroup" substitutionGroup="ifc:IfcGroup" type="ifc:IfcStructuralLoadGroup_Type"/>
-  <complexType name="IfcStructuralLoadGroup_Type">
+  <element name="IfcStructuralLoadGroup" substitutionGroup="ifc:IfcGroup" type="ifc:IfcStructuralLoadGroupType"/>
+  <complexType name="IfcStructuralLoadGroupType">
     <complexContent>
-      <extension base="ifc:IfcGroup_Type">
+      <extension base="ifc:IfcGroupType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcLoadGroupTypeEnum_PropertyType"/>
-          <element name="actionType" type="ifc:IfcActionTypeEnum_PropertyType"/>
-          <element name="actionSource" type="ifc:IfcActionSourceTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcLoadGroupTypeEnumType"/>
+          <element name="actionType" type="ifc:IfcActionTypeEnumType"/>
+          <element name="actionSource" type="ifc:IfcActionSourceTypeEnumType"/>
           <element minOccurs="0" name="coefficient" type="gml:MeasureType"/>
           <element minOccurs="0" name="purpose" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralLoadGroup_PropertyType">
+  <complexType name="IfcStructuralLoadGroupPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralLoadGroup"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStructuralMember" substitutionGroup="ifc:AbstractIfcStructuralItem" type="ifc:AbstractIfcStructuralMember_Type"/>
-  <complexType abstract="true" name="AbstractIfcStructuralMember_Type">
+  <element abstract="true" name="IfcStructuralMember" substitutionGroup="ifc:IfcStructuralItem" type="ifc:IfcStructuralMemberType"/>
+  <complexType abstract="true" name="IfcStructuralMemberType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralItem_Type">
+      <extension base="ifc:IfcStructuralItemType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStructuralMember_PropertyType">
+  <complexType name="IfcStructuralMemberPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStructuralMember"/>
+      <element ref="ifc:IfcStructuralMember"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralPlanarAction" substitutionGroup="ifc:IfcStructuralSurfaceAction" type="ifc:IfcStructuralPlanarAction_Type"/>
-  <complexType name="IfcStructuralPlanarAction_Type">
+  <element name="IfcStructuralPlanarAction" substitutionGroup="ifc:IfcStructuralSurfaceAction" type="ifc:IfcStructuralPlanarActionType"/>
+  <complexType name="IfcStructuralPlanarActionType">
     <complexContent>
-      <extension base="ifc:IfcStructuralSurfaceAction_Type">
+      <extension base="ifc:IfcStructuralSurfaceActionType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralPlanarAction_PropertyType">
+  <complexType name="IfcStructuralPlanarActionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralPlanarAction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralPointAction" substitutionGroup="ifc:AbstractIfcStructuralAction" type="ifc:IfcStructuralPointAction_Type"/>
-  <complexType name="IfcStructuralPointAction_Type">
+  <element name="IfcStructuralPointAction" substitutionGroup="ifc:IfcStructuralAction" type="ifc:IfcStructuralPointActionType"/>
+  <complexType name="IfcStructuralPointActionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralAction_Type">
+      <extension base="ifc:IfcStructuralActionType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralPointAction_PropertyType">
+  <complexType name="IfcStructuralPointActionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralPointAction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralPointConnection" substitutionGroup="ifc:AbstractIfcStructuralConnection" type="ifc:IfcStructuralPointConnection_Type"/>
-  <complexType name="IfcStructuralPointConnection_Type">
+  <element name="IfcStructuralPointConnection" substitutionGroup="ifc:IfcStructuralConnection" type="ifc:IfcStructuralPointConnectionType"/>
+  <complexType name="IfcStructuralPointConnectionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralConnection_Type">
+      <extension base="ifc:IfcStructuralConnectionType">
         <sequence>
-          <element minOccurs="0" name="conditionCoordinateSystem" type="ifc:IfcAxis2Placement3D_PropertyType"/>
+          <element minOccurs="0" name="conditionCoordinateSystem" type="ifc:IfcAxis2Placement3DPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralPointConnection_PropertyType">
+  <complexType name="IfcStructuralPointConnectionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralPointConnection"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralPointReaction" substitutionGroup="ifc:AbstractIfcStructuralReaction" type="ifc:IfcStructuralPointReaction_Type"/>
-  <complexType name="IfcStructuralPointReaction_Type">
+  <element name="IfcStructuralPointReaction" substitutionGroup="ifc:IfcStructuralReaction" type="ifc:IfcStructuralPointReactionType"/>
+  <complexType name="IfcStructuralPointReactionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralReaction_Type">
+      <extension base="ifc:IfcStructuralReactionType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralPointReaction_PropertyType">
+  <complexType name="IfcStructuralPointReactionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralPointReaction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStructuralReaction" substitutionGroup="ifc:AbstractIfcStructuralActivity" type="ifc:AbstractIfcStructuralReaction_Type"/>
-  <complexType abstract="true" name="AbstractIfcStructuralReaction_Type">
+  <element abstract="true" name="IfcStructuralReaction" substitutionGroup="ifc:IfcStructuralActivity" type="ifc:IfcStructuralReactionType"/>
+  <complexType abstract="true" name="IfcStructuralReactionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralActivity_Type">
+      <extension base="ifc:IfcStructuralActivityType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStructuralReaction_PropertyType">
+  <complexType name="IfcStructuralReactionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStructuralReaction"/>
+      <element ref="ifc:IfcStructuralReaction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralResultGroup" substitutionGroup="ifc:IfcGroup" type="ifc:IfcStructuralResultGroup_Type"/>
-  <complexType name="IfcStructuralResultGroup_Type">
+  <element name="IfcStructuralResultGroup" substitutionGroup="ifc:IfcGroup" type="ifc:IfcStructuralResultGroupType"/>
+  <complexType name="IfcStructuralResultGroupType">
     <complexContent>
-      <extension base="ifc:IfcGroup_Type">
+      <extension base="ifc:IfcGroupType">
         <sequence>
-          <element name="theoryType" type="ifc:IfcAnalysisTheoryTypeEnum_PropertyType"/>
+          <element name="theoryType" type="ifc:IfcAnalysisTheoryTypeEnumType"/>
           <element name="isLinear" type="boolean"/>
-          <element minOccurs="0" name="resultForLoadGroup" type="ifc:IfcStructuralLoadGroup_PropertyType"/>
+          <element minOccurs="0" name="resultForLoadGroup" type="ifc:IfcStructuralLoadGroupPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralResultGroup_PropertyType">
+  <complexType name="IfcStructuralResultGroupPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralResultGroup"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralSurfaceAction" substitutionGroup="ifc:AbstractIfcStructuralAction" type="ifc:IfcStructuralSurfaceAction_Type"/>
-  <complexType name="IfcStructuralSurfaceAction_Type">
+  <element name="IfcStructuralSurfaceAction" substitutionGroup="ifc:IfcStructuralAction" type="ifc:IfcStructuralSurfaceActionType"/>
+  <complexType name="IfcStructuralSurfaceActionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralAction_Type">
+      <extension base="ifc:IfcStructuralActionType">
         <sequence>
-          <element minOccurs="0" name="projectedOrTrue" type="ifc:IfcProjectedOrTrueLengthEnum_PropertyType"/>
-          <element name="predefinedType" type="ifc:IfcStructuralSurfaceActivityTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="projectedOrTrue" type="ifc:IfcProjectedOrTrueLengthEnumType"/>
+          <element name="predefinedType" type="ifc:IfcStructuralSurfaceActivityTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralSurfaceAction_PropertyType">
+  <complexType name="IfcStructuralSurfaceActionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralSurfaceAction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralSurfaceActivityTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcStructuralSurfaceActivityTypeEnum_Type"/>
-  <simpleType name="IfcStructuralSurfaceActivityTypeEnum_Type">
+  <simpleType name="IfcStructuralSurfaceActivityTypeEnumType">
     <restriction base="string">
       <enumeration value="BILINEAR"/>
       <enumeration value="CONST"/>
@@ -600,47 +563,40 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcStructuralSurfaceActivityTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcStructuralSurfaceActivityTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcStructuralSurfaceConnection" substitutionGroup="ifc:AbstractIfcStructuralConnection" type="ifc:IfcStructuralSurfaceConnection_Type"/>
-  <complexType name="IfcStructuralSurfaceConnection_Type">
+  <element name="IfcStructuralSurfaceConnection" substitutionGroup="ifc:IfcStructuralConnection" type="ifc:IfcStructuralSurfaceConnectionType"/>
+  <complexType name="IfcStructuralSurfaceConnectionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralConnection_Type">
+      <extension base="ifc:IfcStructuralConnectionType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralSurfaceConnection_PropertyType">
+  <complexType name="IfcStructuralSurfaceConnectionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralSurfaceConnection"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralSurfaceMember" substitutionGroup="ifc:AbstractIfcStructuralMember" type="ifc:IfcStructuralSurfaceMember_Type"/>
-  <complexType name="IfcStructuralSurfaceMember_Type">
+  <element name="IfcStructuralSurfaceMember" substitutionGroup="ifc:IfcStructuralMember" type="ifc:IfcStructuralSurfaceMemberType"/>
+  <complexType name="IfcStructuralSurfaceMemberType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralMember_Type">
+      <extension base="ifc:IfcStructuralMemberType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcStructuralSurfaceMemberTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcStructuralSurfaceMemberTypeEnumType"/>
           <element minOccurs="0" name="thickness" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralSurfaceMember_PropertyType">
+  <complexType name="IfcStructuralSurfaceMemberPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralSurfaceMember"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralSurfaceMemberTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcStructuralSurfaceMemberTypeEnum_Type"/>
-  <simpleType name="IfcStructuralSurfaceMemberTypeEnum_Type">
+  <simpleType name="IfcStructuralSurfaceMemberTypeEnumType">
     <restriction base="string">
       <enumeration value="BENDING_ELEMENT"/>
       <enumeration value="MEMBRANE_ELEMENT"/>
@@ -649,42 +605,36 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcStructuralSurfaceMemberTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcStructuralSurfaceMemberTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcStructuralSurfaceMemberVarying" substitutionGroup="ifc:IfcStructuralSurfaceMember" type="ifc:IfcStructuralSurfaceMemberVarying_Type"/>
-  <complexType name="IfcStructuralSurfaceMemberVarying_Type">
+  <element name="IfcStructuralSurfaceMemberVarying" substitutionGroup="ifc:IfcStructuralSurfaceMember" type="ifc:IfcStructuralSurfaceMemberVaryingType"/>
+  <complexType name="IfcStructuralSurfaceMemberVaryingType">
     <complexContent>
-      <extension base="ifc:IfcStructuralSurfaceMember_Type">
+      <extension base="ifc:IfcStructuralSurfaceMemberType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralSurfaceMemberVarying_PropertyType">
+  <complexType name="IfcStructuralSurfaceMemberVaryingPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralSurfaceMemberVarying"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStructuralSurfaceReaction" substitutionGroup="ifc:AbstractIfcStructuralReaction" type="ifc:IfcStructuralSurfaceReaction_Type"/>
-  <complexType name="IfcStructuralSurfaceReaction_Type">
+  <element name="IfcStructuralSurfaceReaction" substitutionGroup="ifc:IfcStructuralReaction" type="ifc:IfcStructuralSurfaceReactionType"/>
+  <complexType name="IfcStructuralSurfaceReactionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStructuralReaction_Type">
+      <extension base="ifc:IfcStructuralReactionType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcStructuralSurfaceActivityTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcStructuralSurfaceActivityTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStructuralSurfaceReaction_PropertyType">
+  <complexType name="IfcStructuralSurfaceReactionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStructuralSurfaceReaction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
 </schema>

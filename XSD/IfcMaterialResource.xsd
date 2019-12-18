@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
@@ -8,55 +8,34 @@
   <include schemaLocation="IfcPropertyResource.xsd"/>
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcCardinalPointReference" substitutionGroup="gco:AbstractObject" type="ifc:IfcCardinalPointReference_Type"/>
-  <complexType name="IfcCardinalPointReference_Type">
-    <complexContent>
-      <extension base="gco:AbstractObject_Type">
-        <sequence/>
-      </extension>
-    </complexContent>
+  <element name="IfcCardinalPointReference" substitutionGroup="gml:AbstractObject" type="ifc:IfcCardinalPointReferenceType"/>
+  <complexType name="IfcCardinalPointReferenceType">
+    <sequence/>
   </complexType>
-  <complexType name="IfcCardinalPointReference_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcCardinalPointReferencePropertyType">
+    <sequence>
       <element ref="ifc:IfcCardinalPointReference"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcDirectionSenseEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDirectionSenseEnum_Type"/>
-  <simpleType name="IfcDirectionSenseEnum_Type">
+  <simpleType name="IfcDirectionSenseEnumType">
     <restriction base="string">
       <enumeration value="NEGATIVE"/>
       <enumeration value="POSITIVE"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcDirectionSenseEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcDirectionSenseEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcLayerSetDirectionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcLayerSetDirectionEnum_Type"/>
-  <simpleType name="IfcLayerSetDirectionEnum_Type">
+  <simpleType name="IfcLayerSetDirectionEnumType">
     <restriction base="string">
       <enumeration value="AXIS1"/>
       <enumeration value="AXIS2"/>
       <enumeration value="AXIS3"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcLayerSetDirectionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcLayerSetDirectionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcMaterial" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterial_Type"/>
-  <complexType name="IfcMaterial_Type">
+  <element name="IfcMaterial" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialType"/>
+  <complexType name="IfcMaterialType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
@@ -65,90 +44,90 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterial_PropertyType">
+  <complexType name="IfcMaterialPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterial"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialClassificationRelationship" substitutionGroup="gco:AbstractObject" type="ifc:IfcMaterialClassificationRelationship_Type"/>
-  <complexType name="IfcMaterialClassificationRelationship_Type">
+  <element name="IfcMaterialClassificationRelationship" substitutionGroup="gml:AbstractFeature" type="ifc:IfcMaterialClassificationRelationshipType"/>
+  <complexType name="IfcMaterialClassificationRelationshipType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="materialClassifications" type="ifc:IfcClassificationSelect_PropertyType"/>
-          <element name="classifiedMaterial" type="ifc:IfcMaterial_PropertyType"/>
+          <element maxOccurs="unbounded" name="materialClassifications" type="ifc:IfcClassificationSelectPropertyType"/>
+          <element name="classifiedMaterial" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialClassificationRelationship_PropertyType">
+  <complexType name="IfcMaterialClassificationRelationshipPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialClassificationRelationship"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialConstituent" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterialConstituent_Type"/>
-  <complexType name="IfcMaterialConstituent_Type">
+  <element name="IfcMaterialConstituent" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialConstituentType"/>
+  <complexType name="IfcMaterialConstituentType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="fraction" type="gml:MeasureType"/>
           <element minOccurs="0" name="category" type="string"/>
-          <element name="material" type="ifc:IfcMaterial_PropertyType"/>
+          <element name="material" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialConstituent_PropertyType">
+  <complexType name="IfcMaterialConstituentPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialConstituent"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialConstituentSet" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterialConstituentSet_Type"/>
-  <complexType name="IfcMaterialConstituentSet_Type">
+  <element name="IfcMaterialConstituentSet" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialConstituentSetType"/>
+  <complexType name="IfcMaterialConstituentSetType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="materialConstituents" type="ifc:IfcMaterialConstituent_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="materialConstituents" type="ifc:IfcMaterialConstituentPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialConstituentSet_PropertyType">
+  <complexType name="IfcMaterialConstituentSetPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialConstituentSet"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcMaterialDefinition" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcMaterialDefinition_Type"/>
-  <complexType abstract="true" name="AbstractIfcMaterialDefinition_Type">
+  <element abstract="true" name="IfcMaterialDefinition" substitutionGroup="gml:AbstractFeature" type="ifc:IfcMaterialDefinitionType"/>
+  <complexType abstract="true" name="IfcMaterialDefinitionType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcMaterialDefinition_PropertyType">
+  <complexType name="IfcMaterialDefinitionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcMaterialDefinition"/>
+      <element ref="ifc:IfcMaterialDefinition"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialLayer" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterialLayer_Type"/>
-  <complexType name="IfcMaterialLayer_Type">
+  <element name="IfcMaterialLayer" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialLayerType"/>
+  <complexType name="IfcMaterialLayerType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element name="layerThickness" type="gml:LengthType"/>
           <element minOccurs="0" name="isVentilated"/>
@@ -156,283 +135,315 @@
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="category" type="string"/>
           <element minOccurs="0" name="priority" type="integer"/>
-          <element minOccurs="0" name="material" type="ifc:IfcMaterial_PropertyType"/>
+          <element minOccurs="0" name="material" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialLayer_PropertyType">
+  <complexType name="IfcMaterialLayerPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialLayer"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialLayerSet" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterialLayerSet_Type"/>
-  <complexType name="IfcMaterialLayerSet_Type">
+  <element name="IfcMaterialLayerSet" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialLayerSetType"/>
+  <complexType name="IfcMaterialLayerSetType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element minOccurs="0" name="layerSetName" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
           <element name="totalThickness" type="gml:LengthType"/>
-          <element maxOccurs="unbounded" name="materialLayers" type="ifc:IfcMaterialLayer_PropertyType"/>
+          <element maxOccurs="unbounded" name="materialLayers" type="ifc:IfcMaterialLayerPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialLayerSet_PropertyType">
+  <complexType name="IfcMaterialLayerSetPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialLayerSet"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialLayerSetUsage" substitutionGroup="ifc:AbstractIfcMaterialUsageDefinition" type="ifc:IfcMaterialLayerSetUsage_Type"/>
-  <complexType name="IfcMaterialLayerSetUsage_Type">
+  <element name="IfcMaterialLayerSetUsage" substitutionGroup="ifc:IfcMaterialUsageDefinition" type="ifc:IfcMaterialLayerSetUsageType"/>
+  <complexType name="IfcMaterialLayerSetUsageType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialUsageDefinition_Type">
+      <extension base="ifc:IfcMaterialUsageDefinitionType">
         <sequence>
-          <element name="layerSetDirection" type="ifc:IfcLayerSetDirectionEnum_PropertyType"/>
-          <element name="directionSense" type="ifc:IfcDirectionSenseEnum_PropertyType"/>
+          <element name="layerSetDirection" type="ifc:IfcLayerSetDirectionEnumType"/>
+          <element name="directionSense" type="ifc:IfcDirectionSenseEnumType"/>
           <element name="offsetFromReferenceLine" type="gml:LengthType"/>
           <element minOccurs="0" name="referenceExtent" type="gml:LengthType"/>
-          <element name="forLayerSet" type="ifc:IfcMaterialLayerSet_PropertyType"/>
+          <element name="forLayerSet" type="ifc:IfcMaterialLayerSetPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialLayerSetUsage_PropertyType">
+  <complexType name="IfcMaterialLayerSetUsagePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialLayerSetUsage"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialLayerWithOffsets" substitutionGroup="ifc:IfcMaterialLayer" type="ifc:IfcMaterialLayerWithOffsets_Type"/>
-  <complexType name="IfcMaterialLayerWithOffsets_Type">
+  <element name="IfcMaterialLayerWithOffsets" substitutionGroup="ifc:IfcMaterialLayer" type="ifc:IfcMaterialLayerWithOffsetsType"/>
+  <complexType name="IfcMaterialLayerWithOffsetsType">
     <complexContent>
-      <extension base="ifc:IfcMaterialLayer_Type">
+      <extension base="ifc:IfcMaterialLayerType">
         <sequence>
-          <element name="offsetDirection" type="ifc:IfcLayerSetDirectionEnum_PropertyType"/>
+          <element name="offsetDirection" type="ifc:IfcLayerSetDirectionEnumType"/>
           <element maxOccurs="2" name="offsetValues" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialLayerWithOffsets_PropertyType">
+  <complexType name="IfcMaterialLayerWithOffsetsPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialLayerWithOffsets"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialList" substitutionGroup="gco:AbstractObject" type="ifc:IfcMaterialList_Type"/>
-  <complexType name="IfcMaterialList_Type">
+  <element name="IfcMaterialList" substitutionGroup="gml:AbstractFeature" type="ifc:IfcMaterialListType"/>
+  <complexType name="IfcMaterialListType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" name="materials" type="ifc:IfcMaterial_PropertyType"/>
+          <element maxOccurs="unbounded" name="materials" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialList_PropertyType">
+  <complexType name="IfcMaterialListPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialList"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialProfile" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterialProfile_Type"/>
-  <complexType name="IfcMaterialProfile_Type">
+  <element name="IfcMaterialProfile" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialProfileType"/>
+  <complexType name="IfcMaterialProfileType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
           <element minOccurs="0" name="priority" type="integer"/>
           <element minOccurs="0" name="category" type="string"/>
-          <element minOccurs="0" name="material" type="ifc:IfcMaterial_PropertyType"/>
-          <element name="profile" type="ifc:IfcProfileDef_PropertyType"/>
+          <element minOccurs="0" name="material" type="ifc:IfcMaterialPropertyType"/>
+          <element name="profile" type="ifc:IfcProfileDefPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialProfile_PropertyType">
+  <complexType name="IfcMaterialProfilePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialProfile"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialProfileSet" substitutionGroup="ifc:AbstractIfcMaterialDefinition" type="ifc:IfcMaterialProfileSet_Type"/>
-  <complexType name="IfcMaterialProfileSet_Type">
+  <element name="IfcMaterialProfileSet" substitutionGroup="ifc:IfcMaterialDefinition" type="ifc:IfcMaterialProfileSetType"/>
+  <complexType name="IfcMaterialProfileSetType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialDefinition_Type">
+      <extension base="ifc:IfcMaterialDefinitionType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element maxOccurs="unbounded" name="materialProfiles" type="ifc:IfcMaterialProfile_PropertyType"/>
-          <element minOccurs="0" name="compositeProfile" type="ifc:IfcCompositeProfileDef_PropertyType"/>
+          <element maxOccurs="unbounded" name="materialProfiles" type="ifc:IfcMaterialProfilePropertyType"/>
+          <element minOccurs="0" name="compositeProfile" type="ifc:IfcCompositeProfileDefPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialProfileSet_PropertyType">
+  <complexType name="IfcMaterialProfileSetPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialProfileSet"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialProfileSetUsage" substitutionGroup="ifc:AbstractIfcMaterialUsageDefinition" type="ifc:IfcMaterialProfileSetUsage_Type"/>
-  <complexType name="IfcMaterialProfileSetUsage_Type">
+  <element name="IfcMaterialProfileSetUsage" substitutionGroup="ifc:IfcMaterialUsageDefinition" type="ifc:IfcMaterialProfileSetUsageType"/>
+  <complexType name="IfcMaterialProfileSetUsageType">
     <complexContent>
-      <extension base="ifc:AbstractIfcMaterialUsageDefinition_Type">
+      <extension base="ifc:IfcMaterialUsageDefinitionType">
         <sequence>
-          <element minOccurs="0" name="cardinalPoint" type="ifc:IfcCardinalPointReference_PropertyType"/>
+          <element minOccurs="0" name="cardinalPoint" type="ifc:IfcCardinalPointReferencePropertyType"/>
           <element minOccurs="0" name="referenceExtent" type="gml:LengthType"/>
-          <element name="forProfileSet" type="ifc:IfcMaterialProfileSet_PropertyType"/>
+          <element name="forProfileSet" type="ifc:IfcMaterialProfileSetPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialProfileSetUsage_PropertyType">
+  <complexType name="IfcMaterialProfileSetUsagePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialProfileSetUsage"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialProfileSetUsageTapering" substitutionGroup="ifc:IfcMaterialProfileSetUsage" type="ifc:IfcMaterialProfileSetUsageTapering_Type"/>
-  <complexType name="IfcMaterialProfileSetUsageTapering_Type">
+  <element name="IfcMaterialProfileSetUsageTapering" substitutionGroup="ifc:IfcMaterialProfileSetUsage" type="ifc:IfcMaterialProfileSetUsageTaperingType"/>
+  <complexType name="IfcMaterialProfileSetUsageTaperingType">
     <complexContent>
-      <extension base="ifc:IfcMaterialProfileSetUsage_Type">
+      <extension base="ifc:IfcMaterialProfileSetUsageType">
         <sequence>
-          <element minOccurs="0" name="cardinalEndPoint" type="ifc:IfcCardinalPointReference_PropertyType"/>
-          <element name="forProfileEndSet" type="ifc:IfcMaterialProfileSet_PropertyType"/>
+          <element minOccurs="0" name="cardinalEndPoint" type="ifc:IfcCardinalPointReferencePropertyType"/>
+          <element name="forProfileEndSet" type="ifc:IfcMaterialProfileSetPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialProfileSetUsageTapering_PropertyType">
+  <complexType name="IfcMaterialProfileSetUsageTaperingPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialProfileSetUsageTapering"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialProfileWithOffsets" substitutionGroup="ifc:IfcMaterialProfile" type="ifc:IfcMaterialProfileWithOffsets_Type"/>
-  <complexType name="IfcMaterialProfileWithOffsets_Type">
+  <element name="IfcMaterialProfileWithOffsets" substitutionGroup="ifc:IfcMaterialProfile" type="ifc:IfcMaterialProfileWithOffsetsType"/>
+  <complexType name="IfcMaterialProfileWithOffsetsType">
     <complexContent>
-      <extension base="ifc:IfcMaterialProfile_Type">
+      <extension base="ifc:IfcMaterialProfileType">
         <sequence>
           <element maxOccurs="2" name="offsetValues" type="gml:LengthType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialProfileWithOffsets_PropertyType">
+  <complexType name="IfcMaterialProfileWithOffsetsPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialProfileWithOffsets"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialProperties" substitutionGroup="ifc:AbstractIfcExtendedProperties" type="ifc:IfcMaterialProperties_Type"/>
-  <complexType name="IfcMaterialProperties_Type">
+  <element name="IfcMaterialProperties" substitutionGroup="ifc:IfcExtendedProperties" type="ifc:IfcMaterialPropertiesType"/>
+  <complexType name="IfcMaterialPropertiesType">
     <complexContent>
-      <extension base="ifc:AbstractIfcExtendedProperties_Type">
+      <extension base="ifc:IfcExtendedPropertiesType">
         <sequence>
-          <element name="material" type="ifc:AbstractIfcMaterialDefinition_PropertyType"/>
+          <element name="material" type="ifc:IfcMaterialDefinitionPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialProperties_PropertyType">
+  <complexType name="IfcMaterialPropertiesPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialProperties"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialRelationship" substitutionGroup="ifc:AbstractIfcResourceLevelRelationship" type="ifc:IfcMaterialRelationship_Type"/>
-  <complexType name="IfcMaterialRelationship_Type">
+  <element name="IfcMaterialRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcMaterialRelationshipType"/>
+  <complexType name="IfcMaterialRelationshipType">
     <complexContent>
-      <extension base="ifc:AbstractIfcResourceLevelRelationship_Type">
+      <extension base="ifc:IfcResourceLevelRelationshipType">
         <sequence>
           <element minOccurs="0" name="expression" type="string"/>
-          <element name="relatingMaterial" type="ifc:IfcMaterial_PropertyType"/>
-          <element maxOccurs="unbounded" name="relatedMaterials" type="ifc:IfcMaterial_PropertyType"/>
+          <element name="relatingMaterial" type="ifc:IfcMaterialPropertyType"/>
+          <element maxOccurs="unbounded" name="relatedMaterials" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialRelationship_PropertyType">
+  <complexType name="IfcMaterialRelationshipPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialRelationship"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcMaterialResourceFunction" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcMaterialResourceFunction_Type"/>
-  <complexType abstract="true" name="AbstractIfcMaterialResourceFunction_Type">
+  <element abstract="true" name="IfcMaterialResourceFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcMaterialResourceFunctionType"/>
+  <complexType abstract="true" name="IfcMaterialResourceFunctionType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractGMLType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcMaterialResourceFunction_PropertyType">
+  <complexType name="IfcMaterialResourceFunctionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcMaterialResourceFunction"/>
+      <element ref="ifc:IfcMaterialResourceFunction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcMaterialResourceFunctions" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcMaterialResourceFunctions_Type"/>
-  <complexType abstract="true" name="AbstractIfcMaterialResourceFunctions_Type">
+  <element abstract="true" name="IfcMaterialResourceFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcMaterialResourceFunctionsType"/>
+  <complexType abstract="true" name="IfcMaterialResourceFunctionsType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractGMLType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcMaterialResourceFunctions_PropertyType">
+  <complexType name="IfcMaterialResourceFunctionsPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcMaterialResourceFunctions"/>
+      <element ref="ifc:IfcMaterialResourceFunctions"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialSelect" type="ifc:IfcMaterialSelect_Type"/>
-  <complexType name="IfcMaterialSelect_Type">
+  <element name="IfcMaterialSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcMaterialSelectType"/>
+  <complexType name="IfcMaterialSelectType">
     <choice>
-      <element name="materialDefinition" type="ifc:AbstractIfcMaterialDefinition_PropertyType"/>
-      <element name="materialList" type="ifc:IfcMaterialList_PropertyType"/>
-      <element name="materialUsageDefinition" type="ifc:AbstractIfcMaterialUsageDefinition_PropertyType"/>
+      <element name="materialDefinition">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcMaterialDefinition"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="materialList">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcMaterialList"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="materialUsageDefinition">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcMaterialUsageDefinition"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
     </choice>
   </complexType>
-  <complexType name="IfcMaterialSelect_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcMaterialSelectPropertyType">
+    <sequence>
       <element ref="ifc:IfcMaterialSelect"/>
     </sequence>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcMaterialUsageDefinition" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcMaterialUsageDefinition_Type"/>
-  <complexType abstract="true" name="AbstractIfcMaterialUsageDefinition_Type">
+  <element abstract="true" name="IfcMaterialUsageDefinition" substitutionGroup="gml:AbstractFeature" type="ifc:IfcMaterialUsageDefinitionType"/>
+  <complexType abstract="true" name="IfcMaterialUsageDefinitionType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcMaterialUsageDefinition_PropertyType">
+  <complexType name="IfcMaterialUsageDefinitionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcMaterialUsageDefinition"/>
+      <element ref="ifc:IfcMaterialUsageDefinition"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
 </schema>

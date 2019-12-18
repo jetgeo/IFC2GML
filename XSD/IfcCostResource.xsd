@@ -1,54 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcConstraintResource.xsd"/>
   <include schemaLocation="IfcDateTimeResource.xsd"/>
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcAppliedValue" substitutionGroup="gco:AbstractObject" type="ifc:IfcAppliedValue_Type"/>
-  <complexType name="IfcAppliedValue_Type">
+  <element name="IfcAppliedValue" substitutionGroup="gml:AbstractFeature" type="ifc:IfcAppliedValueType"/>
+  <complexType name="IfcAppliedValueType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element minOccurs="0" name="appliedValue" type="ifc:IfcAppliedValueSelect_PropertyType"/>
+          <element minOccurs="0" name="appliedValue" type="ifc:IfcAppliedValueSelectPropertyType"/>
           <element minOccurs="0" name="applicableDate" type="date"/>
           <element minOccurs="0" name="fixedUntilDate" type="date"/>
           <element minOccurs="0" name="category" type="string"/>
           <element minOccurs="0" name="condition" type="string"/>
-          <element minOccurs="0" name="arithmeticOperator" type="ifc:IfcArithmeticOperatorEnum_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="components" type="ifc:IfcAppliedValue_PropertyType"/>
+          <element minOccurs="0" name="arithmeticOperator" type="ifc:IfcArithmeticOperatorEnumType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="components" type="ifc:IfcAppliedValuePropertyType"/>
           <element minOccurs="0" name="unitBasis" type="gml:MeasureType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcAppliedValue_PropertyType">
+  <complexType name="IfcAppliedValuePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcAppliedValue"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcAppliedValueSelect" type="ifc:IfcAppliedValueSelect_Type"/>
-  <complexType name="IfcAppliedValueSelect_Type">
+  <element name="IfcAppliedValueSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcAppliedValueSelectType"/>
+  <complexType name="IfcAppliedValueSelectType">
     <choice>
-      <element name="measureWithUnit" type="ifc:IfcMeasureWithUnit_PropertyType"/>
-      <element name="reference" type="ifc:IfcReference_PropertyType"/>
-      <element name="value" type="ifc:IfcValue_PropertyType"/>
+      <element name="measureWithUnit">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcMeasureWithUnit"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="reference">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcReference"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="value" type="ifc:IfcValuePropertyType"/>
     </choice>
   </complexType>
-  <complexType name="IfcAppliedValueSelect_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcAppliedValueSelectPropertyType">
+    <sequence>
       <element ref="ifc:IfcAppliedValueSelect"/>
     </sequence>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcArithmeticOperatorEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcArithmeticOperatorEnum_Type"/>
-  <simpleType name="IfcArithmeticOperatorEnum_Type">
+  <simpleType name="IfcArithmeticOperatorEnumType">
     <restriction base="string">
       <enumeration value="ADD"/>
       <enumeration value="DIVIDE"/>
@@ -56,46 +75,40 @@
       <enumeration value="SUBTRACT"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcArithmeticOperatorEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcArithmeticOperatorEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcCostValue" substitutionGroup="ifc:IfcAppliedValue" type="ifc:IfcCostValue_Type"/>
-  <complexType name="IfcCostValue_Type">
+  <element name="IfcCostValue" substitutionGroup="ifc:IfcAppliedValue" type="ifc:IfcCostValueType"/>
+  <complexType name="IfcCostValueType">
     <complexContent>
-      <extension base="ifc:IfcAppliedValue_Type">
+      <extension base="ifc:IfcAppliedValueType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCostValue_PropertyType">
+  <complexType name="IfcCostValuePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCostValue"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcCurrencyRelationship" substitutionGroup="ifc:AbstractIfcResourceLevelRelationship" type="ifc:IfcCurrencyRelationship_Type"/>
-  <complexType name="IfcCurrencyRelationship_Type">
+  <element name="IfcCurrencyRelationship" substitutionGroup="ifc:IfcResourceLevelRelationship" type="ifc:IfcCurrencyRelationshipType"/>
+  <complexType name="IfcCurrencyRelationshipType">
     <complexContent>
-      <extension base="ifc:AbstractIfcResourceLevelRelationship_Type">
+      <extension base="ifc:IfcResourceLevelRelationshipType">
         <sequence>
           <element name="exchangeRate" type="gml:MeasureType"/>
           <element minOccurs="0" name="rateDateTime" type="dateTime"/>
-          <element name="relatedMonetaryUnit" type="ifc:IfcMonetaryUnit_PropertyType"/>
-          <element name="relatingMonetaryUnit" type="ifc:IfcMonetaryUnit_PropertyType"/>
-          <element minOccurs="0" name="rateSource" type="ifc:IfcLibraryInformation_PropertyType"/>
+          <element name="relatedMonetaryUnit" type="ifc:IfcMonetaryUnitPropertyType"/>
+          <element name="relatingMonetaryUnit" type="ifc:IfcMonetaryUnitPropertyType"/>
+          <element minOccurs="0" name="rateSource" type="ifc:IfcLibraryInformationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcCurrencyRelationship_PropertyType">
+  <complexType name="IfcCurrencyRelationshipPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcCurrencyRelationship"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
 </schema>

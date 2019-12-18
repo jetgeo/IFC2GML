@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcCoreLayer.xsd"/>
   <include schemaLocation="IfcCostResource.xsd"/>
@@ -8,30 +8,29 @@
   <include schemaLocation="IfcKernel.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcPresentationAppearanceResource.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcEvent" substitutionGroup="ifc:AbstractIfcProcess" type="ifc:IfcEvent_Type"/>
-  <complexType name="IfcEvent_Type">
+  <element name="IfcEvent" substitutionGroup="ifc:IfcProcess" type="ifc:IfcEventType"/>
+  <complexType name="IfcEventType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProcess_Type">
+      <extension base="ifc:IfcProcessType">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcEventTypeEnum_PropertyType"/>
-          <element minOccurs="0" name="eventTriggerType" type="ifc:IfcEventTriggerTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcEventTypeEnumType"/>
+          <element minOccurs="0" name="eventTriggerType" type="ifc:IfcEventTriggerTypeEnumType"/>
           <element minOccurs="0" name="userDefinedEventTriggerType" type="string"/>
-          <element minOccurs="0" name="eventOccurenceTime" type="ifc:IfcEventTime_PropertyType"/>
+          <element minOccurs="0" name="eventOccurenceTime" type="ifc:IfcEventTimePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcEvent_PropertyType">
+  <complexType name="IfcEventPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcEvent"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcEventTriggerTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcEventTriggerTypeEnum_Type"/>
-  <simpleType name="IfcEventTriggerTypeEnum_Type">
+  <simpleType name="IfcEventTriggerTypeEnumType">
     <restriction base="string">
       <enumeration value="EVENTCOMPLEX"/>
       <enumeration value="EVENTMESSAGE"/>
@@ -41,33 +40,26 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcEventTriggerTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcEventTriggerTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcEventType" substitutionGroup="ifc:AbstractIfcTypeProcess" type="ifc:IfcEventType_Type"/>
-  <complexType name="IfcEventType_Type">
+  <element name="IfcEventType" substitutionGroup="ifc:IfcTypeProcess" type="ifc:IfcEventTypeType"/>
+  <complexType name="IfcEventTypeType">
     <complexContent>
-      <extension base="ifc:AbstractIfcTypeProcess_Type">
+      <extension base="ifc:IfcTypeProcessType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcEventTypeEnum_PropertyType"/>
-          <element name="eventTriggerType" type="ifc:IfcEventTriggerTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcEventTypeEnumType"/>
+          <element name="eventTriggerType" type="ifc:IfcEventTriggerTypeEnumType"/>
           <element minOccurs="0" name="userDefinedEventTriggerType" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcEventType_PropertyType">
+  <complexType name="IfcEventTypePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcEventType"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcEventTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcEventTypeEnum_Type"/>
-  <simpleType name="IfcEventTypeEnum_Type">
+  <simpleType name="IfcEventTypeEnumType">
     <restriction base="string">
       <enumeration value="ENDEVENT"/>
       <enumeration value="INTERMEDIATEEVENT"/>
@@ -76,48 +68,41 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcEventTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcEventTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcProcedure" substitutionGroup="ifc:AbstractIfcProcess" type="ifc:IfcProcedure_Type"/>
-  <complexType name="IfcProcedure_Type">
+  <element name="IfcProcedure" substitutionGroup="ifc:IfcProcess" type="ifc:IfcProcedureType"/>
+  <complexType name="IfcProcedureType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProcess_Type">
+      <extension base="ifc:IfcProcessType">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcProcedureTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcProcedureTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProcedure_PropertyType">
+  <complexType name="IfcProcedurePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProcedure"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcProcedureType" substitutionGroup="ifc:AbstractIfcTypeProcess" type="ifc:IfcProcedureType_Type"/>
-  <complexType name="IfcProcedureType_Type">
+  <element name="IfcProcedureType" substitutionGroup="ifc:IfcTypeProcess" type="ifc:IfcProcedureTypeType"/>
+  <complexType name="IfcProcedureTypeType">
     <complexContent>
-      <extension base="ifc:AbstractIfcTypeProcess_Type">
+      <extension base="ifc:IfcTypeProcessType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcProcedureTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcProcedureTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProcedureType_PropertyType">
+  <complexType name="IfcProcedureTypePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProcedureType"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcProcedureTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcProcedureTypeEnum_Type"/>
-  <simpleType name="IfcProcedureTypeEnum_Type">
+  <simpleType name="IfcProcedureTypeEnumType">
     <restriction base="string">
       <enumeration value="ADVICE_CAUTION"/>
       <enumeration value="ADVICE_NOTE"/>
@@ -130,35 +115,28 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcProcedureTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcProcedureTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcRelSequence" substitutionGroup="ifc:AbstractIfcRelConnects" type="ifc:IfcRelSequence_Type"/>
-  <complexType name="IfcRelSequence_Type">
+  <element name="IfcRelSequence" substitutionGroup="ifc:IfcRelConnects" type="ifc:IfcRelSequenceType"/>
+  <complexType name="IfcRelSequenceType">
     <complexContent>
-      <extension base="ifc:AbstractIfcRelConnects_Type">
+      <extension base="ifc:IfcRelConnectsType">
         <sequence>
-          <element minOccurs="0" name="sequenceType" type="ifc:IfcSequenceEnum_PropertyType"/>
+          <element minOccurs="0" name="sequenceType" type="ifc:IfcSequenceEnumType"/>
           <element minOccurs="0" name="userDefinedSequenceType" type="string"/>
-          <element name="relatedProcess" type="ifc:AbstractIfcProcess_PropertyType"/>
-          <element name="relatingProcess" type="ifc:AbstractIfcProcess_PropertyType"/>
-          <element minOccurs="0" name="timeLag" type="ifc:IfcLagTime_PropertyType"/>
+          <element name="relatedProcess" type="ifc:IfcProcessPropertyType"/>
+          <element name="relatingProcess" type="ifc:IfcProcessPropertyType"/>
+          <element minOccurs="0" name="timeLag" type="ifc:IfcLagTimePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcRelSequence_PropertyType">
+  <complexType name="IfcRelSequencePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcRelSequence"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcSequenceEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcSequenceEnum_Type"/>
-  <simpleType name="IfcSequenceEnum_Type">
+  <simpleType name="IfcSequenceEnumType">
     <restriction base="string">
       <enumeration value="FINISH_FINISH"/>
       <enumeration value="FINISH_START"/>
@@ -168,54 +146,47 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcSequenceEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcSequenceEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcTask" substitutionGroup="ifc:AbstractIfcProcess" type="ifc:IfcTask_Type"/>
-  <complexType name="IfcTask_Type">
+  <element name="IfcTask" substitutionGroup="ifc:IfcProcess" type="ifc:IfcTaskType"/>
+  <complexType name="IfcTaskType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProcess_Type">
+      <extension base="ifc:IfcProcessType">
         <sequence>
           <element minOccurs="0" name="status" type="string"/>
           <element minOccurs="0" name="workMethod" type="string"/>
           <element name="isMilestone" type="boolean"/>
           <element minOccurs="0" name="priority" type="integer"/>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcTaskTypeEnum_PropertyType"/>
-          <element minOccurs="0" name="taskTime" type="ifc:IfcTaskTime_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcTaskTypeEnumType"/>
+          <element minOccurs="0" name="taskTime" type="ifc:IfcTaskTimePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTask_PropertyType">
+  <complexType name="IfcTaskPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTask"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTaskType" substitutionGroup="ifc:AbstractIfcTypeProcess" type="ifc:IfcTaskType_Type"/>
-  <complexType name="IfcTaskType_Type">
+  <element name="IfcTaskType" substitutionGroup="ifc:IfcTypeProcess" type="ifc:IfcTaskTypeType"/>
+  <complexType name="IfcTaskTypeType">
     <complexContent>
-      <extension base="ifc:AbstractIfcTypeProcess_Type">
+      <extension base="ifc:IfcTypeProcessType">
         <sequence>
-          <element name="predefinedType" type="ifc:IfcTaskTypeEnum_PropertyType"/>
+          <element name="predefinedType" type="ifc:IfcTaskTypeEnumType"/>
           <element minOccurs="0" name="workMethod" type="string"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTaskType_PropertyType">
+  <complexType name="IfcTaskTypePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTaskType"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTaskTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcTaskTypeEnum_Type"/>
-  <simpleType name="IfcTaskTypeEnum_Type">
+  <simpleType name="IfcTaskTypeEnumType">
     <restriction base="string">
       <enumeration value="ATTENDANCE"/>
       <enumeration value="CONSTRUCTION"/>
@@ -233,33 +204,26 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcTaskTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcTaskTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcWorkCalendar" substitutionGroup="ifc:AbstractIfcControl" type="ifc:IfcWorkCalendar_Type"/>
-  <complexType name="IfcWorkCalendar_Type">
+  <element name="IfcWorkCalendar" substitutionGroup="ifc:IfcControl" type="ifc:IfcWorkCalendarType"/>
+  <complexType name="IfcWorkCalendarType">
     <complexContent>
-      <extension base="ifc:AbstractIfcControl_Type">
+      <extension base="ifc:IfcControlType">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcWorkCalendarTypeEnum_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="workingTimes" type="ifc:IfcWorkTime_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="exceptionTimes" type="ifc:IfcWorkTime_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcWorkCalendarTypeEnumType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="workingTimes" type="ifc:IfcWorkTimePropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="exceptionTimes" type="ifc:IfcWorkTimePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWorkCalendar_PropertyType">
+  <complexType name="IfcWorkCalendarPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWorkCalendar"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWorkCalendarTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWorkCalendarTypeEnum_Type"/>
-  <simpleType name="IfcWorkCalendarTypeEnum_Type">
+  <simpleType name="IfcWorkCalendarTypeEnumType">
     <restriction base="string">
       <enumeration value="FIRSTSHIFT"/>
       <enumeration value="NOTDEFINED"/>
@@ -268,16 +232,10 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWorkCalendarTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWorkCalendarTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element abstract="true" name="AbstractIfcWorkControl" substitutionGroup="ifc:AbstractIfcControl" type="ifc:AbstractIfcWorkControl_Type"/>
-  <complexType abstract="true" name="AbstractIfcWorkControl_Type">
+  <element abstract="true" name="IfcWorkControl" substitutionGroup="ifc:IfcControl" type="ifc:IfcWorkControlType"/>
+  <complexType abstract="true" name="IfcWorkControlType">
     <complexContent>
-      <extension base="ifc:AbstractIfcControl_Type">
+      <extension base="ifc:IfcControlType">
         <sequence>
           <element name="creationDate" type="dateTime"/>
           <element minOccurs="0" name="purpose" type="string"/>
@@ -285,37 +243,36 @@
           <element minOccurs="0" name="totalFloat" type="duration"/>
           <element name="startTime" type="dateTime"/>
           <element minOccurs="0" name="finishTime" type="dateTime"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="creators" type="ifc:IfcPerson_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="creators" type="ifc:IfcPersonPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcWorkControl_PropertyType">
+  <complexType name="IfcWorkControlPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcWorkControl"/>
+      <element ref="ifc:IfcWorkControl"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWorkPlan" substitutionGroup="ifc:AbstractIfcWorkControl" type="ifc:IfcWorkPlan_Type"/>
-  <complexType name="IfcWorkPlan_Type">
+  <element name="IfcWorkPlan" substitutionGroup="ifc:IfcWorkControl" type="ifc:IfcWorkPlanType"/>
+  <complexType name="IfcWorkPlanType">
     <complexContent>
-      <extension base="ifc:AbstractIfcWorkControl_Type">
+      <extension base="ifc:IfcWorkControlType">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcWorkPlanTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcWorkPlanTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWorkPlan_PropertyType">
+  <complexType name="IfcWorkPlanPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWorkPlan"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWorkPlanTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWorkPlanTypeEnum_Type"/>
-  <simpleType name="IfcWorkPlanTypeEnum_Type">
+  <simpleType name="IfcWorkPlanTypeEnumType">
     <restriction base="string">
       <enumeration value="ACTUAL"/>
       <enumeration value="BASELINE"/>
@@ -324,31 +281,24 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWorkPlanTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWorkPlanTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcWorkSchedule" substitutionGroup="ifc:AbstractIfcWorkControl" type="ifc:IfcWorkSchedule_Type"/>
-  <complexType name="IfcWorkSchedule_Type">
+  <element name="IfcWorkSchedule" substitutionGroup="ifc:IfcWorkControl" type="ifc:IfcWorkScheduleType"/>
+  <complexType name="IfcWorkScheduleType">
     <complexContent>
-      <extension base="ifc:AbstractIfcWorkControl_Type">
+      <extension base="ifc:IfcWorkControlType">
         <sequence>
-          <element minOccurs="0" name="predefinedType" type="ifc:IfcWorkScheduleTypeEnum_PropertyType"/>
+          <element minOccurs="0" name="predefinedType" type="ifc:IfcWorkScheduleTypeEnumType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWorkSchedule_PropertyType">
+  <complexType name="IfcWorkSchedulePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWorkSchedule"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWorkScheduleTypeEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWorkScheduleTypeEnum_Type"/>
-  <simpleType name="IfcWorkScheduleTypeEnum_Type">
+  <simpleType name="IfcWorkScheduleTypeEnumType">
     <restriction base="string">
       <enumeration value="ACTUAL"/>
       <enumeration value="BASELINE"/>
@@ -357,10 +307,4 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWorkScheduleTypeEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWorkScheduleTypeEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
 </schema>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcDateTimeResource.xsd"/>
   <include schemaLocation="IfcDomainLayer.xsd"/>
@@ -13,13 +13,12 @@
   <include schemaLocation="IfcPropertyResource.xsd"/>
   <include schemaLocation="IfcRepresentationResource.xsd"/>
   <include schemaLocation="IfcSharedBldgElements.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcDoorLiningProperties" substitutionGroup="ifc:AbstractIfcPreDefinedPropertySet" type="ifc:IfcDoorLiningProperties_Type"/>
-  <complexType name="IfcDoorLiningProperties_Type">
+  <element name="IfcDoorLiningProperties" substitutionGroup="ifc:IfcPreDefinedPropertySet" type="ifc:IfcDoorLiningPropertiesType"/>
+  <complexType name="IfcDoorLiningPropertiesType">
     <complexContent>
-      <extension base="ifc:AbstractIfcPreDefinedPropertySet_Type">
+      <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
           <element minOccurs="0" name="liningDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="liningThickness" type="gml:LengthType"/>
@@ -33,20 +32,19 @@
           <element minOccurs="0" name="casingDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetX" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetY" type="gml:LengthType"/>
-          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspect_PropertyType"/>
+          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDoorLiningProperties_PropertyType">
+  <complexType name="IfcDoorLiningPropertiesPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDoorLiningProperties"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcDoorPanelOperationEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDoorPanelOperationEnum_Type"/>
-  <simpleType name="IfcDoorPanelOperationEnum_Type">
+  <simpleType name="IfcDoorPanelOperationEnumType">
     <restriction base="string">
       <enumeration value="DOUBLE_ACTING"/>
       <enumeration value="FIXEDPANEL"/>
@@ -59,14 +57,7 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcDoorPanelOperationEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcDoorPanelOperationEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcDoorPanelPositionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDoorPanelPositionEnum_Type"/>
-  <simpleType name="IfcDoorPanelPositionEnum_Type">
+  <simpleType name="IfcDoorPanelPositionEnumType">
     <restriction base="string">
       <enumeration value="LEFT"/>
       <enumeration value="MIDDLE"/>
@@ -74,55 +65,48 @@
       <enumeration value="RIGHT"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcDoorPanelPositionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcDoorPanelPositionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcDoorPanelProperties" substitutionGroup="ifc:AbstractIfcPreDefinedPropertySet" type="ifc:IfcDoorPanelProperties_Type"/>
-  <complexType name="IfcDoorPanelProperties_Type">
+  <element name="IfcDoorPanelProperties" substitutionGroup="ifc:IfcPreDefinedPropertySet" type="ifc:IfcDoorPanelPropertiesType"/>
+  <complexType name="IfcDoorPanelPropertiesType">
     <complexContent>
-      <extension base="ifc:AbstractIfcPreDefinedPropertySet_Type">
+      <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
           <element minOccurs="0" name="panelDepth" type="gml:LengthType"/>
-          <element name="panelOperation" type="ifc:IfcDoorPanelOperationEnum_PropertyType"/>
+          <element name="panelOperation" type="ifc:IfcDoorPanelOperationEnumType"/>
           <element minOccurs="0" name="panelWidth" type="gml:MeasureType"/>
-          <element name="panelPosition" type="ifc:IfcDoorPanelPositionEnum_PropertyType"/>
-          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspect_PropertyType"/>
+          <element name="panelPosition" type="ifc:IfcDoorPanelPositionEnumType"/>
+          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDoorPanelProperties_PropertyType">
+  <complexType name="IfcDoorPanelPropertiesPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDoorPanelProperties"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcDoorStyle" substitutionGroup="ifc:IfcTypeProduct" type="ifc:IfcDoorStyle_Type"/>
-  <complexType name="IfcDoorStyle_Type">
+  <element name="IfcDoorStyle" substitutionGroup="ifc:IfcTypeProduct" type="ifc:IfcDoorStyleType"/>
+  <complexType name="IfcDoorStyleType">
     <complexContent>
-      <extension base="ifc:IfcTypeProduct_Type">
+      <extension base="ifc:IfcTypeProductType">
         <sequence>
-          <element name="operationType" type="ifc:IfcDoorStyleOperationEnum_PropertyType"/>
-          <element name="constructionType" type="ifc:IfcDoorStyleConstructionEnum_PropertyType"/>
+          <element name="operationType" type="ifc:IfcDoorStyleOperationEnumType"/>
+          <element name="constructionType" type="ifc:IfcDoorStyleConstructionEnumType"/>
           <element name="parameterTakesPrecedence" type="boolean"/>
           <element name="sizeable" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcDoorStyle_PropertyType">
+  <complexType name="IfcDoorStylePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcDoorStyle"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcDoorStyleConstructionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDoorStyleConstructionEnum_Type"/>
-  <simpleType name="IfcDoorStyleConstructionEnum_Type">
+  <simpleType name="IfcDoorStyleConstructionEnumType">
     <restriction base="string">
       <enumeration value="ALUMINIUM"/>
       <enumeration value="ALUMINIUM_PLASTIC"/>
@@ -135,14 +119,7 @@
       <enumeration value="WOOD"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcDoorStyleConstructionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcDoorStyleConstructionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcDoorStyleOperationEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcDoorStyleOperationEnum_Type"/>
-  <simpleType name="IfcDoorStyleOperationEnum_Type">
+  <simpleType name="IfcDoorStyleOperationEnumType">
     <restriction base="string">
       <enumeration value="DOUBLE_DOOR_DOUBLE_SWING"/>
       <enumeration value="DOUBLE_DOOR_FOLDING"/>
@@ -164,14 +141,7 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcDoorStyleOperationEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcDoorStyleOperationEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcPermeableCoveringOperationEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcPermeableCoveringOperationEnum_Type"/>
-  <simpleType name="IfcPermeableCoveringOperationEnum_Type">
+  <simpleType name="IfcPermeableCoveringOperationEnumType">
     <restriction base="string">
       <enumeration value="GRILL"/>
       <enumeration value="LOUVER"/>
@@ -180,37 +150,31 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcPermeableCoveringOperationEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcPermeableCoveringOperationEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcPermeableCoveringProperties" substitutionGroup="ifc:AbstractIfcPreDefinedPropertySet" type="ifc:IfcPermeableCoveringProperties_Type"/>
-  <complexType name="IfcPermeableCoveringProperties_Type">
+  <element name="IfcPermeableCoveringProperties" substitutionGroup="ifc:IfcPreDefinedPropertySet" type="ifc:IfcPermeableCoveringPropertiesType"/>
+  <complexType name="IfcPermeableCoveringPropertiesType">
     <complexContent>
-      <extension base="ifc:AbstractIfcPreDefinedPropertySet_Type">
+      <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
-          <element name="operationType" type="ifc:IfcPermeableCoveringOperationEnum_PropertyType"/>
-          <element name="panelPosition" type="ifc:IfcWindowPanelPositionEnum_PropertyType"/>
+          <element name="operationType" type="ifc:IfcPermeableCoveringOperationEnumType"/>
+          <element name="panelPosition" type="ifc:IfcWindowPanelPositionEnumType"/>
           <element minOccurs="0" name="frameDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="frameThickness" type="gml:LengthType"/>
-          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspect_PropertyType"/>
+          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcPermeableCoveringProperties_PropertyType">
+  <complexType name="IfcPermeableCoveringPropertiesPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcPermeableCoveringProperties"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWindowLiningProperties" substitutionGroup="ifc:AbstractIfcPreDefinedPropertySet" type="ifc:IfcWindowLiningProperties_Type"/>
-  <complexType name="IfcWindowLiningProperties_Type">
+  <element name="IfcWindowLiningProperties" substitutionGroup="ifc:IfcPreDefinedPropertySet" type="ifc:IfcWindowLiningPropertiesType"/>
+  <complexType name="IfcWindowLiningPropertiesType">
     <complexContent>
-      <extension base="ifc:AbstractIfcPreDefinedPropertySet_Type">
+      <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
           <element minOccurs="0" name="liningDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="liningThickness" type="gml:LengthType"/>
@@ -223,20 +187,19 @@
           <element minOccurs="0" name="liningOffset" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetX" type="gml:LengthType"/>
           <element minOccurs="0" name="liningToPanelOffsetY" type="gml:LengthType"/>
-          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspect_PropertyType"/>
+          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWindowLiningProperties_PropertyType">
+  <complexType name="IfcWindowLiningPropertiesPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWindowLiningProperties"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWindowPanelOperationEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWindowPanelOperationEnum_Type"/>
-  <simpleType name="IfcWindowPanelOperationEnum_Type">
+  <simpleType name="IfcWindowPanelOperationEnumType">
     <restriction base="string">
       <enumeration value="BOTTOMHUNG"/>
       <enumeration value="FIXEDCASEMENT"/>
@@ -254,14 +217,7 @@
       <enumeration value="TOPHUNG"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWindowPanelOperationEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWindowPanelOperationEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcWindowPanelPositionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWindowPanelPositionEnum_Type"/>
-  <simpleType name="IfcWindowPanelPositionEnum_Type">
+  <simpleType name="IfcWindowPanelPositionEnumType">
     <restriction base="string">
       <enumeration value="BOTTOM"/>
       <enumeration value="LEFT"/>
@@ -271,55 +227,48 @@
       <enumeration value="TOP"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWindowPanelPositionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWindowPanelPositionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcWindowPanelProperties" substitutionGroup="ifc:AbstractIfcPreDefinedPropertySet" type="ifc:IfcWindowPanelProperties_Type"/>
-  <complexType name="IfcWindowPanelProperties_Type">
+  <element name="IfcWindowPanelProperties" substitutionGroup="ifc:IfcPreDefinedPropertySet" type="ifc:IfcWindowPanelPropertiesType"/>
+  <complexType name="IfcWindowPanelPropertiesType">
     <complexContent>
-      <extension base="ifc:AbstractIfcPreDefinedPropertySet_Type">
+      <extension base="ifc:IfcPreDefinedPropertySetType">
         <sequence>
-          <element name="operationType" type="ifc:IfcWindowPanelOperationEnum_PropertyType"/>
-          <element name="panelPosition" type="ifc:IfcWindowPanelPositionEnum_PropertyType"/>
+          <element name="operationType" type="ifc:IfcWindowPanelOperationEnumType"/>
+          <element name="panelPosition" type="ifc:IfcWindowPanelPositionEnumType"/>
           <element minOccurs="0" name="frameDepth" type="gml:LengthType"/>
           <element minOccurs="0" name="frameThickness" type="gml:LengthType"/>
-          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspect_PropertyType"/>
+          <element minOccurs="0" name="shapeAspectStyle" type="ifc:IfcShapeAspectPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWindowPanelProperties_PropertyType">
+  <complexType name="IfcWindowPanelPropertiesPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWindowPanelProperties"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWindowStyle" substitutionGroup="ifc:IfcTypeProduct" type="ifc:IfcWindowStyle_Type"/>
-  <complexType name="IfcWindowStyle_Type">
+  <element name="IfcWindowStyle" substitutionGroup="ifc:IfcTypeProduct" type="ifc:IfcWindowStyleType"/>
+  <complexType name="IfcWindowStyleType">
     <complexContent>
-      <extension base="ifc:IfcTypeProduct_Type">
+      <extension base="ifc:IfcTypeProductType">
         <sequence>
-          <element name="constructionType" type="ifc:IfcWindowStyleConstructionEnum_PropertyType"/>
-          <element name="operationType" type="ifc:IfcWindowStyleOperationEnum_PropertyType"/>
+          <element name="constructionType" type="ifc:IfcWindowStyleConstructionEnumType"/>
+          <element name="operationType" type="ifc:IfcWindowStyleOperationEnumType"/>
           <element name="parameterTakesPrecedence" type="boolean"/>
           <element name="sizeable" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcWindowStyle_PropertyType">
+  <complexType name="IfcWindowStylePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcWindowStyle"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcWindowStyleConstructionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWindowStyleConstructionEnum_Type"/>
-  <simpleType name="IfcWindowStyleConstructionEnum_Type">
+  <simpleType name="IfcWindowStyleConstructionEnumType">
     <restriction base="string">
       <enumeration value="ALUMINIUM"/>
       <enumeration value="ALUMINIUM_WOOD"/>
@@ -331,14 +280,7 @@
       <enumeration value="WOOD"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWindowStyleConstructionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWindowStyleConstructionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcWindowStyleOperationEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcWindowStyleOperationEnum_Type"/>
-  <simpleType name="IfcWindowStyleOperationEnum_Type">
+  <simpleType name="IfcWindowStyleOperationEnumType">
     <restriction base="string">
       <enumeration value="DOUBLE_PANEL_HORIZONTAL"/>
       <enumeration value="DOUBLE_PANEL_VERTICAL"/>
@@ -353,10 +295,4 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcWindowStyleOperationEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcWindowStyleOperationEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
 </schema>

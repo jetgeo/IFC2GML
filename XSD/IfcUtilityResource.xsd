@@ -1,33 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcActorResource.xsd"/>
   <include schemaLocation="IfcConstraintResource.xsd"/>
   <include schemaLocation="IfcDateTimeResource.xsd"/>
   <include schemaLocation="IfcMeasureResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element name="IfcApplication" substitutionGroup="gco:AbstractObject" type="ifc:IfcApplication_Type"/>
-  <complexType name="IfcApplication_Type">
+  <element name="IfcApplication" substitutionGroup="gml:AbstractFeature" type="ifc:IfcApplicationType"/>
+  <complexType name="IfcApplicationType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element name="version" type="string"/>
           <element name="applicationFullName" type="string"/>
           <element name="applicationIdentifier" type="string"/>
-          <element name="applicationDeveloper" type="ifc:IfcOrganization_PropertyType"/>
+          <element name="applicationDeveloper" type="ifc:IfcOrganizationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcApplication_PropertyType">
+  <complexType name="IfcApplicationPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcApplication"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcChangeActionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcChangeActionEnum_Type"/>
-  <simpleType name="IfcChangeActionEnum_Type">
+  <simpleType name="IfcChangeActionEnumType">
     <restriction base="string">
       <enumeration value="ADDED"/>
       <enumeration value="DELETED"/>
@@ -36,53 +35,40 @@
       <enumeration value="NOTDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcChangeActionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcChangeActionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
+  <element name="IfcGloballyUniqueId" substitutionGroup="gml:AbstractObject" type="ifc:IfcGloballyUniqueIdType"/>
+  <complexType name="IfcGloballyUniqueIdType">
+    <sequence/>
   </complexType>
-  <element name="IfcGloballyUniqueId" substitutionGroup="gco:AbstractObject" type="ifc:IfcGloballyUniqueId_Type"/>
-  <complexType name="IfcGloballyUniqueId_Type">
-    <complexContent>
-      <extension base="gco:AbstractObject_Type">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="IfcGloballyUniqueId_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcGloballyUniqueIdPropertyType">
+    <sequence>
       <element ref="ifc:IfcGloballyUniqueId"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcOwnerHistory" substitutionGroup="gco:AbstractObject" type="ifc:IfcOwnerHistory_Type"/>
-  <complexType name="IfcOwnerHistory_Type">
+  <element name="IfcOwnerHistory" substitutionGroup="gml:AbstractFeature" type="ifc:IfcOwnerHistoryType"/>
+  <complexType name="IfcOwnerHistoryType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element minOccurs="0" name="state" type="ifc:IfcStateEnum_PropertyType"/>
-          <element minOccurs="0" name="changeAction" type="ifc:IfcChangeActionEnum_PropertyType"/>
+          <element minOccurs="0" name="state" type="ifc:IfcStateEnumType"/>
+          <element minOccurs="0" name="changeAction" type="ifc:IfcChangeActionEnumType"/>
           <element minOccurs="0" name="lastModifiedDate" type="integer"/>
           <element name="creationDate" type="integer"/>
-          <element name="owningUser" type="ifc:IfcPersonAndOrganization_PropertyType"/>
-          <element minOccurs="0" name="lastModifyingUser" type="ifc:IfcPersonAndOrganization_PropertyType"/>
-          <element name="owningApplication" type="ifc:IfcApplication_PropertyType"/>
-          <element minOccurs="0" name="lastModifyingApplication" type="ifc:IfcApplication_PropertyType"/>
+          <element name="owningUser" type="ifc:IfcPersonAndOrganizationPropertyType"/>
+          <element minOccurs="0" name="lastModifyingUser" type="ifc:IfcPersonAndOrganizationPropertyType"/>
+          <element name="owningApplication" type="ifc:IfcApplicationPropertyType"/>
+          <element minOccurs="0" name="lastModifyingApplication" type="ifc:IfcApplicationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcOwnerHistory_PropertyType">
+  <complexType name="IfcOwnerHistoryPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcOwnerHistory"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStateEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcStateEnum_Type"/>
-  <simpleType name="IfcStateEnum_Type">
+  <simpleType name="IfcStateEnumType">
     <restriction base="string">
       <enumeration value="LOCKED"/>
       <enumeration value="READONLY"/>
@@ -91,71 +77,65 @@
       <enumeration value="READWRITELOCKED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcStateEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcStateEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcTable" substitutionGroup="gco:AbstractObject" type="ifc:IfcTable_Type"/>
-  <complexType name="IfcTable_Type">
+  <element name="IfcTable" substitutionGroup="gml:AbstractFeature" type="ifc:IfcTableType"/>
+  <complexType name="IfcTableType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element name="numberOfCellsInRow" type="integer"/>
           <element name="numberOfHeadings" type="integer"/>
           <element name="numberOfDataRows" type="integer"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="rows" type="ifc:IfcTableRow_PropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="columns" type="ifc:IfcTableColumn_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="rows" type="ifc:IfcTableRowPropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="columns" type="ifc:IfcTableColumnPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTable_PropertyType">
+  <complexType name="IfcTablePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTable"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTableColumn" substitutionGroup="gco:AbstractObject" type="ifc:IfcTableColumn_Type"/>
-  <complexType name="IfcTableColumn_Type">
+  <element name="IfcTableColumn" substitutionGroup="gml:AbstractFeature" type="ifc:IfcTableColumnType"/>
+  <complexType name="IfcTableColumnType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="identifier" type="string"/>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element minOccurs="0" name="unit" type="ifc:IfcUnit_PropertyType"/>
-          <element minOccurs="0" name="referencePath" type="ifc:IfcReference_PropertyType"/>
+          <element minOccurs="0" name="unit" type="ifc:IfcUnitPropertyType"/>
+          <element minOccurs="0" name="referencePath" type="ifc:IfcReferencePropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTableColumn_PropertyType">
+  <complexType name="IfcTableColumnPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTableColumn"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTableRow" substitutionGroup="gco:AbstractObject" type="ifc:IfcTableRow_Type"/>
-  <complexType name="IfcTableRow_Type">
+  <element name="IfcTableRow" substitutionGroup="gml:AbstractFeature" type="ifc:IfcTableRowType"/>
+  <complexType name="IfcTableRowType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element maxOccurs="unbounded" minOccurs="0" name="rowCells" type="ifc:IfcValue_PropertyType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="rowCells" type="ifc:IfcValuePropertyType"/>
           <element minOccurs="0" name="isHeading" type="boolean"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTableRow_PropertyType">
+  <complexType name="IfcTableRowPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTableRow"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
 </schema>

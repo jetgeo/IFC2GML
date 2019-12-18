@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ifc="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" elementFormDefault="qualified" targetNamespace="https://raw.githubusercontent.com/jetgeo/IFC2GML/master/XSD/IFC" version="4.3">
   <include schemaLocation="IfcExternalReferenceResource.xsd"/>
   <include schemaLocation="IfcGeometricModelResource.xsd"/>
   <include schemaLocation="IfcGeometryResource.xsd"/>
@@ -8,31 +8,30 @@
   <include schemaLocation="IfcPresentationAppearanceResource.xsd"/>
   <include schemaLocation="IfcPresentationOrganizationResource.xsd"/>
   <include schemaLocation="IfcResourceLayer.xsd"/>
-  <import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
   <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
   <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
-  <element abstract="true" name="AbstractIfcCoordinateOperation" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcCoordinateOperation_Type"/>
-  <complexType abstract="true" name="AbstractIfcCoordinateOperation_Type">
+  <element abstract="true" name="IfcCoordinateOperation" substitutionGroup="gml:AbstractFeature" type="ifc:IfcCoordinateOperationType"/>
+  <complexType abstract="true" name="IfcCoordinateOperationType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="sourceCRS" type="ifc:IfcCoordinateReferenceSystemSelect_PropertyType"/>
-          <element name="targetCRS" type="ifc:AbstractIfcCoordinateReferenceSystem_PropertyType"/>
+          <element name="sourceCRS" type="ifc:IfcCoordinateReferenceSystemSelectPropertyType"/>
+          <element name="targetCRS" type="ifc:IfcCoordinateReferenceSystemPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcCoordinateOperation_PropertyType">
+  <complexType name="IfcCoordinateOperationPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcCoordinateOperation"/>
+      <element ref="ifc:IfcCoordinateOperation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcCoordinateReferenceSystem" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcCoordinateReferenceSystem_Type"/>
-  <complexType abstract="true" name="AbstractIfcCoordinateReferenceSystem_Type">
+  <element abstract="true" name="IfcCoordinateReferenceSystem" substitutionGroup="gml:AbstractFeature" type="ifc:IfcCoordinateReferenceSystemType"/>
+  <complexType abstract="true" name="IfcCoordinateReferenceSystemType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
@@ -42,28 +41,48 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcCoordinateReferenceSystem_PropertyType">
+  <complexType name="IfcCoordinateReferenceSystemPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcCoordinateReferenceSystem"/>
+      <element ref="ifc:IfcCoordinateReferenceSystem"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcCoordinateReferenceSystemSelect" type="ifc:IfcCoordinateReferenceSystemSelect_Type"/>
-  <complexType name="IfcCoordinateReferenceSystemSelect_Type">
+  <element name="IfcCoordinateReferenceSystemSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcCoordinateReferenceSystemSelectType"/>
+  <complexType name="IfcCoordinateReferenceSystemSelectType">
     <choice>
-      <element name="coordinateReferenceSystem" type="ifc:AbstractIfcCoordinateReferenceSystem_PropertyType"/>
-      <element name="geometricRepresentationContext" type="ifc:IfcGeometricRepresentationContext_PropertyType"/>
+      <element name="coordinateReferenceSystem">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcCoordinateReferenceSystem"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="geometricRepresentationContext">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcGeometricRepresentationContext"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
     </choice>
   </complexType>
-  <complexType name="IfcCoordinateReferenceSystemSelect_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcCoordinateReferenceSystemSelectPropertyType">
+    <sequence>
       <element ref="ifc:IfcCoordinateReferenceSystemSelect"/>
     </sequence>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcGeometricProjectionEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcGeometricProjectionEnum_Type"/>
-  <simpleType name="IfcGeometricProjectionEnum_Type">
+  <simpleType name="IfcGeometricProjectionEnumType">
     <restriction base="string">
       <enumeration value="ELEVATION_VIEW"/>
       <enumeration value="GRAPH_VIEW"/>
@@ -76,68 +95,55 @@
       <enumeration value="USERDEFINED"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcGeometricProjectionEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcGeometricProjectionEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcGeometricRepresentationContext" substitutionGroup="ifc:AbstractIfcRepresentationContext" type="ifc:IfcGeometricRepresentationContext_Type"/>
-  <complexType name="IfcGeometricRepresentationContext_Type">
+  <element name="IfcGeometricRepresentationContext" substitutionGroup="ifc:IfcRepresentationContext" type="ifc:IfcGeometricRepresentationContextType"/>
+  <complexType name="IfcGeometricRepresentationContextType">
     <complexContent>
-      <extension base="ifc:AbstractIfcRepresentationContext_Type">
+      <extension base="ifc:IfcRepresentationContextType">
         <sequence>
           <element name="coordinateSpaceDimension" type="integer"/>
           <element minOccurs="0" name="precision" type="double"/>
-          <element name="worldCoordinateSystem" type="ifc:IfcAxis2Placement_PropertyType"/>
+          <element name="worldCoordinateSystem" type="ifc:IfcAxis2PlacementPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGeometricRepresentationContext_PropertyType">
+  <complexType name="IfcGeometricRepresentationContextPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcGeometricRepresentationContext"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcGeometricRepresentationSubContext" substitutionGroup="ifc:IfcGeometricRepresentationContext" type="ifc:IfcGeometricRepresentationSubContext_Type"/>
-  <complexType name="IfcGeometricRepresentationSubContext_Type">
+  <element name="IfcGeometricRepresentationSubContext" substitutionGroup="ifc:IfcGeometricRepresentationContext" type="ifc:IfcGeometricRepresentationSubContextType"/>
+  <complexType name="IfcGeometricRepresentationSubContextType">
     <complexContent>
-      <extension base="ifc:IfcGeometricRepresentationContext_Type">
+      <extension base="ifc:IfcGeometricRepresentationContextType">
         <sequence>
           <element minOccurs="0" name="targetScale" type="gml:MeasureType"/>
-          <element name="targetView" type="ifc:IfcGeometricProjectionEnum_PropertyType"/>
+          <element name="targetView" type="ifc:IfcGeometricProjectionEnumType"/>
           <element minOccurs="0" name="userDefinedTargetView" type="string"/>
-          <element name="parentContext" type="ifc:IfcGeometricRepresentationContext_PropertyType"/>
+          <element name="parentContext" type="ifc:IfcGeometricRepresentationContextPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcGeometricRepresentationSubContext_PropertyType">
+  <complexType name="IfcGeometricRepresentationSubContextPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcGeometricRepresentationSubContext"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcGlobalOrLocalEnum" substitutionGroup="gco:CharacterString" type="ifc:IfcGlobalOrLocalEnum_Type"/>
-  <simpleType name="IfcGlobalOrLocalEnum_Type">
+  <simpleType name="IfcGlobalOrLocalEnumType">
     <restriction base="string">
       <enumeration value="GLOBAL_COORDS"/>
       <enumeration value="LOCAL_COORDS"/>
     </restriction>
   </simpleType>
-  <complexType name="IfcGlobalOrLocalEnum_PropertyType">
-    <sequence minOccurs="0">
-      <element ref="ifc:IfcGlobalOrLocalEnum"/>
-    </sequence>
-    <attribute ref="gco:nilReason"/>
-  </complexType>
-  <element name="IfcMapConversion" substitutionGroup="ifc:AbstractIfcCoordinateOperation" type="ifc:IfcMapConversion_Type"/>
-  <complexType name="IfcMapConversion_Type">
+  <element name="IfcMapConversion" substitutionGroup="ifc:IfcCoordinateOperation" type="ifc:IfcMapConversionType"/>
+  <complexType name="IfcMapConversionType">
     <complexContent>
-      <extension base="ifc:AbstractIfcCoordinateOperation_Type">
+      <extension base="ifc:IfcCoordinateOperationType">
         <sequence>
           <element name="eastings" type="gml:LengthType"/>
           <element name="northings" type="gml:LengthType"/>
@@ -149,119 +155,140 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMapConversion_PropertyType">
+  <complexType name="IfcMapConversionPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMapConversion"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcMaterialDefinitionRepresentation" substitutionGroup="ifc:AbstractIfcProductRepresentation" type="ifc:IfcMaterialDefinitionRepresentation_Type"/>
-  <complexType name="IfcMaterialDefinitionRepresentation_Type">
+  <element name="IfcMaterialDefinitionRepresentation" substitutionGroup="ifc:IfcProductRepresentation" type="ifc:IfcMaterialDefinitionRepresentationType"/>
+  <complexType name="IfcMaterialDefinitionRepresentationType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProductRepresentation_Type">
+      <extension base="ifc:IfcProductRepresentationType">
         <sequence>
-          <element name="representedMaterial" type="ifc:IfcMaterial_PropertyType"/>
+          <element name="representedMaterial" type="ifc:IfcMaterialPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcMaterialDefinitionRepresentation_PropertyType">
+  <complexType name="IfcMaterialDefinitionRepresentationPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcMaterialDefinitionRepresentation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcProductDefinitionShape" substitutionGroup="ifc:AbstractIfcProductRepresentation" type="ifc:IfcProductDefinitionShape_Type"/>
-  <complexType name="IfcProductDefinitionShape_Type">
+  <element name="IfcProductDefinitionShape" substitutionGroup="ifc:IfcProductRepresentation" type="ifc:IfcProductDefinitionShapeType"/>
+  <complexType name="IfcProductDefinitionShapeType">
     <complexContent>
-      <extension base="ifc:AbstractIfcProductRepresentation_Type">
+      <extension base="ifc:IfcProductRepresentationType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProductDefinitionShape_PropertyType">
+  <complexType name="IfcProductDefinitionShapePropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProductDefinitionShape"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcProductRepresentation" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcProductRepresentation_Type"/>
-  <complexType abstract="true" name="AbstractIfcProductRepresentation_Type">
+  <element abstract="true" name="IfcProductRepresentation" substitutionGroup="gml:AbstractFeature" type="ifc:IfcProductRepresentationType"/>
+  <complexType abstract="true" name="IfcProductRepresentationType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
-          <element maxOccurs="unbounded" name="representations" type="ifc:AbstractIfcRepresentation_PropertyType"/>
+          <element maxOccurs="unbounded" name="representations" type="ifc:IfcRepresentationPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcProductRepresentation_PropertyType">
+  <complexType name="IfcProductRepresentationPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcProductRepresentation"/>
+      <element ref="ifc:IfcProductRepresentation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcProductRepresentationSelect" type="ifc:IfcProductRepresentationSelect_Type"/>
-  <complexType name="IfcProductRepresentationSelect_Type">
+  <element name="IfcProductRepresentationSelect" substitutionGroup="gml:AbstractObject" type="ifc:IfcProductRepresentationSelectType"/>
+  <complexType name="IfcProductRepresentationSelectType">
     <choice>
-      <element name="productDefinitionShape" type="ifc:IfcProductDefinitionShape_PropertyType"/>
-      <element name="representationMap" type="ifc:IfcRepresentationMap_PropertyType"/>
+      <element name="productDefinitionShape">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcProductDefinitionShape"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <element name="representationMap">
+        <complexType>
+          <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+              <sequence minOccurs="0">
+                <element ref="ifc:IfcRepresentationMap"/>
+              </sequence>
+              <attributeGroup ref="gml:AssociationAttributeGroup"/>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
     </choice>
   </complexType>
-  <complexType name="IfcProductRepresentationSelect_PropertyType">
-    <sequence minOccurs="0">
+  <complexType name="IfcProductRepresentationSelectPropertyType">
+    <sequence>
       <element ref="ifc:IfcProductRepresentationSelect"/>
     </sequence>
-    <attribute ref="gco:nilReason"/>
   </complexType>
-  <element name="IfcProjectedCRS" substitutionGroup="ifc:AbstractIfcCoordinateReferenceSystem" type="ifc:IfcProjectedCRS_Type"/>
-  <complexType name="IfcProjectedCRS_Type">
+  <element name="IfcProjectedCRS" substitutionGroup="ifc:IfcCoordinateReferenceSystem" type="ifc:IfcProjectedCRSType"/>
+  <complexType name="IfcProjectedCRSType">
     <complexContent>
-      <extension base="ifc:AbstractIfcCoordinateReferenceSystem_Type">
+      <extension base="ifc:IfcCoordinateReferenceSystemType">
         <sequence>
           <element minOccurs="0" name="mapProjection" type="string"/>
           <element minOccurs="0" name="mapZone" type="string"/>
-          <element minOccurs="0" name="mapUnit" type="ifc:AbstractIfcNamedUnit_PropertyType"/>
+          <element minOccurs="0" name="mapUnit" type="ifc:IfcNamedUnitPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcProjectedCRS_PropertyType">
+  <complexType name="IfcProjectedCRSPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcProjectedCRS"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcRepresentation" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcRepresentation_Type"/>
-  <complexType abstract="true" name="AbstractIfcRepresentation_Type">
+  <element abstract="true" name="IfcRepresentation" substitutionGroup="gml:AbstractFeature" type="ifc:IfcRepresentationType"/>
+  <complexType abstract="true" name="IfcRepresentationType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="representationIdentifier" type="string"/>
           <element minOccurs="0" name="representationType" type="string"/>
-          <element name="contextOfItems" type="ifc:AbstractIfcRepresentationContext_PropertyType"/>
+          <element name="contextOfItems" type="ifc:IfcRepresentationContextPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcRepresentation_PropertyType">
+  <complexType name="IfcRepresentationPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcRepresentation"/>
+      <element ref="ifc:IfcRepresentation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcRepresentationContext" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcRepresentationContext_Type"/>
-  <complexType abstract="true" name="AbstractIfcRepresentationContext_Type">
+  <element abstract="true" name="IfcRepresentationContext" substitutionGroup="gml:AbstractFeature" type="ifc:IfcRepresentationContextType"/>
+  <complexType abstract="true" name="IfcRepresentationContextType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="contextIdentifier" type="string"/>
           <element minOccurs="0" name="contextType" type="string"/>
@@ -269,137 +296,137 @@
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcRepresentationContext_PropertyType">
+  <complexType name="IfcRepresentationContextPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcRepresentationContext"/>
+      <element ref="ifc:IfcRepresentationContext"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcRepresentationResourceFunction" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcRepresentationResourceFunction_Type"/>
-  <complexType abstract="true" name="AbstractIfcRepresentationResourceFunction_Type">
+  <element abstract="true" name="IfcRepresentationResourceFunction" substitutionGroup="gml:AbstractGML" type="ifc:IfcRepresentationResourceFunctionType"/>
+  <complexType abstract="true" name="IfcRepresentationResourceFunctionType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractGMLType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcRepresentationResourceFunction_PropertyType">
+  <complexType name="IfcRepresentationResourceFunctionPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcRepresentationResourceFunction"/>
+      <element ref="ifc:IfcRepresentationResourceFunction"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcRepresentationResourceFunctions" substitutionGroup="gco:AbstractObject" type="ifc:AbstractIfcRepresentationResourceFunctions_Type"/>
-  <complexType abstract="true" name="AbstractIfcRepresentationResourceFunctions_Type">
+  <element abstract="true" name="IfcRepresentationResourceFunctions" substitutionGroup="gml:AbstractGML" type="ifc:IfcRepresentationResourceFunctionsType"/>
+  <complexType abstract="true" name="IfcRepresentationResourceFunctionsType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractGMLType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcRepresentationResourceFunctions_PropertyType">
+  <complexType name="IfcRepresentationResourceFunctionsPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcRepresentationResourceFunctions"/>
+      <element ref="ifc:IfcRepresentationResourceFunctions"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcShapeAspect" substitutionGroup="gco:AbstractObject" type="ifc:IfcShapeAspect_Type"/>
-  <complexType name="IfcShapeAspect_Type">
+  <element name="IfcShapeAspect" substitutionGroup="gml:AbstractFeature" type="ifc:IfcShapeAspectType"/>
+  <complexType name="IfcShapeAspectType">
     <complexContent>
-      <extension base="gco:AbstractObject_Type">
+      <extension base="gml:AbstractFeatureType">
         <sequence>
           <element minOccurs="0" name="name" type="string"/>
           <element minOccurs="0" name="description" type="string"/>
           <element name="productDefinitional"/>
-          <element minOccurs="0" name="partOfProductDefinitionShape" type="ifc:IfcProductRepresentationSelect_PropertyType"/>
-          <element maxOccurs="unbounded" name="shapeRepresentations" type="ifc:AbstractIfcShapeModel_PropertyType"/>
+          <element minOccurs="0" name="partOfProductDefinitionShape" type="ifc:IfcProductRepresentationSelectPropertyType"/>
+          <element maxOccurs="unbounded" name="shapeRepresentations" type="ifc:IfcShapeModelPropertyType"/>
         </sequence>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcShapeAspect_PropertyType">
+  <complexType name="IfcShapeAspectPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcShapeAspect"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcShapeModel" substitutionGroup="ifc:AbstractIfcRepresentation" type="ifc:AbstractIfcShapeModel_Type"/>
-  <complexType abstract="true" name="AbstractIfcShapeModel_Type">
+  <element abstract="true" name="IfcShapeModel" substitutionGroup="ifc:IfcRepresentation" type="ifc:IfcShapeModelType"/>
+  <complexType abstract="true" name="IfcShapeModelType">
     <complexContent>
-      <extension base="ifc:AbstractIfcRepresentation_Type">
+      <extension base="ifc:IfcRepresentationType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcShapeModel_PropertyType">
+  <complexType name="IfcShapeModelPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcShapeModel"/>
+      <element ref="ifc:IfcShapeModel"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcShapeRepresentation" substitutionGroup="ifc:AbstractIfcShapeModel" type="ifc:IfcShapeRepresentation_Type"/>
-  <complexType name="IfcShapeRepresentation_Type">
+  <element name="IfcShapeRepresentation" substitutionGroup="ifc:IfcShapeModel" type="ifc:IfcShapeRepresentationType"/>
+  <complexType name="IfcShapeRepresentationType">
     <complexContent>
-      <extension base="ifc:AbstractIfcShapeModel_Type">
+      <extension base="ifc:IfcShapeModelType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcShapeRepresentation_PropertyType">
+  <complexType name="IfcShapeRepresentationPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcShapeRepresentation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element abstract="true" name="AbstractIfcStyleModel" substitutionGroup="ifc:AbstractIfcRepresentation" type="ifc:AbstractIfcStyleModel_Type"/>
-  <complexType abstract="true" name="AbstractIfcStyleModel_Type">
+  <element abstract="true" name="IfcStyleModel" substitutionGroup="ifc:IfcRepresentation" type="ifc:IfcStyleModelType"/>
+  <complexType abstract="true" name="IfcStyleModelType">
     <complexContent>
-      <extension base="ifc:AbstractIfcRepresentation_Type">
+      <extension base="ifc:IfcRepresentationType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="AbstractIfcStyleModel_PropertyType">
+  <complexType name="IfcStyleModelPropertyType">
     <sequence minOccurs="0">
-      <element ref="ifc:AbstractIfcStyleModel"/>
+      <element ref="ifc:IfcStyleModel"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcStyledRepresentation" substitutionGroup="ifc:AbstractIfcStyleModel" type="ifc:IfcStyledRepresentation_Type"/>
-  <complexType name="IfcStyledRepresentation_Type">
+  <element name="IfcStyledRepresentation" substitutionGroup="ifc:IfcStyleModel" type="ifc:IfcStyledRepresentationType"/>
+  <complexType name="IfcStyledRepresentationType">
     <complexContent>
-      <extension base="ifc:AbstractIfcStyleModel_Type">
+      <extension base="ifc:IfcStyleModelType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcStyledRepresentation_PropertyType">
+  <complexType name="IfcStyledRepresentationPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcStyledRepresentation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <element name="IfcTopologyRepresentation" substitutionGroup="ifc:AbstractIfcShapeModel" type="ifc:IfcTopologyRepresentation_Type"/>
-  <complexType name="IfcTopologyRepresentation_Type">
+  <element name="IfcTopologyRepresentation" substitutionGroup="ifc:IfcShapeModel" type="ifc:IfcTopologyRepresentationType"/>
+  <complexType name="IfcTopologyRepresentationType">
     <complexContent>
-      <extension base="ifc:AbstractIfcShapeModel_Type">
+      <extension base="ifc:IfcShapeModelType">
         <sequence/>
       </extension>
     </complexContent>
   </complexType>
-  <complexType name="IfcTopologyRepresentation_PropertyType">
+  <complexType name="IfcTopologyRepresentationPropertyType">
     <sequence minOccurs="0">
       <element ref="ifc:IfcTopologyRepresentation"/>
     </sequence>
-    <attributeGroup ref="gco:ObjectReference"/>
-    <attribute ref="gco:nilReason"/>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
 </schema>
