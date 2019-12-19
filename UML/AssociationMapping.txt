@@ -1,52 +1,1257 @@
-06.12.2019 13:54:17 Association mapping: IfcKernel.IfcRelAssignsToProcess.quantityInProcess from class IfcMeasureWithUnit to Measure
-06.12.2019 13:54:29 Association mapping: IfcProductExtension.IfcLinearPositioningElement.axis from class IfcCurve to Curve
-06.12.2019 13:55:29 Association mapping: IfcCostResource.IfcAppliedValue.unitBasis from class IfcMeasureWithUnit to Measure
-06.12.2019 13:55:45 Association mapping: IfcGeometricConstraintResource.IfcGridAxis.axisCurve from class IfcCurve to Curve
-06.12.2019 13:55:45 Association mapping: IfcGeometricConstraintResource.IfcLinearPlacement.placementMeasuredAlong from class IfcCurve to Curve
-06.12.2019 13:55:47 Association mapping: IfcGeometricModelResource.IfcBoundingBox.corner from class IfcCartesianPoint to Point
-06.12.2019 13:55:49 Association mapping: IfcGeometricModelResource.IfcFixedReferenceSweptAreaSolid.directrix from class IfcCurve to Curve
-06.12.2019 13:55:50 Association mapping: IfcGeometricModelResource.IfcHalfSpaceSolid.baseSurface from class IfcSurface to Surface
-06.12.2019 13:55:51 Association mapping: IfcGeometricModelResource.IfcRevolvedAreaSolid.axisLine from class IfcLine to Line
-06.12.2019 13:55:52 Association mapping: IfcGeometricModelResource.IfcSectionedSolid.directrix from class IfcCurve to Curve
-06.12.2019 13:55:52 Association mapping: IfcGeometricModelResource.IfcSectionedSpine.spineCurve from class IfcCompositeCurve to Curve
-06.12.2019 13:55:53 Association mapping: IfcGeometricModelResource.IfcSectionedSurface.directrix from class IfcCurve to Curve
-06.12.2019 13:55:54 Association mapping: IfcGeometricModelResource.IfcSurfaceCurveSweptAreaSolid.referenceSurface from class IfcSurface to Surface
-06.12.2019 13:55:54 Association mapping: IfcGeometricModelResource.IfcSurfaceCurveSweptAreaSolid.directrix from class IfcCurve to Curve
-06.12.2019 13:55:54 Association mapping: IfcGeometricModelResource.IfcSweptDiskSolid.directrix from class IfcCurve to Curve
-06.12.2019 13:55:57 Association mapping: IfcGeometryResource.IfcBSplineCurve.controlPointsList from class IfcCartesianPoint to Point
-06.12.2019 13:55:57 Association mapping: IfcGeometryResource.IfcBSplineCurve.controlPoints from class IfcCartesianPoint to Point
-06.12.2019 13:55:58 Association mapping: IfcGeometryResource.IfcBSplineSurface.controlPointsList from class IfcCartesianPoint to Point
-06.12.2019 13:55:59 Association mapping: IfcGeometryResource.IfcBSplineSurface.controlPoints from class IfcCartesianPoint to Point
-06.12.2019 13:56:00 Association mapping: IfcGeometryResource.IfcCartesianTransformationOperator.localOrigin from class IfcCartesianPoint to Point
-06.12.2019 13:56:02 Association mapping: IfcGeometryResource.IfcCompositeCurve.segments from class IfcCompositeCurveSegment to Curve
-06.12.2019 13:56:02 Association mapping: IfcGeometryResource.IfcCompositeCurveOnSurface.basisSurface from class IfcSurface to Surface
-06.12.2019 13:56:02 Association mapping: IfcGeometryResource.IfcCompositeCurveSegment.parentCurve from class IfcCurve to Curve
-06.12.2019 13:56:03 Association mapping: IfcGeometryResource.IfcCurveBoundedPlane.innerBoundaries from class IfcCurve to Curve
-06.12.2019 13:56:03 Association mapping: IfcGeometryResource.IfcCurveBoundedPlane.outerBoundary from class IfcCurve to Curve
-06.12.2019 13:56:04 Association mapping: IfcGeometryResource.IfcCurveBoundedSurface.basisSurface from class IfcSurface to Surface
-06.12.2019 13:56:04 Association mapping: IfcGeometryResource.IfcCurveSegment2D.startPoint from class IfcCartesianPoint to Point
-06.12.2019 13:56:06 Association mapping: IfcGeometryResource.IfcLine.pnt from class IfcCartesianPoint to Point
-06.12.2019 13:56:07 Association mapping: IfcGeometryResource.IfcOffsetCurve.basisCurve from class IfcCurve to Curve
-06.12.2019 13:56:08 Association mapping: IfcGeometryResource.IfcPcurve.referenceCurve from class IfcCurve to Curve
-06.12.2019 13:56:08 Association mapping: IfcGeometryResource.IfcPcurve.basisSurface from class IfcSurface to Surface
-06.12.2019 13:56:08 Association mapping: IfcGeometryResource.IfcPlacement.location from class IfcCartesianPoint to Point
-06.12.2019 13:56:09 Association mapping: IfcGeometryResource.IfcPointOnCurve.basisCurve from class IfcCurve to Curve
-06.12.2019 13:56:09 Association mapping: IfcGeometryResource.IfcPointOnSurface.basisSurface from class IfcSurface to Surface
-06.12.2019 13:56:09 Association mapping: IfcGeometryResource.IfcPolyline.points from class IfcCartesianPoint to Point
-06.12.2019 13:56:11 Association mapping: IfcGeometryResource.IfcRectangularTrimmedSurface.basisSurface from class IfcSurface to Surface
-06.12.2019 13:56:12 Association mapping: IfcGeometryResource.IfcSurfaceCurve.curve3D from class IfcCurve to Curve
-06.12.2019 13:56:12 Association mapping: IfcGeometryResource.IfcSurfaceCurve.basisSurface from class IfcSurface to Surface
-06.12.2019 13:56:12 Association mapping: IfcGeometryResource.IfcSurfaceOfRevolution.axisLine from class IfcLine to Line
-06.12.2019 13:56:13 Association mapping: IfcGeometryResource.IfcTrimmedCurve.basisCurve from class IfcCurve to Curve
-06.12.2019 13:56:20 Association mapping: IfcMeasureResource.IfcConversionBasedUnit.conversionFactor from class IfcMeasureWithUnit to Measure
-06.12.2019 13:56:30 Association mapping: IfcPresentationAppearanceResource.IfcFillAreaStyleHatching.patternStart from class IfcCartesianPoint to Point
-06.12.2019 13:56:30 Association mapping: IfcPresentationAppearanceResource.IfcFillAreaStyleHatching.pointOfReferenceHatchLine from class IfcCartesianPoint to Point
-06.12.2019 13:56:37 Association mapping: IfcPresentationDefinitionResource.IfcAnnotationFillArea.outerBoundary from class IfcCurve to Curve
-06.12.2019 13:56:38 Association mapping: IfcPresentationDefinitionResource.IfcAnnotationFillArea.InnerBoundaries from class IfcCurve to Curve
-06.12.2019 13:56:41 Association mapping: IfcPresentationOrganizationResource.IfcLightSourcePositional.position from class IfcCartesianPoint to Point
-06.12.2019 13:56:42 Association mapping: IfcProfileResource.IfcArbitraryClosedProfileDef.outerCurve from class IfcCurve to Curve
-06.12.2019 13:56:42 Association mapping: IfcProfileResource.IfcArbitraryProfileDefWithVoids.innerCurves from class IfcCurve to Curve
-06.12.2019 13:57:09 Association mapping: IfcTopologyResource.IfcEdgeCurve.edgeGeometry from class IfcCurve to Curve
-06.12.2019 13:57:10 Association mapping: IfcTopologyResource.IfcFaceSurface.faceSurface from class IfcSurface to Surface
-06.12.2019 13:57:11 Association mapping: IfcTopologyResource.IfcPolyLoop.polygon from class IfcCartesianPoint to Point
-06.12.2019 13:57:11 Association mapping: IfcTopologyResource.IfcVertexPoint.vertexGeometry from class IfcPoint to Point
+07.12.2019 14:53:05 Root package: IFC4x3
+07.12.2019 14:53:05 
+07.12.2019 14:53:05 Creating mapping list
+07.12.2019 14:53:05 
+07.12.2019 14:53:05 Package: IfcKernel
+07.12.2019 14:53:09 
+07.12.2019 14:53:09 Package: IfcControlExtension
+07.12.2019 14:53:09 
+07.12.2019 14:53:09 Package: IfcProcessExtension
+07.12.2019 14:53:10 
+07.12.2019 14:53:10 Package: IfcProductExtension
+07.12.2019 14:53:15 
+07.12.2019 14:53:15 Package: IfcArchitectureDomain
+07.12.2019 14:53:16 
+07.12.2019 14:53:16 Package: IfcBuildingControlsDomain
+07.12.2019 14:53:17 
+07.12.2019 14:53:17 Package: IfcConstructionMgmtDomain
+07.12.2019 14:53:18 
+07.12.2019 14:53:18 Package: IfcElectricalDomain
+07.12.2019 14:53:20 
+07.12.2019 14:53:20 Package: IfcHvacDomain
+07.12.2019 14:53:24 
+07.12.2019 14:53:24 Package: IfcPlumbingFireProtectionDomain
+07.12.2019 14:53:25 
+07.12.2019 14:53:25 Package: IfcStructuralAnalysisDomain
+07.12.2019 14:53:27 
+07.12.2019 14:53:27 Package: IfcStructuralElementsDomain
+07.12.2019 14:53:28 
+07.12.2019 14:53:28 Package: IfcSharedBldgElements
+07.12.2019 14:53:32 
+07.12.2019 14:53:32 Package: IfcSharedBldgServiceElements
+07.12.2019 14:53:35 
+07.12.2019 14:53:35 Package: IfcSharedComponentElements
+07.12.2019 14:53:35 
+07.12.2019 14:53:35 Package: IfcSharedFacilitiesElements
+07.12.2019 14:53:36 
+07.12.2019 14:53:36 Package: IfcSharedMgmtElements
+07.12.2019 14:53:36 
+07.12.2019 14:53:36 Package: IfcActorResource
+07.12.2019 14:53:37 
+07.12.2019 14:53:37 Package: IfcApprovalResource
+07.12.2019 14:53:37 
+07.12.2019 14:53:37 Package: IfcConstraintResource
+07.12.2019 14:53:38 
+07.12.2019 14:53:38 Package: IfcCostResource
+07.12.2019 14:53:38 
+07.12.2019 14:53:38 Package: IfcDateTimeResource
+07.12.2019 14:53:38 DataType : IfcDate (13380)
+07.12.2019 14:53:38 Realisation Supplier: Date (12659)
+07.12.2019 14:53:38 DataType : IfcDateTime (13394)
+07.12.2019 14:53:38 Realisation Supplier: DateTime (12660)
+07.12.2019 14:53:38 DataType : IfcDayInMonthNumber (13373)
+07.12.2019 14:53:38 Realisation Supplier: Integer (12665)
+07.12.2019 14:53:39 DataType : IfcDayInWeekNumber (13385)
+07.12.2019 14:53:39 Realisation Supplier: Integer (12665)
+07.12.2019 14:53:39 DataType : IfcDuration (13378)
+07.12.2019 14:53:39 Realisation Supplier: TM_PeriodDuration (13342)
+07.12.2019 14:53:39 DataType : IfcMonthInYearNumber (13390)
+07.12.2019 14:53:39 Realisation Supplier: Integer (12665)
+07.12.2019 14:53:39 DataType : IfcTime (13396)
+07.12.2019 14:53:39 Realisation Supplier: Time (12661)
+07.12.2019 14:53:40 DataType : IfcTimeStamp (13395)
+07.12.2019 14:53:40 Realisation Supplier: Integer (12665)
+07.12.2019 14:53:40 
+07.12.2019 14:53:40 Package: IfcExternalReferenceResource
+07.12.2019 14:53:41 
+07.12.2019 14:53:41 Package: IfcGeometricConstraintResource
+07.12.2019 14:53:43 
+07.12.2019 14:53:43 Package: IfcGeometricModelResource
+07.12.2019 14:53:46 
+07.12.2019 14:53:46 Package: IfcGeometryResource
+07.12.2019 14:53:46 FeatureType : IfcBSplineCurveWithKnots (13819)
+07.12.2019 14:53:46 Realisation Supplier: BSplineCurve (13074)
+07.12.2019 14:53:46 FeatureType : IfcBSplineSurfaceWithKnots (13820)
+07.12.2019 14:53:46 Realisation Supplier: BSplineSurface (13104)
+07.12.2019 14:53:47 FeatureType : IfcCartesianPoint (13767)
+07.12.2019 14:53:47 Realisation Supplier: Point (13005)
+07.12.2019 14:53:47 FeatureType : IfcCircle (13831)
+07.12.2019 14:53:47 Realisation Supplier: Circle (13060)
+07.12.2019 14:53:47 FeatureType : IfcCircularArcSegment2D (13812)
+07.12.2019 14:53:47 Realisation Supplier: Arc (13056)
+07.12.2019 14:53:47 FeatureType : IfcCompositeCurve (13781)
+07.12.2019 14:53:47 Realisation Supplier: Curve (13013)
+07.12.2019 14:53:48 FeatureType : IfcCompositeCurveSegment (13779)
+07.12.2019 14:53:48 Realisation Supplier: Curve (13013)
+07.12.2019 14:53:48 FeatureType : IfcConic (13792)
+07.12.2019 14:53:48 Realisation Supplier: Conic (13061)
+07.12.2019 14:53:48 FeatureType : IfcCurve (13780)
+07.12.2019 14:53:48 Realisation Supplier: Curve (13013)
+07.12.2019 14:53:48 FeatureType : IfcCurve (13780)
+07.12.2019 14:53:49 FeatureType : IfcCylindricalSurface (13754)
+07.12.2019 14:53:49 Realisation Supplier: Cylinder (13087)
+07.12.2019 14:53:49 DataType : IfcDimensionCount (13799)
+07.12.2019 14:53:49 Realisation Supplier: Integer (12665)
+07.12.2019 14:53:49 FeatureType : IfcEllipse (13763)
+07.12.2019 14:53:49 Realisation Supplier: Ellipse (13059)
+07.12.2019 14:53:50 FeatureType : IfcLine (13768)
+07.12.2019 14:53:50 Realisation Supplier: Line (13040)
+07.12.2019 14:53:51 FeatureType : IfcPoint (13835)
+07.12.2019 14:53:51 Realisation Supplier: Point (13005)
+07.12.2019 14:53:51 FeatureType : IfcSphericalSurface (13808)
+07.12.2019 14:53:51 Realisation Supplier: Sphere (13088)
+07.12.2019 14:53:51 FeatureType : IfcSurface (13758)
+07.12.2019 14:53:52 Realisation Supplier: Surface (13008)
+07.12.2019 14:53:52 
+07.12.2019 14:53:52 Package: IfcMaterialResource
+07.12.2019 14:53:54 
+07.12.2019 14:53:54 Package: IfcMeasureResource
+07.12.2019 14:53:54 DataType : IfcAbsorbedDoseMeasure (13860)
+07.12.2019 14:53:54 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:54 DataType : IfcAccelerationMeasure (13867)
+07.12.2019 14:53:54 Realisation Supplier: Acceleration (12726)
+07.12.2019 14:53:54 DataType : IfcAmountOfSubstanceMeasure (13899)
+07.12.2019 14:53:54 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:54 DataType : IfcAngularVelocityMeasure (13858)
+07.12.2019 14:53:54 Realisation Supplier: AngularVelocity (12721)
+07.12.2019 14:53:54 DataType : IfcAreaDensityMeasure (13915)
+07.12.2019 14:53:54 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:54 DataType : IfcAreaMeasure (13886)
+07.12.2019 14:53:54 Realisation Supplier: Area (12741)
+07.12.2019 14:53:55 DataType : IfcBoolean (13961)
+07.12.2019 14:53:55 Realisation Supplier: Boolean (12678)
+07.12.2019 14:53:55 DataType : IfcCompoundPlaneAngleMeasure (13939)
+07.12.2019 14:53:55 Realisation Supplier: Angle (12728)
+07.12.2019 14:53:55 DataType : IfcContextDependentMeasure (13871)
+07.12.2019 14:53:55 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:55 DataType : IfcCountMeasure (13877)
+07.12.2019 14:53:55 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:55 DataType : IfcCurvatureMeasure (13887)
+07.12.2019 14:53:55 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:55 DataType : IfcDescriptiveMeasure (13944)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcDoseEquivalentMeasure (13879)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcDynamicViscosityMeasure (13913)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcElectricCapacitanceMeasure (13928)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcElectricChargeMeasure (13852)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcElectricConductanceMeasure (13857)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcElectricCurrentMeasure (13905)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcElectricResistanceMeasure (13917)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:56 DataType : IfcElectricVoltageMeasure (13903)
+07.12.2019 14:53:56 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcEnergyMeasure (13931)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcForceMeasure (13918)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcFrequencyMeasure (13957)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcHeatFluxDensityMeasure (13894)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcHeatingValueMeasure (13951)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcIdentifier (13926)
+07.12.2019 14:53:57 Realisation Supplier: CharacterString (12669)
+07.12.2019 14:53:57 DataType : IfcIlluminanceMeasure (13882)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:57 DataType : IfcInductanceMeasure (13851)
+07.12.2019 14:53:57 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:58 DataType : IfcInteger (13935)
+07.12.2019 14:53:58 Realisation Supplier: Integer (12665)
+07.12.2019 14:53:58 DataType : IfcIntegerCountRateMeasure (13873)
+07.12.2019 14:53:58 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:58 DataType : IfcIonConcentrationMeasure (13891)
+07.12.2019 14:53:58 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:58 DataType : IfcIsothermalMoistureCapacityMeasure (13941)
+07.12.2019 14:53:58 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:58 DataType : IfcKinematicViscosityMeasure (13954)
+07.12.2019 14:53:58 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:58 DataType : IfcLabel (13932)
+07.12.2019 14:53:58 Realisation Supplier: CharacterString (12669)
+07.12.2019 14:53:58 DataType : IfcLengthMeasure (13937)
+07.12.2019 14:53:58 Realisation Supplier: Length (12716)
+07.12.2019 14:53:58 DataType : IfcLinearForceMeasure (13920)
+07.12.2019 14:53:58 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:58 DataType : IfcLinearMomentMeasure (13880)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcLinearStiffnessMeasure (13876)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcLinearVelocityMeasure (13943)
+07.12.2019 14:53:59 Realisation Supplier: Velocity (12733)
+07.12.2019 14:53:59 DataType : IfcLogical (13930)
+07.12.2019 14:53:59 Realisation Supplier: Logical (12676)
+07.12.2019 14:53:59 DataType : IfcLuminousFluxMeasure (13853)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcLuminousIntensityDistributionMeasure (13872)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcLuminousIntensityMeasure (13847)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcMagneticFluxDensityMeasure (13953)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcMagneticFluxMeasure (13956)
+07.12.2019 14:53:59 Realisation Supplier: Measure (12740)
+07.12.2019 14:53:59 DataType : IfcMassDensityMeasure (13936)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 DataType : IfcMassFlowRateMeasure (13859)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 DataType : IfcMassMeasure (13916)
+07.12.2019 14:54:00 Realisation Supplier: Weight (12725)
+07.12.2019 14:54:00 DataType : IfcMassPerLengthMeasure (13892)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 FeatureType : IfcMeasureWithUnit (13934)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 DataType : IfcModulusOfElasticityMeasure (13911)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 DataType : IfcModulusOfLinearSubgradeReactionMeasure (13895)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 DataType : IfcModulusOfRotationalSubgradeReactionMeasure (13883)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:00 DataType : IfcModulusOfSubgradeReactionMeasure (13960)
+07.12.2019 14:54:00 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:01 DataType : IfcMoistureDiffusivityMeasure (13863)
+07.12.2019 14:54:01 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:01 DataType : IfcMolecularWeightMeasure (13963)
+07.12.2019 14:54:01 Realisation Supplier: Weight (12725)
+07.12.2019 14:54:01 DataType : IfcMomentOfInertiaMeasure (13912)
+07.12.2019 14:54:01 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:01 DataType : IfcMonetaryMeasure (13942)
+07.12.2019 14:54:01 Realisation Supplier: Currency (12737)
+07.12.2019 14:54:01 DataType : IfcNonNegativeLengthMeasure (13869)
+07.12.2019 14:54:01 Realisation Supplier: Length (12716)
+07.12.2019 14:54:01 DataType : IfcNormalisedRatioMeasure (13864)
+07.12.2019 14:54:01 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:01 DataType : IfcNumericMeasure (13922)
+07.12.2019 14:54:01 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:01 DataType : IfcParameterValue (13914)
+07.12.2019 14:54:02 Realisation Supplier: Real (12666)
+07.12.2019 14:54:02 DataType : IfcPHMeasure (13875)
+07.12.2019 14:54:02 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:02 DataType : IfcPlanarForceMeasure (13839)
+07.12.2019 14:54:02 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:02 DataType : IfcPlaneAngleMeasure (13848)
+07.12.2019 14:54:02 Realisation Supplier: Angle (12728)
+07.12.2019 14:54:02 DataType : IfcPositiveInteger (13902)
+07.12.2019 14:54:02 Realisation Supplier: Integer (12665)
+07.12.2019 14:54:02 DataType : IfcPositiveLengthMeasure (13950)
+07.12.2019 14:54:02 Realisation Supplier: Length (12716)
+07.12.2019 14:54:02 DataType : IfcPositivePlaneAngleMeasure (13910)
+07.12.2019 14:54:02 Realisation Supplier: Angle (12728)
+07.12.2019 14:54:02 DataType : IfcPositiveRatioMeasure (13904)
+07.12.2019 14:54:02 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:02 DataType : IfcPowerMeasure (13919)
+07.12.2019 14:54:02 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcPressureMeasure (13898)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcRadioActivityMeasure (13870)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcRatioMeasure (13889)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcReal (13896)
+07.12.2019 14:54:03 Realisation Supplier: Real (12666)
+07.12.2019 14:54:03 DataType : IfcRotationalFrequencyMeasure (13909)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcRotationalMassMeasure (13897)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcRotationalStiffnessMeasure (13888)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcSectionalAreaIntegralMeasure (13946)
+07.12.2019 14:54:03 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:03 DataType : IfcSectionModulusMeasure (13940)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcShearModulusMeasure (13856)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcSolidAngleMeasure (13901)
+07.12.2019 14:54:04 Realisation Supplier: Angle (12728)
+07.12.2019 14:54:04 DataType : IfcSoundPowerLevelMeasure (13906)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcSoundPowerMeasure (13844)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcSoundPressureLevelMeasure (13938)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcSoundPressureMeasure (13947)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcSpecificHeatCapacityMeasure (13921)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:04 DataType : IfcTemperatureGradientMeasure (13948)
+07.12.2019 14:54:04 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcTemperatureRateOfChangeMeasure (13854)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcText (13955)
+07.12.2019 14:54:05 Realisation Supplier: CharacterString (12669)
+07.12.2019 14:54:05 DataType : IfcThermalAdmittanceMeasure (13924)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcThermalConductivityMeasure (13893)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcThermalExpansionCoefficientMeasure (13874)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcThermalResistanceMeasure (13962)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcThermalTransmittanceMeasure (13862)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcThermodynamicTemperatureMeasure (13849)
+07.12.2019 14:54:05 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:05 DataType : IfcTimeMeasure (13846)
+07.12.2019 14:54:06 Realisation Supplier: TimeMeasure (12736)
+07.12.2019 14:54:06 DataType : IfcTorqueMeasure (13868)
+07.12.2019 14:54:06 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:06 DataType : IfcVaporPermeabilityMeasure (13952)
+07.12.2019 14:54:06 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:06 DataType : IfcVolumeMeasure (13840)
+07.12.2019 14:54:06 Realisation Supplier: Volume (12727)
+07.12.2019 14:54:06 DataType : IfcVolumetricFlowRateMeasure (13945)
+07.12.2019 14:54:06 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:06 DataType : IfcWarpingConstantMeasure (13908)
+07.12.2019 14:54:06 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:06 DataType : IfcWarpingMomentMeasure (13933)
+07.12.2019 14:54:06 Realisation Supplier: Measure (12740)
+07.12.2019 14:54:07 
+07.12.2019 14:54:07 Package: IfcPresentationAppearanceResource
+07.12.2019 14:54:10 
+07.12.2019 14:54:10 Package: IfcPresentationDefinitionResource
+07.12.2019 14:54:10 
+07.12.2019 14:54:10 Package: IfcPresentationOrganizationResource
+07.12.2019 14:54:11 
+07.12.2019 14:54:11 Package: IfcProfileResource
+07.12.2019 14:54:13 
+07.12.2019 14:54:13 Package: IfcPropertyResource
+07.12.2019 14:54:14 
+07.12.2019 14:54:14 Package: IfcQuantityResource
+07.12.2019 14:54:15 
+07.12.2019 14:54:15 Package: IfcRepresentationResource
+07.12.2019 14:54:16 
+07.12.2019 14:54:16 Package: IfcStructuralLoadResource
+07.12.2019 14:54:17 
+07.12.2019 14:54:17 Package: IfcTopologyResource
+07.12.2019 14:54:19 
+07.12.2019 14:54:19 Package: IfcUtilityResource
+07.12.2019 14:54:19 
+07.12.2019 14:54:19 Mapping list established
+07.12.2019 14:54:19 
+07.12.2019 14:54:19 Performing mapping
+07.12.2019 14:54:19 
+07.12.2019 14:54:19 
+07.12.2019 14:54:19 Package: IfcKernel
+07.12.2019 14:54:22 Association mapping: IfcKernel.IfcRelAssignsToProcess.quantityInProcess from class IfcMeasureWithUnit to Measure
+07.12.2019 14:54:22 Mapping can be performed: IfcMeasureWithUnit to Measure
+07.12.2019 14:54:24 
+07.12.2019 14:54:24 Package: IfcControlExtension
+07.12.2019 14:54:24 
+07.12.2019 14:54:24 Package: IfcProcessExtension
+07.12.2019 14:54:25 
+07.12.2019 14:54:25 Package: IfcProductExtension
+07.12.2019 14:54:27 Association mapping: IfcProductExtension.IfcLinearPositioningElement.axis from class IfcCurve to Curve
+07.12.2019 14:54:27 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:54:28 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:54:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:54:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:54:28 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:54:28 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:54:28 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:54:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:54:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:54:28 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:54:29 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:54:29 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:54:29 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:54:29 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:54:29 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:54:29 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:54:29 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:54:29 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:54:29 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:54:30 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:54:30 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:54:30 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:54:30 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:54:30 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:54:30 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:54:30 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:54:30 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:54:31 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:54:31 Mapping not possible for IfcProductExtension.IfcLinearPositioningElement.axis: IfcCurve to Curve
+07.12.2019 14:54:34 
+07.12.2019 14:54:34 Package: IfcArchitectureDomain
+07.12.2019 14:54:35 
+07.12.2019 14:54:35 Package: IfcBuildingControlsDomain
+07.12.2019 14:54:35 
+07.12.2019 14:54:35 Package: IfcConstructionMgmtDomain
+07.12.2019 14:54:36 
+07.12.2019 14:54:36 Package: IfcElectricalDomain
+07.12.2019 14:54:39 
+07.12.2019 14:54:39 Package: IfcHvacDomain
+07.12.2019 14:54:43 
+07.12.2019 14:54:43 Package: IfcPlumbingFireProtectionDomain
+07.12.2019 14:54:44 
+07.12.2019 14:54:44 Package: IfcStructuralAnalysisDomain
+07.12.2019 14:54:46 
+07.12.2019 14:54:46 Package: IfcStructuralElementsDomain
+07.12.2019 14:54:47 
+07.12.2019 14:54:47 Package: IfcSharedBldgElements
+07.12.2019 14:54:51 
+07.12.2019 14:54:51 Package: IfcSharedBldgServiceElements
+07.12.2019 14:54:54 
+07.12.2019 14:54:54 Package: IfcSharedComponentElements
+07.12.2019 14:54:55 
+07.12.2019 14:54:55 Package: IfcSharedFacilitiesElements
+07.12.2019 14:54:55 
+07.12.2019 14:54:55 Package: IfcSharedMgmtElements
+07.12.2019 14:54:56 
+07.12.2019 14:54:56 Package: IfcActorResource
+07.12.2019 14:54:56 
+07.12.2019 14:54:56 Package: IfcApprovalResource
+07.12.2019 14:54:57 
+07.12.2019 14:54:57 Package: IfcConstraintResource
+07.12.2019 14:54:57 
+07.12.2019 14:54:57 Package: IfcCostResource
+07.12.2019 14:54:57 Association mapping: IfcCostResource.IfcAppliedValue.unitBasis from class IfcMeasureWithUnit to Measure
+07.12.2019 14:54:57 Mapping can be performed: IfcMeasureWithUnit to Measure
+07.12.2019 14:54:58 
+07.12.2019 14:54:58 Package: IfcDateTimeResource
+07.12.2019 14:54:59 
+07.12.2019 14:54:59 Package: IfcExternalReferenceResource
+07.12.2019 14:55:00 
+07.12.2019 14:55:00 Package: IfcGeometricConstraintResource
+07.12.2019 14:55:01 Association mapping: IfcGeometricConstraintResource.IfcGridAxis.axisCurve from class IfcCurve to Curve
+07.12.2019 14:55:01 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:02 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:02 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:02 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:02 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:02 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:02 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:02 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:02 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:02 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:03 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:03 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:03 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:03 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:03 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:03 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:03 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:03 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:03 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:04 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:04 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:04 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:04 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:04 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:04 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:04 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:04 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:05 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:05 Mapping not possible for IfcGeometricConstraintResource.IfcGridAxis.axisCurve: IfcCurve to Curve
+07.12.2019 14:55:05 Association mapping: IfcGeometricConstraintResource.IfcLinearPlacement.placementMeasuredAlong from class IfcCurve to Curve
+07.12.2019 14:55:05 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:05 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:05 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:05 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:06 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:06 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:06 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:06 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:06 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:06 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:07 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:07 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:07 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:07 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:07 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:08 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:08 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:08 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:08 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:08 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:08 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:08 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:08 Mapping not possible for IfcGeometricConstraintResource.IfcLinearPlacement.placementMeasuredAlong: IfcCurve to Curve
+07.12.2019 14:55:09 
+07.12.2019 14:55:09 Package: IfcGeometricModelResource
+07.12.2019 14:55:09 Association mapping: IfcGeometricModelResource.IfcBoundingBox.corner from class IfcCartesianPoint to Point
+07.12.2019 14:55:09 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:10 Association mapping: IfcGeometricModelResource.IfcFixedReferenceSweptAreaSolid.directrix from class IfcCurve to Curve
+07.12.2019 14:55:10 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:10 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:11 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:11 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:11 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:11 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:11 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:11 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:11 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:11 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:11 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:12 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:12 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:12 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:12 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:12 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:12 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:12 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:12 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:13 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:13 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:13 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:13 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:13 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:13 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:13 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:13 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:13 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:14 Mapping not possible for IfcGeometricModelResource.IfcFixedReferenceSweptAreaSolid.directrix: IfcCurve to Curve
+07.12.2019 14:55:14 Association mapping: IfcGeometricModelResource.IfcHalfSpaceSolid.baseSurface from class IfcSurface to Surface
+07.12.2019 14:55:14 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:55:14 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:55:14 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:55:14 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:55:14 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:55:15 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:55:15 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:55:15 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:55:15 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:55:15 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:55:15 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:55:15 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:55:15 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:55:16 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:55:16 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:55:16 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:55:16 Mapping not possible for IfcGeometricModelResource.IfcHalfSpaceSolid.baseSurface: IfcSurface to Surface
+07.12.2019 14:55:16 Association mapping: IfcGeometricModelResource.IfcRevolvedAreaSolid.axisLine from class IfcLine to Line
+07.12.2019 14:55:16 Mapping can be performed: IfcLine to Line
+07.12.2019 14:55:17 Association mapping: IfcGeometricModelResource.IfcSectionedSolid.directrix from class IfcCurve to Curve
+07.12.2019 14:55:17 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:17 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:17 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:17 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:17 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:17 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:18 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:18 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:18 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:18 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:18 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:18 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:18 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:18 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:18 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:19 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:19 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:19 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:19 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:19 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:19 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:19 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:19 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:20 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:20 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:20 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:20 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:20 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:20 Mapping not possible for IfcGeometricModelResource.IfcSectionedSolid.directrix: IfcCurve to Curve
+07.12.2019 14:55:20 Association mapping: IfcGeometricModelResource.IfcSectionedSpine.spineCurve from class IfcCompositeCurve to Curve
+07.12.2019 14:55:20 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:20 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:21 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:21 Mapping can be performed: IfcCompositeCurve to Curve
+07.12.2019 14:55:21 Association mapping: IfcGeometricModelResource.IfcSectionedSurface.directrix from class IfcCurve to Curve
+07.12.2019 14:55:21 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:21 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:21 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:21 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:21 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:22 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:22 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:22 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:22 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:22 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:22 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:22 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:22 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:22 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:23 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:23 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:23 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:23 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:23 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:23 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:23 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:23 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:24 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:24 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:24 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:24 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:24 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:24 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:24 Mapping not possible for IfcGeometricModelResource.IfcSectionedSurface.directrix: IfcCurve to Curve
+07.12.2019 14:55:25 Association mapping: IfcGeometricModelResource.IfcSurfaceCurveSweptAreaSolid.referenceSurface from class IfcSurface to Surface
+07.12.2019 14:55:25 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:55:25 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:55:25 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:55:25 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:55:25 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:55:25 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:55:25 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:55:25 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:55:26 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:55:26 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:55:26 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:55:26 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:55:26 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:55:26 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:55:26 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:55:26 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:55:26 Mapping not possible for IfcGeometricModelResource.IfcSurfaceCurveSweptAreaSolid.referenceSurface: IfcSurface to Surface
+07.12.2019 14:55:27 Association mapping: IfcGeometricModelResource.IfcSurfaceCurveSweptAreaSolid.directrix from class IfcCurve to Curve
+07.12.2019 14:55:27 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:27 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:27 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:27 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:27 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:27 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:27 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:28 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:28 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:28 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:28 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:28 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:28 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:29 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:29 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:29 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:29 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:29 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:29 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:29 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:29 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:30 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:30 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:30 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:30 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:30 Mapping not possible for IfcGeometricModelResource.IfcSurfaceCurveSweptAreaSolid.directrix: IfcCurve to Curve
+07.12.2019 14:55:30 Association mapping: IfcGeometricModelResource.IfcSweptDiskSolid.directrix from class IfcCurve to Curve
+07.12.2019 14:55:30 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:31 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:31 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:31 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:31 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:31 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:31 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:31 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:31 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:31 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:32 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:32 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:32 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:32 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:32 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:32 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:32 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:32 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:32 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:33 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:33 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:33 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:33 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:33 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:33 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:33 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:33 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:34 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:34 Mapping not possible for IfcGeometricModelResource.IfcSweptDiskSolid.directrix: IfcCurve to Curve
+07.12.2019 14:55:34 
+07.12.2019 14:55:34 Package: IfcGeometryResource
+07.12.2019 14:55:35 Association mapping: IfcGeometryResource.IfcBSplineCurve.controlPointsList from class IfcCartesianPoint to Point
+07.12.2019 14:55:35 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:35 Association mapping: IfcGeometryResource.IfcBSplineCurve.controlPoints from class IfcCartesianPoint to Point
+07.12.2019 14:55:35 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:35 Association mapping: IfcGeometryResource.IfcBSplineSurface.controlPointsList from class IfcCartesianPoint to Point
+07.12.2019 14:55:36 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:36 Association mapping: IfcGeometryResource.IfcBSplineSurface.controlPoints from class IfcCartesianPoint to Point
+07.12.2019 14:55:36 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:36 Association mapping: IfcGeometryResource.IfcCartesianTransformationOperator.localOrigin from class IfcCartesianPoint to Point
+07.12.2019 14:55:37 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:37 Association mapping: IfcGeometryResource.IfcCompositeCurve.segments from class IfcCompositeCurveSegment to Curve
+07.12.2019 14:55:37 Subtype of associated class IfcCompositeCurveSegment: IfcGeometryResource.IfcReparametrisedCompositeCurveSegment
+07.12.2019 14:55:37 Mapping can be performed: IfcCompositeCurveSegment to Curve
+07.12.2019 14:55:37 Association mapping: IfcGeometryResource.IfcCompositeCurveOnSurface.basisSurface from class IfcSurface to Surface
+07.12.2019 14:55:37 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:55:38 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:55:38 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:55:38 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:55:38 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:55:38 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:55:38 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:55:38 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:55:38 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:55:38 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:55:39 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:55:39 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:55:39 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:55:39 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:55:39 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:55:39 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:55:39 Mapping not possible for IfcGeometryResource.IfcCompositeCurveOnSurface.basisSurface: IfcSurface to Surface
+07.12.2019 14:55:39 Association mapping: IfcGeometryResource.IfcCompositeCurveSegment.parentCurve from class IfcCurve to Curve
+07.12.2019 14:55:40 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:40 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:40 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:40 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:40 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:40 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:40 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:40 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:40 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:41 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:41 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:41 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:41 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:41 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:41 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:41 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:41 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:42 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:42 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:42 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:42 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:42 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:42 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:42 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:42 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:42 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:43 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:43 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:43 Mapping not possible for IfcGeometryResource.IfcCompositeCurveSegment.parentCurve: IfcCurve to Curve
+07.12.2019 14:55:43 Association mapping: IfcGeometryResource.IfcCurveBoundedPlane.innerBoundaries from class IfcCurve to Curve
+07.12.2019 14:55:44 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:44 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:44 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:44 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:44 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:45 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:45 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:45 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:45 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:45 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:45 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:45 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:45 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:46 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:46 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:46 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:46 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:46 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:46 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:46 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:46 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:46 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:47 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:47 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:47 Mapping not possible for IfcGeometryResource.IfcCurveBoundedPlane.innerBoundaries: IfcCurve to Curve
+07.12.2019 14:55:47 Association mapping: IfcGeometryResource.IfcCurveBoundedPlane.outerBoundary from class IfcCurve to Curve
+07.12.2019 14:55:47 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:47 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:47 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:47 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:48 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:48 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:48 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:48 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:48 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:48 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:48 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:48 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:48 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:49 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:49 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:49 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:49 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:49 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:49 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:49 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:49 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:49 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:50 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:50 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:50 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:50 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:50 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:50 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:50 Mapping not possible for IfcGeometryResource.IfcCurveBoundedPlane.outerBoundary: IfcCurve to Curve
+07.12.2019 14:55:50 Association mapping: IfcGeometryResource.IfcCurveBoundedSurface.basisSurface from class IfcSurface to Surface
+07.12.2019 14:55:51 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:55:51 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:55:51 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:55:51 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:55:51 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:55:51 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:55:51 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:55:51 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:55:52 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:55:52 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:55:52 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:55:52 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:55:52 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:55:52 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:55:52 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:55:52 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:55:52 Mapping not possible for IfcGeometryResource.IfcCurveBoundedSurface.basisSurface: IfcSurface to Surface
+07.12.2019 14:55:53 Association mapping: IfcGeometryResource.IfcCurveSegment2D.startPoint from class IfcCartesianPoint to Point
+07.12.2019 14:55:53 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:54 Association mapping: IfcGeometryResource.IfcLine.pnt from class IfcCartesianPoint to Point
+07.12.2019 14:55:54 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:55:54 Association mapping: IfcGeometryResource.IfcOffsetCurve.basisCurve from class IfcCurve to Curve
+07.12.2019 14:55:55 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:55 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:55 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:55 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:55 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:55 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:55 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:55 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:55:55 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:55:56 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:55:56 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:55:56 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:55:56 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:55:56 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:55:56 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:55:56 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:55:56 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:55:57 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:55:57 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:55:57 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:55:57 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:55:57 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:55:57 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:55:57 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:55:57 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:55:58 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:55:58 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:55:58 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:55:58 Mapping not possible for IfcGeometryResource.IfcOffsetCurve.basisCurve: IfcCurve to Curve
+07.12.2019 14:55:58 Association mapping: IfcGeometryResource.IfcPcurve.referenceCurve from class IfcCurve to Curve
+07.12.2019 14:55:59 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:55:59 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:55:59 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:55:59 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:55:59 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:55:59 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:55:59 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:55:59 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:00 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:00 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:00 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:00 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:00 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:00 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:00 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:00 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:00 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:01 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:01 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:01 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:01 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:01 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:01 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:01 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:01 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:02 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:02 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:02 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:02 Mapping not possible for IfcGeometryResource.IfcPcurve.referenceCurve: IfcCurve to Curve
+07.12.2019 14:56:02 Association mapping: IfcGeometryResource.IfcPcurve.basisSurface from class IfcSurface to Surface
+07.12.2019 14:56:02 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:56:02 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:56:02 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:56:02 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:56:03 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:56:03 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:56:03 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:56:03 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:56:03 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:56:03 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:56:03 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:56:03 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:56:04 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:56:04 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:56:04 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:56:04 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:56:04 Mapping not possible for IfcGeometryResource.IfcPcurve.basisSurface: IfcSurface to Surface
+07.12.2019 14:56:04 Association mapping: IfcGeometryResource.IfcPlacement.location from class IfcCartesianPoint to Point
+07.12.2019 14:56:04 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:56:05 Association mapping: IfcGeometryResource.IfcPointOnCurve.basisCurve from class IfcCurve to Curve
+07.12.2019 14:56:05 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:05 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:05 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:05 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:05 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:05 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:05 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:06 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:06 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:06 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:06 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:06 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:06 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:07 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:07 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:07 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:07 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:07 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:08 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:08 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:08 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:08 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:08 Mapping not possible for IfcGeometryResource.IfcPointOnCurve.basisCurve: IfcCurve to Curve
+07.12.2019 14:56:08 Association mapping: IfcGeometryResource.IfcPointOnSurface.basisSurface from class IfcSurface to Surface
+07.12.2019 14:56:08 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:56:08 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:56:08 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:56:09 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:56:09 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:56:09 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:56:09 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:56:09 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:56:09 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:56:09 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:56:09 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:56:10 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:56:10 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:56:10 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:56:10 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:56:10 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:56:10 Mapping not possible for IfcGeometryResource.IfcPointOnSurface.basisSurface: IfcSurface to Surface
+07.12.2019 14:56:10 Association mapping: IfcGeometryResource.IfcPolyline.points from class IfcCartesianPoint to Point
+07.12.2019 14:56:10 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:56:11 Association mapping: IfcGeometryResource.IfcRectangularTrimmedSurface.basisSurface from class IfcSurface to Surface
+07.12.2019 14:56:11 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:56:11 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:56:11 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:56:11 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:56:11 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:56:11 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:56:11 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:56:12 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:56:12 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:56:12 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:56:12 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:56:12 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:56:12 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:56:12 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:56:12 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:56:13 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:56:13 Mapping not possible for IfcGeometryResource.IfcRectangularTrimmedSurface.basisSurface: IfcSurface to Surface
+07.12.2019 14:56:13 Association mapping: IfcGeometryResource.IfcSurfaceCurve.curve3D from class IfcCurve to Curve
+07.12.2019 14:56:13 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:14 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:14 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:14 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:14 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:14 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:14 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:14 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:14 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:14 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:15 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:15 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:15 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:15 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:15 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:15 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:15 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:15 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:16 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:16 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:16 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:16 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:16 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:16 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:16 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:16 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:16 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:17 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:17 Mapping not possible for IfcGeometryResource.IfcSurfaceCurve.curve3D: IfcCurve to Curve
+07.12.2019 14:56:17 Association mapping: IfcGeometryResource.IfcSurfaceCurve.basisSurface from class IfcSurface to Surface
+07.12.2019 14:56:17 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:56:17 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:56:17 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:56:17 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:56:17 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:56:17 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:56:18 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:56:18 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:56:18 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:56:18 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:56:18 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:56:18 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:56:18 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:56:18 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:56:19 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:56:19 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:56:19 Mapping not possible for IfcGeometryResource.IfcSurfaceCurve.basisSurface: IfcSurface to Surface
+07.12.2019 14:56:19 Association mapping: IfcGeometryResource.IfcSurfaceOfRevolution.axisLine from class IfcLine to Line
+07.12.2019 14:56:19 Mapping can be performed: IfcLine to Line
+07.12.2019 14:56:19 Association mapping: IfcGeometryResource.IfcTrimmedCurve.basisCurve from class IfcCurve to Curve
+07.12.2019 14:56:20 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:20 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:20 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:20 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:20 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:20 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:20 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:20 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:20 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:21 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:21 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:21 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:21 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:21 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:21 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:21 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:21 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:22 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:22 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:22 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:22 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:22 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:22 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:22 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:22 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:22 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:23 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:23 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:23 Mapping not possible for IfcGeometryResource.IfcTrimmedCurve.basisCurve: IfcCurve to Curve
+07.12.2019 14:56:23 
+07.12.2019 14:56:23 Package: IfcMaterialResource
+07.12.2019 14:56:25 
+07.12.2019 14:56:25 Package: IfcMeasureResource
+07.12.2019 14:56:25 Association mapping: IfcMeasureResource.IfcConversionBasedUnit.conversionFactor from class IfcMeasureWithUnit to Measure
+07.12.2019 14:56:25 Mapping can be performed: IfcMeasureWithUnit to Measure
+07.12.2019 14:56:31 
+07.12.2019 14:56:31 Package: IfcPresentationAppearanceResource
+07.12.2019 14:56:32 Association mapping: IfcPresentationAppearanceResource.IfcFillAreaStyleHatching.patternStart from class IfcCartesianPoint to Point
+07.12.2019 14:56:32 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:56:32 Association mapping: IfcPresentationAppearanceResource.IfcFillAreaStyleHatching.pointOfReferenceHatchLine from class IfcCartesianPoint to Point
+07.12.2019 14:56:32 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:56:34 
+07.12.2019 14:56:34 Package: IfcPresentationDefinitionResource
+07.12.2019 14:56:35 Association mapping: IfcPresentationDefinitionResource.IfcAnnotationFillArea.outerBoundary from class IfcCurve to Curve
+07.12.2019 14:56:35 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:35 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:35 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:35 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:35 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:35 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:36 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:36 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:36 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:36 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:36 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:36 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:36 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:36 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:36 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:37 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:37 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:37 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:37 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:37 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:37 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:37 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:37 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:37 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:38 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:38 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:38 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:38 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:38 Mapping not possible for IfcPresentationDefinitionResource.IfcAnnotationFillArea.outerBoundary: IfcCurve to Curve
+07.12.2019 14:56:38 Association mapping: IfcPresentationDefinitionResource.IfcAnnotationFillArea.InnerBoundaries from class IfcCurve to Curve
+07.12.2019 14:56:38 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:38 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:39 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:39 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:39 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:39 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:39 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:39 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:39 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:39 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:39 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:40 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:40 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:40 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:40 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:40 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:40 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:40 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:40 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:41 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:41 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:41 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:41 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:41 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:41 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:41 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:41 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:41 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:42 Mapping not possible for IfcPresentationDefinitionResource.IfcAnnotationFillArea.InnerBoundaries: IfcCurve to Curve
+07.12.2019 14:56:42 
+07.12.2019 14:56:42 Package: IfcPresentationOrganizationResource
+07.12.2019 14:56:43 Association mapping: IfcPresentationOrganizationResource.IfcLightSourcePositional.position from class IfcCartesianPoint to Point
+07.12.2019 14:56:43 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:56:43 
+07.12.2019 14:56:43 Package: IfcProfileResource
+07.12.2019 14:56:43 Association mapping: IfcProfileResource.IfcArbitraryClosedProfileDef.outerCurve from class IfcCurve to Curve
+07.12.2019 14:56:43 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:44 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:44 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:44 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:44 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:44 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:44 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:45 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:45 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:45 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:45 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:45 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:45 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:45 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:45 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:45 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:46 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:46 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:46 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:46 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:46 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:46 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:46 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:46 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:47 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:47 Mapping not possible for IfcProfileResource.IfcArbitraryClosedProfileDef.outerCurve: IfcCurve to Curve
+07.12.2019 14:56:47 Association mapping: IfcProfileResource.IfcArbitraryProfileDefWithVoids.innerCurves from class IfcCurve to Curve
+07.12.2019 14:56:47 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:47 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:47 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:47 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:48 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:48 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:48 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:48 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:48 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:48 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:48 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:48 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:48 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:49 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:49 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:49 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:49 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:49 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:49 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:49 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:49 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:49 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:50 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:50 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:56:50 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:56:50 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:56:50 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:56:50 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:56:50 Mapping not possible for IfcProfileResource.IfcArbitraryProfileDefWithVoids.innerCurves: IfcCurve to Curve
+07.12.2019 14:56:52 
+07.12.2019 14:56:52 Package: IfcPropertyResource
+07.12.2019 14:56:53 
+07.12.2019 14:56:53 Package: IfcQuantityResource
+07.12.2019 14:56:54 
+07.12.2019 14:56:54 Package: IfcRepresentationResource
+07.12.2019 14:56:55 
+07.12.2019 14:56:55 Package: IfcStructuralLoadResource
+07.12.2019 14:56:56 
+07.12.2019 14:56:56 Package: IfcTopologyResource
+07.12.2019 14:56:57 Association mapping: IfcTopologyResource.IfcEdgeCurve.edgeGeometry from class IfcCurve to Curve
+07.12.2019 14:56:57 Subtype of associated class IfcCurve: IfcGeometryResource.IfcBoundedCurve
+07.12.2019 14:56:57 Subtype of associated class IfcBoundedCurve: IfcGeometricConstraintResource.IfcAlignmentCurve
+07.12.2019 14:56:57 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcIndexedPolyCurve
+07.12.2019 14:56:57 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCurveSegment2D
+07.12.2019 14:56:57 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcCircularArcSegment2D
+07.12.2019 14:56:57 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcLineSegment2D
+07.12.2019 14:56:58 Subtype of associated class IfcCurveSegment2D: IfcGeometryResource.IfcTransitionCurveSegment2D
+07.12.2019 14:56:58 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcPolyline
+07.12.2019 14:56:58 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcCompositeCurve
+07.12.2019 14:56:58 Subtype of associated class IfcCompositeCurve: IfcGeometryResource.IfcCompositeCurveOnSurface
+07.12.2019 14:56:58 Subtype of associated class IfcCompositeCurveOnSurface: IfcGeometryResource.IfcBoundaryCurve
+07.12.2019 14:56:58 Subtype of associated class IfcBoundaryCurve: IfcGeometryResource.IfcOuterBoundaryCurve
+07.12.2019 14:56:58 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcBSplineCurve
+07.12.2019 14:56:58 Subtype of associated class IfcBSplineCurve: IfcGeometryResource.IfcBSplineCurveWithKnots
+07.12.2019 14:56:58 Subtype of associated class IfcBSplineCurveWithKnots: IfcGeometryResource.IfcRationalBSplineCurveWithKnots
+07.12.2019 14:56:59 Subtype of associated class IfcBoundedCurve: IfcGeometryResource.IfcTrimmedCurve
+07.12.2019 14:56:59 Subtype of associated class IfcCurve: IfcGeometryResource.IfcPcurve
+07.12.2019 14:56:59 Subtype of associated class IfcCurve: IfcGeometryResource.IfcConic
+07.12.2019 14:56:59 Subtype of associated class IfcConic: IfcGeometryResource.IfcCircle
+07.12.2019 14:56:59 Subtype of associated class IfcConic: IfcGeometryResource.IfcEllipse
+07.12.2019 14:56:59 Subtype of associated class IfcCurve: IfcGeometryResource.IfcSurfaceCurve
+07.12.2019 14:56:59 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcSeamCurve
+07.12.2019 14:56:59 Subtype of associated class IfcSurfaceCurve: IfcGeometryResource.IfcIntersectionCurve
+07.12.2019 14:56:59 Subtype of associated class IfcCurve: IfcGeometryResource.IfcOffsetCurve
+07.12.2019 14:57:00 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve2D
+07.12.2019 14:57:00 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurve3D
+07.12.2019 14:57:00 Subtype of associated class IfcOffsetCurve: IfcGeometryResource.IfcOffsetCurveByDistances
+07.12.2019 14:57:00 Subtype of associated class IfcCurve: IfcGeometryResource.IfcLine
+07.12.2019 14:57:00 Mapping not possible for IfcTopologyResource.IfcEdgeCurve.edgeGeometry: IfcCurve to Curve
+07.12.2019 14:57:00 Association mapping: IfcTopologyResource.IfcFaceSurface.faceSurface from class IfcSurface to Surface
+07.12.2019 14:57:00 Subtype of associated class IfcSurface: IfcGeometricModelResource.IfcSectionedSurface
+07.12.2019 14:57:01 Subtype of associated class IfcSurface: IfcGeometryResource.IfcBoundedSurface
+07.12.2019 14:57:01 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedPlane
+07.12.2019 14:57:01 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcBSplineSurface
+07.12.2019 14:57:01 Subtype of associated class IfcBSplineSurface: IfcGeometryResource.IfcBSplineSurfaceWithKnots
+07.12.2019 14:57:01 Subtype of associated class IfcBSplineSurfaceWithKnots: IfcGeometryResource.IfcRationalBSplineSurfaceWithKnots
+07.12.2019 14:57:01 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcRectangularTrimmedSurface
+07.12.2019 14:57:01 Subtype of associated class IfcBoundedSurface: IfcGeometryResource.IfcCurveBoundedSurface
+07.12.2019 14:57:01 Subtype of associated class IfcSurface: IfcGeometryResource.IfcSweptSurface
+07.12.2019 14:57:02 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfRevolution
+07.12.2019 14:57:02 Subtype of associated class IfcSweptSurface: IfcGeometryResource.IfcSurfaceOfLinearExtrusion
+07.12.2019 14:57:02 Subtype of associated class IfcSurface: IfcGeometryResource.IfcElementarySurface
+07.12.2019 14:57:02 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcToroidalSurface
+07.12.2019 14:57:02 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcPlane
+07.12.2019 14:57:02 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcSphericalSurface
+07.12.2019 14:57:02 Subtype of associated class IfcElementarySurface: IfcGeometryResource.IfcCylindricalSurface
+07.12.2019 14:57:02 Mapping not possible for IfcTopologyResource.IfcFaceSurface.faceSurface: IfcSurface to Surface
+07.12.2019 14:57:03 Association mapping: IfcTopologyResource.IfcPolyLoop.polygon from class IfcCartesianPoint to Point
+07.12.2019 14:57:03 Mapping can be performed: IfcCartesianPoint to Point
+07.12.2019 14:57:03 Association mapping: IfcTopologyResource.IfcVertexPoint.vertexGeometry from class IfcPoint to Point
+07.12.2019 14:57:03 Subtype of associated class IfcPoint: IfcGeometryResource.IfcPointOnCurve
+07.12.2019 14:57:04 Subtype of associated class IfcPoint: IfcGeometryResource.IfcCartesianPoint
+07.12.2019 14:57:04 Subtype of associated class IfcPoint: IfcGeometryResource.IfcPointOnSurface
+07.12.2019 14:57:04 Mapping can be performed: IfcPoint to Point
+07.12.2019 14:57:04 
+07.12.2019 14:57:04 Package: IfcUtilityResource
+07.12.2019 14:57:04 Done
