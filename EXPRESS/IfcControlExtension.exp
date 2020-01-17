@@ -1,0 +1,38 @@
+(* Exported from UML 08.01.2020 09:24:14 *)
+ 
+SCHEMA IFCCONTROLEXTENSION;
+ 
+REFERENCE FROM IFCAPPROVALRESOURCE
+	(IfcApproval);
+ 
+REFERENCE FROM IFCCONSTRAINTRESOURCE
+	(IfcConstraint);
+ 
+REFERENCE FROM IFCKERNEL
+	(IfcControl, IfcRelAssociates);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel);
+ 
+TYPE IfcPerformanceHistoryTypeEnum = ENUMERATION OF
+	(NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcPerformanceHistory
+ SUBTYPE OF (IfcControl);
+	LifeCyclePhase : IfcLabel;
+	PredefinedType : OPTIONAL IfcPerformanceHistoryTypeEnum;
+END_ENTITY; 
+ 
+ENTITY IfcRelAssociatesApproval
+ SUBTYPE OF (IfcRelAssociates);
+	RelatingApproval : IfcApproval;
+END_ENTITY; 
+ 
+ENTITY IfcRelAssociatesConstraint
+ SUBTYPE OF (IfcRelAssociates);
+	Intent : OPTIONAL IfcLabel;
+	RelatingConstraint : IfcConstraint;
+END_ENTITY; 
+ 
+END_SCHEMA;

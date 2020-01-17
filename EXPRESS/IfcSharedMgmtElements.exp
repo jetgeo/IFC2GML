@@ -1,0 +1,76 @@
+(* Exported from UML 08.01.2020 09:40:22 *)
+ 
+SCHEMA IFCSHAREDMGMTELEMENTS;
+ 
+REFERENCE FROM IFCCOSTRESOURCE
+	(IfcCostValue);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcDateTime);
+ 
+REFERENCE FROM IFCKERNEL
+	(IfcControl);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcText);
+ 
+REFERENCE FROM IFCQUANTITYRESOURCE
+	(IfcPhysicalQuantity);
+ 
+TYPE IfcActionRequestTypeEnum = ENUMERATION OF
+	(EMAIL, FAX, NOTDEFINED, PHONE, POST, USERDEFINED, VERBAL);
+END_TYPE; 
+ 
+TYPE IfcCostItemTypeEnum = ENUMERATION OF
+	(NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcCostScheduleTypeEnum = ENUMERATION OF
+	(BUDGET, COSTPLAN, ESTIMATE, NOTDEFINED, PRICEDBILLOFQUANTITIES, SCHEDULEOFRATES, TENDER, UNPRICEDBILLOFQUANTITIES, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcPermitTypeEnum = ENUMERATION OF
+	(ACCESS, BUILDING, NOTDEFINED, USERDEFINED, WORK);
+END_TYPE; 
+ 
+TYPE IfcProjectOrderTypeEnum = ENUMERATION OF
+	(CHANGEORDER, MAINTENANCEWORKORDER, MOVEORDER, NOTDEFINED, PURCHASEORDER, USERDEFINED, WORKORDER);
+END_TYPE; 
+ 
+ENTITY IfcActionRequest
+ SUBTYPE OF (IfcControl);
+	PredefinedType : OPTIONAL IfcActionRequestTypeEnum;
+	Status : OPTIONAL IfcLabel;
+	LongDescription : OPTIONAL IfcText;
+END_ENTITY; 
+ 
+ENTITY IfcCostItem
+ SUBTYPE OF (IfcControl);
+	PredefinedType : OPTIONAL IfcCostItemTypeEnum;
+	CostQuantities : OPTIONAL LIST [0:?] OF IfcPhysicalQuantity;
+	CostValues : OPTIONAL LIST [0:?] OF IfcCostValue;
+END_ENTITY; 
+ 
+ENTITY IfcCostSchedule
+ SUBTYPE OF (IfcControl);
+	PredefinedType : OPTIONAL IfcCostScheduleTypeEnum;
+	Status : OPTIONAL IfcLabel;
+	SubmittedOn : OPTIONAL IfcDateTime;
+	UpdateDate : OPTIONAL IfcDateTime;
+END_ENTITY; 
+ 
+ENTITY IfcPermit
+ SUBTYPE OF (IfcControl);
+	PredefinedType : OPTIONAL IfcPermitTypeEnum;
+	Status : OPTIONAL IfcLabel;
+	LongDescription : OPTIONAL IfcText;
+END_ENTITY; 
+ 
+ENTITY IfcProjectOrder
+ SUBTYPE OF (IfcControl);
+	PredefinedType : OPTIONAL IfcProjectOrderTypeEnum;
+	Status : OPTIONAL IfcLabel;
+	LongDescription : OPTIONAL IfcText;
+END_ENTITY; 
+ 
+END_SCHEMA;

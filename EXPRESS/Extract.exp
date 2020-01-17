@@ -1,0 +1,37 @@
+ENTITY IfcGeometricRepresentationItem
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPlanarExtent, IfcTextLiteral, IfcAnnotationFillArea, IfcFillAreaStyleTiles, IfcPlacement, IfcFillAreaStyleHatching, IfcPoint, IfcLightSource, IfcDistanceExpression, IfcDirection, IfcCartesianTransformationOperator, IfcCurve, IfcCompositeCurveSegment, IfcOrientationExpression, IfcVector, IfcSurface, IfcAlignment2DVertical, IfcAlignment2DHorizontal, IfcAlignment2DSegment, IfcBoundingBox, IfcGeometricSet, IfcSectionedSpine, IfcCsgPrimitive3D, IfcBooleanResult, IfcHalfSpaceSolid, IfcSolidModel, IfcTessellatedItem, IfcFaceBasedSurfaceModel, IfcShellBasedSurfaceModel, IfcCartesianPointList));
+ SUBTYPE OF (IfcRepresentationItem);
+END_ENTITY; 
+ 
+ENTITY IfcCurve
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcBoundedCurve, IfcPcurve, IfcConic, IfcSurfaceCurve, IfcOffsetCurve, IfcLine));
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+ DERIVE
+	Dim : IfcDimensionCount := IfcCurveDim(SELF);
+END_ENTITY; 
+ 
+ENTITY IfcBoundedCurve
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcIndexedPolyCurve, IfcCurveSegment2D, IfcPolyline, IfcCompositeCurve, IfcBSplineCurve, IfcTrimmedCurve, IfcAlignmentCurve));
+ SUBTYPE OF (IfcCurve);
+ INVERSE
+	PositioningElement : IfcLinearPositioningElement FOR Axis;
+END_ENTITY; 
+ 
+ENTITY IfcAlignmentCurve
+ SUBTYPE OF (IfcBoundedCurve);
+	Tag : OPTIONAL IfcLabel;
+	Vertical : OPTIONAL IfcAlignment2DVertical;
+	Horizontal : IfcAlignment2DHorizontal;
+END_ENTITY;  
+
+ENTITY IfcAlignment2DHorizontal
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	StartDistAlong : OPTIONAL IfcLengthMeasure;
+	Segments : LIST [1:?] OF IfcAlignment2DHorizontalSegment;
+ INVERSE
+	ToAlignmentCurve : SET [1:?] OF IfcAlignmentCurve FOR Horizontal;
+END_ENTITY; 
+ 

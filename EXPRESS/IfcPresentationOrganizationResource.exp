@@ -1,0 +1,116 @@
+(* Exported from UML 08.01.2020 09:56:36 *)
+ 
+SCHEMA IFCPRESENTATIONORGANIZATIONRESOURCE;
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcExternalReference);
+ 
+REFERENCE FROM IFCGEOMETRYRESOURCE
+	(IfcRepresentationItem, IfcGeometricRepresentationItem, IfcDirection, IfcAxis2Placement3D, IfcCartesianPoint);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcPlaneAngleMeasure, IfcLuminousIntensityDistributionMeasure, IfcLabel, IfcNormalisedRatioMeasure, IfcThermodynamicTemperatureMeasure, IfcLuminousFluxMeasure, IfcPositiveLengthMeasure, IfcReal, IfcPositivePlaneAngleMeasure, IfcText, IfcIdentifier, IfcLogical);
+ 
+REFERENCE FROM IFCPRESENTATIONAPPEARANCERESOURCE
+	(IfcColourRgb, IfcPresentationStyle);
+ 
+REFERENCE FROM IFCREPRESENTATIONRESOURCE
+	(IfcRepresentation);
+ 
+TYPE IfcLayeredItem = SELECT
+	(IfcRepresentation, IfcRepresentationItem);
+END_TYPE; 
+ 
+TYPE IfcLightDistributionDataSourceSelect = SELECT
+	(IfcExternalReference, IfcLightIntensityDistribution);
+END_TYPE; 
+ 
+TYPE IfcLightDistributionCurveEnum = ENUMERATION OF
+	(NOTDEFINED, TYPE_A, TYPE_B, TYPE_C);
+END_TYPE; 
+ 
+TYPE IfcLightEmissionSourceEnum = ENUMERATION OF
+	(COMPACTFLUORESCENT, FLUORESCENT, HIGHPRESSUREMERCURY, HIGHPRESSURESODIUM, LIGHTEMITTINGDIODE, LOWPRESSURESODIUM, LOWVOLTAGEHALOGEN, MAINVOLTAGEHALOGEN, METALHALIDE, NOTDEFINED, TUNGSTENFILAMENT);
+END_TYPE; 
+ 
+ENTITY IfcLightDistributionData
+	MainPlaneAngle : IfcPlaneAngleMeasure;
+	SecondaryPlaneAngle : LIST [1:?] OF IfcPlaneAngleMeasure;
+	LuminousIntensity : LIST [1:?] OF IfcLuminousIntensityDistributionMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcLightIntensityDistribution
+	LightDistributionCurve : IfcLightDistributionCurveEnum;
+	DistributionData : LIST [1:?] OF IfcLightDistributionData;
+END_ENTITY; 
+ 
+ENTITY IfcLightSource
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcLightSourceGoniometric, IfcLightSourceDirectional, IfcLightSourcePositional, IfcLightSourceAmbient));
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	Name : OPTIONAL IfcLabel;
+	AmbientIntensity : OPTIONAL IfcNormalisedRatioMeasure;
+	Intensity : OPTIONAL IfcNormalisedRatioMeasure;
+	LightColour : IfcColourRgb;
+END_ENTITY; 
+ 
+ENTITY IfcLightSourceAmbient
+ SUBTYPE OF (IfcLightSource);
+END_ENTITY; 
+ 
+ENTITY IfcLightSourceDirectional
+ SUBTYPE OF (IfcLightSource);
+	Orientation : IfcDirection;
+END_ENTITY; 
+ 
+ENTITY IfcLightSourceGoniometric
+ SUBTYPE OF (IfcLightSource);
+	ColourTemperature : IfcThermodynamicTemperatureMeasure;
+	LuminousFlux : IfcLuminousFluxMeasure;
+	LightEmissionSource : IfcLightEmissionSourceEnum;
+	LightDistributionDataSource : IfcLightDistributionDataSourceSelect;
+	ColourAppearance : OPTIONAL IfcColourRgb;
+	Position : IfcAxis2Placement3D;
+END_ENTITY; 
+ 
+ENTITY IfcLightSourcePositional
+ SUPERTYPE OF 
+	(ONEOF(IfcLightSourceSpot));
+ SUBTYPE OF (IfcLightSource);
+	Radius : IfcPositiveLengthMeasure;
+	ConstantAttenuation : IfcReal;
+	DistanceAttenuation : IfcReal;
+	QuadricAttenuation : IfcReal;
+	Position : IfcCartesianPoint;
+END_ENTITY; 
+ 
+ENTITY IfcLightSourceSpot
+ SUBTYPE OF (IfcLightSourcePositional);
+	ConcentrationExponent : OPTIONAL IfcReal;
+	SpreadAngle : IfcPositivePlaneAngleMeasure;
+	BeamWidthAngle : IfcPositivePlaneAngleMeasure;
+	Direction : IfcDirection;
+END_ENTITY; 
+ 
+ENTITY IfcPresentationLayerAssignment
+ SUPERTYPE OF 
+	(ONEOF(IfcPresentationLayerWithStyle));
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	AssignedItems : SET [1:?] OF IfcLayeredItem;
+	Identifier : OPTIONAL IfcIdentifier;
+ WHERE
+	ApplicableItems : SIZEOF(QUERY(temp <* AssignedItems | (SIZEOF(TYPEOF(temp) * ['IFCREPRESENTATIONRESOURCE.IFCSHAPEREPRESENTATION','IFCGEOMETRYRESOURCE.IFCGEOMETRICREPRESENTATIONITEM','IFCGEOMETRYRESOURCE.IFCMAPPEDITEM']) = 1))) = SIZEOF(AssignedItems);
+END_ENTITY; 
+ 
+ENTITY IfcPresentationLayerWithStyle
+ SUBTYPE OF (IfcPresentationLayerAssignment);
+	LayerOn : IfcLogical;
+	LayerFrozen : IfcLogical;
+	LayerBlocked : IfcLogical;
+	LayerStyles : OPTIONAL SET [0:?] OF IfcPresentationStyle;
+ WHERE
+	ApplicableOnlyToItems : SIZEOF(QUERY(temp <* AssignedItems | (SIZEOF(TYPEOF(temp) * ['IFCGEOMETRYRESOURCE.IfcGeometricRepresentationItem','IFCGEOMETRYRESOURCE.IfcMappedItem']) >= 1))) = SIZEOF(AssignedItems);
+END_ENTITY; 
+ 
+END_SCHEMA;

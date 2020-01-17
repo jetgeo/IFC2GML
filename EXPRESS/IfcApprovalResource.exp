@@ -1,0 +1,49 @@
+(* Exported from UML 08.01.2020 09:41:06 *)
+ 
+SCHEMA IFCAPPROVALRESOURCE;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcActorSelect);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcDateTime);
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcResourceLevelRelationship, IfcResourceObjectSelect);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcIdentifier, IfcLabel, IfcText);
+ 
+ENTITY IfcApproval
+	Identifier : OPTIONAL IfcIdentifier;
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	TimeOfApproval : OPTIONAL IfcDateTime;
+	Status : OPTIONAL IfcLabel;
+	Level : OPTIONAL IfcLabel;
+	Qualifier : OPTIONAL IfcText;
+	RequestingApproval : OPTIONAL IfcActorSelect;
+	GivingApproval : OPTIONAL IfcActorSelect;
+ INVERSE
+	ApprovedObjects : SET [0:?] OF IfcRelAssociatesApproval FOR RelatingApproval;
+	ApprovedResources : SET [0:?] OF IfcResourceApprovalRelationship FOR RelatingApproval;
+	HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+	IsRelatedWith : SET [0:?] OF IfcApprovalRelationship FOR RelatedApprovals;
+	Relates : SET [0:?] OF IfcApprovalRelationship FOR RelatingApproval;
+ WHERE
+	HasIdentifierOrName : EXISTS (Identifier) OR EXISTS (Name);
+END_ENTITY; 
+ 
+ENTITY IfcApprovalRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	RelatingApproval : IfcApproval;
+	RelatedApprovals : SET [1:?] OF IfcApproval;
+END_ENTITY; 
+ 
+ENTITY IfcResourceApprovalRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	RelatedResourceObjects : SET [1:?] OF IfcResourceObjectSelect;
+	RelatingApproval : IfcApproval;
+END_ENTITY; 
+ 
+END_SCHEMA;

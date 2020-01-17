@@ -1,0 +1,154 @@
+(* Exported from UML 08.01.2020 09:24:23 *)
+ 
+SCHEMA IFCPROCESSEXTENSION;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcPerson);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcEventTime, IfcLagTime, IfcTaskTime, IfcWorkTime, IfcDateTime, IfcDuration);
+ 
+REFERENCE FROM IFCKERNEL
+	(IfcProcess, IfcTypeProcess, IfcRelConnects, IfcControl);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcBoolean, IfcInteger);
+ 
+TYPE IfcEventTriggerTypeEnum = ENUMERATION OF
+	(EVENTCOMPLEX, EVENTMESSAGE, EVENTRULE, EVENTTIME, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcEventTypeEnum = ENUMERATION OF
+	(ENDEVENT, INTERMEDIATEEVENT, NOTDEFINED, STARTEVENT, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcProcedureTypeEnum = ENUMERATION OF
+	(ADVICE_CAUTION, ADVICE_NOTE, ADVICE_WARNING, CALIBRATION, DIAGNOSTIC, NOTDEFINED, SHUTDOWN, STARTUP, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcSequenceEnum = ENUMERATION OF
+	(FINISH_FINISH, FINISH_START, NOTDEFINED, START_FINISH, START_START, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcTaskTypeEnum = ENUMERATION OF
+	(ATTENDANCE, CONSTRUCTION, DEMOLITION, DISMANTLE, DISPOSAL, INSTALLATION, LOGISTIC, MAINTENANCE, MOVE, NOTDEFINED, OPERATION, REMOVAL, RENOVATION, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcWorkCalendarTypeEnum = ENUMERATION OF
+	(FIRSTSHIFT, NOTDEFINED, SECONDSHIFT, THIRDSHIFT, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcWorkPlanTypeEnum = ENUMERATION OF
+	(ACTUAL, BASELINE, NOTDEFINED, PLANNED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcWorkScheduleTypeEnum = ENUMERATION OF
+	(ACTUAL, BASELINE, NOTDEFINED, PLANNED, USERDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcEvent
+ SUBTYPE OF (IfcProcess);
+	PredefinedType : OPTIONAL IfcEventTypeEnum;
+	EventTriggerType : OPTIONAL IfcEventTriggerTypeEnum;
+	UserDefinedEventTriggerType : OPTIONAL IfcLabel;
+	EventOccurenceTime : OPTIONAL IfcEventTime;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcEventTypeEnum.USERDEFINED) OR ((PredefinedType = IfcEventTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : NOT(EXISTS(EventTriggerType)) OR (EventTriggerType <> IfcEventTriggerTypeEnum.USERDEFINED) OR ((EventTriggerType = IfcEventTriggerTypeEnum.USERDEFINED) AND EXISTS(UserDefinedEventTriggerType));
+END_ENTITY; 
+ 
+ENTITY IfcEventType
+ SUBTYPE OF (IfcTypeProcess);
+	PredefinedType : IfcEventTypeEnum;
+	EventTriggerType : IfcEventTriggerTypeEnum;
+	UserDefinedEventTriggerType : OPTIONAL IfcLabel;
+ WHERE
+	CorrectEventTriggerType : (EventTriggerType <> IfcEventTriggerTypeEnum.USERDEFINED) OR ((EventTriggerType = IfcEventTriggerTypeEnum.USERDEFINED) AND EXISTS(UserDefinedEventTriggerType)) ;
+	CorrectPredefinedType : (PredefinedType <> IfcEventTypeEnum.USERDEFINED) OR ((PredefinedType = IfcEventTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeProcess.ProcessType)) ;
+END_ENTITY; 
+ 
+ENTITY IfcProcedure
+ SUBTYPE OF (IfcProcess);
+	PredefinedType : OPTIONAL IfcProcedureTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcProcedureTypeEnum.USERDEFINED) OR((PredefinedType = IfcProcedureTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcObject.ObjectType));
+	HasName : EXISTS(SELF\IfcRoot.Name);
+END_ENTITY; 
+ 
+ENTITY IfcProcedureType
+ SUBTYPE OF (IfcTypeProcess);
+	PredefinedType : IfcProcedureTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcProcedureTypeEnum.USERDEFINED) OR ((PredefinedType = IfcProcedureTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeProcess.ProcessType));
+END_ENTITY; 
+ 
+ENTITY IfcRelSequence
+ SUBTYPE OF (IfcRelConnects);
+	SequenceType : OPTIONAL IfcSequenceEnum;
+	UserDefinedSequenceType : OPTIONAL IfcLabel;
+	TimeLag : OPTIONAL IfcLagTime;
+	RelatedProcess : IfcProcess;
+	RelatingProcess : IfcProcess;
+ WHERE
+	AvoidInconsistentSequence : RelatingProcess :<>: RelatedProcess;
+	CorrectSequenceType : (SequenceType <> IfcSequenceEnum.USERDEFINED) OR ((SequenceType = IfcSequenceEnum.USERDEFINED) AND EXISTS(UserDefinedSequenceType));
+END_ENTITY; 
+ 
+ENTITY IfcTask
+ SUBTYPE OF (IfcProcess);
+	Status : OPTIONAL IfcLabel;
+	WorkMethod : OPTIONAL IfcLabel;
+	IsMilestone : IfcBoolean;
+	Priority : OPTIONAL IfcInteger;
+	PredefinedType : OPTIONAL IfcTaskTypeEnum;
+	TaskTime : OPTIONAL IfcTaskTime;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcTaskTypeEnum.USERDEFINED) OR ((PredefinedType = IfcTaskTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcObject.ObjectType));
+	HasName : EXISTS(SELF\IfcRoot.Name);
+END_ENTITY; 
+ 
+ENTITY IfcTaskType
+ SUBTYPE OF (IfcTypeProcess);
+	PredefinedType : IfcTaskTypeEnum;
+	WorkMethod : OPTIONAL IfcLabel;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcTaskTypeEnum.USERDEFINED) OR ((PredefinedType = IfcTaskTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeProcess.ProcessType)) ;
+END_ENTITY; 
+ 
+ENTITY IfcWorkCalendar
+ SUBTYPE OF (IfcControl);
+	PredefinedType : OPTIONAL IfcWorkCalendarTypeEnum;
+	WorkingTimes : OPTIONAL SET [0:?] OF IfcWorkTime;
+	ExceptionTimes : OPTIONAL SET [0:?] OF IfcWorkTime;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcWorkCalendarTypeEnum.USERDEFINED) OR((PredefinedType = IfcWorkCalendarTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcWorkControl
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcWorkSchedule, IfcWorkPlan));
+ SUBTYPE OF (IfcControl);
+	CreationDate : IfcDateTime;
+	Purpose : OPTIONAL IfcLabel;
+	Duration : OPTIONAL IfcDuration;
+	TotalFloat : OPTIONAL IfcDuration;
+	StartTime : IfcDateTime;
+	FinishTime : OPTIONAL IfcDateTime;
+	Creators : OPTIONAL SET [0:?] OF IfcPerson;
+END_ENTITY; 
+ 
+ENTITY IfcWorkPlan
+ SUBTYPE OF (IfcWorkControl);
+	PredefinedType : OPTIONAL IfcWorkPlanTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcWorkPlanTypeEnum.USERDEFINED) OR((PredefinedType = IfcWorkPlanTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcWorkSchedule
+ SUBTYPE OF (IfcWorkControl);
+	PredefinedType : OPTIONAL IfcWorkScheduleTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcWorkScheduleTypeEnum.USERDEFINED) OR((PredefinedType = IfcWorkScheduleTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+END_SCHEMA;

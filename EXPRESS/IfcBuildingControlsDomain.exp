@@ -1,0 +1,122 @@
+(* Exported from UML 08.01.2020 09:29:21 *)
+ 
+SCHEMA IFCBUILDINGCONTROLSDOMAIN;
+ 
+REFERENCE FROM IFCSHAREDBLDGSERVICEELEMENTS
+	(IfcDistributionControlElement, IfcDistributionControlElementType);
+ 
+TYPE IfcActuatorTypeEnum = ENUMERATION OF
+	(ELECTRICACTUATOR, HANDOPERATEDACTUATOR, HYDRAULICACTUATOR, NOTDEFINED, PNEUMATICACTUATOR, THERMOSTATICACTUATOR, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcAlarmTypeEnum = ENUMERATION OF
+	(BELL, BREAKGLASSBUTTON, LIGHT, MANUALPULLBOX, NOTDEFINED, SIREN, USERDEFINED, WHISTLE);
+END_TYPE; 
+ 
+TYPE IfcControllerTypeEnum = ENUMERATION OF
+	(FLOATING, MULTIPOSITION, NOTDEFINED, PROGRAMMABLE, PROPORTIONAL, TWOPOSITION, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcFlowInstrumentTypeEnum = ENUMERATION OF
+	(AMMETER, FREQUENCYMETER, NOTDEFINED, PHASEANGLEMETER, POWERFACTORMETER, PRESSUREGAUGE, THERMOMETER, USERDEFINED, VOLTMETER_PEAK, VOLTMETER_RMS);
+END_TYPE; 
+ 
+TYPE IfcSensorTypeEnum = ENUMERATION OF
+	(CO2SENSOR, CONDUCTANCESENSOR, CONTACTSENSOR, COSENSOR, FIRESENSOR, FLOWSENSOR, FROSTSENSOR, GASSENSOR, HEATSENSOR, HUMIDITYSENSOR, IDENTIFIERSENSOR, IONCONCENTRATIONSENSOR, LEVELSENSOR, LIGHTSENSOR, MOISTURESENSOR, MOVEMENTSENSOR, NOTDEFINED, PHSENSOR, PRESSURESENSOR, RADIATIONSENSOR, RADIOACTIVITYSENSOR, SMOKESENSOR, SOUNDSENSOR, TEMPERATURESENSOR, USERDEFINED, WINDSENSOR);
+END_TYPE; 
+ 
+TYPE IfcUnitaryControlElementTypeEnum = ENUMERATION OF
+	(ALARMPANEL, CONTROLPANEL, GASDETECTIONPANEL, HUMIDISTAT, INDICATORPANEL, MIMICPANEL, NOTDEFINED, THERMOSTAT, USERDEFINED, WEATHERSTATION);
+END_TYPE; 
+ 
+ENTITY IfcActuator
+ SUBTYPE OF (IfcDistributionControlElement);
+	PredefinedType : OPTIONAL IfcActuatorTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcActuatorTypeEnum.USERDEFINED) OR ((PredefinedType = IfcActuatorTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCBUILDINGCONTROLSDOMAIN.IFCACTUATORTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcActuatorType
+ SUBTYPE OF (IfcDistributionControlElementType);
+	PredefinedType : IfcActuatorTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcActuatorTypeEnum.USERDEFINED) OR((PredefinedType = IfcActuatorTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcAlarm
+ SUBTYPE OF (IfcDistributionControlElement);
+	PredefinedType : OPTIONAL IfcAlarmTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcAlarmTypeEnum.USERDEFINED) OR ((PredefinedType = IfcAlarmTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCBUILDINGCONTROLSDOMAIN.IFCALARMTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcAlarmType
+ SUBTYPE OF (IfcDistributionControlElementType);
+	PredefinedType : IfcAlarmTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcAlarmTypeEnum.USERDEFINED) OR((PredefinedType = IfcAlarmTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcController
+ SUBTYPE OF (IfcDistributionControlElement);
+	PredefinedType : OPTIONAL IfcControllerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcControllerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcControllerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCBUILDINGCONTROLSDOMAIN.IFCCONTROLLERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcControllerType
+ SUBTYPE OF (IfcDistributionControlElementType);
+	PredefinedType : IfcControllerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcControllerTypeEnum.USERDEFINED) OR((PredefinedType = IfcControllerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcFlowInstrument
+ SUBTYPE OF (IfcDistributionControlElement);
+	PredefinedType : OPTIONAL IfcFlowInstrumentTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcFlowInstrumentTypeEnum.USERDEFINED) OR ((PredefinedType = IfcFlowInstrumentTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCBUILDINGCONTROLSDOMAIN.IFCFLOWINSTRUMENTTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcFlowInstrumentType
+ SUBTYPE OF (IfcDistributionControlElementType);
+	PredefinedType : IfcFlowInstrumentTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcFlowInstrumentTypeEnum.USERDEFINED) OR((PredefinedType = IfcFlowInstrumentTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcSensor
+ SUBTYPE OF (IfcDistributionControlElement);
+	PredefinedType : OPTIONAL IfcSensorTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcSensorTypeEnum.USERDEFINED) OR ((PredefinedType = IfcSensorTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCBUILDINGCONTROLSDOMAIN.IFCSENSORTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcSensorType
+ SUBTYPE OF (IfcDistributionControlElementType);
+	PredefinedType : IfcSensorTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcSensorTypeEnum.USERDEFINED) OR((PredefinedType = IfcSensorTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcUnitaryControlElement
+ SUBTYPE OF (IfcDistributionControlElement);
+	PredefinedType : OPTIONAL IfcUnitaryControlElementTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcUnitaryControlElementTypeEnum.USERDEFINED) OR ((PredefinedType = IfcUnitaryControlElementTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCBUILDINGCONTROLSDOMAIN.IFCUNITARYCONTROLELEMENTTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcUnitaryControlElementType
+ SUBTYPE OF (IfcDistributionControlElementType);
+	PredefinedType : IfcUnitaryControlElementTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcUnitaryControlElementTypeEnum.USERDEFINED) OR((PredefinedType = IfcUnitaryControlElementTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+END_SCHEMA;

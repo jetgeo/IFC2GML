@@ -1,0 +1,228 @@
+(* Exported from UML 08.01.2020 09:43:23 *)
+ 
+SCHEMA IFCGEOMETRICCONSTRAINTRESOURCE;
+ 
+REFERENCE FROM IFCGEOMETRICMODELRESOURCE
+	(IfcSolidModel, IfcFaceBasedSurfaceModel);
+ 
+REFERENCE FROM IFCGEOMETRYRESOURCE
+	(IfcGeometricRepresentationItem, IfcCurveSegment2D, IfcBoundedCurve, IfcCurve, IfcDirection, IfcAxis2Placement, IfcPoint, IfcSurface);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLengthMeasure, IfcBoolean, IfcLabel, IfcPositiveLengthMeasure, IfcRatioMeasure, IfcInteger);
+ 
+REFERENCE FROM IFCTOPOLOGYRESOURCE
+	(IfcEdgeCurve, IfcVertexPoint, IfcClosedShell, IfcFaceSurface);
+ 
+TYPE IfcCurveOrEdgeCurve = SELECT
+	(IfcBoundedCurve, IfcEdgeCurve);
+END_TYPE; 
+ 
+TYPE IfcGridPlacementDirectionSelect = SELECT
+	(IfcDirection, IfcVirtualGridIntersection);
+END_TYPE; 
+ 
+TYPE IfcPointOrVertexPoint = SELECT
+	(IfcPoint, IfcVertexPoint);
+END_TYPE; 
+ 
+TYPE IfcSolidOrShell = SELECT
+	(IfcClosedShell, IfcSolidModel);
+END_TYPE; 
+ 
+TYPE IfcSurfaceOrFaceSurface = SELECT
+	(IfcFaceBasedSurfaceModel, IfcFaceSurface, IfcSurface);
+END_TYPE; 
+ 
+ENTITY IfcAlignment2DHorizontal
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	StartDistAlong : OPTIONAL IfcLengthMeasure;
+	Segments : LIST [1:?] OF IfcAlignment2DHorizontalSegment;
+ INVERSE
+	ToAlignmentCurve : SET [1:?] OF IfcAlignmentCurve FOR Horizontal;
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DHorizontalSegment
+ SUBTYPE OF (IfcAlignment2DSegment);
+	CurveGeometry : IfcCurveSegment2D;
+ INVERSE
+	ToHorizontal : SET [1:1] OF IfcAlignment2DHorizontal FOR Segments;
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DSegment
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcAlignment2DVerticalSegment, IfcAlignment2DHorizontalSegment));
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	TangentialContinuity : OPTIONAL IfcBoolean;
+	StartTag : OPTIONAL IfcLabel;
+	EndTag : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DVerSegCircularArc
+ SUBTYPE OF (IfcAlignment2DVerticalSegment);
+	Radius : IfcPositiveLengthMeasure;
+	IsConvex : IfcBoolean;
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DVerSegLine
+ SUBTYPE OF (IfcAlignment2DVerticalSegment);
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DVerSegParabolicArc
+ SUBTYPE OF (IfcAlignment2DVerticalSegment);
+	ParabolaConstant : IfcPositiveLengthMeasure;
+	IsConvex : IfcBoolean;
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DVertical
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	Segments : LIST [1:?] OF IfcAlignment2DVerticalSegment;
+ INVERSE
+	ToAlignmentCurve : SET [1:1] OF IfcAlignmentCurve FOR Vertical;
+END_ENTITY; 
+ 
+ENTITY IfcAlignment2DVerticalSegment
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcAlignment2DVerSegLine, IfcAlignment2DVerSegParabolicArc, IfcAlignment2DVerSegCircularArc));
+ SUBTYPE OF (IfcAlignment2DSegment);
+	StartDistAlong : IfcLengthMeasure;
+	HorizontalLength : IfcPositiveLengthMeasure;
+	StartHeight : IfcLengthMeasure;
+	StartGradient : IfcRatioMeasure;
+ INVERSE
+	ToVertical : SET [1:1] OF IfcAlignment2DVertical FOR Segments;
+END_ENTITY; 
+ 
+ENTITY IfcAlignmentCurve
+ SUBTYPE OF (IfcBoundedCurve);
+	Tag : OPTIONAL IfcLabel;
+	Vertical : OPTIONAL IfcAlignment2DVertical;
+	Horizontal : IfcAlignment2DHorizontal;
+END_ENTITY; 
+ 
+ENTITY IfcConnectionCurveGeometry
+ SUBTYPE OF (IfcConnectionGeometry);
+	CurveOnRelatingElement : IfcCurveOrEdgeCurve;
+	CurveOnRelatedElement : OPTIONAL IfcCurveOrEdgeCurve;
+END_ENTITY; 
+ 
+ENTITY IfcConnectionGeometry
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcConnectionSurfaceGeometry, IfcConnectionCurveGeometry, IfcConnectionVolumeGeometry, IfcConnectionPointGeometry));
+END_ENTITY; 
+ 
+ENTITY IfcConnectionPointEccentricity
+ SUBTYPE OF (IfcConnectionPointGeometry);
+	EccentricityInX : OPTIONAL IfcLengthMeasure;
+	EccentricityInY : OPTIONAL IfcLengthMeasure;
+	EccentricityInZ : OPTIONAL IfcLengthMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcConnectionPointGeometry
+ SUPERTYPE OF 
+	(ONEOF(IfcConnectionPointEccentricity));
+ SUBTYPE OF (IfcConnectionGeometry);
+	PointOnRelatingElement : IfcPointOrVertexPoint;
+	PointOnRelatedElement : OPTIONAL IfcPointOrVertexPoint;
+END_ENTITY; 
+ 
+ENTITY IfcConnectionSurfaceGeometry
+ SUBTYPE OF (IfcConnectionGeometry);
+	SurfaceOnRelatingElement : IfcSurfaceOrFaceSurface;
+	SurfaceOnRelatedElement : OPTIONAL IfcSurfaceOrFaceSurface;
+END_ENTITY; 
+ 
+ENTITY IfcConnectionVolumeGeometry
+ SUBTYPE OF (IfcConnectionGeometry);
+	VolumeOnRelatingElement : IfcSolidOrShell;
+	VolumeOnRelatedElement : OPTIONAL IfcSolidOrShell;
+END_ENTITY; 
+ 
+ENTITY IfcGridAxis
+	AxisTag : OPTIONAL IfcLabel;
+	SameSense : IfcBoolean;
+	AxisCurve : IfcCurve;
+ INVERSE
+	HasIntersections : SET [0:?] OF IfcVirtualGridIntersection FOR IntersectingAxes;
+	PartOfU : SET [0:1] OF IfcGrid FOR UAxes;
+	PartOfV : SET [0:1] OF IfcGrid FOR VAxes;
+	PartOfW : SET [0:1] OF IfcGrid FOR WAxes;
+ WHERE
+	WR1 : AxisCurve.Dim = 2;
+	WR2 : (SIZEOF(PartOfU) = 1) XOR (SIZEOF(PartOfV) = 1) XOR (SIZEOF(PartOfW) = 1);
+END_ENTITY; 
+ 
+ENTITY IfcGridPlacement
+ SUBTYPE OF (IfcObjectPlacement);
+	PlacementRefDirection : OPTIONAL IfcGridPlacementDirectionSelect;
+	PlacementLocation : IfcVirtualGridIntersection;
+END_ENTITY; 
+ 
+ENTITY IfcIntervalPlacement
+ SUBTYPE OF (IfcLinearSpanPlacement);
+	IntervalCount : IfcInteger;
+ DERIVE
+	ElementCount : IfcInteger := IntervalCount + 1;
+	IntervalLength : IfcPositiveLengthMeasure := Span / IntervalCount;
+END_ENTITY; 
+ 
+ENTITY IfcLinearPlacement
+ SUPERTYPE OF 
+	(ONEOF(IfcLinearSpanPlacement));
+ SUBTYPE OF (IfcObjectPlacement);
+	PlacementMeasuredAlong : IfcCurve;
+END_ENTITY; 
+ 
+ENTITY IfcLinearSpanPlacement
+ SUPERTYPE OF 
+	(ONEOF(IfcIntervalPlacement));
+ SUBTYPE OF (IfcLinearPlacement);
+	Span : IfcPositiveLengthMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcLocalPlacement
+ SUBTYPE OF (IfcObjectPlacement);
+	RelativePlacement : IfcAxis2Placement;
+ WHERE
+	WR21 : IfcCorrectLocalPlacement(RelativePlacement, PlacementRelTo);
+END_ENTITY; 
+ 
+ENTITY IfcObjectPlacement
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcLinearPlacement, IfcLocalPlacement, IfcGridPlacement));
+ INVERSE
+	PlacesObject : SET [0:?] OF IfcProduct FOR ObjectPlacement;
+END_ENTITY; 
+ 
+ENTITY IfcVirtualGridIntersection
+	OffsetDistances : LIST [2:3] OF IfcLengthMeasure;
+	IntersectingAxes : LIST [2:2] OF IfcGridAxis;
+END_ENTITY; 
+
+FUNCTION IfcCorrectLocalPlacement
+  (AxisPlacement:IfcAxis2Placement; 
+   RelPlacement : IfcObjectPlacement):LOGICAL;
+
+  IF (EXISTS(RelPlacement)) THEN
+    IF ('IFCGEOMETRICCONSTRAINTRESOURCE.IFCGRIDPLACEMENT' IN TYPEOF(RelPlacement)) THEN
+      RETURN(?);
+    END_IF;
+    IF ('IFCGEOMETRICCONSTRAINTRESOURCE.IFCLOCALPLACEMENT' IN TYPEOF(RelPlacement)) THEN
+      IF ('IFCGEOMETRYRESOURCE.IFCAXIS2PLACEMENT2D' IN TYPEOF(AxisPlacement)) THEN
+        RETURN(TRUE);
+      END_IF;
+      IF ('IFCGEOMETRYRESOURCE.IFCAXIS2PLACEMENT3D' IN TYPEOF(AxisPlacement)) THEN
+        IF (RelPlacement\IfcLocalPlacement.RelativePlacement.Dim = 3) THEN
+          RETURN(TRUE);
+        ELSE
+          RETURN(FALSE);
+        END_IF;
+      END_IF;
+    END_IF;
+  ELSE
+    RETURN(TRUE);  
+  END_IF;
+  RETURN(?);
+END_FUNCTION;
+ 
+END_SCHEMA;

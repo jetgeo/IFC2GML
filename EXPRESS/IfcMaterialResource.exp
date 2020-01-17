@@ -1,0 +1,199 @@
+(* Exported from UML 08.01.2020 09:49:58 *)
+ 
+SCHEMA IFCMATERIALRESOURCE;
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcClassificationSelect, IfcResourceLevelRelationship);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcText, IfcNormalisedRatioMeasure, IfcNonNegativeLengthMeasure, IfcLogical, IfcInteger, IfcLengthMeasure, IfcPositiveLengthMeasure);
+ 
+REFERENCE FROM IFCPROFILERESOURCE
+	(IfcProfileDef, IfcCompositeProfileDef);
+ 
+REFERENCE FROM IFCPROPERTYRESOURCE
+	(IfcExtendedProperties);
+ 
+TYPE IfcCardinalPointReference = INTEGER;
+ WHERE
+	GreaterThanZero : SELF > 0
+END_TYPE; 
+ 
+TYPE IfcMaterialSelect = SELECT
+	(IfcMaterialDefinition, IfcMaterialList, IfcMaterialUsageDefinition);
+END_TYPE; 
+ 
+TYPE IfcDirectionSenseEnum = ENUMERATION OF
+	(NEGATIVE, POSITIVE);
+END_TYPE; 
+ 
+TYPE IfcLayerSetDirectionEnum = ENUMERATION OF
+	(AXIS1, AXIS2, AXIS3);
+END_TYPE; 
+ 
+ENTITY IfcMaterial
+ SUBTYPE OF (IfcMaterialDefinition);
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	Category : OPTIONAL IfcLabel;
+ INVERSE
+	HasRepresentation : SET [0:1] OF IfcMaterialDefinitionRepresentation FOR RepresentedMaterial;
+	IsRelatedWith : SET [0:?] OF IfcMaterialRelationship FOR RelatedMaterials;
+	RelatesTo : SET [0:1] OF IfcMaterialRelationship FOR RelatingMaterial;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialClassificationRelationship
+	MaterialClassifications : SET [1:?] OF IfcClassificationSelect;
+	ClassifiedMaterial : IfcMaterial;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialConstituent
+ SUBTYPE OF (IfcMaterialDefinition);
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	Fraction : OPTIONAL IfcNormalisedRatioMeasure;
+	Category : OPTIONAL IfcLabel;
+	Material : IfcMaterial;
+ INVERSE
+	ToMaterialConstituentSet : IfcMaterialConstituentSet FOR MaterialConstituents;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialConstituentSet
+ SUBTYPE OF (IfcMaterialDefinition);
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	MaterialConstituents : OPTIONAL SET [0:?] OF IfcMaterialConstituent;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialDefinition
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcMaterialProfileSet, IfcMaterialProfile, IfcMaterial, IfcMaterialLayer, IfcMaterialLayerSet, IfcMaterialConstituentSet, IfcMaterialConstituent));
+ INVERSE
+	AssociatedTo : SET [0:?] OF IfcRelAssociatesMaterial FOR RelatingMaterial;
+	HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+	HasProperties : SET [0:?] OF IfcMaterialProperties FOR Material;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialLayer
+ SUPERTYPE OF 
+	(ONEOF(IfcMaterialLayerWithOffsets));
+ SUBTYPE OF (IfcMaterialDefinition);
+	LayerThickness : IfcNonNegativeLengthMeasure;
+	IsVentilated : OPTIONAL IfcLogical;
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	Category : OPTIONAL IfcLabel;
+	Priority : OPTIONAL IfcInteger;
+	Material : OPTIONAL IfcMaterial;
+ INVERSE
+	ToMaterialLayerSet : IfcMaterialLayerSet FOR MaterialLayers;
+ WHERE
+	NormalizedPriority : NOT(EXISTS(Priority)) OR {0 <= Priority <= 100};
+END_ENTITY; 
+ 
+ENTITY IfcMaterialLayerSet
+ SUBTYPE OF (IfcMaterialDefinition);
+	LayerSetName : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	MaterialLayers : LIST [1:?] OF IfcMaterialLayer;
+ DERIVE
+	TotalThickness : IfcLengthMeasure := IfcMlsTotalThickness(SELF);
+END_ENTITY; 
+ 
+ENTITY IfcMaterialLayerSetUsage
+ SUBTYPE OF (IfcMaterialUsageDefinition);
+	LayerSetDirection : IfcLayerSetDirectionEnum;
+	DirectionSense : IfcDirectionSenseEnum;
+	OffsetFromReferenceLine : IfcLengthMeasure;
+	ReferenceExtent : OPTIONAL IfcPositiveLengthMeasure;
+	ForLayerSet : IfcMaterialLayerSet;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialLayerWithOffsets
+ SUBTYPE OF (IfcMaterialLayer);
+	OffsetDirection : IfcLayerSetDirectionEnum;
+	OffsetValues : ARRAY [1:2] OF IfcLengthMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialList
+	Materials : LIST [1:?] OF IfcMaterial;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialProfile
+ SUPERTYPE OF 
+	(ONEOF(IfcMaterialProfileWithOffsets));
+ SUBTYPE OF (IfcMaterialDefinition);
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	Priority : OPTIONAL IfcInteger;
+	Category : OPTIONAL IfcLabel;
+	Profile : IfcProfileDef;
+	Material : OPTIONAL IfcMaterial;
+ INVERSE
+	ToMaterialProfileSet : IfcMaterialProfileSet FOR MaterialProfiles;
+ WHERE
+	NormalizedPriority : NOT(EXISTS(Priority)) OR {0 <= Priority <= 100};
+END_ENTITY; 
+ 
+ENTITY IfcMaterialProfileSet
+ SUBTYPE OF (IfcMaterialDefinition);
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	CompositeProfile : OPTIONAL IfcCompositeProfileDef;
+	MaterialProfiles : LIST [1:?] OF IfcMaterialProfile;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialProfileSetUsage
+ SUPERTYPE OF 
+	(ONEOF(IfcMaterialProfileSetUsageTapering));
+ SUBTYPE OF (IfcMaterialUsageDefinition);
+	CardinalPoint : OPTIONAL IfcCardinalPointReference;
+	ReferenceExtent : OPTIONAL IfcPositiveLengthMeasure;
+	ForProfileSet : IfcMaterialProfileSet;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialProfileSetUsageTapering
+ SUBTYPE OF (IfcMaterialProfileSetUsage);
+	CardinalEndPoint : OPTIONAL IfcCardinalPointReference;
+	ForProfileEndSet : IfcMaterialProfileSet;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialProfileWithOffsets
+ SUBTYPE OF (IfcMaterialProfile);
+	OffsetValues : ARRAY [1:2] OF IfcLengthMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialProperties
+ SUBTYPE OF (IfcExtendedProperties);
+	Material : IfcMaterialDefinition;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	Expression : OPTIONAL IfcLabel;
+	RelatingMaterial : IfcMaterial;
+	RelatedMaterials : SET [1:?] OF IfcMaterial;
+END_ENTITY; 
+ 
+ENTITY IfcMaterialUsageDefinition
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcMaterialProfileSetUsage, IfcMaterialLayerSetUsage));
+ INVERSE
+	AssociatedTo : SET [1:?] OF IfcRelAssociatesMaterial FOR RelatingMaterial;
+END_ENTITY; 
+
+FUNCTION IfcMlsTotalThickness
+(LayerSet : IfcMaterialLayerSet) : IfcLengthMeasure;
+  LOCAL
+    Max : IfcLengthMeasure := LayerSet.MaterialLayers[1].LayerThickness;    
+  END_LOCAL;
+
+  IF SIZEOF(LayerSet.MaterialLayers) > 1 THEN
+    REPEAT i := 2 TO HIINDEX(LayerSet.MaterialLayers);
+       Max := Max + LayerSet.MaterialLayers[i].LayerThickness;
+    END_REPEAT;
+  END_IF;
+  RETURN (Max);
+END_FUNCTION;
+ 
+END_SCHEMA;

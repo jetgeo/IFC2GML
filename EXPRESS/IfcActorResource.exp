@@ -1,0 +1,111 @@
+(* Exported from UML 08.01.2020 09:40:38 *)
+ 
+SCHEMA IFCACTORRESOURCE;
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcResourceLevelRelationship, IfcURIReference);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcText, IfcIdentifier);
+ 
+TYPE IfcActorSelect = SELECT
+	(IfcOrganization, IfcPerson, IfcPersonAndOrganization);
+END_TYPE; 
+ 
+TYPE IfcAddressTypeEnum = ENUMERATION OF
+	(DISTRIBUTIONPOINT, HOME, OFFICE, SITE, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcRoleEnum = ENUMERATION OF
+	(ARCHITECT, BUILDINGOPERATOR, BUILDINGOWNER, CIVILENGINEER, CLIENT, COMMISSIONINGENGINEER, CONSTRUCTIONMANAGER, CONSULTANT, CONTRACTOR, COSTENGINEER, ELECTRICALENGINEER, ENGINEER, FACILITIESMANAGER, FIELDCONSTRUCTIONMANAGER, MANUFACTURER, MECHANICALENGINEER, OWNER, PROJECTMANAGER, RESELLER, STRUCTURALENGINEER, SUBCONTRACTOR, SUPPLIER, USERDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcActorRole
+	Role : IfcRoleEnum;
+	UserDefinedRole : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+ INVERSE
+	HasExternalReference : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+ WHERE
+	WR1 : (Role <> IfcRoleEnum.USERDEFINED) OR((Role = IfcRoleEnum.USERDEFINED) ANDEXISTS(SELF.UserDefinedRole));
+END_ENTITY; 
+ 
+ENTITY IfcAddress
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPostalAddress, IfcTelecomAddress));
+	Purpose : OPTIONAL IfcAddressTypeEnum;
+	Description : OPTIONAL IfcText;
+	UserDefinedPurpose : OPTIONAL IfcLabel;
+ INVERSE
+	OfOrganization : SET [0:?] OF IfcOrganization FOR Addresses;
+	OfPerson : SET [0:?] OF IfcPerson FOR Addresses;
+ WHERE
+	WR1 : (NOT(EXISTS(Purpose))) OR((Purpose <> IfcAddressTypeEnum.USERDEFINED) OR((Purpose = IfcAddressTypeEnum.USERDEFINED) ANDEXISTS(SELF.UserDefinedPurpose)));
+END_ENTITY; 
+ 
+ENTITY IfcOrganization
+	Identification : OPTIONAL IfcIdentifier;
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	Addresses : OPTIONAL LIST [0:?] OF IfcAddress;
+	Roles : OPTIONAL LIST [0:?] OF IfcActorRole;
+ INVERSE
+	Engages : SET [0:?] OF IfcPersonAndOrganization FOR TheOrganization;
+	IsRelatedBy : SET [0:?] OF IfcOrganizationRelationship FOR RelatedOrganizations;
+	Relates : SET [0:?] OF IfcOrganizationRelationship FOR RelatingOrganization;
+END_ENTITY; 
+ 
+ENTITY IfcOrganizationRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	RelatedOrganizations : SET [1:?] OF IfcOrganization;
+	RelatingOrganization : IfcOrganization;
+END_ENTITY; 
+ 
+ENTITY IfcPerson
+	Identification : OPTIONAL IfcIdentifier;
+	FamilyName : OPTIONAL IfcLabel;
+	GivenName : OPTIONAL IfcLabel;
+	MiddleNames : OPTIONAL LIST [0:?] OF IfcLabel;
+	PrefixTitles : OPTIONAL LIST [0:?] OF IfcLabel;
+	SuffixTitles : OPTIONAL LIST [0:?] OF IfcLabel;
+	Addresses : OPTIONAL LIST [0:?] OF IfcAddress;
+	Roles : OPTIONAL LIST [0:?] OF IfcActorRole;
+ INVERSE
+	EngagedIn : SET [0:?] OF IfcPersonAndOrganization FOR ThePerson;
+ WHERE
+	IdentifiablePerson : EXISTS(Identification) OR EXISTS(FamilyName) OR EXISTS(GivenName);
+	ValidSetOfNames : NOT EXISTS(MiddleNames) OR EXISTS(FamilyName) OR EXISTS(GivenName);
+END_ENTITY; 
+ 
+ENTITY IfcPersonAndOrganization
+	TheOrganization : IfcOrganization;
+	ThePerson : IfcPerson;
+	Roles : OPTIONAL LIST [0:?] OF IfcActorRole;
+END_ENTITY; 
+ 
+ENTITY IfcPostalAddress
+ SUBTYPE OF (IfcAddress);
+	InternalLocation : OPTIONAL IfcLabel;
+	AddressLines : OPTIONAL LIST [0:?] OF IfcLabel;
+	PostalBox : OPTIONAL IfcLabel;
+	Town : OPTIONAL IfcLabel;
+	Region : OPTIONAL IfcLabel;
+	PostalCode : OPTIONAL IfcLabel;
+	Country : OPTIONAL IfcLabel;
+ WHERE
+	WR1 : EXISTS (InternalLocation) OR EXISTS (AddressLines) OREXISTS (PostalBox) OREXISTS (PostalCode) OREXISTS (Town) OR EXISTS (Region) OR  EXISTS (Country);
+END_ENTITY; 
+ 
+ENTITY IfcTelecomAddress
+ SUBTYPE OF (IfcAddress);
+	TelephoneNumbers : OPTIONAL LIST [0:?] OF IfcLabel;
+	FacsimileNumbers : OPTIONAL LIST [0:?] OF IfcLabel;
+	PagerNumber : OPTIONAL IfcLabel;
+	ElectronicMailAddresses : OPTIONAL LIST [0:?] OF IfcLabel;
+	WWWHomePageURL : OPTIONAL IfcURIReference;
+	MessagingIDs : OPTIONAL LIST [0:?] OF IfcURIReference;
+ WHERE
+	MinimumDataProvided : EXISTS (TelephoneNumbers) OREXISTS (FacsimileNumbers) OR EXISTS (PagerNumber) OREXISTS (ElectronicMailAddresses) OR EXISTS (WWWHomePageURL) OREXISTS (MessagingIDs);
+END_ENTITY; 
+ 
+END_SCHEMA;

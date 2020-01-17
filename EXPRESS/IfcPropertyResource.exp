@@ -1,0 +1,160 @@
+(* Exported from UML 08.01.2020 09:58:41 *)
+ 
+SCHEMA IFCPROPERTYRESOURCE;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcAddress, IfcOrganization, IfcPerson, IfcPersonAndOrganization);
+ 
+REFERENCE FROM IFCCOSTRESOURCE
+	(IfcAppliedValue);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcTimeSeries);
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcExternalReference, IfcResourceLevelRelationship);
+ 
+REFERENCE FROM IFCMATERIALRESOURCE
+	(IfcMaterialDefinition);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcIdentifier, IfcText, IfcValue, IfcUnit, IfcLabel);
+ 
+REFERENCE FROM IFCUTILITYRESOURCE
+	(IfcTable);
+ 
+TYPE IfcObjectReferenceSelect = SELECT
+	(IfcAddress, IfcAppliedValue, IfcExternalReference, IfcMaterialDefinition, IfcOrganization, IfcPerson, IfcPersonAndOrganization, IfcTable, IfcTimeSeries);
+END_TYPE; 
+ 
+TYPE IfcCurveInterpolationEnum = ENUMERATION OF
+	(LINEAR, LOG_LINEAR, LOG_LOG, NOTDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcComplexProperty
+ SUBTYPE OF (IfcProperty);
+	UsageName : IfcIdentifier;
+	HasProperties : SET [1:?] OF IfcProperty;
+ WHERE
+	WR21 : SIZEOF(QUERY(temp <* HasProperties | SELF :=: temp)) = 0;
+	WR22 : IfcUniquePropertyName(HasProperties);
+END_ENTITY; 
+ 
+ENTITY IfcExtendedProperties
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcProfileProperties, IfcMaterialProperties));
+ SUBTYPE OF (IfcPropertyAbstraction);
+	Name : OPTIONAL IfcIdentifier;
+	Description : OPTIONAL IfcText;
+	Properties : SET [1:?] OF IfcProperty;
+END_ENTITY; 
+ 
+ENTITY IfcPreDefinedProperties
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcReinforcementBarProperties, IfcSectionProperties, IfcSectionReinforcementProperties));
+ SUBTYPE OF (IfcPropertyAbstraction);
+END_ENTITY; 
+ 
+ENTITY IfcProperty
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcComplexProperty, IfcSimpleProperty));
+ SUBTYPE OF (IfcPropertyAbstraction);
+	Name : IfcIdentifier;
+	Description : OPTIONAL IfcText;
+ INVERSE
+	HasApprovals : SET [0:?] OF IfcResourceApprovalRelationship FOR RelatedResourceObjects;
+	HasConstraints : SET [0:?] OF IfcResourceConstraintRelationship FOR RelatedResourceObjects;
+	PartOfComplex : SET [0:?] OF IfcComplexProperty FOR HasProperties;
+	PartOfPset : SET [0:?] OF IfcPropertySet FOR HasProperties;
+	PropertyDependsOn : SET [0:?] OF IfcPropertyDependencyRelationship FOR DependantProperty;
+	PropertyForDependance : SET [0:?] OF IfcPropertyDependencyRelationship FOR DependingProperty;
+END_ENTITY; 
+ 
+ENTITY IfcPropertyAbstraction
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPreDefinedProperties, IfcPropertyEnumeration, IfcProperty, IfcExtendedProperties));
+ INVERSE
+	HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+END_ENTITY; 
+ 
+ENTITY IfcPropertyBoundedValue
+ SUBTYPE OF (IfcSimpleProperty);
+	UpperBoundValue : OPTIONAL IfcValue;
+	LowerBoundValue : OPTIONAL IfcValue;
+	Unit : OPTIONAL IfcUnit;
+	SetPointValue : OPTIONAL IfcValue;
+ WHERE
+	SameUnitLowerSet : NOT(EXISTS(LowerBoundValue)) OR NOT(EXISTS(SetPointValue)) OR(TYPEOF(LowerBoundValue) = TYPEOF(SetPointValue));
+	SameUnitUpperLower : NOT(EXISTS(UpperBoundValue)) OR NOT(EXISTS(LowerBoundValue)) OR(TYPEOF(UpperBoundValue) = TYPEOF(LowerBoundValue));
+	SameUnitUpperSet : NOT(EXISTS(UpperBoundValue)) OR NOT(EXISTS(SetPointValue)) OR(TYPEOF(UpperBoundValue) = TYPEOF(SetPointValue));
+END_ENTITY; 
+ 
+ENTITY IfcPropertyDependencyRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	Expression : OPTIONAL IfcText;
+	DependantProperty : IfcProperty;
+	DependingProperty : IfcProperty;
+ WHERE
+	NoSelfReference : DependingProperty :<>: DependantProperty;
+END_ENTITY; 
+ 
+ENTITY IfcPropertyEnumeratedValue
+ SUBTYPE OF (IfcSimpleProperty);
+	EnumerationValues : OPTIONAL LIST [0:?] OF IfcValue;
+	EnumerationReference : OPTIONAL IfcPropertyEnumeration;
+ WHERE
+	WR21 : NOT(EXISTS(EnumerationReference)) OR  NOT(EXISTS(EnumerationValues)) OR  (SIZEOF(QUERY(temp <* EnumerationValues |temp IN EnumerationReference.EnumerationValues))= SIZEOF(EnumerationValues));
+END_ENTITY; 
+ 
+ENTITY IfcPropertyEnumeration
+ SUBTYPE OF (IfcPropertyAbstraction);
+	Name : IfcLabel;
+	EnumerationValues : LIST [1:?] OF IfcValue;
+	Unit : OPTIONAL IfcUnit;
+ UNIQUE
+	UR1 : Name;
+ WHERE
+	WR01 : SIZEOF(QUERY(temp <* SELF.EnumerationValues | NOT(TYPEOF(SELF.EnumerationValues[1]) = TYPEOF(temp)))) = 0;
+END_ENTITY; 
+ 
+ENTITY IfcPropertyListValue
+ SUBTYPE OF (IfcSimpleProperty);
+	ListValues : OPTIONAL LIST [0:?] OF IfcValue;
+	Unit : OPTIONAL IfcUnit;
+ WHERE
+	WR31 : SIZEOF(QUERY(temp <* SELF.ListValues | NOT(TYPEOF(SELF.ListValues[1]) = TYPEOF(temp)))) = 0;
+END_ENTITY; 
+ 
+ENTITY IfcPropertyReferenceValue
+ SUBTYPE OF (IfcSimpleProperty);
+	UsageName : OPTIONAL IfcText;
+	PropertyReference : OPTIONAL IfcObjectReferenceSelect;
+END_ENTITY; 
+ 
+ENTITY IfcPropertySingleValue
+ SUBTYPE OF (IfcSimpleProperty);
+	NominalValue : OPTIONAL IfcValue;
+	Unit : OPTIONAL IfcUnit;
+END_ENTITY; 
+ 
+ENTITY IfcPropertyTableValue
+ SUBTYPE OF (IfcSimpleProperty);
+	DefiningValues : OPTIONAL LIST [0:?] OF IfcValue;
+	DefinedValues : OPTIONAL LIST [0:?] OF IfcValue;
+	Expression : OPTIONAL IfcText;
+	DefiningUnit : OPTIONAL IfcUnit;
+	DefinedUnit : OPTIONAL IfcUnit;
+	CurveInterpolation : OPTIONAL IfcCurveInterpolationEnum;
+ WHERE
+	WR21 : (NOT(EXISTS(DefiningValues)) AND NOT(EXISTS(DefinedValues)))OR (SIZEOF(DefiningValues) = SIZEOF(DefinedValues));
+	WR22 : NOT(EXISTS(DefiningValues)) OR (SIZEOF(QUERY(temp <* SELF.DefiningValues | TYPEOF(temp) <> TYPEOF(SELF.DefiningValues[1]))) = 0);
+	WR23 : NOT(EXISTS(DefinedValues)) OR (SIZEOF(QUERY(temp <* SELF.DefinedValues | TYPEOF(temp) <> TYPEOF(SELF.DefinedValues[1]))) = 0);
+END_ENTITY; 
+ 
+ENTITY IfcSimpleProperty
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPropertyBoundedValue, IfcPropertySingleValue, IfcPropertyTableValue, IfcPropertyReferenceValue, IfcPropertyEnumeratedValue, IfcPropertyListValue));
+ SUBTYPE OF (IfcProperty);
+END_ENTITY; 
+ 
+END_SCHEMA;

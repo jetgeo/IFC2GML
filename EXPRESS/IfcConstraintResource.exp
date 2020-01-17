@@ -1,0 +1,91 @@
+(* Exported from UML 08.01.2020 09:41:15 *)
+ 
+SCHEMA IFCCONSTRAINTRESOURCE;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcActorSelect);
+ 
+REFERENCE FROM IFCCOSTRESOURCE
+	(IfcAppliedValue);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcDateTime, IfcTimeSeries);
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcResourceObjectSelect, IfcResourceLevelRelationship);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcText, IfcMeasureWithUnit, IfcValue, IfcIdentifier, IfcInteger);
+ 
+REFERENCE FROM IFCUTILITYRESOURCE
+	(IfcTable);
+ 
+TYPE IfcMetricValueSelect = SELECT
+	(IfcAppliedValue, IfcMeasureWithUnit, IfcReference, IfcTable, IfcTimeSeries, IfcValue);
+END_TYPE; 
+ 
+TYPE IfcBenchmarkEnum = ENUMERATION OF
+	(EQUALTO, GREATERTHAN, GREATERTHANOREQUALTO, INCLUDEDIN, INCLUDES, LESSTHAN, LESSTHANOREQUALTO, NOTEQUALTO, NOTINCLUDEDIN, NOTINCLUDES);
+END_TYPE; 
+ 
+TYPE IfcConstraintEnum = ENUMERATION OF
+	(ADVISORY, HARD, NOTDEFINED, SOFT, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcLogicalOperatorEnum = ENUMERATION OF
+	(LOGICALAND, LOGICALNOTAND, LOGICALNOTOR, LOGICALOR, LOGICALXOR);
+END_TYPE; 
+ 
+TYPE IfcObjectiveEnum = ENUMERATION OF
+	(CODECOMPLIANCE, CODEWAIVER, DESIGNINTENT, EXTERNAL, HEALTHANDSAFETY, MERGECONFLICT, MODELVIEW, NOTDEFINED, PARAMETER, REQUIREMENT, SPECIFICATION, TRIGGERCONDITION, USERDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcConstraint
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcMetric, IfcObjective));
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	ConstraintGrade : IfcConstraintEnum;
+	ConstraintSource : OPTIONAL IfcLabel;
+	CreatingActor : OPTIONAL IfcActorSelect;
+	CreationTime : OPTIONAL IfcDateTime;
+	UserDefinedGrade : OPTIONAL IfcLabel;
+ INVERSE
+	HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+	PropertiesForConstraint : SET [0:?] OF IfcResourceConstraintRelationship FOR RelatingConstraint;
+ WHERE
+	WR11 : (ConstraintGrade <> IfcConstraintEnum.USERDEFINED) OR((ConstraintGrade = IfcConstraintEnum.USERDEFINED) AND EXISTS(SELF\IfcConstraint.UserDefinedGrade));
+END_ENTITY; 
+ 
+ENTITY IfcMetric
+ SUBTYPE OF (IfcConstraint);
+	Benchmark : IfcBenchmarkEnum;
+	ValueSource : OPTIONAL IfcLabel;
+	DataValue : OPTIONAL IfcMetricValueSelect;
+	ReferencePath : OPTIONAL IfcReference;
+END_ENTITY; 
+ 
+ENTITY IfcObjective
+ SUBTYPE OF (IfcConstraint);
+	LogicalAggregator : OPTIONAL IfcLogicalOperatorEnum;
+	ObjectiveQualifier : IfcObjectiveEnum;
+	UserDefinedQualifier : OPTIONAL IfcLabel;
+	BenchmarkValues : OPTIONAL LIST [0:?] OF IfcConstraint;
+ WHERE
+	WR21 : (ObjectiveQualifier <> IfcObjectiveEnum.USERDEFINED) OR((ObjectiveQualifier = IfcObjectiveEnum.USERDEFINED) AND EXISTS(SELF\IfcObjective.UserDefinedQualifier));
+END_ENTITY; 
+ 
+ENTITY IfcReference
+	TypeIdentifier : OPTIONAL IfcIdentifier;
+	AttributeIdentifier : OPTIONAL IfcIdentifier;
+	InstanceName : OPTIONAL IfcLabel;
+	ListPositions : OPTIONAL LIST [0:?] OF IfcInteger;
+END_ENTITY; 
+ 
+ENTITY IfcResourceConstraintRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	RelatedResourceObjects : SET [1:?] OF IfcResourceObjectSelect;
+	RelatingConstraint : IfcConstraint;
+END_ENTITY; 
+ 
+END_SCHEMA;

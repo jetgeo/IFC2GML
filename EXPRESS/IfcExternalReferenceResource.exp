@@ -1,0 +1,191 @@
+(* Exported from UML 08.01.2020 09:42:31 *)
+ 
+SCHEMA IFCEXTERNALREFERENCERESOURCE;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcActorSelect, IfcActorRole, IfcOrganization, IfcPerson, IfcPersonAndOrganization);
+ 
+REFERENCE FROM IFCAPPROVALRESOURCE
+	(IfcApproval);
+ 
+REFERENCE FROM IFCCONSTRAINTRESOURCE
+	(IfcConstraint);
+ 
+REFERENCE FROM IFCCOSTRESOURCE
+	(IfcAppliedValue);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcDate, IfcDateTime, IfcTimeSeries);
+ 
+REFERENCE FROM IFCMATERIALRESOURCE
+	(IfcMaterialDefinition);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcText, IfcIdentifier, IfcContextDependentUnit, IfcConversionBasedUnit);
+ 
+REFERENCE FROM IFCPROFILERESOURCE
+	(IfcProfileDef);
+ 
+REFERENCE FROM IFCPROPERTYRESOURCE
+	(IfcPropertyAbstraction);
+ 
+REFERENCE FROM IFCQUANTITYRESOURCE
+	(IfcPhysicalQuantity);
+ 
+REFERENCE FROM IFCREPRESENTATIONRESOURCE
+	(IfcShapeAspect);
+ 
+TYPE IfcLanguageId = STRING;
+END_TYPE; 
+ 
+TYPE IfcURIReference = STRING;
+END_TYPE; 
+ 
+TYPE IfcClassificationReferenceSelect = SELECT
+	(IfcClassification, IfcClassificationReference);
+END_TYPE; 
+ 
+TYPE IfcClassificationSelect = SELECT
+	(IfcClassification, IfcClassificationReference);
+END_TYPE; 
+ 
+TYPE IfcDocumentSelect = SELECT
+	(IfcDocumentInformation, IfcDocumentReference);
+END_TYPE; 
+ 
+TYPE IfcLibrarySelect = SELECT
+	(IfcLibraryInformation, IfcLibraryReference);
+END_TYPE; 
+ 
+TYPE IfcResourceObjectSelect = SELECT
+	(IfcActorRole, IfcAppliedValue, IfcApproval, IfcConstraint, IfcContextDependentUnit, IfcConversionBasedUnit, IfcExternalInformation, IfcExternalReference, IfcMaterialDefinition, IfcOrganization, IfcPerson, IfcPersonAndOrganization, IfcPhysicalQuantity, IfcProfileDef, IfcPropertyAbstraction, IfcShapeAspect, IfcTimeSeries);
+END_TYPE; 
+ 
+TYPE IfcDocumentConfidentialityEnum = ENUMERATION OF
+	(CONFIDENTIAL, NOTDEFINED, PERSONAL, PUBLIC, RESTRICTED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcDocumentStatusEnum = ENUMERATION OF
+	(DRAFT, FINAL, FINALDRAFT, NOTDEFINED, REVISION);
+END_TYPE; 
+ 
+ENTITY IfcClassification
+ SUBTYPE OF (IfcExternalInformation);
+	Source : OPTIONAL IfcLabel;
+	Edition : OPTIONAL IfcLabel;
+	EditionDate : OPTIONAL IfcDate;
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	Location : OPTIONAL IfcURIReference;
+	ReferenceTokens : OPTIONAL LIST [0:?] OF IfcIdentifier;
+ INVERSE
+	ClassificationForObjects : SET [0:?] OF IfcRelAssociatesClassification FOR RelatingClassification;
+	HasReferences : SET [0:?] OF IfcClassificationReference FOR ReferencedSource;
+END_ENTITY; 
+ 
+ENTITY IfcClassificationReference
+ SUBTYPE OF (IfcExternalReference);
+	ReferencedSource : OPTIONAL IfcClassificationReferenceSelect;
+	Description : OPTIONAL IfcText;
+	Sort : OPTIONAL IfcIdentifier;
+ INVERSE
+	ClassificationRefForObjects : SET [0:?] OF IfcRelAssociatesClassification FOR RelatingClassification;
+	HasReferences : SET [0:?] OF IfcClassificationReference FOR ReferencedSource;
+END_ENTITY; 
+ 
+ENTITY IfcDocumentInformation
+ SUBTYPE OF (IfcExternalInformation);
+	Identification : IfcIdentifier;
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	Location : OPTIONAL IfcURIReference;
+	Purpose : OPTIONAL IfcText;
+	IntendedUse : OPTIONAL IfcText;
+	Scope : OPTIONAL IfcText;
+	Revision : OPTIONAL IfcLabel;
+	DocumentOwner : OPTIONAL IfcActorSelect;
+	Editors : OPTIONAL SET [0:?] OF IfcActorSelect;
+	CreationTime : OPTIONAL IfcDateTime;
+	LastRevisionTime : OPTIONAL IfcDateTime;
+	ElectronicFormat : OPTIONAL IfcIdentifier;
+	ValidFrom : OPTIONAL IfcDate;
+	ValidUntil : OPTIONAL IfcDate;
+	Confidentiality : OPTIONAL IfcDocumentConfidentialityEnum;
+	Status : OPTIONAL IfcDocumentStatusEnum;
+ INVERSE
+	DocumentInfoForObjects : SET [0:?] OF IfcRelAssociatesDocument FOR RelatingDocument;
+	HasDocumentReferences : SET [0:?] OF IfcDocumentReference FOR ReferencedDocument;
+	IsPointedTo : SET [0:?] OF IfcDocumentInformationRelationship FOR RelatedDocuments;
+	IsPointer : SET [0:1] OF IfcDocumentInformationRelationship FOR RelatingDocument;
+END_ENTITY; 
+ 
+ENTITY IfcDocumentInformationRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	RelationshipType : OPTIONAL IfcLabel;
+	RelatingDocument : IfcDocumentInformation;
+	RelatedDocuments : SET [1:?] OF IfcDocumentInformation;
+END_ENTITY; 
+ 
+ENTITY IfcDocumentReference
+ SUBTYPE OF (IfcExternalReference);
+	Description : OPTIONAL IfcText;
+	ReferencedDocument : OPTIONAL IfcDocumentInformation;
+ INVERSE
+	DocumentRefForObjects : SET [0:?] OF IfcRelAssociatesDocument FOR RelatingDocument;
+ WHERE
+	WR1 : EXISTS(Name) XOR EXISTS(ReferencedDocument);
+END_ENTITY; 
+ 
+ENTITY IfcExternalInformation
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcDocumentInformation, IfcClassification, IfcLibraryInformation));
+END_ENTITY; 
+ 
+ENTITY IfcExternalReference
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcLibraryReference, IfcDocumentReference, IfcExternallyDefinedHatchStyle, IfcClassificationReference, IfcExternallyDefinedSurfaceStyle, IfcExternallyDefinedTextFont));
+	Location : OPTIONAL IfcURIReference;
+	Identification : OPTIONAL IfcIdentifier;
+	Name : OPTIONAL IfcLabel;
+ INVERSE
+	ExternalReferenceForResources : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatingReference;
+ WHERE
+	WR1 : EXISTS(Identification) OR EXISTS(Location) OR EXISTS(Name);
+END_ENTITY; 
+ 
+ENTITY IfcExternalReferenceRelationship
+ SUBTYPE OF (IfcResourceLevelRelationship);
+	RelatedResourceObjects : SET [1:?] OF IfcResourceObjectSelect;
+	RelatingReference : IfcExternalReference;
+END_ENTITY; 
+ 
+ENTITY IfcLibraryInformation
+ SUBTYPE OF (IfcExternalInformation);
+	Name : IfcLabel;
+	Version : OPTIONAL IfcLabel;
+	Publisher : OPTIONAL IfcActorSelect;
+	VersionDate : OPTIONAL IfcDateTime;
+	Location : OPTIONAL IfcURIReference;
+	Description : OPTIONAL IfcText;
+ INVERSE
+	HasLibraryReferences : SET [0:?] OF IfcLibraryReference FOR ReferencedLibrary;
+	LibraryInfoForObjects : SET [0:?] OF IfcRelAssociatesLibrary FOR RelatingLibrary;
+END_ENTITY; 
+ 
+ENTITY IfcLibraryReference
+ SUBTYPE OF (IfcExternalReference);
+	Description : OPTIONAL IfcText;
+	Language : OPTIONAL IfcLanguageId;
+	ReferencedLibrary : OPTIONAL IfcLibraryInformation;
+ INVERSE
+	LibraryRefForObjects : SET [0:?] OF IfcRelAssociatesLibrary FOR RelatingLibrary;
+END_ENTITY; 
+ 
+ENTITY IfcResourceLevelRelationship
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPropertyDependencyRelationship, IfcExternalReferenceRelationship, IfcDocumentInformationRelationship, IfcMaterialRelationship, IfcCurrencyRelationship, IfcResourceConstraintRelationship, IfcResourceApprovalRelationship, IfcApprovalRelationship, IfcOrganizationRelationship));
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+END_ENTITY; 
+ 
+END_SCHEMA;

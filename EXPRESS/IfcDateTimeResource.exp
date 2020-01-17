@@ -1,0 +1,185 @@
+(* Exported from UML 08.01.2020 09:41:45 *)
+ 
+SCHEMA IFCDATETIMERESOURCE;
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcValue, IfcInteger, IfcTimeMeasure, IfcPositiveRatioMeasure, IfcLabel, IfcBoolean, IfcRatioMeasure, IfcText, IfcUnit);
+ 
+TYPE IfcDate = STRING;
+END_TYPE; 
+ 
+TYPE IfcDateTime = STRING;
+END_TYPE; 
+ 
+TYPE IfcDayInMonthNumber = INTEGER;
+ WHERE
+	ValidRange : {1 <= SELF <= 31}
+END_TYPE; 
+ 
+TYPE IfcDayInWeekNumber = INTEGER;
+ WHERE
+	ValidRange : {1 <= SELF <= 7}
+END_TYPE; 
+ 
+TYPE IfcDuration = STRING;
+END_TYPE; 
+ 
+TYPE IfcMonthInYearNumber = INTEGER;
+ WHERE
+	ValidRange : {1 <= SELF <= 12}
+END_TYPE; 
+ 
+TYPE IfcTime = STRING;
+END_TYPE; 
+ 
+TYPE IfcTimeStamp = INTEGER;
+END_TYPE; 
+ 
+TYPE IfcTimeOrRatioSelect = SELECT
+	(IfcDuration, IfcRatioMeasure);
+END_TYPE; 
+ 
+TYPE IfcDataOriginEnum = ENUMERATION OF
+	(MEASURED, NOTDEFINED, PREDICTED, SIMULATED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcRecurrenceTypeEnum = ENUMERATION OF
+	(BY_DAY_COUNT, BY_WEEKDAY_COUNT, DAILY, MONTHLY_BY_DAY_OF_MONTH, MONTHLY_BY_POSITION, WEEKLY, YEARLY_BY_DAY_OF_MONTH, YEARLY_BY_POSITION);
+END_TYPE; 
+ 
+TYPE IfcTaskDurationEnum = ENUMERATION OF
+	(ELAPSEDTIME, NOTDEFINED, WORKTIME);
+END_TYPE; 
+ 
+TYPE IfcTimeSeriesDataTypeEnum = ENUMERATION OF
+	(CONTINUOUS, DISCRETE, DISCRETEBINARY, NOTDEFINED, PIECEWISEBINARY, PIECEWISECONSTANT, PIECEWISECONTINUOUS);
+END_TYPE; 
+ 
+ENTITY IfcEventTime
+ SUBTYPE OF (IfcSchedulingTime);
+	ActualDate : OPTIONAL IfcDateTime;
+	EarlyDate : OPTIONAL IfcDateTime;
+	LateDate : OPTIONAL IfcDateTime;
+	ScheduleDate : OPTIONAL IfcDateTime;
+END_ENTITY; 
+ 
+ENTITY IfcIrregularTimeSeries
+ SUBTYPE OF (IfcTimeSeries);
+	Values : LIST [1:?] OF IfcIrregularTimeSeriesValue;
+END_ENTITY; 
+ 
+ENTITY IfcIrregularTimeSeriesValue
+	TimeStamp : IfcDateTime;
+	ListValues : LIST [1:?] OF IfcValue;
+END_ENTITY; 
+ 
+ENTITY IfcLagTime
+ SUBTYPE OF (IfcSchedulingTime);
+	LagValue : IfcTimeOrRatioSelect;
+	DurationType : IfcTaskDurationEnum;
+END_ENTITY; 
+ 
+ENTITY IfcRecurrencePattern
+	RecurrenceType : IfcRecurrenceTypeEnum;
+	DayComponent : OPTIONAL SET [0:?] OF IfcDayInMonthNumber;
+	WeekdayComponent : OPTIONAL SET [0:?] OF IfcDayInWeekNumber;
+	MonthComponent : OPTIONAL SET [0:?] OF IfcMonthInYearNumber;
+	Position : OPTIONAL IfcInteger;
+	Interval : OPTIONAL IfcInteger;
+	Occurrences : OPTIONAL IfcInteger;
+	TimePeriods : OPTIONAL LIST [0:?] OF IfcTimePeriod;
+END_ENTITY; 
+ 
+ENTITY IfcRegularTimeSeries
+ SUBTYPE OF (IfcTimeSeries);
+	TimeStep : IfcTimeMeasure;
+	Values : LIST [1:?] OF IfcTimeSeriesValue;
+END_ENTITY; 
+ 
+ENTITY IfcResourceTime
+ SUBTYPE OF (IfcSchedulingTime);
+	ScheduleWork : OPTIONAL IfcDuration;
+	ScheduleUsage : OPTIONAL IfcPositiveRatioMeasure;
+	ScheduleStart : OPTIONAL IfcDateTime;
+	ScheduleFinish : OPTIONAL IfcDateTime;
+	ScheduleContour : OPTIONAL IfcLabel;
+	LevelingDelay : OPTIONAL IfcDuration;
+	IsOverAllocated : OPTIONAL IfcBoolean;
+	StatusTime : OPTIONAL IfcDateTime;
+	ActualWork : OPTIONAL IfcDuration;
+	ActualUsage : OPTIONAL IfcPositiveRatioMeasure;
+	ActualStart : OPTIONAL IfcDateTime;
+	ActualFinish : OPTIONAL IfcDateTime;
+	RemainingWork : OPTIONAL IfcDuration;
+	RemainingUsage : OPTIONAL IfcPositiveRatioMeasure;
+	Completion : OPTIONAL IfcPositiveRatioMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcSchedulingTime
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcEventTime, IfcResourceTime, IfcLagTime, IfcTaskTime, IfcWorkTime));
+	Name : OPTIONAL IfcLabel;
+	DataOrigin : OPTIONAL IfcDataOriginEnum;
+	UserDefinedDataOrigin : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcTaskTime
+ SUPERTYPE OF 
+	(ONEOF(IfcTaskTimeRecurring));
+ SUBTYPE OF (IfcSchedulingTime);
+	DurationType : OPTIONAL IfcTaskDurationEnum;
+	ScheduleDuration : OPTIONAL IfcDuration;
+	ScheduleStart : OPTIONAL IfcDateTime;
+	ScheduleFinish : OPTIONAL IfcDateTime;
+	EarlyStart : OPTIONAL IfcDateTime;
+	EarlyFinish : OPTIONAL IfcDateTime;
+	LateStart : OPTIONAL IfcDateTime;
+	LateFinish : OPTIONAL IfcDateTime;
+	FreeFloat : OPTIONAL IfcDuration;
+	TotalFloat : OPTIONAL IfcDuration;
+	IsCritical : OPTIONAL IfcBoolean;
+	StatusTime : OPTIONAL IfcDateTime;
+	ActualDuration : OPTIONAL IfcDuration;
+	ActualStart : OPTIONAL IfcDateTime;
+	ActualFinish : OPTIONAL IfcDateTime;
+	RemainingTime : OPTIONAL IfcDuration;
+	Completion : OPTIONAL IfcPositiveRatioMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcTaskTimeRecurring
+ SUBTYPE OF (IfcTaskTime);
+	Recurrence : IfcRecurrencePattern;
+END_ENTITY; 
+ 
+ENTITY IfcTimePeriod
+	StartTime : IfcTime;
+	EndTime : IfcTime;
+END_ENTITY; 
+ 
+ENTITY IfcTimeSeries
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcIrregularTimeSeries, IfcRegularTimeSeries));
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+	StartTime : IfcDateTime;
+	EndTime : IfcDateTime;
+	TimeSeriesDataType : IfcTimeSeriesDataTypeEnum;
+	DataOrigin : IfcDataOriginEnum;
+	UserDefinedDataOrigin : OPTIONAL IfcLabel;
+	Unit : OPTIONAL IfcUnit;
+ INVERSE
+	HasExternalReference : SET [1:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+END_ENTITY; 
+ 
+ENTITY IfcTimeSeriesValue
+	ListValues : LIST [1:?] OF IfcValue;
+END_ENTITY; 
+ 
+ENTITY IfcWorkTime
+ SUBTYPE OF (IfcSchedulingTime);
+	Start : OPTIONAL IfcDate;
+	Finish : OPTIONAL IfcDate;
+	RecurrencePattern : OPTIONAL IfcRecurrencePattern;
+END_ENTITY; 
+ 
+END_SCHEMA;

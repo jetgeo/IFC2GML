@@ -1,0 +1,77 @@
+(* Exported from UML 08.01.2020 10:02:15 *)
+ 
+SCHEMA IFCUTILITYRESOURCE;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcOrganization, IfcPersonAndOrganization);
+ 
+REFERENCE FROM IFCCONSTRAINTRESOURCE
+	(IfcReference);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcTimeStamp);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcIdentifier, IfcInteger, IfcText, IfcUnit, IfcValue, IfcBoolean);
+ 
+TYPE IfcGloballyUniqueId = STRING;
+END_TYPE; 
+ 
+TYPE IfcChangeActionEnum = ENUMERATION OF
+	(ADDED, DELETED, MODIFIED, NOCHANGE, NOTDEFINED);
+END_TYPE; 
+ 
+TYPE IfcStateEnum = ENUMERATION OF
+	(LOCKED, READONLY, READONLYLOCKED, READWRITE, READWRITELOCKED);
+END_TYPE; 
+ 
+ENTITY IfcApplication
+	Version : IfcLabel;
+	ApplicationFullName : IfcLabel;
+	ApplicationIdentifier : IfcIdentifier;
+	ApplicationDeveloper : IfcOrganization;
+ UNIQUE
+	UR1 : ApplicationIdentifier;
+	UR2 : ApplicationFullName, Version;
+END_ENTITY; 
+ 
+ENTITY IfcOwnerHistory
+	State : OPTIONAL IfcStateEnum;
+	ChangeAction : OPTIONAL IfcChangeActionEnum;
+	LastModifiedDate : OPTIONAL IfcTimeStamp;
+	CreationDate : IfcTimeStamp;
+	OwningApplication : IfcApplication;
+	LastModifyingApplication : OPTIONAL IfcApplication;
+	OwningUser : IfcPersonAndOrganization;
+	LastModifyingUser : OPTIONAL IfcPersonAndOrganization;
+ WHERE
+	CorrectChangeAction : (EXISTS(LastModifiedDate)) OR(NOT(EXISTS(LastModifiedDate)) AND NOT(EXISTS(ChangeAction))) OR(NOT(EXISTS(LastModifiedDate)) AND EXISTS(ChangeAction) AND ((ChangeAction = IfcChangeActionEnum.NOTDEFINED) OR (ChangeAction = IfcChangeActionEnum.NOCHANGE)));
+END_ENTITY; 
+ 
+ENTITY IfcTable
+	Name : OPTIONAL IfcLabel;
+	Columns : OPTIONAL LIST [0:?] OF IfcTableColumn;
+	Rows : OPTIONAL LIST [0:?] OF IfcTableRow;
+ DERIVE
+	NumberOfCellsInRow : IfcInteger := HIINDEX(Rows[1].RowCells);
+	NumberOfDataRows : IfcInteger := SIZEOF(QUERY( Temp <* Rows | NOT(Temp.IsHeading)));
+	NumberOfHeadings : IfcInteger := SIZEOF(QUERY( Temp <* Rows | Temp.IsHeading));
+ WHERE
+	WR1 : SIZEOF(QUERY( Temp <* Rows | HIINDEX(Temp.RowCells) <> HIINDEX(Rows[1].RowCells))) = 0;
+	WR2 : { 0 <= NumberOfHeadings <= 1 };
+END_ENTITY; 
+ 
+ENTITY IfcTableColumn
+	Identifier : OPTIONAL IfcIdentifier;
+	Name : OPTIONAL IfcLabel;
+	Description : OPTIONAL IfcText;
+	Unit : OPTIONAL IfcUnit;
+	ReferencePath : OPTIONAL IfcReference;
+END_ENTITY; 
+ 
+ENTITY IfcTableRow
+	RowCells : OPTIONAL LIST [0:?] OF IfcValue;
+	IsHeading : OPTIONAL IfcBoolean;
+END_ENTITY; 
+ 
+END_SCHEMA;

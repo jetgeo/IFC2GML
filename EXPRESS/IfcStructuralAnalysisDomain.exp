@@ -1,0 +1,292 @@
+(* Exported from UML 08.01.2020 09:34:37 *)
+ 
+SCHEMA IFCSTRUCTURALANALYSISDOMAIN;
+ 
+REFERENCE FROM IFCGEOMETRICCONSTRAINTRESOURCE
+	(IfcConnectionGeometry, IfcObjectPlacement);
+ 
+REFERENCE FROM IFCGEOMETRYRESOURCE
+	(IfcAxis2Placement3D, IfcDirection);
+ 
+REFERENCE FROM IFCKERNEL
+	(IfcRelConnects, IfcProduct, IfcGroup);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLengthMeasure, IfcBoolean, IfcRatioMeasure, IfcLabel, IfcPositiveLengthMeasure);
+ 
+REFERENCE FROM IFCPRODUCTEXTENSION
+	(IfcElement, IfcSystem);
+ 
+REFERENCE FROM IFCREPRESENTATIONRESOURCE
+	(IfcGlobalOrLocalEnum);
+ 
+REFERENCE FROM IFCSTRUCTURALLOADRESOURCE
+	(IfcBoundaryCondition, IfcStructuralConnectionCondition, IfcStructuralLoad);
+ 
+TYPE IfcStructuralActivityAssignmentSelect = SELECT
+	(IfcElement, IfcStructuralItem);
+END_TYPE; 
+ 
+TYPE IfcActionSourceTypeEnum = ENUMERATION OF
+	(BRAKES, BUOYANCY, COMPLETION_G1, CREEP, CURRENT, DEAD_LOAD_G, EARTHQUAKE_E, ERECTION, FIRE, ICE, IMPACT, IMPULSE, LACK_OF_FIT, LIVE_LOAD_Q, NOTDEFINED, PRESTRESSING_P, PROPPING, RAIN, SETTLEMENT_U, SHRINKAGE, SNOW_S, SYSTEM_IMPERFECTION, TEMPERATURE_T, TRANSPORT, USERDEFINED, WAVE, WIND_W);
+END_TYPE; 
+ 
+TYPE IfcActionTypeEnum = ENUMERATION OF
+	(EXTRAORDINARY_A, NOTDEFINED, PERMANENT_G, USERDEFINED, VARIABLE_Q);
+END_TYPE; 
+ 
+TYPE IfcAnalysisModelTypeEnum = ENUMERATION OF
+	(IN_PLANE_LOADING_2D, LOADING_3D, NOTDEFINED, OUT_PLANE_LOADING_2D, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcAnalysisTheoryTypeEnum = ENUMERATION OF
+	(FIRST_ORDER_THEORY, FULL_NONLINEAR_THEORY, NOTDEFINED, SECOND_ORDER_THEORY, THIRD_ORDER_THEORY, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcLoadGroupTypeEnum = ENUMERATION OF
+	(LOAD_CASE, LOAD_COMBINATION, LOAD_GROUP, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcProjectedOrTrueLengthEnum = ENUMERATION OF
+	(PROJECTED_LENGTH, TRUE_LENGTH);
+END_TYPE; 
+ 
+TYPE IfcStructuralCurveActivityTypeEnum = ENUMERATION OF
+	(CONST, DISCRETE, EQUIDISTANT, LINEAR, NOTDEFINED, PARABOLA, POLYGONAL, SINUS, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcStructuralCurveMemberTypeEnum = ENUMERATION OF
+	(CABLE, COMPRESSION_MEMBER, NOTDEFINED, PIN_JOINED_MEMBER, RIGID_JOINED_MEMBER, TENSION_MEMBER, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcStructuralSurfaceActivityTypeEnum = ENUMERATION OF
+	(BILINEAR, CONST, DISCRETE, ISOCONTOUR, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcStructuralSurfaceMemberTypeEnum = ENUMERATION OF
+	(BENDING_ELEMENT, MEMBRANE_ELEMENT, NOTDEFINED, SHELL, USERDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcRelConnectsStructuralActivity
+ SUBTYPE OF (IfcRelConnects);
+	RelatingElement : IfcStructuralActivityAssignmentSelect;
+	RelatedStructuralActivity : IfcStructuralActivity;
+END_ENTITY; 
+ 
+ENTITY IfcRelConnectsStructuralMember
+ SUPERTYPE OF 
+	(ONEOF(IfcRelConnectsWithEccentricity));
+ SUBTYPE OF (IfcRelConnects);
+	SupportedLength : OPTIONAL IfcLengthMeasure;
+	AppliedCondition : OPTIONAL IfcBoundaryCondition;
+	AdditionalConditions : OPTIONAL IfcStructuralConnectionCondition;
+	RelatingStructuralMember : IfcStructuralMember;
+	RelatedStructuralConnection : IfcStructuralConnection;
+	ConditionCoordinateSystem : OPTIONAL IfcAxis2Placement3D;
+END_ENTITY; 
+ 
+ENTITY IfcRelConnectsWithEccentricity
+ SUBTYPE OF (IfcRelConnectsStructuralMember);
+	ConnectionConstraint : IfcConnectionGeometry;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralAction
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralPointAction, IfcStructuralCurveAction, IfcStructuralSurfaceAction));
+ SUBTYPE OF (IfcStructuralActivity);
+	DestabilizingLoad : OPTIONAL IfcBoolean;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralActivity
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralReaction, IfcStructuralAction));
+ SUBTYPE OF (IfcProduct);
+	GlobalOrLocal : IfcGlobalOrLocalEnum;
+	AppliedLoad : IfcStructuralLoad;
+ INVERSE
+	AssignedToStructuralItem : SET [0:1] OF IfcRelConnectsStructuralActivity FOR RelatedStructuralActivity;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralAnalysisModel
+ SUBTYPE OF (IfcSystem);
+	PredefinedType : IfcAnalysisModelTypeEnum;
+	SharedPlacement : OPTIONAL IfcObjectPlacement;
+	LoadedBy : OPTIONAL SET [0:?] OF IfcStructuralLoadGroup;
+	HasResults : OPTIONAL SET [0:?] OF IfcStructuralResultGroup;
+	OrientationOf2DPlane : OPTIONAL IfcAxis2Placement3D;
+ WHERE
+	HasObjectType : (PredefinedType <> IfcAnalysisModelTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralConnection
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralSurfaceConnection, IfcStructuralCurveConnection, IfcStructuralPointConnection));
+ SUBTYPE OF (IfcStructuralItem);
+	AppliedCondition : OPTIONAL IfcBoundaryCondition;
+ INVERSE
+	ConnectsStructuralMembers : SET [1:?] OF IfcRelConnectsStructuralMember FOR RelatedStructuralConnection;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralCurveAction
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralLinearAction));
+ SUBTYPE OF (IfcStructuralAction);
+	ProjectedOrTrue : OPTIONAL IfcProjectedOrTrueLengthEnum;
+	PredefinedType : IfcStructuralCurveActivityTypeEnum;
+ WHERE
+	HasObjectType : (PredefinedType <> IfcStructuralCurveActivityTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+	ProjectedIsGlobal : (NOT EXISTS(ProjectedOrTrue)) OR((ProjectedOrTrue <> PROJECTED_LENGTH) OR(SELF\IfcStructuralActivity.GlobalOrLocal = GLOBAL_COORDS));
+	SuitablePredefinedType : PredefinedType <> IfcStructuralCurveActivityTypeEnum.EQUIDISTANT;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralCurveConnection
+ SUBTYPE OF (IfcStructuralConnection);
+	Axis : IfcDirection;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralCurveMember
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralCurveMemberVarying));
+ SUBTYPE OF (IfcStructuralMember);
+	PredefinedType : IfcStructuralCurveMemberTypeEnum;
+	Axis : IfcDirection;
+ WHERE
+	HasObjectType : (PredefinedType <> IfcStructuralCurveMemberTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralCurveMemberVarying
+ SUBTYPE OF (IfcStructuralCurveMember);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralCurveReaction
+ SUBTYPE OF (IfcStructuralReaction);
+	PredefinedType : IfcStructuralCurveActivityTypeEnum;
+ WHERE
+	HasObjectType : (PredefinedType <> IfcStructuralCurveActivityTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+	SuitablePredefinedType : (PredefinedType <> IfcStructuralCurveActivityTypeEnum.SINUS) AND (PredefinedType <> IfcStructuralCurveActivityTypeEnum.PARABOLA);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralItem
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralMember, IfcStructuralConnection));
+ SUBTYPE OF (IfcProduct);
+ INVERSE
+	AssignedStructuralActivity : SET [0:?] OF IfcRelConnectsStructuralActivity FOR RelatingElement;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLinearAction
+ SUBTYPE OF (IfcStructuralCurveAction);
+ WHERE
+	ConstPredefinedType : SELF\IfcStructuralCurveAction.PredefinedType = IfcStructuralCurveActivityTypeEnum.CONST;
+	SuitableLoadType : SIZEOF(['IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADLINEARFORCE', 'IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADTEMPERATURE'] * TYPEOF(SELF\IfcStructuralActivity.AppliedLoad)) = 1;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadCase
+ SUBTYPE OF (IfcStructuralLoadGroup);
+	SelfWeightCoefficients : OPTIONAL LIST [0:3] OF IfcRatioMeasure;
+ WHERE
+	IsLoadCasePredefinedType : SELF\IfcStructuralLoadGroup.PredefinedType = IfcLoadGroupTypeEnum.LOAD_CASE;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadGroup
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralLoadCase));
+ SUBTYPE OF (IfcGroup);
+	PredefinedType : IfcLoadGroupTypeEnum;
+	ActionType : IfcActionTypeEnum;
+	ActionSource : IfcActionSourceTypeEnum;
+	Coefficient : OPTIONAL IfcRatioMeasure;
+	Purpose : OPTIONAL IfcLabel;
+ INVERSE
+	LoadGroupFor : SET [0:?] OF IfcStructuralAnalysisModel FOR LoadedBy;
+	SourceOfResultGroup : SET [0:1] OF IfcStructuralResultGroup FOR ResultForLoadGroup;
+ WHERE
+	HasObjectType : ((PredefinedType <> IfcLoadGroupTypeEnum.USERDEFINED) AND(ActionType <> IfcActionTypeEnum.USERDEFINED) AND(ActionSource <> IfcActionSourceTypeEnum.USERDEFINED)) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralMember
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralSurfaceMember, IfcStructuralCurveMember));
+ SUBTYPE OF (IfcStructuralItem);
+ INVERSE
+	ConnectedBy : SET [0:?] OF IfcRelConnectsStructuralMember FOR RelatingStructuralMember;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralPlanarAction
+ SUBTYPE OF (IfcStructuralSurfaceAction);
+ WHERE
+	ConstPredefinedType : SELF\IfcStructuralSurfaceAction.PredefinedType = IfcStructuralSurfaceActivityTypeEnum.CONST;
+	SuitableLoadType : SIZEOF(['IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADPLANARFORCE', 'IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADTEMPERATURE'] * TYPEOF(SELF\IfcStructuralActivity.AppliedLoad)) = 1;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralPointAction
+ SUBTYPE OF (IfcStructuralAction);
+ WHERE
+	SuitableLoadType : SIZEOF(['IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADSINGLEFORCE', 'IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADSINGLEDISPLACEMENT'] * TYPEOF(SELF\IfcStructuralActivity.AppliedLoad)) = 1;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralPointConnection
+ SUBTYPE OF (IfcStructuralConnection);
+	ConditionCoordinateSystem : OPTIONAL IfcAxis2Placement3D;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralPointReaction
+ SUBTYPE OF (IfcStructuralReaction);
+ WHERE
+	SuitableLoadType : SIZEOF(['IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADSINGLEFORCE', 'IFCSTRUCTURALLOADRESOURCE.IFCSTRUCTURALLOADSINGLEDISPLACEMENT'] * TYPEOF(SELF\IfcStructuralActivity.AppliedLoad)) = 1;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralReaction
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralSurfaceReaction, IfcStructuralPointReaction, IfcStructuralCurveReaction));
+ SUBTYPE OF (IfcStructuralActivity);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralResultGroup
+ SUBTYPE OF (IfcGroup);
+	TheoryType : IfcAnalysisTheoryTypeEnum;
+	IsLinear : IfcBoolean;
+	ResultForLoadGroup : OPTIONAL IfcStructuralLoadGroup;
+ INVERSE
+	ResultGroupFor : SET [0:1] OF IfcStructuralAnalysisModel FOR HasResults;
+ WHERE
+	HasObjectType : (TheoryType <> IfcAnalysisTheoryTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralSurfaceAction
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralPlanarAction));
+ SUBTYPE OF (IfcStructuralAction);
+	ProjectedOrTrue : OPTIONAL IfcProjectedOrTrueLengthEnum;
+	PredefinedType : IfcStructuralSurfaceActivityTypeEnum;
+ WHERE
+	HasObjectType : (PredefinedType <> IfcStructuralSurfaceActivityTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+	ProjectedIsGlobal : (NOT EXISTS(ProjectedOrTrue)) OR((ProjectedOrTrue <> PROJECTED_LENGTH) OR(SELF\IfcStructuralActivity.GlobalOrLocal = GLOBAL_COORDS));
+END_ENTITY; 
+ 
+ENTITY IfcStructuralSurfaceConnection
+ SUBTYPE OF (IfcStructuralConnection);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralSurfaceMember
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralSurfaceMemberVarying));
+ SUBTYPE OF (IfcStructuralMember);
+	PredefinedType : IfcStructuralSurfaceMemberTypeEnum;
+	Thickness : OPTIONAL IfcPositiveLengthMeasure;
+ WHERE
+	HasObjectType : (PredefinedType <> IfcStructuralSurfaceMemberTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralSurfaceMemberVarying
+ SUBTYPE OF (IfcStructuralSurfaceMember);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralSurfaceReaction
+ SUBTYPE OF (IfcStructuralReaction);
+	PredefinedType : IfcStructuralSurfaceActivityTypeEnum;
+ WHERE
+	HasPredefinedType : (PredefinedType <> IfcStructuralSurfaceActivityTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+END_SCHEMA;

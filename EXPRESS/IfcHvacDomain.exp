@@ -1,0 +1,638 @@
+(* Exported from UML 08.01.2020 09:31:56 *)
+ 
+SCHEMA IFCHVACDOMAIN;
+ 
+REFERENCE FROM IFCSHAREDBLDGSERVICEELEMENTS
+	(IfcFlowTerminal, IfcFlowController, IfcFlowControllerType, IfcFlowTerminalType, IfcEnergyConversionDevice, IfcEnergyConversionDeviceType, IfcFlowMovingDevice, IfcFlowMovingDeviceType, IfcFlowFitting, IfcFlowFittingType, IfcFlowSegment, IfcFlowSegmentType, IfcFlowTreatmentDevice, IfcFlowTreatmentDeviceType, IfcFlowStorageDevice, IfcFlowStorageDeviceType);
+ 
+REFERENCE FROM IFCSHAREDCOMPONENTELEMENTS
+	(IfcElementComponent, IfcElementComponentType);
+ 
+TYPE IfcAirTerminalBoxTypeEnum = ENUMERATION OF
+	(CONSTANTFLOW, NOTDEFINED, USERDEFINED, VARIABLEFLOWPRESSUREDEPENDANT, VARIABLEFLOWPRESSUREINDEPENDANT);
+END_TYPE; 
+ 
+TYPE IfcAirTerminalTypeEnum = ENUMERATION OF
+	(DIFFUSER, GRILLE, LOUVRE, NOTDEFINED, REGISTER, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcAirToAirHeatRecoveryTypeEnum = ENUMERATION OF
+	(FIXEDPLATECOUNTERFLOWEXCHANGER, FIXEDPLATECROSSFLOWEXCHANGER, FIXEDPLATEPARALLELFLOWEXCHANGER, HEATPIPE, NOTDEFINED, ROTARYWHEEL, RUNAROUNDCOILLOOP, THERMOSIPHONCOILTYPEHEATEXCHANGERS, THERMOSIPHONSEALEDTUBEHEATEXCHANGERS, TWINTOWERENTHALPYRECOVERYLOOPS, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcBoilerTypeEnum = ENUMERATION OF
+	(NOTDEFINED, STEAM, USERDEFINED, WATER);
+END_TYPE; 
+ 
+TYPE IfcBurnerTypeEnum = ENUMERATION OF
+	(NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcChillerTypeEnum = ENUMERATION OF
+	(AIRCOOLED, HEATRECOVERY, NOTDEFINED, USERDEFINED, WATERCOOLED);
+END_TYPE; 
+ 
+TYPE IfcCoilTypeEnum = ENUMERATION OF
+	(DXCOOLINGCOIL, ELECTRICHEATINGCOIL, GASHEATINGCOIL, HYDRONICCOIL, NOTDEFINED, STEAMHEATINGCOIL, USERDEFINED, WATERCOOLINGCOIL, WATERHEATINGCOIL);
+END_TYPE; 
+ 
+TYPE IfcCompressorTypeEnum = ENUMERATION OF
+	(BOOSTER, DYNAMIC, HERMETIC, NOTDEFINED, OPENTYPE, RECIPROCATING, ROLLINGPISTON, ROTARY, ROTARYVANE, SCROLL, SEMIHERMETIC, SINGLESCREW, SINGLESTAGE, TROCHOIDAL, TWINSCREW, USERDEFINED, WELDEDSHELLHERMETIC);
+END_TYPE; 
+ 
+TYPE IfcCondenserTypeEnum = ENUMERATION OF
+	(AIRCOOLED, EVAPORATIVECOOLED, NOTDEFINED, USERDEFINED, WATERCOOLED, WATERCOOLEDBRAZEDPLATE, WATERCOOLEDSHELLCOIL, WATERCOOLEDSHELLTUBE, WATERCOOLEDTUBEINTUBE);
+END_TYPE; 
+ 
+TYPE IfcCooledBeamTypeEnum = ENUMERATION OF
+	(ACTIVE, NOTDEFINED, PASSIVE, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcCoolingTowerTypeEnum = ENUMERATION OF
+	(MECHANICALFORCEDDRAFT, MECHANICALINDUCEDDRAFT, NATURALDRAFT, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcDamperTypeEnum = ENUMERATION OF
+	(BACKDRAFTDAMPER, BALANCINGDAMPER, BLASTDAMPER, CONTROLDAMPER, FIREDAMPER, FIRESMOKEDAMPER, FUMEHOODEXHAUST, GRAVITYDAMPER, GRAVITYRELIEFDAMPER, NOTDEFINED, RELIEFDAMPER, SMOKEDAMPER, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcDuctFittingTypeEnum = ENUMERATION OF
+	(BEND, CONNECTOR, ENTRY, EXIT, JUNCTION, NOTDEFINED, OBSTRUCTION, TRANSITION, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcDuctSegmentTypeEnum = ENUMERATION OF
+	(FLEXIBLESEGMENT, NOTDEFINED, RIGIDSEGMENT, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcDuctSilencerTypeEnum = ENUMERATION OF
+	(FLATOVAL, NOTDEFINED, RECTANGULAR, ROUND, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcEngineTypeEnum = ENUMERATION OF
+	(EXTERNALCOMBUSTION, INTERNALCOMBUSTION, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcEvaporativeCoolerTypeEnum = ENUMERATION OF
+	(DIRECTEVAPORATIVEAIRWASHER, DIRECTEVAPORATIVEPACKAGEDROTARYAIRCOOLER, DIRECTEVAPORATIVERANDOMMEDIAAIRCOOLER, DIRECTEVAPORATIVERIGIDMEDIAAIRCOOLER, DIRECTEVAPORATIVESLINGERSPACKAGEDAIRCOOLER, INDIRECTDIRECTCOMBINATION, INDIRECTEVAPORATIVECOOLINGTOWERORCOILCOOLER, INDIRECTEVAPORATIVEPACKAGEAIRCOOLER, INDIRECTEVAPORATIVEWETCOIL, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcEvaporatorTypeEnum = ENUMERATION OF
+	(DIRECTEXPANSION, DIRECTEXPANSIONBRAZEDPLATE, DIRECTEXPANSIONSHELLANDTUBE, DIRECTEXPANSIONTUBEINTUBE, FLOODEDSHELLANDTUBE, NOTDEFINED, SHELLANDCOIL, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcFanTypeEnum = ENUMERATION OF
+	(CENTRIFUGALAIRFOIL, CENTRIFUGALBACKWARDINCLINEDCURVED, CENTRIFUGALFORWARDCURVED, CENTRIFUGALRADIAL, NOTDEFINED, PROPELLORAXIAL, TUBEAXIAL, USERDEFINED, VANEAXIAL);
+END_TYPE; 
+ 
+TYPE IfcFilterTypeEnum = ENUMERATION OF
+	(AIRPARTICLEFILTER, COMPRESSEDAIRFILTER, NOTDEFINED, ODORFILTER, OILFILTER, STRAINER, USERDEFINED, WATERFILTER);
+END_TYPE; 
+ 
+TYPE IfcFlowMeterTypeEnum = ENUMERATION OF
+	(ENERGYMETER, GASMETER, NOTDEFINED, OILMETER, USERDEFINED, WATERMETER);
+END_TYPE; 
+ 
+TYPE IfcHeatExchangerTypeEnum = ENUMERATION OF
+	(NOTDEFINED, PLATE, SHELLANDTUBE, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcHumidifierTypeEnum = ENUMERATION OF
+	(ADIABATICAIRWASHER, ADIABATICATOMIZING, ADIABATICCOMPRESSEDAIRNOZZLE, ADIABATICPAN, ADIABATICRIGIDMEDIA, ADIABATICULTRASONIC, ADIABATICWETTEDELEMENT, ASSISTEDBUTANE, ASSISTEDELECTRIC, ASSISTEDNATURALGAS, ASSISTEDPROPANE, ASSISTEDSTEAM, NOTDEFINED, STEAMINJECTION, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcMedicalDeviceTypeEnum = ENUMERATION OF
+	(AIRSTATION, FEEDAIRUNIT, NOTDEFINED, OXYGENGENERATOR, OXYGENPLANT, USERDEFINED, VACUUMSTATION);
+END_TYPE; 
+ 
+TYPE IfcPipeFittingTypeEnum = ENUMERATION OF
+	(BEND, CONNECTOR, ENTRY, EXIT, JUNCTION, NOTDEFINED, OBSTRUCTION, TRANSITION, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcPipeSegmentTypeEnum = ENUMERATION OF
+	(CULVERT, FLEXIBLESEGMENT, GUTTER, NOTDEFINED, RIGIDSEGMENT, SPOOL, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcPumpTypeEnum = ENUMERATION OF
+	(CIRCULATOR, ENDSUCTION, NOTDEFINED, SPLITCASE, SUBMERSIBLEPUMP, SUMPPUMP, USERDEFINED, VERTICALINLINE, VERTICALTURBINE);
+END_TYPE; 
+ 
+TYPE IfcSpaceHeaterTypeEnum = ENUMERATION OF
+	(CONVECTOR, NOTDEFINED, RADIATOR, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcTankTypeEnum = ENUMERATION OF
+	(BASIN, BREAKPRESSURE, EXPANSION, FEEDANDEXPANSION, NOTDEFINED, PRESSUREVESSEL, STORAGE, USERDEFINED, VESSEL);
+END_TYPE; 
+ 
+TYPE IfcTubeBundleTypeEnum = ENUMERATION OF
+	(FINNED, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcUnitaryEquipmentTypeEnum = ENUMERATION OF
+	(AIRCONDITIONINGUNIT, AIRHANDLER, DEHUMIDIFIER, NOTDEFINED, ROOFTOPUNIT, SPLITSYSTEM, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcValveTypeEnum = ENUMERATION OF
+	(AIRRELEASE, ANTIVACUUM, CHANGEOVER, CHECK, COMMISSIONING, DIVERTING, DOUBLECHECK, DOUBLEREGULATING, DRAWOFFCOCK, FAUCET, FLUSHING, GASCOCK, GASTAP, ISOLATING, MIXING, NOTDEFINED, PRESSUREREDUCING, PRESSURERELIEF, REGULATING, SAFETYCUTOFF, STEAMTRAP, STOPCOCK, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcVibrationIsolatorTypeEnum = ENUMERATION OF
+	(BASE, COMPRESSION, NOTDEFINED, SPRING, USERDEFINED);
+END_TYPE; 
+ 
+ENTITY IfcAirTerminal
+ SUBTYPE OF (IfcFlowTerminal);
+	PredefinedType : OPTIONAL IfcAirTerminalTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcAirTerminalTypeEnum.USERDEFINED) OR ((PredefinedType = IfcAirTerminalTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCAIRTERMINALTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcAirTerminalBox
+ SUBTYPE OF (IfcFlowController);
+	PredefinedType : OPTIONAL IfcAirTerminalBoxTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcAirTerminalBoxTypeEnum.USERDEFINED) OR ((PredefinedType = IfcAirTerminalBoxTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCAIRTERMINALBOXTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcAirTerminalBoxType
+ SUBTYPE OF (IfcFlowControllerType);
+	PredefinedType : IfcAirTerminalBoxTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcAirTerminalBoxTypeEnum.USERDEFINED) OR((PredefinedType = IfcAirTerminalBoxTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcAirTerminalType
+ SUBTYPE OF (IfcFlowTerminalType);
+	PredefinedType : IfcAirTerminalTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcAirTerminalTypeEnum.USERDEFINED) OR((PredefinedType = IfcAirTerminalTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcAirToAirHeatRecovery
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcAirToAirHeatRecoveryTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcAirToAirHeatRecoveryTypeEnum.USERDEFINED) OR ((PredefinedType = IfcAirToAirHeatRecoveryTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCAIRTOAIRHEATRECOVERYTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcAirToAirHeatRecoveryType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcAirToAirHeatRecoveryTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcAirToAirHeatRecoveryTypeEnum.USERDEFINED) OR((PredefinedType = IfcAirToAirHeatRecoveryTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcBoiler
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcBoilerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcBoilerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcBoilerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCBOILERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcBoilerType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcBoilerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcBoilerTypeEnum.USERDEFINED) OR((PredefinedType = IfcBoilerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcBurner
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcBurnerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcBurnerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcBurnerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCBURNERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcBurnerType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcBurnerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcBurnerTypeEnum.USERDEFINED) OR((PredefinedType = IfcBurnerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcChiller
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcChillerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcChillerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcChillerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCCHILLERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcChillerType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcChillerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcChillerTypeEnum.USERDEFINED) OR((PredefinedType = IfcChillerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcCoil
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcCoilTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcCoilTypeEnum.USERDEFINED) OR ((PredefinedType = IfcCoilTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCCOILTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcCoilType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcCoilTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcCoilTypeEnum.USERDEFINED) OR((PredefinedType = IfcCoilTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcCompressor
+ SUBTYPE OF (IfcFlowMovingDevice);
+	PredefinedType : OPTIONAL IfcCompressorTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcCompressorTypeEnum.USERDEFINED) OR ((PredefinedType = IfcCompressorTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCCOMPRESSORTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcCompressorType
+ SUBTYPE OF (IfcFlowMovingDeviceType);
+	PredefinedType : IfcCompressorTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcCompressorTypeEnum.USERDEFINED) OR((PredefinedType = IfcCompressorTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcCondenser
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcCondenserTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcCondenserTypeEnum.USERDEFINED) OR ((PredefinedType = IfcCondenserTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCCONDENSERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcCondenserType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcCondenserTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcCondenserTypeEnum.USERDEFINED) OR((PredefinedType = IfcCondenserTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcCooledBeam
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcCooledBeamTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcCooledBeamTypeEnum.USERDEFINED) OR ((PredefinedType = IfcCooledBeamTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCCOOLEDBEAMTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcCooledBeamType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcCooledBeamTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcCooledBeamTypeEnum.USERDEFINED) OR((PredefinedType = IfcCooledBeamTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcCoolingTower
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcCoolingTowerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcCoolingTowerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcCoolingTowerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCCOOLINGTOWERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcCoolingTowerType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcCoolingTowerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcCoolingTowerTypeEnum.USERDEFINED) OR((PredefinedType = IfcCoolingTowerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcDamper
+ SUBTYPE OF (IfcFlowController);
+	PredefinedType : OPTIONAL IfcDamperTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcDamperTypeEnum.USERDEFINED) OR ((PredefinedType = IfcDamperTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCDAMPERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcDamperType
+ SUBTYPE OF (IfcFlowControllerType);
+	PredefinedType : IfcDamperTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcDamperTypeEnum.USERDEFINED) OR((PredefinedType = IfcDamperTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcDuctFitting
+ SUBTYPE OF (IfcFlowFitting);
+	PredefinedType : OPTIONAL IfcDuctFittingTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcDuctFittingTypeEnum.USERDEFINED) OR ((PredefinedType = IfcDuctFittingTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCDUCTFITTINGTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcDuctFittingType
+ SUBTYPE OF (IfcFlowFittingType);
+	PredefinedType : IfcDuctFittingTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcDuctFittingTypeEnum.USERDEFINED) OR((PredefinedType = IfcDuctFittingTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcDuctSegment
+ SUBTYPE OF (IfcFlowSegment);
+	PredefinedType : OPTIONAL IfcDuctSegmentTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcDuctSegmentTypeEnum.USERDEFINED) OR ((PredefinedType = IfcDuctSegmentTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCDUCTSEGMENTTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcDuctSegmentType
+ SUBTYPE OF (IfcFlowSegmentType);
+	PredefinedType : IfcDuctSegmentTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcDuctSegmentTypeEnum.USERDEFINED) OR((PredefinedType = IfcDuctSegmentTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcDuctSilencer
+ SUBTYPE OF (IfcFlowTreatmentDevice);
+	PredefinedType : OPTIONAL IfcDuctSilencerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcDuctSilencerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcDuctSilencerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCDUCTSILENCERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcDuctSilencerType
+ SUBTYPE OF (IfcFlowTreatmentDeviceType);
+	PredefinedType : IfcDuctSilencerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcDuctSilencerTypeEnum.USERDEFINED) OR((PredefinedType = IfcDuctSilencerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcEngine
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcEngineTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcEngineTypeEnum.USERDEFINED) OR ((PredefinedType = IfcEngineTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCENGINETYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcEngineType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcEngineTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcEngineTypeEnum.USERDEFINED) OR((PredefinedType = IfcEngineTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcEvaporativeCooler
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcEvaporativeCoolerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcEvaporativeCoolerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcEvaporativeCoolerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCEVAPORATIVECOOLERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcEvaporativeCoolerType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcEvaporativeCoolerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcEvaporativeCoolerTypeEnum.USERDEFINED) OR((PredefinedType = IfcEvaporativeCoolerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcEvaporator
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcEvaporatorTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcEvaporatorTypeEnum.USERDEFINED) OR ((PredefinedType = IfcEvaporatorTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCEVAPORATORTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcEvaporatorType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcEvaporatorTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcEvaporatorTypeEnum.USERDEFINED) OR((PredefinedType = IfcEvaporatorTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcFan
+ SUBTYPE OF (IfcFlowMovingDevice);
+	PredefinedType : OPTIONAL IfcFanTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcFanTypeEnum.USERDEFINED) OR ((PredefinedType = IfcFanTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCFANTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcFanType
+ SUBTYPE OF (IfcFlowMovingDeviceType);
+	PredefinedType : IfcFanTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcFanTypeEnum.USERDEFINED) OR((PredefinedType = IfcFanTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcFilter
+ SUBTYPE OF (IfcFlowTreatmentDevice);
+	PredefinedType : OPTIONAL IfcFilterTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcFilterTypeEnum.USERDEFINED) OR ((PredefinedType = IfcFilterTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCFILTERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcFilterType
+ SUBTYPE OF (IfcFlowTreatmentDeviceType);
+	PredefinedType : IfcFilterTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcFilterTypeEnum.USERDEFINED) OR((PredefinedType = IfcFilterTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcFlowMeter
+ SUBTYPE OF (IfcFlowController);
+	PredefinedType : OPTIONAL IfcFlowMeterTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcFlowMeterTypeEnum.USERDEFINED) OR ((PredefinedType = IfcFlowMeterTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCFLOWMETERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcFlowMeterType
+ SUBTYPE OF (IfcFlowControllerType);
+	PredefinedType : IfcFlowMeterTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcFlowMeterTypeEnum.USERDEFINED) OR((PredefinedType = IfcFlowMeterTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcHeatExchanger
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcHeatExchangerTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcHeatExchangerTypeEnum.USERDEFINED) OR ((PredefinedType = IfcHeatExchangerTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCHEATEXCHANGERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcHeatExchangerType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcHeatExchangerTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcHeatExchangerTypeEnum.USERDEFINED) OR((PredefinedType = IfcHeatExchangerTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcHumidifier
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcHumidifierTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcHumidifierTypeEnum.USERDEFINED) OR ((PredefinedType = IfcHumidifierTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCHUMIDIFIERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcHumidifierType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcHumidifierTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcHumidifierTypeEnum.USERDEFINED) OR((PredefinedType = IfcHumidifierTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcMedicalDevice
+ SUBTYPE OF (IfcFlowTerminal);
+	PredefinedType : OPTIONAL IfcMedicalDeviceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcMedicalDeviceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcMedicalDeviceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCMEDICALDEVICETYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcMedicalDeviceType
+ SUBTYPE OF (IfcFlowTerminalType);
+	PredefinedType : IfcMedicalDeviceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcMedicalDeviceTypeEnum.USERDEFINED) OR((PredefinedType = IfcMedicalDeviceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcPipeFitting
+ SUBTYPE OF (IfcFlowFitting);
+	PredefinedType : OPTIONAL IfcPipeFittingTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcPipeFittingTypeEnum.USERDEFINED) OR ((PredefinedType = IfcPipeFittingTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCPIPEFITTINGTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcPipeFittingType
+ SUBTYPE OF (IfcFlowFittingType);
+	PredefinedType : IfcPipeFittingTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcPipeFittingTypeEnum.USERDEFINED) OR((PredefinedType = IfcPipeFittingTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcPipeSegment
+ SUBTYPE OF (IfcFlowSegment);
+	PredefinedType : OPTIONAL IfcPipeSegmentTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcPipeSegmentTypeEnum.USERDEFINED) OR ((PredefinedType = IfcPipeSegmentTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCPIPESEGMENTTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcPipeSegmentType
+ SUBTYPE OF (IfcFlowSegmentType);
+	PredefinedType : IfcPipeSegmentTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcPipeSegmentTypeEnum.USERDEFINED) OR((PredefinedType = IfcPipeSegmentTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcPump
+ SUBTYPE OF (IfcFlowMovingDevice);
+	PredefinedType : OPTIONAL IfcPumpTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcPumpTypeEnum.USERDEFINED) OR ((PredefinedType = IfcPumpTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCPUMPTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcPumpType
+ SUBTYPE OF (IfcFlowMovingDeviceType);
+	PredefinedType : IfcPumpTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcPumpTypeEnum.USERDEFINED) OR((PredefinedType = IfcPumpTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcSpaceHeater
+ SUBTYPE OF (IfcFlowTerminal);
+	PredefinedType : OPTIONAL IfcSpaceHeaterTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcSpaceHeaterTypeEnum.USERDEFINED) OR ((PredefinedType = IfcSpaceHeaterTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCSPACEHEATERTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcSpaceHeaterType
+ SUBTYPE OF (IfcFlowTerminalType);
+	PredefinedType : IfcSpaceHeaterTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcSpaceHeaterTypeEnum.USERDEFINED) OR((PredefinedType = IfcSpaceHeaterTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcTank
+ SUBTYPE OF (IfcFlowStorageDevice);
+	PredefinedType : OPTIONAL IfcTankTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcTankTypeEnum.USERDEFINED) OR ((PredefinedType = IfcTankTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCTANKTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcTankType
+ SUBTYPE OF (IfcFlowStorageDeviceType);
+	PredefinedType : IfcTankTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcTankTypeEnum.USERDEFINED) OR((PredefinedType = IfcTankTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcTubeBundle
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcTubeBundleTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcTubeBundleTypeEnum.USERDEFINED) OR ((PredefinedType = IfcTubeBundleTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCTUBEBUNDLETYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcTubeBundleType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcTubeBundleTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcTubeBundleTypeEnum.USERDEFINED) OR((PredefinedType = IfcTubeBundleTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcUnitaryEquipment
+ SUBTYPE OF (IfcEnergyConversionDevice);
+	PredefinedType : OPTIONAL IfcUnitaryEquipmentTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcUnitaryEquipmentTypeEnum.USERDEFINED) OR ((PredefinedType = IfcUnitaryEquipmentTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCUNITARYEQUIPMENTTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcUnitaryEquipmentType
+ SUBTYPE OF (IfcEnergyConversionDeviceType);
+	PredefinedType : IfcUnitaryEquipmentTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcUnitaryEquipmentTypeEnum.USERDEFINED) OR((PredefinedType = IfcUnitaryEquipmentTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcValve
+ SUBTYPE OF (IfcFlowController);
+	PredefinedType : OPTIONAL IfcValveTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcValveTypeEnum.USERDEFINED) OR ((PredefinedType = IfcValveTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCVALVETYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcValveType
+ SUBTYPE OF (IfcFlowControllerType);
+	PredefinedType : IfcValveTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcValveTypeEnum.USERDEFINED) OR((PredefinedType = IfcValveTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcVibrationIsolator
+ SUBTYPE OF (IfcElementComponent);
+	PredefinedType : OPTIONAL IfcVibrationIsolatorTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcVibrationIsolatorTypeEnum.USERDEFINED) OR ((PredefinedType = IfcVibrationIsolatorTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCHVACDOMAIN.IFCVIBRATIONISOLATORTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcVibrationIsolatorType
+ SUBTYPE OF (IfcElementComponentType);
+	PredefinedType : IfcVibrationIsolatorTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcVibrationIsolatorTypeEnum.USERDEFINED) OR((PredefinedType = IfcVibrationIsolatorTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+END_SCHEMA;

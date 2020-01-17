@@ -52,7 +52,7 @@
     <ifc:IfcAlignmentCurve>
      <ifc:dim>3</ifc:dim>
      <ifc:curve>
-      <gml:LineString  srsName="EPSG:6150" srsDimension="3">
+      <gml:LineString srsName="EPSG:6150" srsDimension="3">
        <gml:posList>133189.363 1313776.627 135.218 133192.883 1313774.8 135.9 133193.495 1313774.641
         135.9 133217.935 1313766.098 137 133231.943 1313762.049 137.8 133233.167 1313761.742 137.7
         133246.066 1313757.797 138.5 133258.67 1313753.762 139.5 133260.101 1313753.36 139.8
@@ -123,7 +123,8 @@
       <ifc:IfcLineSegment2D>
        <ifc:dim>2</ifc:dim>
        <ifc:curve>
-        <gml:LineString gml:id="vegvesen.no.nvdb.88263528_0-0-1" srsName="EPSG:5110" srsDimension="2">
+        <gml:LineString gml:id="vegvesen.no.nvdb.88263528_0-0-1" srsName="EPSG:5110"
+         srsDimension="2">
          <gml:posList>133189.363 1313776.627 133192.883 1313774.8 133193.495 1313774.641 133217.935
           1313766.098 133231.943 1313762.049 133233.167 1313761.742 133246.066 1313757.797 133258.67
           1313753.762 133260.101 1313753.36 133274.619 1313750.649 133289.351 1313747.742 133304.03

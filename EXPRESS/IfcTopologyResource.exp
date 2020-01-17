@@ -1,0 +1,190 @@
+(* Exported from UML 08.01.2020 10:01:26 *)
+ 
+SCHEMA IFCTOPOLOGYRESOURCE;
+ 
+REFERENCE FROM IFCGEOMETRYRESOURCE
+	(IfcCurve, IfcSurface, IfcCartesianPoint, IfcRepresentationItem, IfcPoint);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcBoolean, IfcInteger);
+ 
+TYPE IfcShell = SELECT
+	(IfcClosedShell, IfcOpenShell);
+END_TYPE; 
+ 
+ENTITY IfcAdvancedFace
+ SUBTYPE OF (IfcFaceSurface);
+ WHERE
+	ApplicableEdgeCurves : SIZEOF(QUERY (ElpFbnds <* QUERY (Bnds <* SELF\IfcFace.Bounds |'IFCTOPOLOGYRESOURCE.IFCEDGELOOP' IN TYPEOF(Bnds.Bound)) |NOT (SIZEOF (QUERY (Oe <* ElpFbnds.Bound\IfcEdgeLoop.EdgeList |NOT (SIZEOF (['IFCGEOMETRYRESOURCE.IFCLINE','IFCGEOMETRYRESOURCE.IFCCONIC','IFCGEOMETRYRESOURCE.IFCPOLYLINE','IFCGEOMETRYRESOURCE.IFCBSPLINECURVE'] *TYPEOF(Oe\IfcOrientedEdge.EdgeElement\IfcEdgeCurve.EdgeGeometry)) = 1 ))) = 0))) = 0;
+	ApplicableSurface : SIZEOF (['IFCGEOMETRYRESOURCE.IFCELEMENTARYSURFACE','IFCGEOMETRYRESOURCE.IFCSWEPTSURFACE','IFCGEOMETRYRESOURCE.IFCBSPLINESURFACE'] *TYPEOF(SELF\IfcFaceSurface.FaceSurface)) = 1;
+	RequiresEdgeCurve : SIZEOF(QUERY (ElpFbnds <* QUERY (Bnds <* SELF\IfcFace.Bounds |'IFCTOPOLOGYRESOURCE.IFCEDGELOOP' IN TYPEOF(Bnds.Bound)) |NOT (SIZEOF (QUERY (Oe <* ElpFbnds.Bound\IfcEdgeLoop.EdgeList |NOT('IFCTOPOLOGYRESOURCE.IFCEDGECURVE' IN TYPEOF(Oe\IfcOrientedEdge.EdgeElement)))) = 0))) = 0;
+END_ENTITY; 
+ 
+ENTITY IfcClosedShell
+ SUBTYPE OF (IfcConnectedFaceSet);
+END_ENTITY; 
+ 
+ENTITY IfcConnectedFaceSet
+ SUPERTYPE OF 
+	(ONEOF(IfcClosedShell, IfcOpenShell));
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+	CfsFaces : SET [1:?] OF IfcFace;
+END_ENTITY; 
+ 
+ENTITY IfcEdge
+ SUPERTYPE OF 
+	(ONEOF(IfcSubedge, IfcEdgeCurve, IfcOrientedEdge));
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+	EdgeEnd : IfcVertex;
+	EdgeStart : IfcVertex;
+END_ENTITY; 
+ 
+ENTITY IfcEdgeCurve
+ SUBTYPE OF (IfcEdge);
+	SameSense : IfcBoolean;
+	EdgeGeometry : IfcCurve;
+END_ENTITY; 
+ 
+ENTITY IfcEdgeLoop
+ SUBTYPE OF (IfcLoop);
+	EdgeList : LIST [1:?] OF IfcOrientedEdge;
+ DERIVE
+	Ne : IfcInteger := SIZEOF(EdgeList);
+ WHERE
+	IsClosed : (EdgeList[1].EdgeStart) :=: (EdgeList[Ne].EdgeEnd);
+	IsContinuous : IfcLoopHeadToTail(SELF);
+END_ENTITY; 
+ 
+ENTITY IfcFace
+ SUPERTYPE OF 
+	(ONEOF(IfcFaceSurface));
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+	Bounds : SET [1:?] OF IfcFaceBound;
+ INVERSE
+	HasTextureMaps : SET [0:?] OF IfcTextureMap FOR MappedTo;
+ WHERE
+	HasOuterBound : SIZEOF(QUERY(temp <* Bounds | 'IFCTOPOLOGYRESOURCE.IFCFACEOUTERBOUND' IN TYPEOF(temp))) <= 1;
+END_ENTITY; 
+ 
+ENTITY IfcFaceBound
+ SUPERTYPE OF 
+	(ONEOF(IfcFaceOuterBound));
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+	Orientation : IfcBoolean;
+	Bound : IfcLoop;
+END_ENTITY; 
+ 
+ENTITY IfcFaceOuterBound
+ SUBTYPE OF (IfcFaceBound);
+END_ENTITY; 
+ 
+ENTITY IfcFaceSurface
+ SUPERTYPE OF 
+	(ONEOF(IfcAdvancedFace));
+ SUBTYPE OF (IfcFace);
+	SameSense : IfcBoolean;
+	FaceSurface : IfcSurface;
+END_ENTITY; 
+ 
+ENTITY IfcLoop
+ SUPERTYPE OF 
+	(ONEOF(IfcEdgeLoop, IfcVertexLoop, IfcPolyLoop));
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+END_ENTITY; 
+ 
+ENTITY IfcOpenShell
+ SUBTYPE OF (IfcConnectedFaceSet);
+END_ENTITY; 
+ 
+ENTITY IfcOrientedEdge
+ SUBTYPE OF (IfcEdge);
+	Orientation : IfcBoolean;
+	EdgeElement : IfcEdge;
+ DERIVE
+	SELF\IfcEdge.EdgeEnd : IfcVertex := IfcBooleanChoose(Orientation, EdgeElement.EdgeEnd, EdgeElement.EdgeStart);
+	SELF\IfcEdge.EdgeStart : IfcVertex := IfcBooleanChoose(Orientation, EdgeElement.EdgeStart, EdgeElement.EdgeEnd);
+ WHERE
+	EdgeElementNotOriented : NOT('IFCTOPOLOGYRESOURCE.IFCORIENTEDEDGE' IN TYPEOF(EdgeElement));
+END_ENTITY; 
+ 
+ENTITY IfcPath
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+	EdgeList : LIST [1:?] OF IfcOrientedEdge;
+ WHERE
+	IsContinuous : IfcPathHeadToTail(SELF);
+END_ENTITY; 
+ 
+ENTITY IfcPolyLoop
+ SUBTYPE OF (IfcLoop);
+	Polygon : SET [3:?] OF IfcCartesianPoint;
+ WHERE
+	AllPointsSameDim : SIZEOF(QUERY(Temp <* Polygon | Temp.Dim <> Polygon[1].Dim)) = 0;
+END_ENTITY; 
+ 
+ENTITY IfcSubedge
+ SUBTYPE OF (IfcEdge);
+	ParentEdge : IfcEdge;
+END_ENTITY; 
+ 
+ENTITY IfcTopologicalRepresentationItem
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcFaceBound, IfcLoop, IfcEdge, IfcPath, IfcConnectedFaceSet, IfcVertex, IfcFace));
+ SUBTYPE OF (IfcRepresentationItem);
+END_ENTITY; 
+ 
+ENTITY IfcVertex
+ SUPERTYPE OF 
+	(ONEOF(IfcVertexPoint));
+ SUBTYPE OF (IfcTopologicalRepresentationItem);
+END_ENTITY; 
+ 
+ENTITY IfcVertexLoop
+ SUBTYPE OF (IfcLoop);
+	LoopVertex : IfcVertex;
+END_ENTITY; 
+ 
+ENTITY IfcVertexPoint
+ SUBTYPE OF (IfcVertex);
+	VertexGeometry : IfcPoint;
+END_ENTITY; 
+
+FUNCTION IfcBooleanChoose
+(B : BOOLEAN ;
+     Choice1, Choice2 : GENERIC : Item) : GENERIC : Item;
+  IF B THEN
+     RETURN (Choice1);
+  ELSE
+     RETURN (Choice2);
+  END_IF;
+END_FUNCTION;
+
+FUNCTION IfcLoopHeadToTail
+(ALoop : IfcEdgeLoop) : LOGICAL;
+   LOCAL
+     N : INTEGER;
+     P : LOGICAL := TRUE;
+   END_LOCAL;
+     
+     N := SIZEOF (ALoop.EdgeList);
+     REPEAT i := 2 TO N;
+       P := P AND (ALoop.EdgeList[i-1].EdgeEnd :=:
+                   ALoop.EdgeList[i].EdgeStart);
+     END_REPEAT;     
+     RETURN (P);
+END_FUNCTION;
+
+FUNCTION IfcPathHeadToTail
+(APath : IfcPath) : LOGICAL;
+   LOCAL
+     N : INTEGER := 0;
+     P : LOGICAL := UNKNOWN;
+   END_LOCAL;
+     N := SIZEOF (APath.EdgeList);
+   REPEAT i := 2 TO N;
+      P := P AND (APath.EdgeList[i-1].EdgeEnd :=:
+                  APath.EdgeList[i].EdgeStart);
+   END_REPEAT;
+   RETURN (P);
+END_FUNCTION;
+ 
+END_SCHEMA;

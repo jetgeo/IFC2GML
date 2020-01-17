@@ -1,0 +1,64 @@
+(* Exported from UML 08.01.2020 09:56:11 *)
+ 
+SCHEMA IFCPRESENTATIONDEFINITIONRESOURCE;
+ 
+REFERENCE FROM IFCGEOMETRYRESOURCE
+	(IfcGeometricRepresentationItem, IfcCurve, IfcAxis2Placement);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcLengthMeasure);
+ 
+REFERENCE FROM IFCPRESENTATIONAPPEARANCERESOURCE
+	(IfcPresentableText);
+ 
+TYPE IfcBoxAlignment = STRING;
+ WHERE
+	WR1 : SELF IN ['top-left', 'top-middle', 'top-right', 'middle-left', 'center', 'middle-right', 'bottom-left', 'bottom-middle', 'bottom-right']
+END_TYPE; 
+ 
+TYPE IfcTextPath = ENUMERATION OF
+	(DOWN, LEFT, RIGHT, UP);
+END_TYPE; 
+ 
+ENTITY IfcAnnotationFillArea
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	OuterBoundary : IfcCurve;
+	InnerBoundaries : OPTIONAL SET [0:?] OF IfcCurve;
+END_ENTITY; 
+ 
+ENTITY IfcPlanarBox
+ SUBTYPE OF (IfcPlanarExtent);
+	Placement : IfcAxis2Placement;
+END_ENTITY; 
+ 
+ENTITY IfcPlanarExtent
+ SUPERTYPE OF 
+	(ONEOF(IfcPlanarBox));
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	SizeInX : IfcLengthMeasure;
+	SizeInY : IfcLengthMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcPresentationItem
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcSurfaceStyleRefraction, IfcPreDefinedItem, IfcSurfaceStyleShading, IfcColourSpecification, IfcSurfaceTexture, IfcCurveStyleFontPattern, IfcCurveStyleFontAndScaling, IfcTextStyleTextModel, IfcSurfaceStyleLighting, IfcTextStyleForDefinedFont, IfcColourRgbList, IfcSurfaceStyleWithTextures, IfcTextureCoordinate, IfcTextureVertex, IfcCurveStyleFont, IfcIndexedColourMap, IfcTextureVertexList));
+END_ENTITY; 
+ 
+ENTITY IfcTextLiteral
+ SUPERTYPE OF 
+	(ONEOF(IfcTextLiteralWithExtent));
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	Literal : IfcPresentableText;
+	Placement : IfcAxis2Placement;
+	Path : IfcTextPath;
+END_ENTITY; 
+ 
+ENTITY IfcTextLiteralWithExtent
+ SUBTYPE OF (IfcTextLiteral);
+	BoxAlignment : IfcBoxAlignment;
+	Extent : IfcPlanarExtent;
+ WHERE
+	WR31 : NOT('IFCPRESENTATIONDEFINITIONRESOURCE.IFCPLANARBOX' IN TYPEOF(Extent));
+END_ENTITY; 
+ 
+END_SCHEMA;

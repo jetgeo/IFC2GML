@@ -1,0 +1,142 @@
+(* Exported from UML 08.01.2020 09:29:48 *)
+ 
+SCHEMA IFCCONSTRUCTIONMGMTDOMAIN;
+ 
+REFERENCE FROM IFCCOSTRESOURCE
+	(IfcAppliedValue);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcResourceTime);
+ 
+REFERENCE FROM IFCKERNEL
+	(IfcResource, IfcTypeResource);
+ 
+REFERENCE FROM IFCQUANTITYRESOURCE
+	(IfcPhysicalQuantity);
+ 
+TYPE IfcConstructionEquipmentResourceTypeEnum = ENUMERATION OF
+	(DEMOLISHING, EARTHMOVING, ERECTING, HEATING, LIGHTING, NOTDEFINED, PAVING, PUMPING, TRANSPORTING, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcConstructionMaterialResourceTypeEnum = ENUMERATION OF
+	(AGGREGATES, CONCRETE, DRYWALL, FUEL, GYPSUM, MASONRY, METAL, NOTDEFINED, PLASTIC, USERDEFINED, WOOD);
+END_TYPE; 
+ 
+TYPE IfcConstructionProductResourceTypeEnum = ENUMERATION OF
+	(ASSEMBLY, FORMWORK, NOTDEFINED, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcCrewResourceTypeEnum = ENUMERATION OF
+	(NOTDEFINED, OFFICE, SITE, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcLaborResourceTypeEnum = ENUMERATION OF
+	(ADMINISTRATION, CARPENTRY, CLEANING, CONCRETE, DRYWALL, ELECTRIC, FINISHING, FLOORING, GENERAL, HVAC, LANDSCAPING, MASONRY, NOTDEFINED, PAINTING, PAVING, PLUMBING, ROOFING, SITEGRADING, STEELWORK, SURVEYING, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcSubContractResourceTypeEnum = ENUMERATION OF
+	(NOTDEFINED, PURCHASE, USERDEFINED, WORK);
+END_TYPE; 
+ 
+ENTITY IfcConstructionEquipmentResource
+ SUBTYPE OF (IfcConstructionResource);
+	PredefinedType : OPTIONAL IfcConstructionEquipmentResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcConstructionEquipmentResourceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcConstructionEquipmentResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcConstructionEquipmentResourceType
+ SUBTYPE OF (IfcConstructionResourceType);
+	PredefinedType : IfcConstructionEquipmentResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcConstructionEquipmentResourceTypeEnum.USERDEFINED) OR((PredefinedType = IfcConstructionEquipmentResourceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeResource.ResourceType));
+END_ENTITY; 
+ 
+ENTITY IfcConstructionMaterialResource
+ SUBTYPE OF (IfcConstructionResource);
+	PredefinedType : OPTIONAL IfcConstructionMaterialResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcConstructionMaterialResourceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcConstructionMaterialResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcConstructionMaterialResourceType
+ SUBTYPE OF (IfcConstructionResourceType);
+	PredefinedType : IfcConstructionMaterialResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcConstructionMaterialResourceTypeEnum.USERDEFINED) OR((PredefinedType = IfcConstructionMaterialResourceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeResource.ResourceType));
+END_ENTITY; 
+ 
+ENTITY IfcConstructionProductResource
+ SUBTYPE OF (IfcConstructionResource);
+	PredefinedType : OPTIONAL IfcConstructionProductResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcConstructionProductResourceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcConstructionProductResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcConstructionProductResourceType
+ SUBTYPE OF (IfcConstructionResourceType);
+	PredefinedType : IfcConstructionProductResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcConstructionProductResourceTypeEnum.USERDEFINED) OR((PredefinedType = IfcConstructionProductResourceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeResource.ResourceType));
+END_ENTITY; 
+ 
+ENTITY IfcConstructionResource
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcLaborResource, IfcConstructionEquipmentResource, IfcConstructionMaterialResource, IfcCrewResource, IfcConstructionProductResource, IfcSubContractResource));
+ SUBTYPE OF (IfcResource);
+	Usage : OPTIONAL IfcResourceTime;
+	BaseQuantity : OPTIONAL IfcPhysicalQuantity;
+	BaseCosts : OPTIONAL LIST [0:?] OF IfcAppliedValue;
+END_ENTITY; 
+ 
+ENTITY IfcConstructionResourceType
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcCrewResourceType, IfcConstructionProductResourceType, IfcSubContractResourceType, IfcConstructionEquipmentResourceType, IfcLaborResourceType, IfcConstructionMaterialResourceType));
+ SUBTYPE OF (IfcTypeResource);
+	BaseQuantity : OPTIONAL IfcPhysicalQuantity;
+	BaseCosts : OPTIONAL LIST [0:?] OF IfcAppliedValue;
+END_ENTITY; 
+ 
+ENTITY IfcCrewResource
+ SUBTYPE OF (IfcConstructionResource);
+	PredefinedType : OPTIONAL IfcCrewResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcCrewResourceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcCrewResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcCrewResourceType
+ SUBTYPE OF (IfcConstructionResourceType);
+	PredefinedType : IfcCrewResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcCrewResourceTypeEnum.USERDEFINED) OR((PredefinedType = IfcCrewResourceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeResource.ResourceType));
+END_ENTITY; 
+ 
+ENTITY IfcLaborResource
+ SUBTYPE OF (IfcConstructionResource);
+	PredefinedType : OPTIONAL IfcLaborResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcLaborResourceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcLaborResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcLaborResourceType
+ SUBTYPE OF (IfcConstructionResourceType);
+	PredefinedType : IfcLaborResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcLaborResourceTypeEnum.USERDEFINED) OR((PredefinedType = IfcLaborResourceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeResource.ResourceType));
+END_ENTITY; 
+ 
+ENTITY IfcSubContractResource
+ SUBTYPE OF (IfcConstructionResource);
+	PredefinedType : OPTIONAL IfcSubContractResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcSubContractResourceTypeEnum.USERDEFINED) OR ((PredefinedType = IfcSubContractResourceTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+END_ENTITY; 
+ 
+ENTITY IfcSubContractResourceType
+ SUBTYPE OF (IfcConstructionResourceType);
+	PredefinedType : IfcSubContractResourceTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcSubContractResourceTypeEnum.USERDEFINED) OR((PredefinedType = IfcSubContractResourceTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcTypeResource.ResourceType));
+END_ENTITY; 
+ 
+END_SCHEMA;

@@ -1,0 +1,103 @@
+(* Exported from UML 08.01.2020 09:59:23 *)
+ 
+SCHEMA IFCQUANTITYRESOURCE;
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcText, IfcNamedUnit, IfcAreaMeasure, IfcCountMeasure, IfcLengthMeasure, IfcTimeMeasure, IfcVolumeMeasure, IfcMassMeasure);
+ 
+ENTITY IfcPhysicalComplexQuantity
+ SUBTYPE OF (IfcPhysicalQuantity);
+	Discrimination : IfcLabel;
+	Quality : OPTIONAL IfcLabel;
+	Usage : OPTIONAL IfcLabel;
+	HasQuantities : SET [1:?] OF IfcPhysicalQuantity;
+ WHERE
+	NoSelfReference : SIZEOF(QUERY(temp <* HasQuantities | SELF :=: temp)) = 0;
+	UniqueQuantityNames : IfcUniqueQuantityNames(HasQuantities);
+END_ENTITY; 
+ 
+ENTITY IfcPhysicalQuantity
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPhysicalComplexQuantity, IfcPhysicalSimpleQuantity));
+	Name : IfcLabel;
+	Description : OPTIONAL IfcText;
+ INVERSE
+	HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+	PartOfComplex : SET [0:1] OF IfcPhysicalComplexQuantity FOR HasQuantities;
+END_ENTITY; 
+ 
+ENTITY IfcPhysicalSimpleQuantity
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcQuantityTime, IfcQuantityWeight, IfcQuantityArea, IfcQuantityVolume, IfcQuantityCount, IfcQuantityLength));
+ SUBTYPE OF (IfcPhysicalQuantity);
+	Unit : OPTIONAL IfcNamedUnit;
+END_ENTITY; 
+ 
+ENTITY IfcQuantityArea
+ SUBTYPE OF (IfcPhysicalSimpleQuantity);
+	AreaValue : IfcAreaMeasure;
+	Formula : OPTIONAL IfcLabel;
+ WHERE
+	WR21 : NOT(EXISTS(SELF\IfcPhysicalSimpleQuantity.Unit)) OR(SELF\IfcPhysicalSimpleQuantity.Unit.UnitType = IfcUnitEnum.AREAUNIT);
+	WR22 : AreaValue >= 0.;
+END_ENTITY; 
+ 
+ENTITY IfcQuantityCount
+ SUBTYPE OF (IfcPhysicalSimpleQuantity);
+	CountValue : IfcCountMeasure;
+	Formula : OPTIONAL IfcLabel;
+ WHERE
+	WR21 : CountValue >= 0.;
+END_ENTITY; 
+ 
+ENTITY IfcQuantityLength
+ SUBTYPE OF (IfcPhysicalSimpleQuantity);
+	LengthValue : IfcLengthMeasure;
+	Formula : OPTIONAL IfcLabel;
+ WHERE
+	WR21 : NOT(EXISTS(SELF\IfcPhysicalSimpleQuantity.Unit)) OR(SELF\IfcPhysicalSimpleQuantity.Unit.UnitType = IfcUnitEnum.LENGTHUNIT);
+	WR22 : LengthValue >= 0.;
+END_ENTITY; 
+ 
+ENTITY IfcQuantityTime
+ SUBTYPE OF (IfcPhysicalSimpleQuantity);
+	TimeValue : IfcTimeMeasure;
+	Formula : OPTIONAL IfcLabel;
+ WHERE
+	WR21 : NOT(EXISTS(SELF\IfcPhysicalSimpleQuantity.Unit)) OR(SELF\IfcPhysicalSimpleQuantity.Unit.UnitType = IfcUnitEnum.TIMEUNIT);
+	WR22 : TimeValue >= 0.;
+END_ENTITY; 
+ 
+ENTITY IfcQuantityVolume
+ SUBTYPE OF (IfcPhysicalSimpleQuantity);
+	VolumeValue : IfcVolumeMeasure;
+	Formula : OPTIONAL IfcLabel;
+ WHERE
+	WR21 : NOT(EXISTS(SELF\IfcPhysicalSimpleQuantity.Unit)) OR(SELF\IfcPhysicalSimpleQuantity.Unit.UnitType = IfcUnitEnum.VOLUMEUNIT);
+	WR22 : VolumeValue >= 0.;
+END_ENTITY; 
+ 
+ENTITY IfcQuantityWeight
+ SUBTYPE OF (IfcPhysicalSimpleQuantity);
+	WeightValue : IfcMassMeasure;
+	Formula : OPTIONAL IfcLabel;
+ WHERE
+	WR21 : NOT(EXISTS(SELF\IfcPhysicalSimpleQuantity.Unit)) OR(SELF\IfcPhysicalSimpleQuantity.Unit.UnitType = IfcUnitEnum.MASSUNIT);
+	WR22 : WeightValue >= 0.;
+END_ENTITY; 
+
+FUNCTION IfcUniqueQuantityNames
+(Properties : SET [1:?] OF IfcPhysicalQuantity)
+:LOGICAL;
+
+LOCAL
+  Names : SET OF IfcLabel := [];
+END_LOCAL;
+
+REPEAT i:=1 TO HIINDEX(Properties);
+  Names := Names + Properties[i].Name;
+END_REPEAT;
+RETURN (SIZEOF(Names) = SIZEOF(Properties));
+END_FUNCTION;
+ 
+END_SCHEMA;

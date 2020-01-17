@@ -1,0 +1,100 @@
+(* Exported from UML 08.01.2020 09:40:04 *)
+ 
+SCHEMA IFCSHAREDFACILITIESELEMENTS;
+ 
+REFERENCE FROM IFCACTORRESOURCE
+	(IfcActorSelect, IfcPerson);
+ 
+REFERENCE FROM IFCCOSTRESOURCE
+	(IfcCostValue);
+ 
+REFERENCE FROM IFCDATETIMERESOURCE
+	(IfcDate);
+ 
+REFERENCE FROM IFCKERNEL
+	(IfcGroup, IfcActor);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcIdentifier);
+ 
+REFERENCE FROM IFCPRODUCTEXTENSION
+	(IfcFurnishingElement, IfcAssemblyPlaceEnum, IfcFurnishingElementType);
+ 
+TYPE IfcFurnitureTypeEnum = ENUMERATION OF
+	(BED, CHAIR, DESK, FILECABINET, NOTDEFINED, SHELF, SOFA, TABLE, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcInventoryTypeEnum = ENUMERATION OF
+	(ASSETINVENTORY, FURNITUREINVENTORY, NOTDEFINED, SPACEINVENTORY, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcOccupantTypeEnum = ENUMERATION OF
+	(ASSIGNEE, ASSIGNOR, LESSEE, LESSOR, LETTINGAGENT, NOTDEFINED, OWNER, TENANT, USERDEFINED);
+END_TYPE; 
+ 
+TYPE IfcSystemFurnitureElementTypeEnum = ENUMERATION OF
+	(NOTDEFINED, PANEL, USERDEFINED, WORKSURFACE);
+END_TYPE; 
+ 
+ENTITY IfcAsset
+ SUBTYPE OF (IfcGroup);
+	Identification : OPTIONAL IfcIdentifier;
+	Owner : OPTIONAL IfcActorSelect;
+	User : OPTIONAL IfcActorSelect;
+	IncorporationDate : OPTIONAL IfcDate;
+	OriginalValue : OPTIONAL IfcCostValue;
+	DepreciatedValue : OPTIONAL IfcCostValue;
+	TotalReplacementCost : OPTIONAL IfcCostValue;
+	ResponsiblePerson : OPTIONAL IfcPerson;
+	CurrentValue : OPTIONAL IfcCostValue;
+END_ENTITY; 
+ 
+ENTITY IfcFurniture
+ SUBTYPE OF (IfcFurnishingElement);
+	PredefinedType : OPTIONAL IfcFurnitureTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcFurnitureTypeEnum.USERDEFINED) OR ((PredefinedType = IfcFurnitureTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCSHAREDFACILITIESELEMENTS.IFCFURNITURETYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcFurnitureType
+ SUBTYPE OF (IfcFurnishingElementType);
+	AssemblyPlace : IfcAssemblyPlaceEnum;
+	PredefinedType : OPTIONAL IfcFurnitureTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcFurnitureTypeEnum.USERDEFINED) OR((PredefinedType = IfcFurnitureTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+ENTITY IfcInventory
+ SUBTYPE OF (IfcGroup);
+	PredefinedType : OPTIONAL IfcInventoryTypeEnum;
+	Jurisdiction : OPTIONAL IfcActorSelect;
+	LastUpdateDate : OPTIONAL IfcDate;
+	OriginalValue : OPTIONAL IfcCostValue;
+	CurrentValue : OPTIONAL IfcCostValue;
+	ResponsiblePersons : OPTIONAL SET [0:?] OF IfcPerson;
+END_ENTITY; 
+ 
+ENTITY IfcOccupant
+ SUBTYPE OF (IfcActor);
+	PredefinedType : OPTIONAL IfcOccupantTypeEnum;
+ WHERE
+	WR31 : NOT(PredefinedType = IfcOccupantTypeEnum.USERDEFINED) OR EXISTS(SELF\IfcObject.ObjectType);
+END_ENTITY; 
+ 
+ENTITY IfcSystemFurnitureElement
+ SUBTYPE OF (IfcFurnishingElement);
+	PredefinedType : OPTIONAL IfcSystemFurnitureElementTypeEnum;
+ WHERE
+	CorrectPredefinedType : NOT(EXISTS(PredefinedType)) OR (PredefinedType <> IfcSystemFurnitureElementTypeEnum.USERDEFINED) OR ((PredefinedType = IfcSystemFurnitureElementTypeEnum.USERDEFINED) AND EXISTS (SELF\IfcObject.ObjectType));
+	CorrectTypeAssigned : (SIZEOF(IsTypedBy) = 0) OR ('IFCSHAREDFACILITIESELEMENTS.IFCSYSTEMFURNITUREELEMENTTYPE' IN TYPEOF(SELF\IfcObject.IsTypedBy[1].RelatingType));
+END_ENTITY; 
+ 
+ENTITY IfcSystemFurnitureElementType
+ SUBTYPE OF (IfcFurnishingElementType);
+	PredefinedType : OPTIONAL IfcSystemFurnitureElementTypeEnum;
+ WHERE
+	CorrectPredefinedType : (PredefinedType <> IfcSystemFurnitureElementTypeEnum.USERDEFINED) OR((PredefinedType = IfcSystemFurnitureElementTypeEnum.USERDEFINED) AND EXISTS(SELF\IfcElementType.ElementType));
+END_ENTITY; 
+ 
+END_SCHEMA;

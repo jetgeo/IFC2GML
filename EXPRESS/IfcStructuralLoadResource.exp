@@ -1,0 +1,191 @@
+(* Exported from UML 08.01.2020 10:00:33 *)
+ 
+SCHEMA IFCSTRUCTURALLOADRESOURCE;
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcLabel, IfcForceMeasure, IfcBoolean, IfcModulusOfRotationalSubgradeReactionMeasure, IfcModulusOfSubgradeReactionMeasure, IfcModulusOfLinearSubgradeReactionMeasure, IfcRotationalStiffnessMeasure, IfcLengthMeasure, IfcLinearForceMeasure, IfcLinearMomentMeasure, IfcPlanarForceMeasure, IfcPlaneAngleMeasure, IfcCurvatureMeasure, IfcTorqueMeasure, IfcWarpingMomentMeasure, IfcThermodynamicTemperatureMeasure, IfcRatioMeasure, IfcLinearStiffnessMeasure);
+ 
+TYPE IfcModulusOfRotationalSubgradeReactionSelect = SELECT
+	(IfcBoolean, IfcModulusOfRotationalSubgradeReactionMeasure);
+END_TYPE; 
+ 
+TYPE IfcModulusOfSubgradeReactionSelect = SELECT
+	(IfcBoolean, IfcModulusOfSubgradeReactionMeasure);
+END_TYPE; 
+ 
+TYPE IfcModulusOfTranslationalSubgradeReactionSelect = SELECT
+	(IfcBoolean, IfcModulusOfLinearSubgradeReactionMeasure);
+END_TYPE; 
+ 
+TYPE IfcRotationalStiffnessSelect = SELECT
+	(IfcBoolean, IfcRotationalStiffnessMeasure);
+END_TYPE; 
+ 
+TYPE IfcTranslationalStiffnessSelect = SELECT
+	(IfcBoolean, IfcLinearStiffnessMeasure);
+END_TYPE; 
+ 
+TYPE IfcWarpingStiffnessSelect = SELECT
+	(IfcBoolean, IfcWarpingMomentMeasure);
+END_TYPE; 
+ 
+ENTITY IfcBoundaryCondition
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcBoundaryFaceCondition, IfcBoundaryEdgeCondition, IfcBoundaryNodeCondition));
+	Name : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcBoundaryEdgeCondition
+ SUBTYPE OF (IfcBoundaryCondition);
+	TranslationalStiffnessByLengthX : OPTIONAL IfcModulusOfTranslationalSubgradeReactionSelect;
+	TranslationalStiffnessByLengthY : OPTIONAL IfcModulusOfTranslationalSubgradeReactionSelect;
+	TranslationalStiffnessByLengthZ : OPTIONAL IfcModulusOfTranslationalSubgradeReactionSelect;
+	RotationalStiffnessByLengthX : OPTIONAL IfcModulusOfRotationalSubgradeReactionSelect;
+	RotationalStiffnessByLengthY : OPTIONAL IfcModulusOfRotationalSubgradeReactionSelect;
+	RotationalStiffnessByLengthZ : OPTIONAL IfcModulusOfRotationalSubgradeReactionSelect;
+END_ENTITY; 
+ 
+ENTITY IfcBoundaryFaceCondition
+ SUBTYPE OF (IfcBoundaryCondition);
+	TranslationalStiffnessByAreaX : OPTIONAL IfcModulusOfSubgradeReactionSelect;
+	TranslationalStiffnessByAreaY : OPTIONAL IfcModulusOfSubgradeReactionSelect;
+	TranslationalStiffnessByAreaZ : OPTIONAL IfcModulusOfSubgradeReactionSelect;
+END_ENTITY; 
+ 
+ENTITY IfcBoundaryNodeCondition
+ SUPERTYPE OF 
+	(ONEOF(IfcBoundaryNodeConditionWarping));
+ SUBTYPE OF (IfcBoundaryCondition);
+	TranslationalStiffnessX : OPTIONAL IfcTranslationalStiffnessSelect;
+	TranslationalStiffnessY : OPTIONAL IfcTranslationalStiffnessSelect;
+	TranslationalStiffnessZ : OPTIONAL IfcTranslationalStiffnessSelect;
+	RotationalStiffnessX : OPTIONAL IfcRotationalStiffnessSelect;
+	RotationalStiffnessY : OPTIONAL IfcRotationalStiffnessSelect;
+	RotationalStiffnessZ : OPTIONAL IfcRotationalStiffnessSelect;
+END_ENTITY; 
+ 
+ENTITY IfcBoundaryNodeConditionWarping
+ SUBTYPE OF (IfcBoundaryNodeCondition);
+	WarpingStiffness : OPTIONAL IfcWarpingStiffnessSelect;
+END_ENTITY; 
+ 
+ENTITY IfcFailureConnectionCondition
+ SUBTYPE OF (IfcStructuralConnectionCondition);
+	TensionFailureX : OPTIONAL IfcForceMeasure;
+	TensionFailureY : OPTIONAL IfcForceMeasure;
+	TensionFailureZ : OPTIONAL IfcForceMeasure;
+	CompressionFailureX : OPTIONAL IfcForceMeasure;
+	CompressionFailureY : OPTIONAL IfcForceMeasure;
+	CompressionFailureZ : OPTIONAL IfcForceMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcSlippageConnectionCondition
+ SUBTYPE OF (IfcStructuralConnectionCondition);
+	SlippageX : OPTIONAL IfcLengthMeasure;
+	SlippageY : OPTIONAL IfcLengthMeasure;
+	SlippageZ : OPTIONAL IfcLengthMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralConnectionCondition
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcSlippageConnectionCondition, IfcFailureConnectionCondition));
+	Name : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoad
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralLoadConfiguration, IfcStructuralLoadOrResult));
+	Name : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadConfiguration
+ SUBTYPE OF (IfcStructuralLoad);
+	Locations : OPTIONAL LIST [0:2] OF IfcLengthMeasure;
+	Values : LIST [1:?] OF IfcStructuralLoadOrResult;
+ WHERE
+	ValidListSize : NOT EXISTS(Locations) OR (SIZEOF(Locations) = SIZEOF(Values));
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadLinearForce
+ SUBTYPE OF (IfcStructuralLoadStatic);
+	LinearForceX : OPTIONAL IfcLinearForceMeasure;
+	LinearForceY : OPTIONAL IfcLinearForceMeasure;
+	LinearForceZ : OPTIONAL IfcLinearForceMeasure;
+	LinearMomentX : OPTIONAL IfcLinearMomentMeasure;
+	LinearMomentY : OPTIONAL IfcLinearMomentMeasure;
+	LinearMomentZ : OPTIONAL IfcLinearMomentMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadOrResult
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralLoadStatic, IfcSurfaceReinforcementArea));
+ SUBTYPE OF (IfcStructuralLoad);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadPlanarForce
+ SUBTYPE OF (IfcStructuralLoadStatic);
+	PlanarForceX : OPTIONAL IfcPlanarForceMeasure;
+	PlanarForceY : OPTIONAL IfcPlanarForceMeasure;
+	PlanarForceZ : OPTIONAL IfcPlanarForceMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadSingleDisplacement
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralLoadSingleDisplacementDistortion));
+ SUBTYPE OF (IfcStructuralLoadStatic);
+	DisplacementX : OPTIONAL IfcLengthMeasure;
+	DisplacementY : OPTIONAL IfcLengthMeasure;
+	DisplacementZ : OPTIONAL IfcLengthMeasure;
+	RotationalDisplacementRX : OPTIONAL IfcPlaneAngleMeasure;
+	RotationalDisplacementRY : OPTIONAL IfcPlaneAngleMeasure;
+	RotationalDisplacementRZ : OPTIONAL IfcPlaneAngleMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadSingleDisplacementDistortion
+ SUBTYPE OF (IfcStructuralLoadSingleDisplacement);
+	Distortion : OPTIONAL IfcCurvatureMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadSingleForce
+ SUPERTYPE OF 
+	(ONEOF(IfcStructuralLoadSingleForceWarping));
+ SUBTYPE OF (IfcStructuralLoadStatic);
+	ForceX : OPTIONAL IfcForceMeasure;
+	ForceY : OPTIONAL IfcForceMeasure;
+	ForceZ : OPTIONAL IfcForceMeasure;
+	MomentX : OPTIONAL IfcTorqueMeasure;
+	MomentY : OPTIONAL IfcTorqueMeasure;
+	MomentZ : OPTIONAL IfcTorqueMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadSingleForceWarping
+ SUBTYPE OF (IfcStructuralLoadSingleForce);
+	WarpingMoment : OPTIONAL IfcWarpingMomentMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadStatic
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcStructuralLoadLinearForce, IfcStructuralLoadSingleForce, IfcStructuralLoadTemperature, IfcStructuralLoadPlanarForce, IfcStructuralLoadSingleDisplacement));
+ SUBTYPE OF (IfcStructuralLoadOrResult);
+END_ENTITY; 
+ 
+ENTITY IfcStructuralLoadTemperature
+ SUBTYPE OF (IfcStructuralLoadStatic);
+	DeltaTConstant : OPTIONAL IfcThermodynamicTemperatureMeasure;
+	DeltaTY : OPTIONAL IfcThermodynamicTemperatureMeasure;
+	DeltaTZ : OPTIONAL IfcThermodynamicTemperatureMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceReinforcementArea
+ SUBTYPE OF (IfcStructuralLoadOrResult);
+	SurfaceReinforcement1 : OPTIONAL LIST [0:3] OF IfcLengthMeasure;
+	SurfaceReinforcement2 : OPTIONAL LIST [0:3] OF IfcLengthMeasure;
+	ShearReinforcement : OPTIONAL IfcRatioMeasure;
+ WHERE
+	NonnegativeArea1 : (NOT EXISTS(SurfaceReinforcement1)) OR ((SurfaceReinforcement1[1] >= 0.) AND(SurfaceReinforcement1[2] >= 0.) AND((SIZEOF(SurfaceReinforcement1) = 1) OR (SurfaceReinforcement1[1] >= 0.)));
+	NonnegativeArea2 : (NOT EXISTS(SurfaceReinforcement2)) OR ((SurfaceReinforcement2[1] >= 0.) AND(SurfaceReinforcement2[2] >= 0.) AND((SIZEOF(SurfaceReinforcement2) = 1) OR (SurfaceReinforcement2[1] >= 0.)));
+	NonnegativeArea3 : (NOT EXISTS(ShearReinforcement)) OR (ShearReinforcement >= 0.);
+	SurfaceAndOrShearAreaSpecified : EXISTS(SurfaceReinforcement1) OR EXISTS(SurfaceReinforcement2) OR EXISTS(ShearReinforcement);
+END_ENTITY; 
+ 
+END_SCHEMA;

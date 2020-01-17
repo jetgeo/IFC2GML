@@ -1,0 +1,503 @@
+(* Exported from UML 08.01.2020 09:53:58 *)
+ 
+SCHEMA IFCPRESENTATIONAPPEARANCERESOURCE;
+ 
+REFERENCE FROM IFCEXTERNALREFERENCERESOURCE
+	(IfcExternalReference, IfcURIReference);
+ 
+REFERENCE FROM IFCGEOMETRICMODELRESOURCE
+	(IfcTessellatedFaceSet);
+ 
+REFERENCE FROM IFCGEOMETRYRESOURCE
+	(IfcGeometricRepresentationItem, IfcCartesianPoint, IfcVector, IfcRepresentationItem, IfcCartesianTransformationOperator2D);
+ 
+REFERENCE FROM IFCMEASURERESOURCE
+	(IfcIdentifier, IfcBinary, IfcNormalisedRatioMeasure, IfcLabel, IfcBoolean, IfcPositiveRatioMeasure, IfcLengthMeasure, IfcPositiveLengthMeasure, IfcPlaneAngleMeasure, IfcPositiveInteger, IfcInteger, IfcDescriptiveMeasure, IfcRatioMeasure, IfcReal, IfcParameterValue);
+ 
+REFERENCE FROM IFCPRESENTATIONDEFINITIONRESOURCE
+	(IfcPresentationItem);
+ 
+REFERENCE FROM IFCTOPOLOGYRESOURCE
+	(IfcFace);
+ 
+TYPE IfcFontStyle = STRING;
+ WHERE
+	WR1 : SELF IN ['normal','italic','oblique']
+END_TYPE; 
+ 
+TYPE IfcFontVariant = STRING;
+ WHERE
+	WR1 : SELF IN ['normal','small-caps']
+END_TYPE; 
+ 
+TYPE IfcFontWeight = STRING;
+ WHERE
+	WR1 : SELF IN ['normal','small-caps','100','200','300','400','500','600','700','800','900']
+END_TYPE; 
+ 
+TYPE IfcPresentableText = STRING;
+END_TYPE; 
+ 
+TYPE IfcSpecularExponent = REAL;
+END_TYPE; 
+ 
+TYPE IfcSpecularRoughness = REAL;
+ WHERE
+	WR1 : {0.0 <= SELF <= 1.0}
+END_TYPE; 
+ 
+TYPE IfcTextAlignment = STRING;
+ WHERE
+	WR1 : SELF IN ['left', 'right', 'center', 'justify']
+END_TYPE; 
+ 
+TYPE IfcTextDecoration = STRING;
+ WHERE
+	WR1 : SELF IN ['none', 'underline', 'overline', 'line-through', 'blink']
+END_TYPE; 
+ 
+TYPE IfcTextFontName = STRING;
+END_TYPE; 
+ 
+TYPE IfcTextTransformation = STRING;
+ WHERE
+	WR1 : SELF IN ['capitalize', 'uppercase', 'lowercase', 'none']
+END_TYPE; 
+ 
+TYPE IfcColour = SELECT
+	(IfcColourSpecification, IfcPreDefinedColour);
+END_TYPE; 
+ 
+TYPE IfcColourOrFactor = SELECT
+	(IfcColourRgb, IfcNormalisedRatioMeasure);
+END_TYPE; 
+ 
+TYPE IfcCurveFontOrScaledCurveFontSelect = SELECT
+	(IfcCurveStyleFontAndScaling, IfcCurveStyleFontSelect);
+END_TYPE; 
+ 
+TYPE IfcCurveStyleFontSelect = SELECT
+	(IfcCurveStyleFont, IfcPreDefinedCurveFont);
+END_TYPE; 
+ 
+TYPE IfcFillStyleSelect = SELECT
+	(IfcColour, IfcExternallyDefinedHatchStyle, IfcFillAreaStyleHatching, IfcFillAreaStyleTiles);
+END_TYPE; 
+ 
+TYPE IfcHatchLineDistanceSelect = SELECT
+	(IfcPositiveLengthMeasure, IfcVector);
+END_TYPE; 
+ 
+TYPE IfcPresentationStyleSelect = SELECT
+	(IfcCurveStyle, IfcFillAreaStyle, IfcNullStyle, IfcSurfaceStyle, IfcTextStyle);
+END_TYPE; 
+ 
+TYPE IfcSizeSelect = SELECT
+	(IfcDescriptiveMeasure, IfcLengthMeasure, IfcNormalisedRatioMeasure, IfcPositiveLengthMeasure, IfcPositiveRatioMeasure, IfcRatioMeasure);
+END_TYPE; 
+ 
+TYPE IfcSpecularHighlightSelect = SELECT
+	(IfcSpecularExponent, IfcSpecularRoughness);
+END_TYPE; 
+ 
+TYPE IfcStyleAssignmentSelect = SELECT
+	(IfcPresentationStyle, IfcPresentationStyleAssignment);
+END_TYPE; 
+ 
+TYPE IfcSurfaceStyleElementSelect = SELECT
+	(IfcExternallyDefinedSurfaceStyle, IfcSurfaceStyleLighting, IfcSurfaceStyleRefraction, IfcSurfaceStyleShading, IfcSurfaceStyleWithTextures);
+END_TYPE; 
+ 
+TYPE IfcTextFontSelect = SELECT
+	(IfcExternallyDefinedTextFont, IfcPreDefinedTextFont);
+END_TYPE; 
+ 
+TYPE IfcNullStyle = ENUMERATION OF
+	(NULL);
+END_TYPE; 
+ 
+TYPE IfcReflectanceMethodEnum = ENUMERATION OF
+	(BLINN, FLAT, GLASS, MATT, METAL, MIRROR, NOTDEFINED, PHONG, PLASTIC, STRAUSS);
+END_TYPE; 
+ 
+TYPE IfcSurfaceSide = ENUMERATION OF
+	(BOTH, NEGATIVE, POSITIVE);
+END_TYPE; 
+ 
+ENTITY IfcBlobTexture
+ SUBTYPE OF (IfcSurfaceTexture);
+	RasterFormat : IfcIdentifier;
+	RasterCode : IfcBinary;
+ WHERE
+	RasterCodeByteStream : BLENGTH(RasterCode) MOD 8 = 0;
+	SupportedRasterFormat : SELF.RasterFormat IN ['BMP', 'JPG', 'GIF', 'PNG'];
+END_ENTITY; 
+ 
+ENTITY IfcColourRgb
+ SUBTYPE OF (IfcColourSpecification);
+	Red : IfcNormalisedRatioMeasure;
+	Green : IfcNormalisedRatioMeasure;
+	Blue : IfcNormalisedRatioMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcColourRgbList
+ SUBTYPE OF (IfcPresentationItem);
+	ColourList : LIST [3:3] OF IfcNormalisedRatioMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcColourSpecification
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcColourRgb));
+ SUBTYPE OF (IfcPresentationItem);
+	Name : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcCurveStyle
+ SUBTYPE OF (IfcPresentationStyle);
+	CurveFont : OPTIONAL IfcCurveFontOrScaledCurveFontSelect;
+	CurveWidth : OPTIONAL IfcSizeSelect;
+	CurveColour : OPTIONAL IfcColour;
+	ModelOrDraughting : OPTIONAL IfcBoolean;
+ WHERE
+	IdentifiableCurveStyle : EXISTS(CurveFont) OR EXISTS(CurveWidth) OR EXISTS(CurveColour);
+	MeasureOfWidth : (NOT(EXISTS(CurveWidth))) OR('IFCMEASURERESOURCE.IFCPOSITIVELENGTHMEASURE' IN TYPEOF(CurveWidth)) OR (('IFCMEASURERESOURCE.IFCDESCRIPTIVEMEASURE' IN TYPEOF(CurveWidth)) AND(CurveWidth = 'by layer'));
+END_ENTITY; 
+ 
+ENTITY IfcCurveStyleFont
+ SUBTYPE OF (IfcPresentationItem);
+	Name : OPTIONAL IfcLabel;
+	PatternList : LIST [1:?] OF IfcCurveStyleFontPattern;
+END_ENTITY; 
+ 
+ENTITY IfcCurveStyleFontAndScaling
+ SUBTYPE OF (IfcPresentationItem);
+	Name : OPTIONAL IfcLabel;
+	CurveFont : IfcCurveStyleFontSelect;
+	CurveFontScaling : IfcPositiveRatioMeasure;
+END_ENTITY; 
+ 
+ENTITY IfcCurveStyleFontPattern
+ SUBTYPE OF (IfcPresentationItem);
+	VisibleSegmentLength : IfcLengthMeasure;
+	InvisibleSegmentLength : IfcPositiveLengthMeasure;
+ WHERE
+	VisibleLengthGreaterEqualZero : VisibleSegmentLength >= 0.;
+END_ENTITY; 
+ 
+ENTITY IfcDraughtingPreDefinedColour
+ SUBTYPE OF (IfcPreDefinedColour);
+ WHERE
+	PreDefinedColourNames : SELF\IfcPreDefinedItem.Name IN ['black','red','green','blue','yellow','magenta','cyan','white','by layer'];
+END_ENTITY; 
+ 
+ENTITY IfcDraughtingPreDefinedCurveFont
+ SUBTYPE OF (IfcPreDefinedCurveFont);
+ WHERE
+	PreDefinedCurveFontNames : SELF\IfcPredefinedItem.Name IN['continuous','chain','chain double dash','dashed','dotted','by layer'];
+END_ENTITY; 
+ 
+ENTITY IfcExternallyDefinedHatchStyle
+ SUBTYPE OF (IfcExternalReference);
+END_ENTITY; 
+ 
+ENTITY IfcExternallyDefinedSurfaceStyle
+ SUBTYPE OF (IfcExternalReference);
+END_ENTITY; 
+ 
+ENTITY IfcExternallyDefinedTextFont
+ SUBTYPE OF (IfcExternalReference);
+END_ENTITY; 
+ 
+ENTITY IfcFillAreaStyle
+ SUBTYPE OF (IfcPresentationStyle);
+	FillStyles : SET [1:?] OF IfcFillStyleSelect;
+	ModelorDraughting : OPTIONAL IfcBoolean;
+ WHERE
+	ConsistentHatchStyleDef : IfcCorrectFillAreaStyle(SELF.FillStyles);
+	MaxOneColour : SIZEOF(QUERY(Style <* SELF.FillStyles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCCOLOUR' INTYPEOF(Style))) <= 1;
+	MaxOneExtHatchStyle : SIZEOF(QUERY(Style <* SELF.FillStyles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCEXTERNALLYDEFINEDHATCHSTYLE' INTYPEOF(Style))) <= 1;
+END_ENTITY; 
+ 
+ENTITY IfcFillAreaStyleHatching
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	StartOfNextHatchLine : IfcHatchLineDistanceSelect;
+	HatchLineAngle : IfcPlaneAngleMeasure;
+	HatchLineAppearance : IfcCurveStyle;
+	PointOfReferenceHatchLine : OPTIONAL IfcCartesianPoint;
+	PatternStart : OPTIONAL IfcCartesianPoint;
+ WHERE
+	PatternStart2D : NOT(EXISTS(PatternStart)) OR (PatternStart.Dim = 2);
+	RefHatchLine2D : NOT(EXISTS(PointOfReferenceHatchLine)) OR (PointOfReferenceHatchLine.Dim = 2);
+END_ENTITY; 
+ 
+ENTITY IfcFillAreaStyleTiles
+ SUBTYPE OF (IfcGeometricRepresentationItem);
+	TilingScale : IfcPositiveRatioMeasure;
+	Tiles : SET [1:?] OF IfcStyledItem;
+	TilingPattern : SET [2:2] OF IfcVector;
+END_ENTITY; 
+ 
+ENTITY IfcImageTexture
+ SUBTYPE OF (IfcSurfaceTexture);
+	URLReference : IfcURIReference;
+END_ENTITY; 
+ 
+ENTITY IfcIndexedColourMap
+ SUBTYPE OF (IfcPresentationItem);
+	Opacity : OPTIONAL IfcNormalisedRatioMeasure;
+	ColourIndex : LIST [1:?] OF IfcPositiveInteger;
+	Colours : IfcColourRgbList;
+	MappedTo : IfcTessellatedFaceSet;
+END_ENTITY; 
+ 
+ENTITY IfcIndexedTextureMap
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcIndexedTriangleTextureMap));
+ SUBTYPE OF (IfcTextureCoordinate);
+	TexCoords : IfcTextureVertexList;
+	MappedTo : IfcTessellatedFaceSet;
+END_ENTITY; 
+ 
+ENTITY IfcIndexedTriangleTextureMap
+ SUBTYPE OF (IfcIndexedTextureMap);
+	TexCoordIndex : OPTIONAL LIST [0:3] OF IfcPositiveInteger;
+END_ENTITY; 
+ 
+ENTITY IfcPixelTexture
+ SUBTYPE OF (IfcSurfaceTexture);
+	Width : IfcInteger;
+	Height : IfcInteger;
+	ColourComponents : IfcInteger;
+	Pixel : LIST [1:?] OF IfcBinary;
+ WHERE
+	MinPixelInS : Width >= 1;
+	MinPixelInT : Height >= 1;
+	NumberOfColours : {1 <= ColourComponents <= 4};
+	PixelAsByteAndSameLength : SIZEOF(QUERY(temp<* Pixel |(BLENGTH(temp) MOD 8 = 0) AND(BLENGTH(temp) = BLENGTH(Pixel[1])))) = SIZEOF(Pixel);
+	SizeOfPixelList : SIZEOF(Pixel) = (Width * Height);
+END_ENTITY; 
+ 
+ENTITY IfcPreDefinedColour
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcDraughtingPreDefinedColour));
+ SUBTYPE OF (IfcPreDefinedItem);
+END_ENTITY; 
+ 
+ENTITY IfcPreDefinedCurveFont
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcDraughtingPreDefinedCurveFont));
+ SUBTYPE OF (IfcPreDefinedItem);
+END_ENTITY; 
+ 
+ENTITY IfcPreDefinedItem
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcPreDefinedColour, IfcPreDefinedCurveFont, IfcPreDefinedTextFont));
+ SUBTYPE OF (IfcPresentationItem);
+	Name : IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcPreDefinedTextFont
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcTextStyleFontModel));
+ SUBTYPE OF (IfcPreDefinedItem);
+END_ENTITY; 
+ 
+ENTITY IfcPresentationStyle
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcTextStyle, IfcFillAreaStyle, IfcSurfaceStyle, IfcCurveStyle));
+	Name : OPTIONAL IfcLabel;
+END_ENTITY; 
+ 
+ENTITY IfcPresentationStyleAssignment
+	Styles : SET [1:?] OF IfcPresentationStyleSelect;
+END_ENTITY; 
+ 
+ENTITY IfcStyledItem
+ SUBTYPE OF (IfcRepresentationItem);
+	Styles : SET [1:?] OF IfcStyleAssignmentSelect;
+	Name : OPTIONAL IfcLabel;
+	Item : OPTIONAL IfcRepresentationItem;
+ WHERE
+	ApplicableItem : NOT('IFCPRESENTATIONAPPEARANCERESOURCE.IFCSTYLEDITEM' IN TYPEOF(Item));
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceStyle
+ SUBTYPE OF (IfcPresentationStyle);
+	Side : IfcSurfaceSide;
+	Styles : SET [1:5] OF IfcSurfaceStyleElementSelect;
+ WHERE
+	MaxOneExtDefined : SIZEOF(QUERY(Style <* SELF.Styles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCEXTERNALLYDEFINEDSURFACESTYLE' INTYPEOF(Style))) <= 1;
+	MaxOneLighting : SIZEOF(QUERY(Style <* SELF.Styles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCSURFACESTYLELIGHTING' INTYPEOF(Style))) <= 1;
+	MaxOneRefraction : SIZEOF(QUERY(Style <* SELF.Styles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCSURFACESTYLEREFRACTION' INTYPEOF(Style))) <= 1;
+	MaxOneShading : SIZEOF(QUERY(Style <* SELF.Styles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCSURFACESTYLESHADING' INTYPEOF(Style))) <= 1;
+	MaxOneTextures : SIZEOF(QUERY(Style <* SELF.Styles |'IFCPRESENTATIONAPPEARANCERESOURCE.IFCSURFACESTYLEWITHTEXTURES' INTYPEOF(Style))) <= 1;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceStyleLighting
+ SUBTYPE OF (IfcPresentationItem);
+	ReflectanceColour : IfcColourRgb;
+	DiffuseTransmissionColour : IfcColourRgb;
+	DiffuseReflectionColour : IfcColourRgb;
+	TransmissionColour : IfcColourRgb;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceStyleRefraction
+ SUBTYPE OF (IfcPresentationItem);
+	RefractionIndex : OPTIONAL IfcReal;
+	DispersionFactor : OPTIONAL IfcReal;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceStyleRendering
+ SUBTYPE OF (IfcSurfaceStyleShading);
+	DiffuseColour : OPTIONAL IfcColourOrFactor;
+	TransmissionColour : OPTIONAL IfcColourOrFactor;
+	DiffuseTransmissionColour : OPTIONAL IfcColourOrFactor;
+	ReflectionColour : OPTIONAL IfcColourOrFactor;
+	SpecularColour : OPTIONAL IfcColourOrFactor;
+	SpecularHighlight : OPTIONAL IfcSpecularHighlightSelect;
+	ReflectanceMethod : IfcReflectanceMethodEnum;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceStyleShading
+ SUPERTYPE OF 
+	(ONEOF(IfcSurfaceStyleRendering));
+ SUBTYPE OF (IfcPresentationItem);
+	Transparency : OPTIONAL IfcNormalisedRatioMeasure;
+	SurfaceColour : IfcColourRgb;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceStyleWithTextures
+ SUBTYPE OF (IfcPresentationItem);
+	Textures : LIST [1:?] OF IfcSurfaceTexture;
+END_ENTITY; 
+ 
+ENTITY IfcSurfaceTexture
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcBlobTexture, IfcImageTexture, IfcPixelTexture));
+ SUBTYPE OF (IfcPresentationItem);
+	RepeatS : IfcBoolean;
+	RepeatT : IfcBoolean;
+	Mode : OPTIONAL IfcIdentifier;
+	Parameter : OPTIONAL LIST [0:?] OF IfcIdentifier;
+	TextureTransform : OPTIONAL IfcCartesianTransformationOperator2D;
+ INVERSE
+	IsMappedBy : SET [0:?] OF IfcTextureCoordinate FOR Maps;
+	UsedInStyles : SET [0:?] OF IfcSurfaceStyleWithTextures FOR Textures;
+END_ENTITY; 
+ 
+ENTITY IfcTextStyle
+ SUBTYPE OF (IfcPresentationStyle);
+	TextFontStyle : IfcTextFontSelect;
+	ModelOrDraughting : OPTIONAL IfcBoolean;
+	TextStyle : OPTIONAL IfcTextStyleTextModel;
+	TextCharacterAppearance : OPTIONAL IfcTextStyleForDefinedFont;
+END_ENTITY; 
+ 
+ENTITY IfcTextStyleFontModel
+ SUBTYPE OF (IfcPreDefinedTextFont);
+	FontFamily : LIST [1:?] OF IfcTextFontName;
+	FontStyle : OPTIONAL IfcFontStyle;
+	FontVariant : OPTIONAL IfcFontVariant;
+	FontWeight : OPTIONAL IfcFontWeight;
+	FontSize : IfcSizeSelect;
+ WHERE
+	MeasureOfFontSize : ('IFCMEASURERESOURCE.IFCLENGTHMEASURE' IN TYPEOF(SELF.FontSize)) AND(SELF.FontSize > 0.);
+END_ENTITY; 
+ 
+ENTITY IfcTextStyleForDefinedFont
+ SUBTYPE OF (IfcPresentationItem);
+	Colour : IfcColour;
+	BackgroundColour : OPTIONAL IfcColour;
+END_ENTITY; 
+ 
+ENTITY IfcTextStyleTextModel
+ SUBTYPE OF (IfcPresentationItem);
+	TextIndent : OPTIONAL IfcSizeSelect;
+	TextAlign : OPTIONAL IfcTextAlignment;
+	TextDecoration : OPTIONAL IfcTextDecoration;
+	LetterSpacing : OPTIONAL IfcSizeSelect;
+	WordSpacing : OPTIONAL IfcSizeSelect;
+	TextTransform : OPTIONAL IfcTextTransformation;
+	LineHeight : OPTIONAL IfcSizeSelect;
+END_ENTITY; 
+ 
+ENTITY IfcTextureCoordinate
+ ABSTRACT SUPERTYPE OF 
+	(ONEOF(IfcTextureCoordinateGenerator, IfcTextureMap, IfcIndexedTextureMap));
+ SUBTYPE OF (IfcPresentationItem);
+	Maps : LIST [1:?] OF IfcSurfaceTexture;
+END_ENTITY; 
+ 
+ENTITY IfcTextureCoordinateGenerator
+ SUBTYPE OF (IfcTextureCoordinate);
+	Mode : IfcLabel;
+	Parameter : OPTIONAL LIST [0:?] OF IfcReal;
+END_ENTITY; 
+ 
+ENTITY IfcTextureMap
+ SUBTYPE OF (IfcTextureCoordinate);
+	MappedTo : IfcFace;
+	Vertices : LIST [3:?] OF IfcTextureVertex;
+END_ENTITY; 
+ 
+ENTITY IfcTextureVertex
+ SUBTYPE OF (IfcPresentationItem);
+	Coordinates : LIST [2:2] OF IfcParameterValue;
+END_ENTITY; 
+ 
+ENTITY IfcTextureVertexList
+ SUBTYPE OF (IfcPresentationItem);
+	TexCoordsList : LIST [2:2] OF IfcParameterValue;
+END_ENTITY; 
+
+FUNCTION IfcCorrectFillAreaStyle
+  (Styles : SET[1:?] OF IfcFillStyleSelect)
+  :LOGICAL;
+
+LOCAL
+   Hatching : INTEGER := 0;
+   Tiles    : INTEGER := 0;
+   Colour   : INTEGER := 0;
+   External : INTEGER := 0;
+END_LOCAL;
+
+
+External := SIZEOF(QUERY(Style <* Styles |
+  'IFCPRESENTATIONAPPEARANCERESOURCE.IFCEXTERNALLYDEFINEDHATCHSTYLE' IN
+   TYPEOF(Style)));
+
+Hatching  := SIZEOF(QUERY(Style <* Styles |
+  'IFCPRESENTATIONAPPEARANCERESOURCE.IFCFILLAREASTYLEHATCHING' IN
+   TYPEOF(Style)));
+
+Tiles     := SIZEOF(QUERY(Style <* Styles |
+  'IFCPRESENTATIONAPPEARANCERESOURCE.IFCFILLAREASTYLETILES' IN
+   TYPEOF(Style)));
+
+Colour    := SIZEOF(QUERY(Style <* Styles |
+  'IFCPRESENTATIONAPPEARANCERESOURCE.IFCCOLOUR' IN
+   TYPEOF(Style)));
+
+
+IF (External > 1) THEN
+  RETURN (FALSE);
+END_IF;
+
+
+IF ((External = 1) AND ((Hatching > 0) OR (Tiles > 0) OR (Colour > 0))) THEN
+  RETURN (FALSE);
+END_IF;
+
+
+IF (Colour > 1) THEN
+  RETURN (FALSE);
+END_IF;
+
+IF ((Hatching > 0) AND (Tiles >0)) THEN
+  RETURN (FALSE);
+END_IF;
+
+RETURN(TRUE);
+END_FUNCTION;
+ 
+END_SCHEMA;
