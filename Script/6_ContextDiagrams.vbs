@@ -82,7 +82,7 @@ sub contextDiagrams
 		Repository.WriteOutput "Script", Now & " Package: " & thePackage.Name, 0
 		'Loop for all elements with Stereotype "FeatureType" 
 		For each el in thePackage.Elements
-			If el.Stereotype = "FeatureType" then
+			If el.Type = "Class" then
 				Repository.WriteOutput "Script",Now & " Element: " & el.Name, 0
 				
 				'Context diagram
